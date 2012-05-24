@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: octopress, | Ещё один блог]]></title>
+  <link href="http://Anshik.github.com/blog/categories/octopress-/atom.xml" rel="self"/>
+  <link href="http://Anshik.github.com/"/>
+  <updated>2012-05-24T16:26:58+04:00</updated>
+  <id>http://Anshik.github.com/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Как я устанавливал Octopress]]></title>
+    <link href="http://Anshik.github.com/blog/2012/05/24/kak-ia-ustanavlival-octopress/"/>
+    <updated>2012-05-24T09:21:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2012/05/24/kak-ia-ustanavlival-octopress</id>
+    <content type="html"><![CDATA[<p>Очень сложно показалось, но потом разобрался.
+Главное <strong>читать внимательно</strong> документацию.
+<a href="http://octopress.org/">Сайт программы</a></p>
+
+<h3><a href="http://octopress.org/docs/setup/">Установка</a></h3>
+
+<p>Тут проблем возникнуть не должно, я использовал RVM, чего и вам желаю.</p>
+
+<ul>
+<li>команду <strong>rake install</strong> запускаем из папки octopress.</li>
+</ul>
+
+
+<h3>Настройка и деплой</h3>
+
+<p>Вначале идем на <a href="github.com">Гитхаб</a>:</p>
+
+<ul>
+<li><p>Добавляем новый репозиторий <strong>Внимание</strong> он должен называться название_блога.github.com вот пример: git@github.com:Anshik/anshik.github.com.git. То есть при создании нового репозитория я вводил не просто anshik, а anshik.github.com. С этим я намучился, создавал вначале репозиторий просто anshik. И дальше скрипт setup_github_pages, вводил git@github.com:Anshik/anshik.git, а правильно
+git@github.com:Anshik/anshik.github.com.git. Почему так? Объясню :).</p></li>
+<li><p>при коротком названии без суффикса github.com, <a href="http://www.octopress.org">octopress</a> понимает это как Github Project pages (gh-pages), и пушит это автоматом в бранч gh-pages;</p></li>
+<li><p>дальше бедный github видит, что у вас есть такой бранч(gh-pages), выдает сообщение <em>notification</em> о том, что вы успешно добавили странички, и он их с удовольствием переработал. И их можно будет посмотреть по адресу:
+www.имя<em>неправильного</em>проекта.github.com/имя<em>неправильного</em>проекта, что нас совсем не устраивает.</p></li>
+</ul>
+
+
+<p>Тоже самое, только другими словами можно прочитать в документации Github Project pages. Но когда взгляд замылен и подсказать некому, можно и не заметить, что username.github.com, именно название репозитория, а не просто username.</p>
+
+<p>В общем:
+<strong>rake setup_github_pages</strong>
+вводим адрес репозитория.</p>
+
+<p>Дальше генерируем наш блог командой:</p>
+
+<p><strong>rake generate</strong>
+И деплоим (оно пушит в git само)
+<strong>rake deploy</strong></p>
+
+<p>Сгенерит блог, скопирует в _deploy/, добавит в git, закоммитит и запушит в мастер
+И через несколько секунд вы получите email от Github, говорящий, что коммит принят и будет опубликован на сайте</p>
+
+<p>Блог может показаться действительно минут через 10, и только если вам уведомление пришло :).</p>
+
+<h3>Заметил странное</h3>
+
+<p>Ну не очень странное, в опере русский шрифт не отображался
+Идем в source/_includes/custom/head.html, в этом файле в хедер подсасываются гугловские шрифты, на мой взгляд проблема была в этом, детально разбираться не стал, просто коммент делаем так :)</p>
+
+<blockquote><p>Fonts from Google"s Web font directory at http://google.com/webfonts
+link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css"
+link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css" -->
+переносим конец коммента --> в конец файла</p></blockquote>
+
+<p>Ага, сам поймался, не закоментировал ;)</p>
+]]></content>
+  </entry>
+  
+</feed>

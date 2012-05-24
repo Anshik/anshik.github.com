@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: использование | Ещё один блог]]></title>
+  <link href="http://Anshik.github.com/blog/categories/использование/atom.xml" rel="self"/>
+  <link href="http://Anshik.github.com/"/>
+  <updated>2012-05-24T16:26:58+04:00</updated>
+  <id>http://Anshik.github.com/</id>
+  <author>
+    <name><![CDATA[Your Name]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Добавление нового поста и начальный тюннинг]]></title>
+    <link href="http://Anshik.github.com/blog/2012/05/24/dobavlieniie-novogho-posta-i-nachalnyi-tiunningh/"/>
+    <updated>2012-05-24T15:23:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2012/05/24/dobavlieniie-novogho-posta-i-nachalnyi-tiunningh</id>
+    <content type="html"><![CDATA[<h3>Добавление нового поста в Octopress</h3>
+
+<p>К примеру этот пост был добавлен командой
+* rake new_post["Добавление нового поста и начальный тюннинг"]</p>
+
+<p>Далее octopress создает файл с названием слага и расширением markdown примерно такого содержания:</p>
+
+<ul>
+<li>layout: post</li>
+<li>title: "Добавление нового поста и начальный тюннинг"</li>
+<li>date: 2012-05-24 15:23</li>
+<li>comments: true</li>
+<li>categories: Octopress blogging использование</li>
+</ul>
+
+
+<p>При написании категорий разделять запятыми не нужно</p>
+
+<h3>Меняем название блога</h3>
+
+<p>Идем в корень octopress, открываем файл _conifg.yml</p>
+
+<p>6 строка: title, меняем "My Octopress Blog" например на "Ещё один блог"</p>
+
+<p>7 строка: subtitle, тоже какой угодно, оставил пока как есть</p>
+
+<h3>Посмотреть что наменяли</h3>
+
+<p><strong>rake preview</strong></p>
+
+<h3>Можно добавить информацию о себе</h3>
+
+<p>Для добавления информации о себе, открываем файл _conifg.yml, и добавляем custom/asides/about.html.</p>
+
+<p>Затем меняем в _includes/custom/asides/about.html содержимое</p>
+
+<p>default_asides: [asides/recent_posts.html, asides/github.html, asides/twitter.html, asides/delicious.html, asides/pinboard.html, asides/googleplus.html, custom/asides/about.html]</p>
+
+<h3>Заметьте</h3>
+
+<p>Что наличие "ь" мягкого знака добавляет в слаг \' (апостроф), и к примеру у меня локальная ссылка такая не показывается.</p>
+]]></content>
+  </entry>
+  
+</feed>

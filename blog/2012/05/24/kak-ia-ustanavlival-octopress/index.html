@@ -5,12 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Ещё один блог</title>
+  <title>Как я устанавливал Octopress - Ещё один блог</title>
   <meta name="author" content="Your Name">
 
   
-  <meta name="description" content="Добавление нового поста в Octopress К примеру этот пост был добавлен командой
-* rake new_post[&#8220;Добавление нового поста и начальный тюннинг&# &hellip;">
+  <meta name="description" content="Очень сложно показалось, но потом разобрался.
+Главное читать внимательно документацию.
+Сайт программы Установка Тут проблем возникнуть не должно, я &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +20,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://Anshik.github.com">
+  <link rel="canonical" href="http://Anshik.github.com/blog/2012/05/24/kak-ia-ustanavlival-octopress">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -63,91 +64,12 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2012/05/24/dobavlieniie-novogho-posta-i-nachalnyi-tiunningh/">Добавление нового поста и начальный тюннинг</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-05-24T15:23:00+04:00" pubdate data-updated="true">May 24<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h3>Добавление нового поста в Octopress</h3>
-
-<p>К примеру этот пост был добавлен командой
-* rake new_post[&#8220;Добавление нового поста и начальный тюннинг&#8221;]</p>
-
-<p>Далее octopress создает файл с названием слага и расширением markdown примерно такого содержания:</p>
-
-<ul>
-<li>layout: post</li>
-<li>title: &#8220;Добавление нового поста и начальный тюннинг&#8221;</li>
-<li>date: 2012-05-24 15:23</li>
-<li>comments: true</li>
-<li>categories: Octopress blogging использование</li>
-</ul>
-
-
-<p>При написании категорий разделять запятыми не нужно</p>
-
-<h3>Меняем название блога</h3>
-
-<p>Идем в корень octopress, открываем файл _conifg.yml</p>
-
-<p>6 строка: title, меняем &#8220;My Octopress Blog&#8221; например на &#8220;Ещё один блог&#8221;</p>
-
-<p>7 строка: subtitle, тоже какой угодно, оставил пока как есть</p>
-
-<h3>Посмотреть что наменяли</h3>
-
-<p><strong>rake preview</strong></p>
-
-<h3>Можно добавить информацию о себе</h3>
-
-<p>Для добавления информации о себе, открываем файл _conifg.yml, и добавляем custom/asides/about.html.</p>
-
-<p>Затем меняем в _includes/custom/asides/about.html содержимое</p>
-
-<p>default_asides: [asides/recent_posts.html, asides/github.html, asides/twitter.html, asides/delicious.html, asides/pinboard.html, asides/googleplus.html, custom/asides/about.html]</p>
-
-<h3>Заметьте</h3>
-
-<p>Что наличие &#8220;ь&#8221; мягкого знака добавляет в слаг &#39; (апостроф), и к примеру у меня локальная ссылка такая не показывается.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/05/24/kak-ia-ustanavlival-octopress/">Как я устанавливал Octopress</a></h1>
+      <h1 class="entry-title">Как я устанавливал Octopress</h1>
     
     
       <p class="meta">
@@ -170,7 +92,7 @@
   </header>
 
 
-  <div class="entry-content"><p>Очень сложно показалось, но потом разобрался.
+<div class="entry-content"><p>Очень сложно показалось, но потом разобрался.
 Главное <strong>читать внимательно</strong> документацию.
 <a href="http://octopress.org/">Сайт программы</a></p>
 
@@ -225,18 +147,59 @@ link href=&#8221;http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,b
 
 <p>Ага, сам поймался, не закоментировал ;)</p>
 </div>
+
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Your Name</span></span>
+
+      
+
+
+
+
+
+
+
+
   
 
 
-    </article>
+<time datetime="2012-05-24T09:21:00+04:00" pubdate data-updated="true">May 24<span>th</span>, 2012</time>
+      
+
+<span class="categories">
   
-  <div class="pagination">
+    <a class='category' href='/blog/categories/github/'>github</a>, <a class='category' href='/blog/categories/octopress-/'>octopress,</a>
+  
+</span>
+
+
+    </p>
     
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://Anshik.github.com/blog/2012/05/24/kak-ia-ustanavlival-octopress/" data-via="" data-counturl="http://Anshik.github.com/blog/2012/05/24/kak-ia-ustanavlival-octopress/" >Tweet</a>
+  
+  
+  
 </div>
+
+    
+    <p class="meta">
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/05/24/dobavlieniie-novogho-posta-i-nachalnyi-tiunningh/" title="Next Post: Добавление нового поста и начальный тюннинг">Добавление нового поста и начальный тюннинг &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
 <aside class="sidebar">
   
     <section>
@@ -265,6 +228,7 @@ link href=&#8221;http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,b
 
   
 </aside>
+
 
     </div>
   </div>
