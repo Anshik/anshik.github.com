@@ -5,11 +5,22 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Добавление нового поста и начальный тюннинг - Ещё один блог</title>
+  <title>Python выделение пути и имени файла - Ещё один блог</title>
   <meta name="author" content="Anshik">
 
   
-  <meta name="description" content="Добавление нового поста в Octopress К примеру этот пост был добавлен командой * rake new_post["Добавление нового поста и начальный тюннинг"] После &hellip;">
+  <meta name="description" content="В Python 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+import os.path myPath = &#39;/Users/t/web/perl-python/I_Love_You.html&#39;
+(dirName, fileName) = os.path.split(myPath &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +29,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://Anshik.github.com/blog/2012/05/24/dobavlieniie-novogho-posta-i-nachalnyi-tiunningh">
+  <link rel="canonical" href="http://Anshik.github.com/blog/2012/05/25/python-vydielieniie-puti-i-imieni-faila">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -67,7 +78,7 @@
   
   <header>
     
-      <h1 class="entry-title">Добавление нового поста и начальный тюннинг</h1>
+      <h1 class="entry-title">Python выделение пути и имени файла</h1>
     
     
       <p class="meta">
@@ -83,55 +94,56 @@
   
 
 
-<time datetime="2012-05-24T15:23:00+04:00" pubdate data-updated="true">May 24<span>th</span>, 2012</time>
+<time datetime="2012-05-25T08:11:00+04:00" pubdate data-updated="true">May 25<span>th</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><h3>Добавление нового поста в Octopress</h3>
+<div class="entry-content"><h3>В Python</h3>
 
-<p>К примеру этот пост был добавлен командой</p>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">import</span> <span class="nn">os.path</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">myPath</span> <span class="o">=</span> <span class="s">&#39;/Users/t/web/perl-python/I_Love_You.html&#39;</span>
+</span><span class='line'><span class="p">(</span><span class="n">dirName</span><span class="p">,</span> <span class="n">fileName</span><span class="p">)</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">myPath</span><span class="p">)</span>
+</span><span class='line'><span class="p">(</span><span class="n">fileBaseName</span><span class="p">,</span> <span class="n">fileExtension</span><span class="p">)</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">fileName</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">print</span> <span class="n">dirName</span> <span class="c"># /Users/t/web/perl-python</span>
+</span><span class='line'><span class="k">print</span> <span class="n">fileName</span> <span class="c"># I_Love_You.html</span>
+</span><span class='line'><span class="k">print</span> <span class="n">fileBaseName</span> <span class="c"># I_Love_You</span>
+</span><span class='line'><span class="k">print</span> <span class="n">fileExtension</span> <span class="c"># .html</span>
+</span></code></pre></td></tr></table></div></figure>
 
-<pre><code>* rake new_post["Добавление нового поста и начальный тюннинг"]
-</code></pre>
 
-<p>После new_post пробел не ставим, сразу идет квадратная скобочка, выгребете ошибку, будет создан файл new_post.markdown
-Далее octopress создает файл с названием слага и расширением markdown примерно такого содержания:</p>
+<h3>В QT</h3>
 
-<pre><code>* layout: post
-* title: "Добавление нового поста и начальный тюннинг"
-* date: 2012-05-24 15:23
-* comments: true
-* categories: Octopress blogging использование
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">filePath</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">filePath</span>
+</span><span class='line'><span class="k">if</span> <span class="ow">not</span> <span class="n">filePath</span><span class="p">:</span>
+</span><span class='line'>    <span class="n">filePath</span> <span class="o">=</span> <span class="s">&#39;../data&#39;</span>
+</span><span class='line'><span class="n">fileName</span> <span class="o">=</span> <span class="n">QFileDialog</span><span class="o">.</span><span class="n">getOpenFileName</span> <span class="p">(</span><span class="n">filePath</span><span class="p">,</span> <span class="s">&#39;Arrays (*.inf; *.INF)&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="s">&#39;Select Array&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="k">if</span> <span class="ow">not</span> <span class="n">fileName</span><span class="p">:</span>
+</span><span class='line'>    <span class="k">return</span>
+</span><span class='line'>
+</span></code></pre></td></tr></table></div></figure>
 
-<p>При написании категорий разделять запятыми не нужно</p>
-
-<h3>Меняем название блога</h3>
-
-<p>Идем в корень octopress, открываем файл _conifg.yml</p>
-
-<p>6 строка: title, меняем &#8220;My Octopress Blog&#8221; например на &#8220;Ещё один блог&#8221;</p>
-
-<p>7 строка: subtitle, тоже какой угодно, оставил пока как есть</p>
-
-<h3>Посмотреть что наменяли</h3>
-
-<p><strong>rake preview</strong></p>
-
-<h3>Можно добавить информацию о себе</h3>
-
-<p>Для добавления информации о себе, открываем файл _conifg.yml, и добавляем custom/asides/about.html.</p>
-
-<p>Затем меняем в _includes/custom/asides/about.html содержимое</p>
-
-<p>default_asides: [asides/recent_posts.html, asides/github.html, asides/twitter.html, asides/delicious.html, asides/pinboard.html, asides/googleplus.html, custom/asides/about.html]</p>
-
-<h3>Заметьте</h3>
-
-<p>Что наличие &#8220;ь&#8221; мягкого знака добавляет в слаг &#39; (апостроф), и к примеру у меня локальная ссылка такая не показывается.</p>
 </div>
 
 
@@ -154,12 +166,12 @@
   
 
 
-<time datetime="2012-05-24T15:23:00+04:00" pubdate data-updated="true">May 24<span>th</span>, 2012</time>
+<time datetime="2012-05-25T08:11:00+04:00" pubdate data-updated="true">May 25<span>th</span>, 2012</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/octopress/'>Octopress</a>, <a class='category' href='/blog/categories/blogging/'>blogging</a>, <a class='category' href='/blog/categories/использование/'>использование</a>
+    <a class='category' href='/blog/categories/python/'>python</a>
   
 </span>
 
@@ -168,7 +180,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://Anshik.github.com/blog/2012/05/24/dobavlieniie-novogho-posta-i-nachalnyi-tiunningh/" data-via="" data-counturl="http://Anshik.github.com/blog/2012/05/24/dobavlieniie-novogho-posta-i-nachalnyi-tiunningh/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://Anshik.github.com/blog/2012/05/25/python-vydielieniie-puti-i-imieni-faila/" data-via="" data-counturl="http://Anshik.github.com/blog/2012/05/25/python-vydielieniie-puti-i-imieni-faila/" >Tweet</a>
   
   
   
@@ -177,10 +189,10 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2012/05/24/kak-ia-ustanavlival-octopress/" title="Previous Post: Как я устанавливал Octopress">&laquo; Как я устанавливал Octopress</a>
+        <a class="basic-alignment left" href="/blog/2012/05/24/dobavlieniie-novogho-posta-i-nachalnyi-tiunningh/" title="Previous Post: Добавление нового поста и начальный тюннинг">&laquo; Добавление нового поста и начальный тюннинг</a>
       
       
-        <a class="basic-alignment right" href="/blog/2012/05/25/python-vydielieniie-puti-i-imieni-faila/" title="Next Post: Python выделение пути и имени файла">Python выделение пути и имени файла &raquo;</a>
+        <a class="basic-alignment right" href="/blog/2012/05/25/otkliuchieniie-iksov-pri-zaghruzkie-ubuntu/" title="Next Post: Отключение иксов при загрузке Ubuntu (Start ubuntu with no X server)">Отключение иксов при загрузке Ubuntu (Start ubuntu with no X server) &raquo;</a>
       
     </p>
   </footer>

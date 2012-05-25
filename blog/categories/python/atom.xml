@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Python | Ещё один блог]]></title>
+  <link href="http://Anshik.github.com/blog/categories/python/atom.xml" rel="self"/>
+  <link href="http://Anshik.github.com/"/>
+  <updated>2012-05-25T09:49:36+04:00</updated>
+  <id>http://Anshik.github.com/</id>
+  <author>
+    <name><![CDATA[Anshik]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Создание схемы базы данных из имеющейся базы данных в Django | database schema from existing database in django]]></title>
+    <link href="http://Anshik.github.com/blog/2012/05/25/sozdaniie-skhiemy-bazy-dannykh-iz-imieiushchieisia-bazy-dannykh-v-django/"/>
+    <updated>2012-05-25T08:49:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2012/05/25/sozdaniie-skhiemy-bazy-dannykh-iz-imieiushchieisia-bazy-dannykh-v-django</id>
+    <content type="html"><![CDATA[<h3>Сделал базу данных в django. Как сделать из неё картинку, схему базы данных?</h3>
+
+<p>Вот возник такой вопрос, и мне подсказали:<br/>
+<a href="http://code.google.com/p/django-command-extensions/">django-command-extensions</a> устанавливаете, потом manage.py graph_models, только надо еще <a href="http://www.graphviz.org/">graphviz</a> иметь в системе установленным</p>
+
+<h3>Более развёрнуто:</h3>
+
+<ul>
+<li>Если под убунтой, запускаем Synaptic, ставим:
+graphviz<br/>
+graphviz-doc<br/>
+graphviz-dev<br/>
+libgraphviz-dev<br/>
+libgraph4<br/>
+libxdot4<br/>
+убунта подскажет и выставит сама зависимости</li>
+<li><p>Качаем, либо достаём
+<a href="http://networkx.lanl.gov/pygraphviz/download.html">pygraphviz</a>
+Распаковываем, и мне пришлось раскомментировать в setup.py
+строчки:
+``` python</p>
+
+<h1>Linux, generic UNIX</h1>
+
+<p>library_path='/usr/lib/graphviz'
+include_path='/usr/include/graphviz'
+<code>
+Иначе ругается, что переменные не заданы.  
+потом
+</code> bash
+sudo python manage.py setup.py install
+```
+должно установиться.</p></li>
+<li><p>В наш проект джанги добавляем в приложения строчку</p></li>
+</ul>
+
+
+<p><code>python
+ INSTALLED_APPS = (
+   'django_extensions',   # оно добавляет к нашим командам manage.py  graph_models
+ )
+</code></p>
+
+<ul>
+<li>Теперь самое интересное
+``` bash
+
+<h1>Create a dot file</h1>
+
+$ ./manage.py graph_models -a > my_project.dot
+
+<h1>Create a PNG image file called my_project_visualized.png with application grouping</h1>
+
+$ ./manage.py graph_models -a -g -o my_project_visualized.png
+
+<h1>Create a dot file for only the 'foo' and 'bar' applications of your project</h1>
+
+<p>$ ./manage.py graph_models foo bar > my_project.dot
+```</p></li>
+</ul>
+
+
+<p>Я использовал команду</p>
+
+<p><code>bash
+$ ./manage.py graph_models -a -g -o my_project_visualized.png
+</code></p>
+
+<p>Для создания png-шечки, вот что получилось</p>
+
+<p><img class="center" src="/../blog_img/my_project_visualized.png" title="пример того, что получилось" ></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ссылка на шпаргалки cheat-sheets]]></title>
+    <link href="http://Anshik.github.com/blog/2012/05/25/ssylka-na-shparghalki-cheat-sheets/"/>
+    <updated>2012-05-25T08:37:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2012/05/25/ssylka-na-shparghalki-cheat-sheets</id>
+    <content type="html"><![CDATA[<p>Читал хабр, подкинули интересную ссылку на сайт, там собраны краткие подсказки, шпаргалки по разным языкам программирования и не только.<br/>
+<strong><a href="http://cheat-sheets.org">cheat-sheets.org</a></strong>
+ В общем, очень рекомендую.</p>
+
+<p> Я уже скачал хелп по Django, Python, Regular Expressions.</p>
+
+<p> А там ещё есть:</p>
+
+<p>Donate
+.NET
+ActionScript
+Ada
+ADO.NET
+Adobe
+Adobe Acrobat
+AJAX
+Algebra
+Apache
+Apache Ant
+Apache Camel
+Apache Solr
+APT
+Arduino
+ASCII
+Astronomy
+ASP
+Assembly Language
+Atom
+AWK
+Azure
+Bash
+Bazaar
+BDB
+Berkeley DB
+BIRT
+BlazeDS
+Blogger
+Blueprint
+BPEL
+BPM
+BPML
+Business Process Modeling
+C
+C#
+C++
+Calculus
+Camera
+Catalyst
+Characters
+Chef
+Chemistry
+chmod
+Clojure
+Cloud Computing
+Cocoa
+ColdFusion
+Colour
+Computer Science
+Continuous Integration
+Countries
+CSS
+CUE
+CVS
+DB2
+db4o
+DDD
+Debian
+Delphi
+Design Pattern
+Django
+Doctrine
+Doctypes
+DOM
+Domain-Driven Design
+DOT language
+Drupal
+DTD
+Eclipse
+Ed
+EJB
+Emacs
+Emoticon
+Encoding
+Erlang
+F#
+Facebook
+Fedora
+Feed
+File
+Firebug
+Firefox
+Firefox Add-ons
+FitNesse
+Flash
+Flash Catalyst
+Flex
+Fonts
+Fortran
+Freeware
+FTP
+GDB
+Geometry
+Gift
+Gimp
+Git
+GlassFish
+Gmail
+GoF
+Google
+Google App Engine
+Google Chrome
+Google Maps
+Grails
+Griffon
+Groovy
+Guitar
+GWT
+Hadoop
+Hardware
+Haskell
+Hibernate
+High Availability
+htaccess
+HTML
+HTTP
+Icons
+Illustrator
+IntelliJ IDEA
+Internet Explorer
+IRC
+IVR
+Java
+Java EE
+Java Persistence API
+JavaFX
+JavaScript
+JavaServer Faces
+JBoss
+JDBC
+jQuery
+JSF
+JSP
+JUnit
+Languages
+LaTeX
+LaTeX-Suite
+less
+Linux
+Lisp
+Logic
+Lotus Domino
+Lua
+Lucene
+Mac
+Mac OS X
+Maple
+Markdown
+Math
+Mathematica
+MathML
+Mathomatic
+MATLAB
+Maven
+Maxima
+MFC
+Microformats
+Microsoft Excel
+Microsoft Project
+Microsoft Visual Studio
+MIME
+mod_include
+mod_perl
+mod_rewrite
+MooTools
+MSP
+Mule
+Music
+MVVM
+MySQL
+NetBeans
+NMAP
+Node.js
+Numbers
+Objective-C
+Open Source Media Framework
+OpenCL
+OpenCV
+OpenMP
+OpenSearch
+OpenSSH
+OpenVZ
+Oracle
+org-mode
+OS X
+Perforce
+Perl
+Photoshop
+PHP
+PHP Frameworks
+Physics
+Play Framework
+PostgreSQL
+Probability Theory
+Prototype
+Python
+Qt
+Quicksilver
+R
+Red Hat
+Regular Expressions
+Religion
+REST
+RichFaces
+rpm
+RSS
+Ruby
+Ruby on Rails
+Sandcastle
+Scala
+Scalability
+Science
+Screen
+Seam
+Sed
+Selenium
+Sendmail
+ServiceMix
+Shell Script
+Silverlight
+Smile
+Social Bookmarks
+Solaris
+Spring Framework
+Spring Roo
+SQL
+SQL Server
+SQLite
+SSI
+SSL
+Statistics
+SVG
+SVN
+Sybase
+Symfony
+Tapestry
+Tcl/Tk
+TCP
+TeX
+Thunderbird
+TLDs
+TLS
+Trigonometry
+TTCN-3
+Twitter
+UML
+Ubuntu
+Unicode
+Unix
+UTF
+Vaadin
+VB
+VBA
+VBScript
+Veritas Cluster
+Vi
+Vim
+VIM-LaTeX
+Virtualization
+Visual Basic
+VMware
+VoiceXML
+vvvv
+WebGL
+WebMatrix
+Wicket
+Wikipedia
+Windows
+Windows Azure
+Windows Communication Foundation
+Windows Presentation Foundation
+Windows PowerShell
+WordPress
+World of Warcraft
+WS-BPEL
+XHTML
+XML
+XML Schema
+XPath
+XSL
+XSLT
+XSS
+Yahoo
+Zen Coding
+Friends of Cheat-Sheets.org
+Other Collectors
+After
+The only one you need</p>
+]]></content>
+  </entry>
+  
+</feed>

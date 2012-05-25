@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Ubuntu | Ещё один блог]]></title>
+  <link href="http://Anshik.github.com/blog/categories/ubuntu/atom.xml" rel="self"/>
+  <link href="http://Anshik.github.com/"/>
+  <updated>2012-05-25T09:49:36+04:00</updated>
+  <id>http://Anshik.github.com/</id>
+  <author>
+    <name><![CDATA[Anshik]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Установка tortoisehg в Ubuntu]]></title>
+    <link href="http://Anshik.github.com/blog/2012/05/25/ustanovka-tortoisehg-v-ubuntu/"/>
+    <updated>2012-05-25T08:35:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2012/05/25/ustanovka-tortoisehg-v-ubuntu</id>
+    <content type="html"><![CDATA[<p>Всё очень просто:</p>
+
+<p><code>bash
+$ sudo add-apt-repository ppa:mercurial-ppa/releases
+$ sudo add-apt-repository ppa:tortoisehg-ppa/releases
+$ sudo apt-get update
+$ sudo apt-get install tortoisehg tortoisehg-nautilus
+</code></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Отключение иксов при загрузке Ubuntu (Start ubuntu with no X server)]]></title>
+    <link href="http://Anshik.github.com/blog/2012/05/25/otkliuchieniie-iksov-pri-zaghruzkie-ubuntu/"/>
+    <updated>2012-05-25T08:31:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2012/05/25/otkliuchieniie-iksov-pri-zaghruzkie-ubuntu</id>
+    <content type="html"><![CDATA[<p>Вписываем в файл <strong>/etc/init/gdm.conf</strong> строчку:<br/>
+and runlevel [5]<br/>
+это условия старта иксов. Для старта иксов нужен 5 runlevel а на этапе загрузки он ещё только второй.</p>
+
+<p><code>bash
+start on (filesystem
+and runlevel [5]
+and started dbus
+and (drm-device-added card0 PRIMARY_DEVICE_FOR_DISPLAY=1
+or stopped udevtrigger))
+stop on runlevel [016]
+</code></p>
+
+<p>Таким образом мы не загружаем иксов. Для их запуска логинимся и выполняем команду startx.</p>
+]]></content>
+  </entry>
+  
+</feed>

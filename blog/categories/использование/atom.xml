@@ -4,10 +4,10 @@
   <title><![CDATA[Category: использование | Ещё один блог]]></title>
   <link href="http://Anshik.github.com/blog/categories/использование/atom.xml" rel="self"/>
   <link href="http://Anshik.github.com/"/>
-  <updated>2012-05-25T08:04:34+04:00</updated>
+  <updated>2012-05-25T09:49:36+04:00</updated>
   <id>http://Anshik.github.com/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[Anshik]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
@@ -20,19 +20,20 @@
     <id>http://Anshik.github.com/blog/2012/05/24/dobavlieniie-novogho-posta-i-nachalnyi-tiunningh</id>
     <content type="html"><![CDATA[<h3>Добавление нового поста в Octopress</h3>
 
-<p>К примеру этот пост был добавлен командой
-* rake new_post["Добавление нового поста и начальный тюннинг"]</p>
+<p>К примеру этот пост был добавлен командой</p>
 
-<p>Далее octopress создает файл с названием слага и расширением markdown примерно такого содержания:</p>
+<pre><code>* rake new_post["Добавление нового поста и начальный тюннинг"]
+</code></pre>
 
-<ul>
-<li>layout: post</li>
-<li>title: "Добавление нового поста и начальный тюннинг"</li>
-<li>date: 2012-05-24 15:23</li>
-<li>comments: true</li>
-<li>categories: Octopress blogging использование</li>
-</ul>
+<p>После new_post пробел не ставим, сразу идет квадратная скобочка, выгребете ошибку, будет создан файл new_post.markdown
+Далее octopress создает файл с названием слага и расширением markdown примерно такого содержания:</p>
 
+<pre><code>* layout: post
+* title: "Добавление нового поста и начальный тюннинг"
+* date: 2012-05-24 15:23
+* comments: true
+* categories: Octopress blogging использование
+</code></pre>
 
 <p>При написании категорий разделять запятыми не нужно</p>
 

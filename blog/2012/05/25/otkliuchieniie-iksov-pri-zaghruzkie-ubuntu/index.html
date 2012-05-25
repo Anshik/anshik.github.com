@@ -5,11 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: использование - Ещё один блог</title>
+  <title>Отключение иксов при загрузке Ubuntu (Start ubuntu with no X server) - Ещё один блог</title>
   <meta name="author" content="Anshik">
 
   
-  <meta name="description" content="Category: использование">
+  <meta name="description" content="Вписываем в файл /etc/init/gdm.conf строчку:
+and runlevel [5]
+это условия старта иксов. Для старта иксов нужен 5 runlevel а на этапе загрузки он ещё &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +20,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://Anshik.github.comblog/categories/использование">
+  <link rel="canonical" href="http://Anshik.github.com/blog/2012/05/25/otkliuchieniie-iksov-pri-zaghruzkie-ubuntu">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -63,35 +65,105 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: использование</h1>
+    
+      <h1 class="entry-title">Отключение иксов при загрузке Ubuntu (Start Ubuntu With No X Server)</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-25T08:31:00+04:00" pubdate data-updated="true">May 25<span>th</span>, 2012</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><p>Вписываем в файл <strong>/etc/init/gdm.conf</strong> строчку:<br/>
+and runlevel [5]<br/>
+это условия старта иксов. Для старта иксов нужен 5 runlevel а на этапе загрузки он ещё только второй.</p>
 
-  
-  <h2>2012</h2>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>start on <span class="o">(</span>filesystem
+</span><span class='line'>and runlevel <span class="o">[</span>5<span class="o">]</span>
+</span><span class='line'>and started dbus
+</span><span class='line'>and <span class="o">(</span>drm-device-added card0 <span class="nv">PRIMARY_DEVICE_FOR_DISPLAY</span><span class="o">=</span>1
+</span><span class='line'>or stopped udevtrigger<span class="o">))</span>
+</span><span class='line'>stop on runlevel <span class="o">[</span>016<span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
 
-<article>
-  
-<h1><a href="/blog/2012/05/24/dobavlieniie-novogho-posta-i-nachalnyi-tiunningh/">Добавление нового поста и начальный тюннинг</a></h1>
-<time datetime="2012-05-24T15:23:00+04:00" pubdate><span class='month'>May</span> <span class='day'>24</span> <span class='year'>2012</span></time>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/octopress/'>Octopress</a>, <a class='category' href='/blog/categories/blogging/'>blogging</a>, <a class='category' href='/blog/categories/использование/'>использование</a></span>
-</footer>
-
-
-</article>
-
+<p>Таким образом мы не загружаем иксов. Для их запуска логинимся и выполняем команду startx.</p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Anshik</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-25T08:31:00+04:00" pubdate data-updated="true">May 25<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/linux/'>Linux</a>, <a class='category' href='/blog/categories/ubuntu/'>Ubuntu</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://Anshik.github.com/blog/2012/05/25/otkliuchieniie-iksov-pri-zaghruzkie-ubuntu/" data-via="" data-counturl="http://Anshik.github.com/blog/2012/05/25/otkliuchieniie-iksov-pri-zaghruzkie-ubuntu/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/05/25/python-vydielieniie-puti-i-imieni-faila/" title="Previous Post: Python выделение пути и имени файла">&laquo; Python выделение пути и имени файла</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/05/25/ustanovka-tortoisehg-v-ubuntu/" title="Next Post: Установка tortoisehg в Ubuntu">Установка tortoisehg в Ubuntu &raquo;</a>
+      
+    </p>
+  </footer>
 </article>
 
 </div>
