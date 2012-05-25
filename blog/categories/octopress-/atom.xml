@@ -4,7 +4,7 @@
   <title><![CDATA[Category: octopress, | Ещё один блог]]></title>
   <link href="http://Anshik.github.com/blog/categories/octopress-/atom.xml" rel="self"/>
   <link href="http://Anshik.github.com/"/>
-  <updated>2012-05-25T09:49:36+04:00</updated>
+  <updated>2012-05-25T10:50:20+04:00</updated>
   <id>http://Anshik.github.com/</id>
   <author>
     <name><![CDATA[Anshik]]></name>
@@ -23,6 +23,9 @@
 <a href="http://octopress.org/">Сайт программы</a></p>
 
 <h3><a href="http://octopress.org/docs/setup/">Установка</a></h3>
+
+<!-- more -->
+
 
 <p>Тут проблем возникнуть не должно, я использовал RVM, чего и вам желаю.</p>
 

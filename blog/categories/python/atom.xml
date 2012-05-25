@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Python | Ещё один блог]]></title>
   <link href="http://Anshik.github.com/blog/categories/python/atom.xml" rel="self"/>
   <link href="http://Anshik.github.com/"/>
-  <updated>2012-05-25T09:49:36+04:00</updated>
+  <updated>2012-05-25T10:50:20+04:00</updated>
   <id>http://Anshik.github.com/</id>
   <author>
     <name><![CDATA[Anshik]]></name>
@@ -22,6 +22,9 @@
 
 <p>Вот возник такой вопрос, и мне подсказали:<br/>
 <a href="http://code.google.com/p/django-command-extensions/">django-command-extensions</a> устанавливаете, потом manage.py graph_models, только надо еще <a href="http://www.graphviz.org/">graphviz</a> иметь в системе установленным</p>
+
+<!-- more -->
+
 
 <h3>Более развёрнуто:</h3>
 
@@ -103,7 +106,8 @@ $ ./manage.py graph_models -a -g -o my_project_visualized.png
 
 <p> Я уже скачал хелп по Django, Python, Regular Expressions.</p>
 
-<p> А там ещё есть:</p>
+<p> А там ещё есть:<br/>
+ <!-- more --></p>
 
 <p>Donate
 .NET

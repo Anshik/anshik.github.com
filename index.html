@@ -9,8 +9,7 @@
   <meta name="author" content="Anshik">
 
   
-  <meta name="description" content="Сделал базу данных в django. Как сделать из неё картинку, схему базы данных? Вот возник такой вопрос, и мне подсказали:
-django-command-extensions &hellip;">
+  <meta name="description" content="Пост с блоггера от среды 28 декабря 2011 года Решил сразу написать пост по поводу замены лампочек на лестничной площадке. Когда мы снимали квартиру, &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -71,6 +70,54 @@ django-command-extensions &hellip;">
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2012/05/25/zamiena-lampochiek-v-podiezdie/">Замена лампочек в подъезде, парадной</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-25T09:52:00+04:00" pubdate data-updated="true">May 25<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3>Пост с блоггера от среды 28 декабря 2011 года</h3>
+
+<p>Решил сразу написать пост по поводу замены лампочек на лестничной площадке.</p>
+
+<p>Когда мы снимали квартиру, лампочки заменяли сами жильцы. Один раз даже собирали денежку на энергосберегающую лампочку :)</p>
+
+<p>Там где мы сейчас живём всё проще, если не лениться:</p>
+
+<p>Звонишь в ремонтно-эксплуатационную службу, и оставляешь заявку на &#8220;освещение N-го этажа, в N-ом подъезде&#8221;. Телефон службы у меня указан на счёте за коммунальные услуги.</p>
+
+<h4>PS: Не ленитесь, запишите телефон ремонтно-эксплуатационной службы себе в телефон, и если обнаружите неисправную лампочку - звоните. Вы платите за исправное освещение деньги.</h4>
+
+<h5>PPS: Сейчас пробую пройти квест с ремонтом уличного освещения в Петербурге.</h5>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2012/05/25/sozdaniie-skhiemy-bazy-dannykh-iz-imieiushchieisia-bazy-dannykh-v-django/">Создание схемы базы данных из имеющейся базы данных в Django | Database Schema From Existing Database in Django</a></h1>
     
     
@@ -99,89 +146,12 @@ django-command-extensions &hellip;">
 <p>Вот возник такой вопрос, и мне подсказали:<br/>
 <a href="http://code.google.com/p/django-command-extensions/">django-command-extensions</a> устанавливаете, потом manage.py graph_models, только надо еще <a href="http://www.graphviz.org/">graphviz</a> иметь в системе установленным</p>
 
-<h3>Более развёрнуто:</h3>
-
-<ul>
-<li>Если под убунтой, запускаем Synaptic, ставим:
-graphviz<br/>
-graphviz-doc<br/>
-graphviz-dev<br/>
-libgraphviz-dev<br/>
-libgraph4<br/>
-libxdot4<br/>
-убунта подскажет и выставит сама зависимости</li>
-<li>Качаем, либо достаём
-<a href="http://networkx.lanl.gov/pygraphviz/download.html">pygraphviz</a>
-Распаковываем, и мне пришлось раскомментировать в setup.py
-строчки:</li>
-</ul>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c"># Linux, generic UNIX</span>
-</span><span class='line'><span class="n">library_path</span><span class="o">=</span><span class="s">&#39;/usr/lib/graphviz&#39;</span>
-</span><span class='line'><span class="n">include_path</span><span class="o">=</span><span class="s">&#39;/usr/include/graphviz&#39;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Иначе ругается, что переменные не заданы.<br/>
-потом</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo python manage.py setup.py install
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>должно установиться.</p>
-
-<ul>
-<li>В наш проект джанги добавляем в приложения строчку</li>
-</ul>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'> <span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">(</span>
-</span><span class='line'>   <span class="s">&#39;django_extensions&#39;</span><span class="p">,</span>   <span class="c"># оно добавляет к нашим командам manage.py  graph_models</span>
-</span><span class='line'> <span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li>Теперь самое интересное</li>
-</ul>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c"># Create a dot file</span>
-</span><span class='line'><span class="nv">$ </span>./manage.py graph_models -a &gt; my_project.dot
-</span><span class='line'><span class="c"># Create a PNG image file called my_project_visualized.png with application grouping</span>
-</span><span class='line'><span class="nv">$ </span>./manage.py graph_models -a -g -o my_project_visualized.png
-</span><span class='line'><span class="c"># Create a dot file for only the &#39;foo&#39; and &#39;bar&#39; applications of your project</span>
-</span><span class='line'><span class="nv">$ </span>./manage.py graph_models foo bar &gt; my_project.dot
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Я использовал команду</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>./manage.py graph_models -a -g -o my_project_visualized.png
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Для создания png-шечки, вот что получилось</p>
-
-<p><img class="center" src="/../blog_img/my_project_visualized.png" title="пример того, что получилось" ></p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/05/25/sozdaniie-skhiemy-bazy-dannykh-iz-imieiushchieisia-bazy-dannykh-v-django/">Читать до конца &rarr;</a>
+    </footer>
   
 
 
@@ -221,30 +191,12 @@ libxdot4<br/>
 <a href="http://dumk1.blogspot.com/2011/12/blog-post_28.html">Линк поправлю, когда пост добавлю сюда, пока на гугл</a><br/>
  Речь пойдёт о ремонте уличных фонарей в Санкт-Петербурге. В принципе, я думаю ситуацию можно проецировать и на другие города России.</p>
 
-<h3>Основная часть</h3>
-
-<p> В Санкт-Петербурге вопросами уличного освещения занимается <a href="www.lensvet.com">&#8220;ЛенСвет&#8221;</a>
- Именно у них я нашёл что-то вроде гостевой книги, где заинтересованные люди пишут свои заявки на ремонт уличного освещения. Заходим к ним на сайт, выбираем раздел &#8220;Вопрос-ответ&#8221;, и оставляем свою заявку, примерно так:</p>
-
-<p>25.12.2011 от Андрей<br/>
-<strong>Вопрос:</strong> Снова здравствуйте. Коррекция: Не горят (вернее горят очень редко) ТРИ фонаря уличного освещения, адрес Светлановский 76 корпус 1. Первый фонарь расположен у первой парадной. Второй у третьей парадной. Третий фонарь у пятого подъезда, но не прямо у подъезда, а у трансформаторной будки. Если плохо объяснил, напишите мне письмо, пришлю карту с отметками. Спасибо.<br/>
-<strong>Ответ:</strong> Андрей, добрый день! Перегоревшие лампы заменены Северным эксплуатационным районом.</p>
-
-<p>Этот раздел просматривают и модерируют, так что думаю, адекватные заявки решаются. Не помню через сколько, примерно через неделю починили, потом написали ответ по факту. За что им спасибо, за выполнение своих обязанностей.</p>
-
-<h3>Заключение</h3>
-
-<p> Люди внимательные и хозяйственные замечают то что им хотелось бы исправить, отремонтировать, и желательно не своими руками, и если можно без особых денежных затрат и временных.</p>
-
-<p> Мной приведён достаточно простой алгоритм решения проблемы ремонта уличного освещения.</p>
-
-<h4>PS: Не ленитесь, вы платите за исправное освещение деньги.</h4>
-
-<h4>PPS: В планах ещё два квеста: отключение радиоточки (лениво к ним ездить, можноб было это сделать через интернет, так они хитрецы не позволяют это. А то кто бы слушал их радио.), капитальный ремонт дома.</h4>
-
-<h5>PPPS: Комментируйте, кому помогло.</h5>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/05/25/riemont-fonariei-ulichnogho-osvieshchieniia/">Читать до конца &rarr;</a>
+    </footer>
   
 
 
@@ -284,299 +236,13 @@ libxdot4<br/>
 
 <p> Я уже скачал хелп по Django, Python, Regular Expressions.</p>
 
-<p> А там ещё есть:</p>
-
-<p>Donate
-.NET
-ActionScript
-Ada
-ADO.NET
-Adobe
-Adobe Acrobat
-AJAX
-Algebra
-Apache
-Apache Ant
-Apache Camel
-Apache Solr
-APT
-Arduino
-ASCII
-Astronomy
-ASP
-Assembly Language
-Atom
-AWK
-Azure
-Bash
-Bazaar
-BDB
-Berkeley DB
-BIRT
-BlazeDS
-Blogger
-Blueprint
-BPEL
-BPM
-BPML
-Business Process Modeling
-C
-C#
-C++
-Calculus
-Camera
-Catalyst
-Characters
-Chef
-Chemistry
-chmod
-Clojure
-Cloud Computing
-Cocoa
-ColdFusion
-Colour
-Computer Science
-Continuous Integration
-Countries
-CSS
-CUE
-CVS
-DB2
-db4o
-DDD
-Debian
-Delphi
-Design Pattern
-Django
-Doctrine
-Doctypes
-DOM
-Domain-Driven Design
-DOT language
-Drupal
-DTD
-Eclipse
-Ed
-EJB
-Emacs
-Emoticon
-Encoding
-Erlang
-F#
-Facebook
-Fedora
-Feed
-File
-Firebug
-Firefox
-Firefox Add-ons
-FitNesse
-Flash
-Flash Catalyst
-Flex
-Fonts
-Fortran
-Freeware
-FTP
-GDB
-Geometry
-Gift
-Gimp
-Git
-GlassFish
-Gmail
-GoF
-Google
-Google App Engine
-Google Chrome
-Google Maps
-Grails
-Griffon
-Groovy
-Guitar
-GWT
-Hadoop
-Hardware
-Haskell
-Hibernate
-High Availability
-htaccess
-HTML
-HTTP
-Icons
-Illustrator
-IntelliJ IDEA
-Internet Explorer
-IRC
-IVR
-Java
-Java EE
-Java Persistence API
-JavaFX
-JavaScript
-JavaServer Faces
-JBoss
-JDBC
-jQuery
-JSF
-JSP
-JUnit
-Languages
-LaTeX
-LaTeX-Suite
-less
-Linux
-Lisp
-Logic
-Lotus Domino
-Lua
-Lucene
-Mac
-Mac OS X
-Maple
-Markdown
-Math
-Mathematica
-MathML
-Mathomatic
-MATLAB
-Maven
-Maxima
-MFC
-Microformats
-Microsoft Excel
-Microsoft Project
-Microsoft Visual Studio
-MIME
-mod_include
-mod_perl
-mod_rewrite
-MooTools
-MSP
-Mule
-Music
-MVVM
-MySQL
-NetBeans
-NMAP
-Node.js
-Numbers
-Objective-C
-Open Source Media Framework
-OpenCL
-OpenCV
-OpenMP
-OpenSearch
-OpenSSH
-OpenVZ
-Oracle
-org-mode
-OS X
-Perforce
-Perl
-Photoshop
-PHP
-PHP Frameworks
-Physics
-Play Framework
-PostgreSQL
-Probability Theory
-Prototype
-Python
-Qt
-Quicksilver
-R
-Red Hat
-Regular Expressions
-Religion
-REST
-RichFaces
-rpm
-RSS
-Ruby
-Ruby on Rails
-Sandcastle
-Scala
-Scalability
-Science
-Screen
-Seam
-Sed
-Selenium
-Sendmail
-ServiceMix
-Shell Script
-Silverlight
-Smile
-Social Bookmarks
-Solaris
-Spring Framework
-Spring Roo
-SQL
-SQL Server
-SQLite
-SSI
-SSL
-Statistics
-SVG
-SVN
-Sybase
-Symfony
-Tapestry
-Tcl/Tk
-TCP
-TeX
-Thunderbird
-TLDs
-TLS
-Trigonometry
-TTCN-3
-Twitter
-UML
-Ubuntu
-Unicode
-Unix
-UTF
-Vaadin
-VB
-VBA
-VBScript
-Veritas Cluster
-Vi
-Vim
-VIM-LaTeX
-Virtualization
-Visual Basic
-VMware
-VoiceXML
-vvvv
-WebGL
-WebMatrix
-Wicket
-Wikipedia
-Windows
-Windows Azure
-Windows Communication Foundation
-Windows Presentation Foundation
-Windows PowerShell
-WordPress
-World of Warcraft
-WS-BPEL
-XHTML
-XML
-XML Schema
-XPath
-XSL
-XSLT
-XSS
-Yahoo
-Zen Coding
-Friends of Cheat-Sheets.org
-Other Collectors
-After
-The only one you need</p>
-</div>
+<p> А там ещё есть:<br/>
+ </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/05/25/ssylka-na-shparghalki-cheat-sheets/">Читать до конца &rarr;</a>
+    </footer>
   
 
 
@@ -802,40 +468,12 @@ and runlevel [5]<br/>
 <p>После new_post пробел не ставим, сразу идет квадратная скобочка, выгребете ошибку, будет создан файл new_post.markdown
 Далее octopress создает файл с названием слага и расширением markdown примерно такого содержания:</p>
 
-<pre><code>* layout: post
-* title: "Добавление нового поста и начальный тюннинг"
-* date: 2012-05-24 15:23
-* comments: true
-* categories: Octopress blogging использование
-</code></pre>
-
-<p>При написании категорий разделять запятыми не нужно</p>
-
-<h3>Меняем название блога</h3>
-
-<p>Идем в корень octopress, открываем файл _conifg.yml</p>
-
-<p>6 строка: title, меняем &#8220;My Octopress Blog&#8221; например на &#8220;Ещё один блог&#8221;</p>
-
-<p>7 строка: subtitle, тоже какой угодно, оставил пока как есть</p>
-
-<h3>Посмотреть что наменяли</h3>
-
-<p><strong>rake preview</strong></p>
-
-<h3>Можно добавить информацию о себе</h3>
-
-<p>Для добавления информации о себе, открываем файл _conifg.yml, и добавляем custom/asides/about.html.</p>
-
-<p>Затем меняем в _includes/custom/asides/about.html содержимое</p>
-
-<p>default_asides: [asides/recent_posts.html, asides/github.html, asides/twitter.html, asides/delicious.html, asides/pinboard.html, asides/googleplus.html, custom/asides/about.html]</p>
-
-<h3>Заметьте</h3>
-
-<p>Что наличие &#8220;ь&#8221; мягкого знака добавляет в слаг &#39; (апостроф), и к примеру у меня локальная ссылка такая не показывается.</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/05/24/dobavlieniie-novogho-posta-i-nachalnyi-tiunningh/">Читать до конца &rarr;</a>
+    </footer>
   
 
 
@@ -875,56 +513,12 @@ and runlevel [5]<br/>
 
 <h3><a href="http://octopress.org/docs/setup/">Установка</a></h3>
 
-<p>Тут проблем возникнуть не должно, я использовал RVM, чего и вам желаю.</p>
-
-<ul>
-<li>команду <strong>rake install</strong> запускаем из папки octopress.</li>
-</ul>
-
-
-<h3>Настройка и деплой</h3>
-
-<p>Вначале идем на <a href="github.com">Гитхаб</a>:</p>
-
-<ul>
-<li><p>Добавляем новый репозиторий <strong>Внимание</strong> он должен называться название_блога.github.com вот пример: git@github.com:Anshik/anshik.github.com.git. То есть при создании нового репозитория я вводил не просто anshik, а anshik.github.com. С этим я намучился, создавал вначале репозиторий просто anshik. И дальше скрипт setup_github_pages, вводил git@github.com:Anshik/anshik.git, а правильно
-git@github.com:Anshik/anshik.github.com.git. Почему так? Объясню :).</p></li>
-<li><p>при коротком названии без суффикса github.com, <a href="http://www.octopress.org">octopress</a> понимает это как Github Project pages (gh-pages), и пушит это автоматом в бранч gh-pages;</p></li>
-<li><p>дальше бедный github видит, что у вас есть такой бранч(gh-pages), выдает сообщение <em>notification</em> о том, что вы успешно добавили странички, и он их с удовольствием переработал. И их можно будет посмотреть по адресу:
-www.имя<em>неправильного</em>проекта.github.com/имя<em>неправильного</em>проекта, что нас совсем не устраивает.</p></li>
-</ul>
-
-
-<p>Тоже самое, только другими словами можно прочитать в документации Github Project pages. Но когда взгляд замылен и подсказать некому, можно и не заметить, что username.github.com, именно название репозитория, а не просто username.</p>
-
-<p>В общем:
-<strong>rake setup_github_pages</strong>
-вводим адрес репозитория.</p>
-
-<p>Дальше генерируем наш блог командой:</p>
-
-<p><strong>rake generate</strong>
-И деплоим (оно пушит в git само)
-<strong>rake deploy</strong></p>
-
-<p>Сгенерит блог, скопирует в _deploy/, добавит в git, закоммитит и запушит в мастер
-И через несколько секунд вы получите email от Github, говорящий, что коммит принят и будет опубликован на сайте</p>
-
-<p>Блог может показаться действительно минут через 10, и только если вам уведомление пришло :).</p>
-
-<h3>Заметил странное</h3>
-
-<p>Ну не очень странное, в опере русский шрифт не отображался
-Идем в source/_includes/custom/head.html, в этом файле в хедер подсасываются гугловские шрифты, на мой взгляд проблема была в этом, детально разбираться не стал, просто коммент делаем так :)</p>
-
-<blockquote><p>Fonts from Google&#8221;s Web font directory at http://google.com/webfonts
-link href=&#8221;http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic&#8221; rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221;
-link href=&#8221;http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic&#8221; rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; &#8211;>
-переносим конец коммента &#8211;> в конец файла</p></blockquote>
-
-<p>Ага, сам поймался, не закоментировал ;)</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/05/24/kak-ia-ustanavlival-octopress/">Читать до конца &rarr;</a>
+    </footer>
   
 
 
@@ -943,6 +537,10 @@ link href=&#8221;http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,b
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/05/25/zamiena-lampochiek-v-podiezdie/">Замена лампочек в подъезде, парадной</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/05/25/sozdaniie-skhiemy-bazy-dannykh-iz-imieiushchieisia-bazy-dannykh-v-django/">Создание схемы базы данных из имеющейся базы данных в Django | database schema from existing database in django</a>
       </li>
     
@@ -956,10 +554,6 @@ link href=&#8221;http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,b
     
       <li class="post">
         <a href="/blog/2012/05/25/ustanovka-tortoisehg-v-ubuntu/">Установка tortoisehg в Ubuntu</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/05/25/otkliuchieniie-iksov-pri-zaghruzkie-ubuntu/">Отключение иксов при загрузке Ubuntu (Start ubuntu with no X server)</a>
       </li>
     
   </ul>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Octopress | Ещё один блог]]></title>
   <link href="http://Anshik.github.com/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://Anshik.github.com/"/>
-  <updated>2012-05-25T09:49:36+04:00</updated>
+  <updated>2012-05-25T10:50:20+04:00</updated>
   <id>http://Anshik.github.com/</id>
   <author>
     <name><![CDATA[Anshik]]></name>
@@ -27,6 +27,9 @@
 
 <p>После new_post пробел не ставим, сразу идет квадратная скобочка, выгребете ошибку, будет создан файл new_post.markdown
 Далее octopress создает файл с названием слага и расширением markdown примерно такого содержания:</p>
+
+<!-- more -->
+
 
 <pre><code>* layout: post
 * title: "Добавление нового поста и начальный тюннинг"
@@ -60,6 +63,51 @@
 <h3>Заметьте</h3>
 
 <p>Что наличие "ь" мягкого знака добавляет в слаг \' (апостроф), и к примеру у меня локальная ссылка такая не показывается.</p>
+
+<h3>Ни что так не упрощает жизнь, как внимательное чтение документации</h3>
+
+<h4>По поводу категорий</h4>
+
+<p>Правильно писать так :)</p>
+
+<p>``` python</p>
+
+<h1>One category</h1>
+
+<p>categories: Sass</p>
+
+<h1>Multiple categories example 1</h1>
+
+<p>categories: [CSS3, Sass, Media Queries]</p>
+
+<h1>Multiple categories example 2</h1>
+
+<p>categories:
+- CSS3
+- Sass
+- Media Queries
+```</p>
+
+<h4>По поводу <strong>cut</strong></h4>
+
+<p>Нужно поставить тег, пошёл везде ставить.
+``` bash</p>
+
+<!-- more -->
+
+
+<p>```</p>
+
+<h3>Добавление изображения</h3>
+
+<p>Я создал папку <strong>blog_img</strong> в source и добавил картинку таким образом
+Формат тега такой, в начале нужно слеши убрать, добавил для экранирования:</p>
+
+<p><code>
+\{\\% [img] [center] /../blog_img/my_project_visualized.png альт-описание %}
+</code></p>
+
+<p>до этого нужно было додуматься /../blog_img/my_project_visualized.png</p>
 ]]></content>
   </entry>
   

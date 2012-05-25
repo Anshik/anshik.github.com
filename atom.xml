@@ -4,7 +4,7 @@
   <title><![CDATA[Ещё один блог]]></title>
   <link href="http://Anshik.github.com/atom.xml" rel="self"/>
   <link href="http://Anshik.github.com/"/>
-  <updated>2012-05-25T09:49:36+04:00</updated>
+  <updated>2012-05-25T10:50:20+04:00</updated>
   <id>http://Anshik.github.com/</id>
   <author>
     <name><![CDATA[Anshik]]></name>
@@ -12,6 +12,27 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Замена лампочек в подъезде, парадной]]></title>
+    <link href="http://Anshik.github.com/blog/2012/05/25/zamiena-lampochiek-v-podiezdie/"/>
+    <updated>2012-05-25T09:52:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2012/05/25/zamiena-lampochiek-v-podiezdie</id>
+    <content type="html"><![CDATA[<h3>Пост с блоггера от среды 28 декабря 2011 года</h3>
+
+<p>Решил сразу написать пост по поводу замены лампочек на лестничной площадке.</p>
+
+<p>Когда мы снимали квартиру, лампочки заменяли сами жильцы. Один раз даже собирали денежку на энергосберегающую лампочку :)</p>
+
+<p>Там где мы сейчас живём всё проще, если не лениться:</p>
+
+<p>Звонишь в ремонтно-эксплуатационную службу, и оставляешь заявку на &#8220;освещение N-го этажа, в N-ом подъезде&#8221;. Телефон службы у меня указан на счёте за коммунальные услуги.</p>
+
+<h4>PS: Не ленитесь, запишите телефон ремонтно-эксплуатационной службы себе в телефон, и если обнаружите неисправную лампочку - звоните. Вы платите за исправное освещение деньги.</h4>
+
+<h5>PPS: Сейчас пробую пройти квест с ремонтом уличного освещения в Петербурге.</h5>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Создание схемы базы данных из имеющейся базы данных в Django | database schema from existing database in django]]></title>
@@ -22,6 +43,9 @@
 
 <p>Вот возник такой вопрос, и мне подсказали:<br/>
 <a href="http://code.google.com/p/django-command-extensions/">django-command-extensions</a> устанавливаете, потом manage.py graph_models, только надо еще <a href="http://www.graphviz.org/">graphviz</a> иметь в системе установленным</p>
+
+<!-- more -->
+
 
 <h3>Более развёрнуто:</h3>
 
@@ -118,6 +142,9 @@ libxdot4<br/>
 <a href="http://dumk1.blogspot.com/2011/12/blog-post_28.html">Линк поправлю, когда пост добавлю сюда, пока на гугл</a><br/>
  Речь пойдёт о ремонте уличных фонарей в Санкт-Петербурге. В принципе, я думаю ситуацию можно проецировать и на другие города России.</p>
 
+<!-- more -->
+
+
 <h3>Основная часть</h3>
 
 <p> В Санкт-Петербурге вопросами уличного освещения занимается <a href="www.lensvet.com">&#8220;ЛенСвет&#8221;</a>
@@ -154,7 +181,8 @@ libxdot4<br/>
 
 <p> Я уже скачал хелп по Django, Python, Regular Expressions.</p>
 
-<p> А там ещё есть:</p>
+<p> А там ещё есть:<br/>
+ <!-- more --></p>
 
 <p>Donate
 .NET
@@ -564,6 +592,9 @@ and runlevel [5]<br/>
 <p>После new_post пробел не ставим, сразу идет квадратная скобочка, выгребете ошибку, будет создан файл new_post.markdown
 Далее octopress создает файл с названием слага и расширением markdown примерно такого содержания:</p>
 
+<!-- more -->
+
+
 <pre><code>* layout: post
 * title: "Добавление нового поста и начальный тюннинг"
 * date: 2012-05-24 15:23
@@ -596,6 +627,58 @@ and runlevel [5]<br/>
 <h3>Заметьте</h3>
 
 <p>Что наличие &#8220;ь&#8221; мягкого знака добавляет в слаг &#39; (апостроф), и к примеру у меня локальная ссылка такая не показывается.</p>
+
+<h3>Ни что так не упрощает жизнь, как внимательное чтение документации</h3>
+
+<h4>По поводу категорий</h4>
+
+<p>Правильно писать так :)</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c"># One category</span>
+</span><span class='line'><span class="n">categories</span><span class="p">:</span> <span class="n">Sass</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># Multiple categories example 1</span>
+</span><span class='line'><span class="n">categories</span><span class="p">:</span> <span class="p">[</span><span class="n">CSS3</span><span class="p">,</span> <span class="n">Sass</span><span class="p">,</span> <span class="n">Media</span> <span class="n">Queries</span><span class="p">]</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># Multiple categories example 2</span>
+</span><span class='line'><span class="n">categories</span><span class="p">:</span>
+</span><span class='line'><span class="o">-</span> <span class="n">CSS3</span>
+</span><span class='line'><span class="o">-</span> <span class="n">Sass</span>
+</span><span class='line'><span class="o">-</span> <span class="n">Media</span> <span class="n">Queries</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>По поводу <strong>cut</strong></h4>
+
+<p>Нужно поставить тег, пошёл везде ставить.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>&lt;!-- more --&gt;
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Добавление изображения</h3>
+
+<p>Я создал папку <strong>blog_img</strong> в source и добавил картинку таким образом
+Формат тега такой, в начале нужно слеши убрать, добавил для экранирования:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="se">\{\\</span>% <span class="o">[</span>img<span class="o">]</span> <span class="o">[</span>center<span class="o">]</span> /../blog_img/my_project_visualized.png альт-описание %<span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>до этого нужно было додуматься /../blog_img/my_project_visualized.png</p>
 ]]></content>
   </entry>
   
@@ -609,6 +692,9 @@ and runlevel [5]<br/>
 <a href="http://octopress.org/">Сайт программы</a></p>
 
 <h3><a href="http://octopress.org/docs/setup/">Установка</a></h3>
+
+<!-- more -->
+
 
 <p>Тут проблем возникнуть не должно, я использовал RVM, чего и вам желаю.</p>
 
