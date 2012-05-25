@@ -4,7 +4,7 @@
   <title><![CDATA[Ещё один блог]]></title>
   <link href="http://Anshik.github.com/atom.xml" rel="self"/>
   <link href="http://Anshik.github.com/"/>
-  <updated>2012-05-25T13:44:25+04:00</updated>
+  <updated>2012-05-25T14:09:06+04:00</updated>
   <id>http://Anshik.github.com/</id>
   <author>
     <name><![CDATA[Anshik]]></name>
@@ -12,6 +12,28 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Добавление комментариев в Octopress]]></title>
+    <link href="http://Anshik.github.com/blog/2012/05/25/dobavlieniie-kommientariiev-v-octopress/"/>
+    <updated>2012-05-25T14:04:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2012/05/25/dobavlieniie-kommientariiev-v-octopress</id>
+    <content type="html"><![CDATA[<p>Добавление комментариев оказолось простым, регистрируемся на <a href="http://www.disqus.com">Disqus</a>.<br/>
+При регистрации вводим краткое описание сайта и короткое название. Короткое название потом пригодится. Открываем файл <strong>_config.yml</strong></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c"># Disqus Comments</span>
+</span><span class='line'><span class="n">disqus_short_name</span><span class="p">:</span> <span class="err">короткое</span> <span class="err">название</span> <span class="err">сайта</span>
+</span><span class='line'><span class="n">disqus_show_comment_count</span><span class="p">:</span> <span class="n">false</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>И всего делов, всё начинает работать.
+Дальше, если хочется русских комментариев, заходим в настройки сайта в дискурсе, и меняем временную зону и язык.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Замена лампочек в подъезде, парадной]]></title>

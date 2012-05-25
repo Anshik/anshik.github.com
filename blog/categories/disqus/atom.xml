@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Disqus | Ещё один блог]]></title>
+  <link href="http://Anshik.github.com/blog/categories/disqus/atom.xml" rel="self"/>
+  <link href="http://Anshik.github.com/"/>
+  <updated>2012-05-25T14:09:06+04:00</updated>
+  <id>http://Anshik.github.com/</id>
+  <author>
+    <name><![CDATA[Anshik]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Добавление комментариев в Octopress]]></title>
+    <link href="http://Anshik.github.com/blog/2012/05/25/dobavlieniie-kommientariiev-v-octopress/"/>
+    <updated>2012-05-25T14:04:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2012/05/25/dobavlieniie-kommientariiev-v-octopress</id>
+    <content type="html"><![CDATA[<p>Добавление комментариев оказолось простым, регистрируемся на <a href="http://www.disqus.com">Disqus</a>.<br/>
+При регистрации вводим краткое описание сайта и короткое название. Короткое название потом пригодится. Открываем файл <strong>_config.yml</strong></p>
+
+<p>``` python</p>
+
+<h1>Disqus Comments</h1>
+
+<p>disqus_short_name: короткое название сайта
+disqus_show_comment_count: false
+```</p>
+
+<p>И всего делов, всё начинает работать.
+Дальше, если хочется русских комментариев, заходим в настройки сайта в дискурсе, и меняем временную зону и язык.</p>
+]]></content>
+  </entry>
+  
+</feed>
