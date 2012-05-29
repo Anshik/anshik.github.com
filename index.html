@@ -9,7 +9,8 @@
   <meta name="author" content="Anshik">
 
   
-  <meta name="description" content="*** Данное решение подходит не только под Google, но и под Yandex Для подтверждения прав владения сайтом нас просят добавить страничку на сайт, с &hellip;">
+  <meta name="description" content="python -m smtpd -n -c DebuggingServer localhost:25
+Эта одностроковая команда запускает сервер SMTP на порту 1025. Здесь используется стандартная &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -68,7 +69,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2012/05/29/dobavlieniie-google-webmasters/">Добавление Google Webmasters</a></h1>
+      <h1 class="entry-title"><a href="/blog/2012/05/29/otladka-pochtovykh-soobshchienii-v-django/">Отладка почтовых сообщений в Django</a></h1>
     
     
       <p class="meta">
@@ -84,174 +85,21 @@
   
 
 
-<time datetime="2012-05-29T12:05:00+04:00" pubdate data-updated="true">May 29<span>th</span>, 2012</time>
+<time datetime="2012-05-29T15:42:00+04:00" pubdate data-updated="true">May 29<span>th</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>*** Данное решение подходит не только под Google, но и под Yandex</p>
-
-<p>Для подтверждения прав владения сайтом нас просят добавить страничку на сайт, с названием примерно google9blablaf25be8.html и содержанием:</p>
-
-<blockquote><p>google-site-verification: google9blablaf25be8.html</p></blockquote>
-
-<p>Для этого мы создаем страничку rake new_page[&#8220;google9blablaf25be8.html&#8221;]<br/>
-Затем редактируем её, удаляем заголовок, стандартный для постов и страниц, и оставляем только:</p>
-
-<blockquote><p>google-site-verification: google9blablaf25be8.html</p></blockquote>
-
-<p>Дальше как обычно:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>rake generate
-</span><span class='line'>rake deploy
-</span></code></pre></td></tr></table></div></figure>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/05/25/dobavlieniie-kommientariiev-v-octopress/">Добавление комментариев в Octopress</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-05-25T14:04:00+04:00" pubdate data-updated="true">May 25<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Добавление комментариев оказолось простым, регистрируемся на <a href="http://www.disqus.com">Disqus</a>.<br/>
-При регистрации вводим краткое описание сайта и короткое название. Короткое название потом пригодится. Открываем файл <strong>_config.yml</strong></p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c"># Disqus Comments</span>
-</span><span class='line'><span class="n">disqus_short_name</span><span class="p">:</span> <span class="err">короткое</span> <span class="err">название</span> <span class="err">сайта</span>
-</span><span class='line'><span class="n">disqus_show_comment_count</span><span class="p">:</span> <span class="n">false</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>И всего делов, всё начинает работать.
-Дальше, если хочется русских комментариев, заходим в настройки сайта в дискурсе, и меняем временную зону и язык.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/05/25/zamiena-lampochiek-v-podiezdie/">Замена лампочек в подъезде, парадной</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-05-25T09:52:00+04:00" pubdate data-updated="true">May 25<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h3>Пост с блоггера от среды 28 декабря 2011 года</h3>
-
-<p>Решил сразу написать пост по поводу замены лампочек на лестничной площадке.</p>
-
-<p>Когда мы снимали квартиру, лампочки заменяли сами жильцы. Один раз даже собирали денежку на энергосберегающую лампочку :)</p>
-
-<p>Там где мы сейчас живём всё проще, если не лениться:</p>
-
-<p>Звонишь в ремонтно-эксплуатационную службу, и оставляешь заявку на &#8220;освещение N-го этажа, в N-ом подъезде&#8221;. Телефон службы у меня указан на счёте за коммунальные услуги.</p>
-
-<h4>PS: Не ленитесь, запишите телефон ремонтно-эксплуатационной службы себе в телефон, и если обнаружите неисправную лампочку - звоните. Вы платите за исправное освещение деньги.</h4>
-
-<h5>PPS: Сейчас пробую пройти квест с ремонтом уличного освещения в Петербурге.</h5>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/05/25/sozdaniie-skhiemy-bazy-dannykh-iz-imieiushchieisia-bazy-dannykh-v-django/">Создание схемы базы данных из имеющейся базы данных в Django | Database Schema From Existing Database in Django</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-05-25T08:49:00+04:00" pubdate data-updated="true">May 25<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h3>Сделал базу данных в django. Как сделать из неё картинку, схему базы данных?</h3>
-
-<p>Вот возник такой вопрос, и мне подсказали:<br/>
-<a href="http://code.google.com/p/django-command-extensions/">django-command-extensions</a> устанавливаете, потом manage.py graph_models, только надо еще <a href="http://www.graphviz.org/">graphviz</a> иметь в системе установленным</p>
+  <div class="entry-content"><p>python -m smtpd -n -c DebuggingServer localhost:25
+Эта одностроковая команда запускает сервер SMTP на порту 1025. Здесь используется стандартная библиотека smtpd для языка Python (задается при помощи -m smtpd) и передаются три аргумента: -n, -c DebuggingServer и localhost:1025.</p>
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/blog/2012/05/25/sozdaniie-skhiemy-bazy-dannykh-iz-imieiushchieisia-bazy-dannykh-v-django/">Читать до конца &rarr;</a>
+      <a rel="full-article" href="/blog/2012/05/29/otladka-pochtovykh-soobshchienii-v-django/">Читать до конца &rarr;</a>
     </footer>
   
 
@@ -263,7 +111,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2012/05/25/riemont-fonariei-ulichnogho-osvieshchieniia/">Ремонт фонарей уличного освещения, куда писать&#8230;</a></h1>
+      <h1 class="entry-title"><a href="/blog/2012/05/29/nariezka-mp3-failov-linux-ubuntu/">Нарезка Mp3 файлов Linux Ubuntu</a></h1>
     
     
       <p class="meta">
@@ -279,24 +127,30 @@
   
 
 
-<time datetime="2012-05-25T08:41:00+04:00" pubdate data-updated="true">May 25<span>th</span>, 2012</time>
+<time datetime="2012-05-29T15:26:00+04:00" pubdate data-updated="true">May 29<span>th</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><h3>Введение</h3>
+  <div class="entry-content"><p>У меня есть плеер <a href="http://www.cowonrussia.ru/?action=products&amp;mode=search&amp;category_id=6&amp;product_id=27">Cowon E2</a>, флеша в нём 2 Гига.<br/>
+<strong>Плюсы:</strong></p>
 
-<p> Не так давно я обещал, что попытаюсь разобраться с проблемой не работающих фонарей на своей улице:
-<a href="http://dumk1.blogspot.com/2011/12/blog-post_28.html">Линк поправлю, когда пост добавлю сюда, пока на гугл</a><br/>
- Речь пойдёт о ремонте уличных фонарей в Санкт-Петербурге. В принципе, я думаю ситуацию можно проецировать и на другие города России.</p>
+<ul>
+<li>удобный</li>
+<li>не прихотливый</li>
+<li>заряжается от usb</li>
+<li>переходник usb втыкается в аудио jack</li>
+<li>навигация по папкам</li>
+</ul>
+
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/blog/2012/05/25/riemont-fonariei-ulichnogho-osvieshchieniia/">Читать до конца &rarr;</a>
+      <a rel="full-article" href="/blog/2012/05/29/nariezka-mp3-failov-linux-ubuntu/">Читать до конца &rarr;</a>
     </footer>
   
 
@@ -308,7 +162,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2012/05/25/ssylka-na-shparghalki-cheat-sheets/">Ссылка на шпаргалки Cheat-sheets</a></h1>
+      <h1 class="entry-title"><a href="/blog/2012/05/29/threads-in-pyqt4/">Как правильно делать треды в PyQT4</a></h1>
     
     
       <p class="meta">
@@ -324,164 +178,14 @@
   
 
 
-<time datetime="2012-05-25T08:37:00+04:00" pubdate data-updated="true">May 25<span>th</span>, 2012</time>
+<time datetime="2012-05-29T15:24:00+04:00" pubdate data-updated="true">May 29<span>th</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Читал хабр, подкинули интересную ссылку на сайт, там собраны краткие подсказки, шпаргалки по разным языкам программирования и не только.<br/>
-<strong><a href="http://cheat-sheets.org">cheat-sheets.org</a></strong>
- В общем, очень рекомендую.</p>
-
-<p> Я уже скачал хелп по Django, Python, Regular Expressions.</p>
-
-<p> А там ещё есть:<br/>
- </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/05/25/ssylka-na-shparghalki-cheat-sheets/">Читать до конца &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/05/25/ustanovka-tortoisehg-v-ubuntu/">Установка Tortoisehg в Ubuntu</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-05-25T08:35:00+04:00" pubdate data-updated="true">May 25<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Всё очень просто:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>sudo add-apt-repository ppa:mercurial-ppa/releases
-</span><span class='line'><span class="nv">$ </span>sudo add-apt-repository ppa:tortoisehg-ppa/releases
-</span><span class='line'><span class="nv">$ </span>sudo apt-get update
-</span><span class='line'><span class="nv">$ </span>sudo apt-get install tortoisehg tortoisehg-nautilus
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/05/25/otkliuchieniie-iksov-pri-zaghruzkie-ubuntu/">Отключение иксов при загрузке Ubuntu (Start Ubuntu With No X Server)</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-05-25T08:31:00+04:00" pubdate data-updated="true">May 25<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Вписываем в файл <strong>/etc/init/gdm.conf</strong> строчку:<br/>
-and runlevel [5]<br/>
-это условия старта иксов. Для старта иксов нужен 5 runlevel а на этапе загрузки он ещё только второй.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>start on <span class="o">(</span>filesystem
-</span><span class='line'>and runlevel <span class="o">[</span>5<span class="o">]</span>
-</span><span class='line'>and started dbus
-</span><span class='line'>and <span class="o">(</span>drm-device-added card0 <span class="nv">PRIMARY_DEVICE_FOR_DISPLAY</span><span class="o">=</span>1
-</span><span class='line'>or stopped udevtrigger<span class="o">))</span>
-</span><span class='line'>stop on runlevel <span class="o">[</span>016<span class="o">]</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Таким образом мы не загружаем иксов. Для их запуска логинимся и выполняем команду startx.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/05/25/python-vydielieniie-puti-i-imieni-faila/">Python выделение пути и имени файла</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-05-25T08:11:00+04:00" pubdate data-updated="true">May 25<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h3>В Python</h3>
+  <div class="entry-content"><p><a href="http://www.linux.org.ru/forum/development/1529306">Тут</a> нашёл решение</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -493,35 +197,70 @@ and runlevel [5]<br/>
 <span class='line-number'>8</span>
 <span class='line-number'>9</span>
 <span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">import</span> <span class="nn">os.path</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c">#!/usr/bin/env python</span>
 </span><span class='line'>
-</span><span class='line'><span class="n">myPath</span> <span class="o">=</span> <span class="s">&#39;/Users/t/web/perl-python/I_Love_You.html&#39;</span>
-</span><span class='line'><span class="p">(</span><span class="n">dirName</span><span class="p">,</span> <span class="n">fileName</span><span class="p">)</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">myPath</span><span class="p">)</span>
-</span><span class='line'><span class="p">(</span><span class="n">fileBaseName</span><span class="p">,</span> <span class="n">fileExtension</span><span class="p">)</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">fileName</span><span class="p">)</span>
+</span><span class='line'><span class="c"># Вот примерно так оно делается.</span>
 </span><span class='line'>
-</span><span class='line'><span class="k">print</span> <span class="n">dirName</span> <span class="c"># /Users/t/web/perl-python</span>
-</span><span class='line'><span class="k">print</span> <span class="n">fileName</span> <span class="c"># I_Love_You.html</span>
-</span><span class='line'><span class="k">print</span> <span class="n">fileBaseName</span> <span class="c"># I_Love_You</span>
-</span><span class='line'><span class="k">print</span> <span class="n">fileExtension</span> <span class="c"># .html</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>В QT</h3>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">filePath</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">filePath</span>
-</span><span class='line'><span class="k">if</span> <span class="ow">not</span> <span class="n">filePath</span><span class="p">:</span>
-</span><span class='line'>    <span class="n">filePath</span> <span class="o">=</span> <span class="s">&#39;../data&#39;</span>
-</span><span class='line'><span class="n">fileName</span> <span class="o">=</span> <span class="n">QFileDialog</span><span class="o">.</span><span class="n">getOpenFileName</span> <span class="p">(</span><span class="n">filePath</span><span class="p">,</span> <span class="s">&#39;Arrays (*.inf; *.INF)&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="s">&#39;Select Array&#39;</span><span class="p">)</span>
-</span><span class='line'><span class="k">if</span> <span class="ow">not</span> <span class="n">fileName</span><span class="p">:</span>
-</span><span class='line'>    <span class="k">return</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">sys</span>
+</span><span class='line'><span class="kn">from</span> <span class="nn">PyQt4.QtCore</span> <span class="kn">import</span> <span class="n">QEvent</span><span class="p">,</span> <span class="n">QThread</span>
+</span><span class='line'><span class="kn">from</span> <span class="nn">PyQt4.QtGui</span> <span class="kn">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QTextEdit</span>
 </span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">MyEvent</span><span class="p">(</span><span class="n">QEvent</span><span class="p">):</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+</span><span class='line'><span class="n">QEvent</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">QEvent</span><span class="o">.</span><span class="n">User</span><span class="p">)</span>
+</span><span class='line'><span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Timer</span><span class="p">(</span><span class="n">QThread</span><span class="p">):</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event_receiver</span><span class="p">):</span>
+</span><span class='line'><span class="n">QThread</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+</span><span class='line'><span class="bp">self</span><span class="o">.</span><span class="n">event_receiver</span> <span class="o">=</span> <span class="n">event_receiver</span>
+</span><span class='line'><span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span class='line'><span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+</span><span class='line'><span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">+=</span> <span class="mi">1</span>
+</span><span class='line'><span class="n">QApplication</span><span class="o">.</span><span class="n">postEvent</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">event_receiver</span><span class="p">,</span> <span class="n">MyEvent</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">))</span>
+</span><span class='line'><span class="bp">self</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Display</span><span class="p">(</span><span class="n">QTextEdit</span><span class="p">):</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">customEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+</span><span class='line'><span class="k">if</span> <span class="nb">isinstance</span> <span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">MyEvent</span><span class="p">):</span>
+</span><span class='line'><span class="bp">self</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;time = </span><span class="si">%i</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">event</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">a</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+</span><span class='line'><span class="n">display</span> <span class="o">=</span> <span class="n">Display</span><span class="p">()</span>
+</span><span class='line'><span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">timer</span> <span class="o">=</span> <span class="n">Timer</span><span class="p">(</span><span class="n">display</span><span class="p">)</span>
+</span><span class='line'><span class="n">timer</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
 </span></code></pre></td></tr></table></div></figure>
 
 </div>
@@ -536,7 +275,7 @@ and runlevel [5]<br/>
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2012/05/24/dobavlieniie-novogho-posta-i-nachalnyi-tiunningh/">Добавление нового поста и начальный тюннинг</a></h1>
+      <h1 class="entry-title"><a href="/blog/2012/05/29/ipython-for-python3-dot-2-windowsxp/">Ipython for python3.2 WindowsXP</a></h1>
     
     
       <p class="meta">
@@ -552,28 +291,407 @@ and runlevel [5]<br/>
   
 
 
-<time datetime="2012-05-24T15:23:00+04:00" pubdate data-updated="true">May 24<span>th</span>, 2012</time>
+<time datetime="2012-05-29T15:19:00+04:00" pubdate data-updated="true">May 29<span>th</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><h3>Добавление нового поста в Octopress</h3>
+  <div class="entry-content"><p>Вот, задался целью всё-таки забороть ipython для Python 3.2, и получилось :)</p>
 
-<p>К примеру этот пост был добавлен командой</p>
+<h3>Делал примерно так:</h3>
 
-<pre><code>* rake new_post["Добавление нового поста и начальный тюннинг"]
-</code></pre>
+<p>1.1. Поставил Python3.2: python-3.2.1.msi<br/>
+1.2. Пропишите пути к новому питону</p>
 
-<p>После new_post пробел не ставим, сразу идет квадратная скобочка, выгребете ошибку, будет создан файл new_post.markdown
-Далее octopress создает файл с названием слага и расширением markdown примерно такого содержания:</p>
+<ol>
+<li>distribute_setup.py : http://python-distribute.org/distribute_setup.py<br/>
+это для того чтобы заработал easy_install</li>
+</ol>
+
 
 </div>
   
   
     <footer>
-      <a rel="full-article" href="/blog/2012/05/24/dobavlieniie-novogho-posta-i-nachalnyi-tiunningh/">Читать до конца &rarr;</a>
+      <a rel="full-article" href="/blog/2012/05/29/ipython-for-python3-dot-2-windowsxp/">Читать до конца &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/05/29/intierprietator-dlia-pitonofilov/">Интерпретатор для Питонофилов</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-29T15:15:00+04:00" pubdate data-updated="true">May 29<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Раньше я использовал <strong>iPython</strong>, но хозяйки посоветовали мне <strong>DreamPie</strong>
+Установил под WindowsXP, при первом запуске пришлось фиксить выдало, что не может:</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/05/29/intierprietator-dlia-pitonofilov/">Читать до конца &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/05/29/mieniaiem-vriemia-na-ubuntie-na-pravilnoie/">Меняем время на убунте на правилное</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-29T15:12:00+04:00" pubdate data-updated="true">May 29<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><figure class='code'><figcaption><span>Вот как исправить переход с летнего на зимнее время в Ubuntu 10.10</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">#!/bin/sh </span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># Disallow winter time for Moscow </span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">echo</span> <span class="s2">&quot;Disable winter time for MoscoW&quot;</span>
+</span><span class='line'>
+</span><span class='line'>sleep 3
+</span><span class='line'>
+</span><span class='line'>mkdir ./temp1
+</span><span class='line'>
+</span><span class='line'><span class="nb">cd</span> ./temp1
+</span><span class='line'>
+</span><span class='line'><span class="c">#wget ftp://elsie.nci.nih.gov/pub/tzdata2011k.tar.gz  уже не работает</span>
+</span><span class='line'> wget http://people.freebsd.org/~edwin/tzdata2011k.tar.gz
+</span><span class='line'>
+</span><span class='line'>tar xzf tzdata2011k.tar.gz
+</span><span class='line'>
+</span><span class='line'>cp /etc/localtime /tmp/localtime.old
+</span><span class='line'>
+</span><span class='line'>zic europe
+</span><span class='line'>
+</span><span class='line'>ln -sf /usr/share/zoneinfo/Europe/Moscow /etc/localtime
+</span><span class='line'>
+</span><span class='line'><span class="nb">cd</span> ..
+</span><span class='line'>rm -rf ./temp1
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/05/29/django-cms-filer-plugin/">Django-cms Filer Plugin</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-29T15:09:00+04:00" pubdate data-updated="true">May 29<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Если вы решили использовать это django-cms filer plugin, то не забудьте сначала поставить filer, потом easy_thumbnails</p>
+
+<p>А если вы используете yandex maps plugin, то почему-то пришлось делать правильный шаблон, и в контекст передавать нормально свой ключ, а то не работает. Потом нужно подробно, это просто чтобы не забыть.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/05/29/dobavlieniie-robots-dot-txt-i-favicon-dot-ico-v-django-1-dot-3/">Добавление robots.txt и favicon.ico в Django 1.3</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-29T14:59:00+04:00" pubdate data-updated="true">May 29<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Добавляем следующее в urls.py и радуемся.
+Файл robots.txt кладём в папку с шаблонами страниц, примерное содержание robots.txt
+&lt;&#8211;! more &#8211;></p>
+
+<figure class='code'><figcaption><span>примерное содержание robots.txt</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">#</span>
+</span><span class='line'><span class="c"># robots.txt http://www.???.ru/</span>
+</span><span class='line'><span class="c"># </span>
+</span><span class='line'>
+</span><span class='line'>User-agent: *
+</span><span class='line'>Disallow: /admin
+</span><span class='line'>
+</span><span class='line'>User-agent: Yandex
+</span><span class='line'>Disallow: /admin
+</span><span class='line'>Host: www.???.ru
+</span><span class='line'>Crawl-delay: 10
+</span><span class='line'>
+</span><span class='line'>Sitemap: http://www.???.ru/sitemap.xml
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Иконку <strong>favicon.ico</strong> кладём в папку со статическими файлами сайта.</p>
+
+<figure class='code'><figcaption><span>Добавляем следующее в urls.py</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'> <span class="kn">from</span> <span class="nn">django.conf.urls.defaults</span> <span class="kn">import</span> <span class="n">patterns</span><span class="p">,</span> <span class="n">include</span><span class="p">,</span> <span class="n">url</span>
+</span><span class='line'> <span class="kn">from</span> <span class="nn">django.views.generic.base</span> <span class="kn">import</span> <span class="n">TemplateView</span><span class="p">,</span> <span class="n">RedirectView</span>
+</span><span class='line'>
+</span><span class='line'> <span class="k">class</span> <span class="nc">TextPlainView</span><span class="p">(</span><span class="n">TemplateView</span><span class="p">):</span>
+</span><span class='line'> <span class="k">def</span> <span class="nf">render_to_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+</span><span class='line'> <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">TextPlainView</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">render_to_response</span><span class="p">(</span>
+</span><span class='line'> <span class="n">context</span><span class="p">,</span> <span class="n">content_type</span><span class="o">=</span><span class="s">&#39;text/plain&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'> <span class="n">urlpatterns</span> <span class="o">=</span> <span class="n">patterns</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">,</span>
+</span><span class='line'> <span class="n">url</span><span class="p">(</span><span class="s">r&#39;^robots\.txt$&#39;</span><span class="p">,</span> <span class="n">TextPlainView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(</span><span class="n">template_name</span><span class="o">=</span><span class="s">&#39;robots.txt&#39;</span><span class="p">)),</span>
+</span><span class='line'> <span class="n">url</span><span class="p">(</span><span class="s">r&#39;^favicon\.ico$&#39;</span><span class="p">,</span> <span class="n">RedirectView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s">&#39;/media/img/favicon.ico&#39;</span><span class="p">)),</span>
+</span><span class='line'> <span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Зачем нужен robots.txt?</h3>
+
+<p>Для того чтобы поисковому боту сказать, куда заглядывать не нужно, наверняка ещё для чего-то, гуглить лень, можете добавить комменты зачем, перенесу в пост.</p>
+
+<h3>Зачем нужен favicon.ico?</h3>
+
+<p>Это иконка которая будет показываться в левом углу вкладки в браузере, и будет отображаться при добавлении в избранное, она в общем так и расшифровывается favicon (favorite  icon), типа любимая иконка.</p>
+
+<blockquote><p><strong>PS:</strong> Не забываем, что это не полный urls.py, а только те строчки, которые добавляют robots.txt и favicon.ico.</p></blockquote>
+
+<p> Я в первый раз попробовал это на сайте <a href="dok4you.ru">Женской консультации 2х2</a>  про акушерство, гинекологию и др.</p>
+
+<blockquote><p><strong>PPS:</strong> Возможно нужно ещё сказать джанге на хостинге
+ <code>python manage.py collectstatic</code>, как-то так, может с ошибкой</p></blockquote>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/05/29/wymeditor-django-cms-poprobui-zabori/">WYMeditor Django-cms попробуй забори</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-29T14:48:00+04:00" pubdate data-updated="true">May 29<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3>В общем сабж</h3>
+
+<p>В интернете нашёл только краткий пост <a href="http://markeev.labwr.ru/2010/02/django-cms-wymeditor.html">Ивана Маркеева</a></p>
+
+<p>Я не прочитал внимательно строчку:<br/>
+Приведенные <strong>WYM_STYLES</strong> определяют то, как контент будет выглядеть в редакторе.
+То есть просто как он будет выглядеть <strong>в редакторе</strong> :) В окошке редактирования</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/05/29/wymeditor-django-cms-poprobui-zabori/">Читать до конца &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/05/29/simple-shell-bash/">Как упростить себе жизнь в Shell/bash</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-29T14:37:00+04:00" pubdate data-updated="true">May 29<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3>Сочетания клавиш linux bash, shell.</h3>
+
+<p>Удобно пользоваться.</p>
+
+<h4>Быстро перемещаться по строчке</h4>
+
+<p><strong>Ctrl + A</strong> Переход в начало строки<br/>
+<strong>Ctrl + E</strong> Переход в конец строки</p>
+
+<p><strong>Alt + F</strong> Прыгать вперёд на слово (ещё может работать Ctrl+ стрелочка вправо)<br/>
+<strong>Alt + B</strong> Прыгать назад на слово (ещё может работать Ctrl+ стрелочка влево)</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/05/29/simple-shell-bash/">Читать до конца &rarr;</a>
     </footer>
   
 
@@ -595,23 +713,23 @@ and runlevel [5]<br/>
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2012/05/29/dobavlieniie-google-webmasters/">Добавление google webmasters</a>
+        <a href="/blog/2012/05/29/otladka-pochtovykh-soobshchienii-v-django/">Отладка почтовых сообщений в django</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2012/05/25/dobavlieniie-kommientariiev-v-octopress/">Добавление комментариев в Octopress</a>
+        <a href="/blog/2012/05/29/nariezka-mp3-failov-linux-ubuntu/">Нарезка mp3 файлов Linux Ubuntu</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2012/05/25/zamiena-lampochiek-v-podiezdie/">Замена лампочек в подъезде, парадной</a>
+        <a href="/blog/2012/05/29/threads-in-pyqt4/">Как правильно делать треды в PyQT4</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2012/05/25/sozdaniie-skhiemy-bazy-dannykh-iz-imieiushchieisia-bazy-dannykh-v-django/">Создание схемы базы данных из имеющейся базы данных в Django | database schema from existing database in django</a>
+        <a href="/blog/2012/05/29/ipython-for-python3-dot-2-windowsxp/">ipython for python3.2 WindowsXP</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2012/05/25/riemont-fonariei-ulichnogho-osvieshchieniia/">Ремонт фонарей уличного освещения, куда писать&#8230;</a>
+        <a href="/blog/2012/05/29/intierprietator-dlia-pitonofilov/">Интерпретатор для Питонофилов</a>
       </li>
     
   </ul>

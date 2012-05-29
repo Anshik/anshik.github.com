@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Linux | Ещё один блог]]></title>
   <link href="http://Anshik.github.com/blog/categories/linux/atom.xml" rel="self"/>
   <link href="http://Anshik.github.com/"/>
-  <updated>2012-05-29T12:11:45+04:00</updated>
+  <updated>2012-05-29T15:55:42+04:00</updated>
   <id>http://Anshik.github.com/</id>
   <author>
     <name><![CDATA[Anshik]]></name>
@@ -12,6 +12,43 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Меняем время на убунте на правилное]]></title>
+    <link href="http://Anshik.github.com/blog/2012/05/29/mieniaiem-vriemia-na-ubuntie-na-pravilnoie/"/>
+    <updated>2012-05-29T15:12:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2012/05/29/mieniaiem-vriemia-na-ubuntie-na-pravilnoie</id>
+    <content type="html"><![CDATA[<p>``` bash Вот как исправить переход с летнего на зимнее время в Ubuntu 10.10</p>
+
+<h1>!/bin/sh</h1>
+
+<h1>Disallow winter time for Moscow</h1>
+
+<p>echo "Disable winter time for MoscoW"</p>
+
+<p>sleep 3</p>
+
+<p>mkdir ./temp1</p>
+
+<p>cd ./temp1</p>
+
+<h1>wget ftp://elsie.nci.nih.gov/pub/tzdata2011k.tar.gz  уже не работает</h1>
+
+<p> wget http://people.freebsd.org/~edwin/tzdata2011k.tar.gz</p>
+
+<p>tar xzf tzdata2011k.tar.gz</p>
+
+<p>cp /etc/localtime /tmp/localtime.old</p>
+
+<p>zic europe</p>
+
+<p>ln -sf /usr/share/zoneinfo/Europe/Moscow /etc/localtime</p>
+
+<p>cd ..
+rm -rf ./temp1
+```</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Отключение иксов при загрузке Ubuntu (Start ubuntu with no X server)]]></title>

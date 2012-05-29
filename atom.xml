@@ -4,7 +4,7 @@
   <title><![CDATA[Ещё один блог]]></title>
   <link href="http://Anshik.github.com/atom.xml" rel="self"/>
   <link href="http://Anshik.github.com/"/>
-  <updated>2012-05-29T12:11:45+04:00</updated>
+  <updated>2012-05-29T15:55:42+04:00</updated>
   <id>http://Anshik.github.com/</id>
   <author>
     <name><![CDATA[Anshik]]></name>
@@ -14,11 +14,1200 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Отладка почтовых сообщений в django]]></title>
+    <link href="http://Anshik.github.com/blog/2012/05/29/otladka-pochtovykh-soobshchienii-v-django/"/>
+    <updated>2012-05-29T15:42:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2012/05/29/otladka-pochtovykh-soobshchienii-v-django</id>
+    <content type="html"><![CDATA[<p>python -m smtpd -n -c DebuggingServer localhost:25
+Эта одностроковая команда запускает сервер SMTP на порту 1025. Здесь используется стандартная библиотека smtpd для языка Python (задается при помощи -m smtpd) и передаются три аргумента: -n, -c DebuggingServer и localhost:1025.</p>
+
+<!-- more -->
+
+
+<p>Аргумент -n указывает Python-у не устанавливать для setuid (позволяет изменять пользователя) значение &#8220;nobody&#8221; — код будет работать под вашим пользователем.
+Аргумент -c DebuggingServer указывает Python-у использовать класс DebuggingServer в качестве реализации SMTP, которая печатает каждое получаемое сообщение в выходной поток stdout.
+Аргумент localhost:1025 указывает Python-у запускать SMTP сервер как locahost на порту1025.
+ Однако, если вы захотите запустить сервер на стандартном порту 25, вам нужно будет использовать команду sudo, поскольку только пользователь с правами root может запускать сервисы на портах 1 — 1024. Они также известны как привилегированные порты.</p>
+
+<p>Есть ещё какие-то приложения, которые запускаешь, шлёшь туда отладочную почту.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Нарезка mp3 файлов Linux Ubuntu]]></title>
+    <link href="http://Anshik.github.com/blog/2012/05/29/nariezka-mp3-failov-linux-ubuntu/"/>
+    <updated>2012-05-29T15:26:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2012/05/29/nariezka-mp3-failov-linux-ubuntu</id>
+    <content type="html"><![CDATA[<p>У меня есть плеер <a href="http://www.cowonrussia.ru/?action=products&amp;mode=search&amp;category_id=6&amp;product_id=27">Cowon E2</a>, флеша в нём 2 Гига.<br/>
+<strong>Плюсы:</strong></p>
+
+<ul>
+<li>удобный</li>
+<li>не прихотливый</li>
+<li>заряжается от usb</li>
+<li>переходник usb втыкается в аудио jack</li>
+<li>навигация по папкам</li>
+</ul>
+
+
+<!-- more -->
+
+
+<p><strong>Минусы</strong>:</p>
+
+<ul>
+<li>кнопка включения можеть быть нажата случайно</li>
+<li>он симметричен, на ощупь не определишь где power, где переключение режимов</li>
+</ul>
+
+
+<p>Иногда нажатие не на ту кнопку может привести к переключению на следующий трек, а если ты слушаешь книгу или подкаст длинной в 2 часа, то перемотка не вариант, поэтому я использую нарезку фалов mp3.</p>
+
+<p>Я пользовался в Windows <strong>mp3cut</strong>, а перейдя на Ubuntu пришлось искать альтернативу.</p>
+
+<p>При использовании mp3cut написал для себя скриптик, который открывает файл, и нарезает его.</p>
+
+<p>В ubuntu всё проще <strong>mp3splt</strong></p>
+
+<p><code>mp3splt -t 5.0 -o @n_@f -d ump_270 ump_podcast270.mp3</code></p>
+
+<p><strong>Комментарий:</strong><br/>
+ <code>-t</code> продолжительность кусочка<br/>
+ <code>-o</code> название выходного файла, в данном случае @счётчик_@название файла<br/>
+ <code>-d</code> название выходной директории</p>
+
+<p>и файл входной.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Как правильно делать треды в PyQT4]]></title>
+    <link href="http://Anshik.github.com/blog/2012/05/29/threads-in-pyqt4/"/>
+    <updated>2012-05-29T15:24:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2012/05/29/threads-in-pyqt4</id>
+    <content type="html"><![CDATA[<p><a href="http://www.linux.org.ru/forum/development/1529306">Тут</a> нашёл решение</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c">#!/usr/bin/env python</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># Вот примерно так оно делается.</span>
+</span><span class='line'>
+</span><span class='line'><span class="kn">import</span> <span class="nn">sys</span>
+</span><span class='line'><span class="kn">from</span> <span class="nn">PyQt4.QtCore</span> <span class="kn">import</span> <span class="n">QEvent</span><span class="p">,</span> <span class="n">QThread</span>
+</span><span class='line'><span class="kn">from</span> <span class="nn">PyQt4.QtGui</span> <span class="kn">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QTextEdit</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">MyEvent</span><span class="p">(</span><span class="n">QEvent</span><span class="p">):</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+</span><span class='line'><span class="n">QEvent</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">QEvent</span><span class="o">.</span><span class="n">User</span><span class="p">)</span>
+</span><span class='line'><span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Timer</span><span class="p">(</span><span class="n">QThread</span><span class="p">):</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event_receiver</span><span class="p">):</span>
+</span><span class='line'><span class="n">QThread</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+</span><span class='line'><span class="bp">self</span><span class="o">.</span><span class="n">event_receiver</span> <span class="o">=</span> <span class="n">event_receiver</span>
+</span><span class='line'><span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span class='line'><span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+</span><span class='line'><span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">+=</span> <span class="mi">1</span>
+</span><span class='line'><span class="n">QApplication</span><span class="o">.</span><span class="n">postEvent</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">event_receiver</span><span class="p">,</span> <span class="n">MyEvent</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">))</span>
+</span><span class='line'><span class="bp">self</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Display</span><span class="p">(</span><span class="n">QTextEdit</span><span class="p">):</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">customEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+</span><span class='line'><span class="k">if</span> <span class="nb">isinstance</span> <span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">MyEvent</span><span class="p">):</span>
+</span><span class='line'><span class="bp">self</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;time = </span><span class="si">%i</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">event</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">a</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+</span><span class='line'><span class="n">display</span> <span class="o">=</span> <span class="n">Display</span><span class="p">()</span>
+</span><span class='line'><span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">timer</span> <span class="o">=</span> <span class="n">Timer</span><span class="p">(</span><span class="n">display</span><span class="p">)</span>
+</span><span class='line'><span class="n">timer</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[ipython for python3.2 WindowsXP]]></title>
+    <link href="http://Anshik.github.com/blog/2012/05/29/ipython-for-python3-dot-2-windowsxp/"/>
+    <updated>2012-05-29T15:19:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2012/05/29/ipython-for-python3-dot-2-windowsxp</id>
+    <content type="html"><![CDATA[<p>Вот, задался целью всё-таки забороть ipython для Python 3.2, и получилось :)</p>
+
+<h3>Делал примерно так:</h3>
+
+<p>1.1. Поставил Python3.2: python-3.2.1.msi<br/>
+1.2. Пропишите пути к новому питону</p>
+
+<ol>
+<li>distribute_setup.py : http://python-distribute.org/distribute_setup.py<br/>
+это для того чтобы заработал easy_install</li>
+</ol>
+
+
+<!-- more -->
+
+
+<ol>
+<li><p>Дальше<br/>
+<code>easy_install http://archive.ipython.org/release/0.11/py3/ipython-0.11-py3.2.egg</code><br/>
+ставится ipython к папке <code>c:/python32/Scripts</code> тоже хорошо бы переменную <strong>path</strong> виндовса поправить</p></li>
+<li><p>Запускаем <code>ipython3.exe</code> в папке Scripts и ловим эксепшн, у меня во всяком случае было так:</p></li>
+</ol>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'> c:<span class="se">\P</span>ython32<span class="se">\S</span>cripts&gt;ipython3.exe
+</span><span class='line'> Error in sys.excepthook:
+</span><span class='line'> TypeError: _isdir<span class="o">()</span> takes exactly 1 argument <span class="o">(</span>0 given<span class="o">)</span>
+</span><span class='line'>
+</span><span class='line'> Original exception was:
+</span><span class='line'> Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
+</span><span class='line'> File <span class="s2">&quot;c:\Python32\Scripts\ipython3-script.py&quot;</span>, line 9, in
+</span><span class='line'> load_entry_point<span class="o">(</span><span class="s1">&#39;ipython==0.11&#39;</span>, <span class="s1">&#39;console_scripts&#39;</span>, <span class="s1">&#39;ipython3&#39;</span><span class="o">)()</span>
+</span><span class='line'> File <span class="s2">&quot;c:\Python32\lib\site-packages\ipython-0.11-py3.2.egg\IPython\frontend\te</span>
+</span><span class='line'><span class="s2">rminal\ipapp.py&quot;</span>, line 369, in launch_new_instance
+</span><span class='line'> app.initialize<span class="o">()</span>
+</span><span class='line'> File <span class="s2">&quot;c:\Python32\lib\site-packages\ipython-0.11-py3.2.egg\IPython\frontend\te</span>
+</span><span class='line'><span class="s2">rminal\ipapp.py&quot;</span>, line 283, in initialize
+</span><span class='line'> self.init_shell<span class="o">()</span>
+</span><span class='line'> File <span class="s2">&quot;c:\Python32\lib\site-packages\ipython-0.11-py3.2.egg\IPython\frontend\te</span>
+</span><span class='line'><span class="s2">rminal\ipapp.py&quot;</span>, line 303, in init_shell
+</span><span class='line'> <span class="nv">ipython_dir</span><span class="o">=</span>self.ipython_dir<span class="o">)</span>
+</span><span class='line'> File <span class="s2">&quot;c:\Python32\lib\site-packages\ipython-0.11-py3.2.egg\IPython\config\conf</span>
+</span><span class='line'><span class="s2">igurable.py&quot;</span>, line 295, in instance
+</span><span class='line'> <span class="nv">inst</span> <span class="o">=</span> cls<span class="o">(</span>*args, **kwargs<span class="o">)</span>
+</span><span class='line'> File <span class="s2">&quot;c:\Python32\lib\site-packages\ipython-0.11-py3.2.egg\IPython\frontend\te</span>
+</span><span class='line'><span class="s2">rminal\interactiveshell.py&quot;</span>, line 112, in __init__
+</span><span class='line'> <span class="nv">user_global_ns</span><span class="o">=</span>user_global_ns, <span class="nv">custom_exceptions</span><span class="o">=</span>custom_exceptions
+</span><span class='line'> File <span class="s2">&quot;c:\Python32\lib\site-packages\ipython-0.11-py3.2.egg\IPython\core\intera</span>
+</span><span class='line'><span class="s2">ctiveshell.py&quot;</span>, line 384, in __init__
+</span><span class='line'> self.db <span class="o">=</span> PickleShareDB<span class="o">(</span>os.path.join<span class="o">(</span>self.profile_dir.location, <span class="s1">&#39;db&#39;</span><span class="o">))</span>
+</span><span class='line'> File <span class="s2">&quot;c:\Python32\lib\site-packages\ipython-0.11-py3.2.egg\IPython\utils\pickl</span>
+</span><span class='line'><span class="s2">eshare.py&quot;</span>, line 52, in __init__
+</span><span class='line'> <span class="k">if </span>not self.root.isdir<span class="o">()</span>:
+</span><span class='line'>TypeError: _isdir<span class="o">()</span> takes exactly 1 argument <span class="o">(</span>0 given<span class="o">)</span>
+</span><span class='line'>
+</span><span class='line'>c:<span class="se">\P</span>ython32<span class="se">\S</span>cripts&gt;
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Решил я это так
+В файле <code>"c:\Python32\lib\site-packages\ipython-0.11-py3.2.egg\IPython\utils\pickleshare.py"</code><br/>
+В 52 строке закомментировал<br/>
+<code>#if not self.root.isdir():</code><br/>
+И 53-ей строкой написал следующее<br/>
+<code>if not os.path.isdir(self.root):</code></p>
+
+<p>Заработало, что не может не радовать.
+Единственное pyreadline ещё похоже нужно замучить</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Интерпретатор для Питонофилов]]></title>
+    <link href="http://Anshik.github.com/blog/2012/05/29/intierprietator-dlia-pitonofilov/"/>
+    <updated>2012-05-29T15:15:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2012/05/29/intierprietator-dlia-pitonofilov</id>
+    <content type="html"><![CDATA[<p>Раньше я использовал <strong>iPython</strong>, но хозяйки посоветовали мне <strong>DreamPie</strong>
+Установил под WindowsXP, при первом запуске пришлось фиксить выдало, что не может:</p>
+
+<!-- more -->
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>File <span class="s2">&quot;C:\Program Files\DreamPie\share\dreampie\subp_main.py&quot;</span>, line 30, in &lt;module&gt;
+</span><span class='line'> sys.setdefaultencoding<span class="o">(</span><span class="s1">&#39;utf-8&#39;</span><span class="o">)</span>
+</span><span class='line'>AttributeError: <span class="s1">&#39;module&#39;</span> object has no attribute <span class="s1">&#39;setdefaultencoding&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span>Фиксим в файле &#8220;c:\Program Files\DreamPie\share\dreampie\subp_main.py&#8221;</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'> <span class="kn">import</span> <span class="nn">platform</span>
+</span><span class='line'> <span class="k">if</span> <span class="ow">not</span> <span class="s">&quot;3.2&quot;</span> <span class="ow">in</span> <span class="n">platform</span><span class="o">.</span><span class="n">python_version</span><span class="p">():</span>
+</span><span class='line'>    <span class="n">sys</span><span class="o">.</span><span class="n">setdefaultencoding</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Альтернативные решения <a href="https://bugs.launchpad.net/dreampie/+bug/716377">данной</a> баги</p>
+
+<blockquote><p><strong>PS:</strong> признаться продолжаю пользоваться Ipython, привык, ничего не могу с собой поделать. Может нужно ещё раз посмотреть по-внимательнее</p></blockquote>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Меняем время на убунте на правилное]]></title>
+    <link href="http://Anshik.github.com/blog/2012/05/29/mieniaiem-vriemia-na-ubuntie-na-pravilnoie/"/>
+    <updated>2012-05-29T15:12:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2012/05/29/mieniaiem-vriemia-na-ubuntie-na-pravilnoie</id>
+    <content type="html"><![CDATA[<figure class='code'><figcaption><span>Вот как исправить переход с летнего на зимнее время в Ubuntu 10.10</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">#!/bin/sh </span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># Disallow winter time for Moscow </span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">echo</span> <span class="s2">&quot;Disable winter time for MoscoW&quot;</span>
+</span><span class='line'>
+</span><span class='line'>sleep 3
+</span><span class='line'>
+</span><span class='line'>mkdir ./temp1
+</span><span class='line'>
+</span><span class='line'><span class="nb">cd</span> ./temp1
+</span><span class='line'>
+</span><span class='line'><span class="c">#wget ftp://elsie.nci.nih.gov/pub/tzdata2011k.tar.gz  уже не работает</span>
+</span><span class='line'> wget http://people.freebsd.org/~edwin/tzdata2011k.tar.gz
+</span><span class='line'>
+</span><span class='line'>tar xzf tzdata2011k.tar.gz
+</span><span class='line'>
+</span><span class='line'>cp /etc/localtime /tmp/localtime.old
+</span><span class='line'>
+</span><span class='line'>zic europe
+</span><span class='line'>
+</span><span class='line'>ln -sf /usr/share/zoneinfo/Europe/Moscow /etc/localtime
+</span><span class='line'>
+</span><span class='line'><span class="nb">cd</span> ..
+</span><span class='line'>rm -rf ./temp1
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[django-cms filer plugin]]></title>
+    <link href="http://Anshik.github.com/blog/2012/05/29/django-cms-filer-plugin/"/>
+    <updated>2012-05-29T15:09:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2012/05/29/django-cms-filer-plugin</id>
+    <content type="html"><![CDATA[<p>Если вы решили использовать это django-cms filer plugin, то не забудьте сначала поставить filer, потом easy_thumbnails</p>
+
+<p>А если вы используете yandex maps plugin, то почему-то пришлось делать правильный шаблон, и в контекст передавать нормально свой ключ, а то не работает. Потом нужно подробно, это просто чтобы не забыть.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Добавление robots.txt и favicon.ico в Django 1.3]]></title>
+    <link href="http://Anshik.github.com/blog/2012/05/29/dobavlieniie-robots-dot-txt-i-favicon-dot-ico-v-django-1-dot-3/"/>
+    <updated>2012-05-29T14:59:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2012/05/29/dobavlieniie-robots-dot-txt-i-favicon-dot-ico-v-django-1-dot-3</id>
+    <content type="html"><![CDATA[<p>Добавляем следующее в urls.py и радуемся.
+Файл robots.txt кладём в папку с шаблонами страниц, примерное содержание robots.txt
+&lt;&#8211;! more &#8211;></p>
+
+<figure class='code'><figcaption><span>примерное содержание robots.txt</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">#</span>
+</span><span class='line'><span class="c"># robots.txt http://www.???.ru/</span>
+</span><span class='line'><span class="c"># </span>
+</span><span class='line'>
+</span><span class='line'>User-agent: *
+</span><span class='line'>Disallow: /admin
+</span><span class='line'>
+</span><span class='line'>User-agent: Yandex
+</span><span class='line'>Disallow: /admin
+</span><span class='line'>Host: www.???.ru
+</span><span class='line'>Crawl-delay: 10
+</span><span class='line'>
+</span><span class='line'>Sitemap: http://www.???.ru/sitemap.xml
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Иконку <strong>favicon.ico</strong> кладём в папку со статическими файлами сайта.</p>
+
+<figure class='code'><figcaption><span>Добавляем следующее в urls.py</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'> <span class="kn">from</span> <span class="nn">django.conf.urls.defaults</span> <span class="kn">import</span> <span class="n">patterns</span><span class="p">,</span> <span class="n">include</span><span class="p">,</span> <span class="n">url</span>
+</span><span class='line'> <span class="kn">from</span> <span class="nn">django.views.generic.base</span> <span class="kn">import</span> <span class="n">TemplateView</span><span class="p">,</span> <span class="n">RedirectView</span>
+</span><span class='line'>
+</span><span class='line'> <span class="k">class</span> <span class="nc">TextPlainView</span><span class="p">(</span><span class="n">TemplateView</span><span class="p">):</span>
+</span><span class='line'> <span class="k">def</span> <span class="nf">render_to_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+</span><span class='line'> <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">TextPlainView</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">render_to_response</span><span class="p">(</span>
+</span><span class='line'> <span class="n">context</span><span class="p">,</span> <span class="n">content_type</span><span class="o">=</span><span class="s">&#39;text/plain&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'> <span class="n">urlpatterns</span> <span class="o">=</span> <span class="n">patterns</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">,</span>
+</span><span class='line'> <span class="n">url</span><span class="p">(</span><span class="s">r&#39;^robots\.txt$&#39;</span><span class="p">,</span> <span class="n">TextPlainView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(</span><span class="n">template_name</span><span class="o">=</span><span class="s">&#39;robots.txt&#39;</span><span class="p">)),</span>
+</span><span class='line'> <span class="n">url</span><span class="p">(</span><span class="s">r&#39;^favicon\.ico$&#39;</span><span class="p">,</span> <span class="n">RedirectView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s">&#39;/media/img/favicon.ico&#39;</span><span class="p">)),</span>
+</span><span class='line'> <span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Зачем нужен robots.txt?</h3>
+
+<p>Для того чтобы поисковому боту сказать, куда заглядывать не нужно, наверняка ещё для чего-то, гуглить лень, можете добавить комменты зачем, перенесу в пост.</p>
+
+<h3>Зачем нужен favicon.ico?</h3>
+
+<p>Это иконка которая будет показываться в левом углу вкладки в браузере, и будет отображаться при добавлении в избранное, она в общем так и расшифровывается favicon (favorite  icon), типа любимая иконка.</p>
+
+<blockquote><p><strong>PS:</strong> Не забываем, что это не полный urls.py, а только те строчки, которые добавляют robots.txt и favicon.ico.</p></blockquote>
+
+<p> Я в первый раз попробовал это на сайте <a href="dok4you.ru">Женской консультации 2х2</a>  про акушерство, гинекологию и др.</p>
+
+<blockquote><p><strong>PPS:</strong> Возможно нужно ещё сказать джанге на хостинге
+ <code>python manage.py collectstatic</code>, как-то так, может с ошибкой</p></blockquote>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[WYMeditor Django-cms попробуй забори]]></title>
+    <link href="http://Anshik.github.com/blog/2012/05/29/wymeditor-django-cms-poprobui-zabori/"/>
+    <updated>2012-05-29T14:48:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2012/05/29/wymeditor-django-cms-poprobui-zabori</id>
+    <content type="html"><![CDATA[<h3>В общем сабж</h3>
+
+<p>В интернете нашёл только краткий пост <a href="http://markeev.labwr.ru/2010/02/django-cms-wymeditor.html">Ивана Маркеева</a></p>
+
+<p>Я не прочитал внимательно строчку:<br/>
+Приведенные <strong>WYM_STYLES</strong> определяют то, как контент будет выглядеть в редакторе.
+То есть просто как он будет выглядеть <strong>в редакторе</strong> :) В окошке редактирования</p>
+
+<!-- more -->
+
+
+<ol>
+<li>Для кастомизации <strong>WYMeditora</strong> в рамках <strong>Django-cms</strong> следует изменить свой файл настроек django проекта <strong>settings.py</strong>
+дописав в него примерно следующее:</li>
+</ol>
+
+
+<figure class='code'><figcaption><span>Это нужно добавить в settings.py</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c">#WYMEditor</span>
+</span><span class='line'><span class="n">WYM_TOOLS</span> <span class="o">=</span> <span class="s">&quot;,</span><span class="se">\n</span><span class="s">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span>
+</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;Bold&#39;, &#39;title&#39;: &#39;Strong&#39;, &#39;css&#39;: &#39;wym_tools_strong&#39;}&quot;</span><span class="p">,</span>
+</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;Italic&#39;, &#39;title&#39;: &#39;Emphasis&#39;, &#39;css&#39;: &#39;wym_tools_emphasis&#39;}&quot;</span><span class="p">,</span>
+</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;Superscript&#39;, &#39;title&#39;: &#39;Superscript&#39;, &#39;css&#39;: &#39;wym_tools_superscript&#39;}&quot;</span><span class="p">,</span>
+</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;Subscript&#39;, &#39;title&#39;: &#39;Subscript&#39;, &#39;css&#39;: &#39;wym_tools_subscript&#39;}&quot;</span><span class="p">,</span>
+</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;InsertOrderedList&#39;, &#39;title&#39;: &#39;Ordered_List&#39;, &#39;css&#39;: &#39;wym_tools_ordered_list&#39;}&quot;</span><span class="p">,</span>
+</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;InsertUnorderedList&#39;, &#39;title&#39;: &#39;Unordered_List&#39;, &#39;css&#39;: &#39;wym_tools_unordered_list&#39;}&quot;</span><span class="p">,</span>
+</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;Indent&#39;, &#39;title&#39;: &#39;Indent&#39;, &#39;css&#39;: &#39;wym_tools_indent&#39;}&quot;</span><span class="p">,</span>
+</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;Outdent&#39;, &#39;title&#39;: &#39;Outdent&#39;, &#39;css&#39;: &#39;wym_tools_outdent&#39;}&quot;</span><span class="p">,</span>
+</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;Undo&#39;, &#39;title&#39;: &#39;Undo&#39;, &#39;css&#39;: &#39;wym_tools_undo&#39;}&quot;</span><span class="p">,</span>
+</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;Redo&#39;, &#39;title&#39;: &#39;Redo&#39;, &#39;css&#39;: &#39;wym_tools_redo&#39;}&quot;</span><span class="p">,</span>
+</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;Paste&#39;, &#39;title&#39;: &#39;Paste_From_Word&#39;, &#39;css&#39;: &#39;wym_tools_paste&#39;}&quot;</span><span class="p">,</span>
+</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;ToggleHtml&#39;, &#39;title&#39;: &#39;HTML&#39;, &#39;css&#39;: &#39;wym_tools_html&#39;}&quot;</span><span class="p">,</span>
+</span><span class='line'> <span class="c">#&quot;{&#39;name&#39;: &#39;CreateLink&#39;, &#39;title&#39;: &#39;Link&#39;, &#39;css&#39;: &#39;wym_tools_link&#39;}&quot;,</span>
+</span><span class='line'> <span class="c">#&quot;{&#39;name&#39;: &#39;Unlink&#39;, &#39;title&#39;: &#39;Unlink&#39;, &#39;css&#39;: &#39;wym_tools_unlink&#39;}&quot;,</span>
+</span><span class='line'> <span class="c">#&quot;{&#39;name&#39;: &#39;InsertImage&#39;, &#39;title&#39;: &#39;Image&#39;, &#39;css&#39;: &#39;wym_tools_image&#39;}&quot;,</span>
+</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;InsertTable&#39;, &#39;title&#39;: &#39;Table&#39;, &#39;css&#39;: &#39;wym_tools_table&#39;}&quot;</span><span class="p">,</span>
+</span><span class='line'> <span class="c">#&quot;{&#39;name&#39;: &#39;Preview&#39;, &#39;title&#39;: &#39;Preview&#39;, &#39;css&#39;: &#39;wym_tools_preview&#39;}&quot;,</span>
+</span><span class='line'><span class="p">])</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">WYM_CONTAINERS</span> <span class="o">=</span> <span class="s">&quot;,</span><span class="se">\n</span><span class="s">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span>
+</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;P&#39;, &#39;title&#39;: &#39;Paragraph&#39;, &#39;css&#39;: &#39;wym_containers_p&#39;}&quot;</span><span class="p">,</span>
+</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;H1&#39;, &#39;title&#39;: &#39;Heading_1&#39;, &#39;css&#39;: &#39;wym_containers_h1&#39;}&quot;</span><span class="p">,</span>
+</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;H2&#39;, &#39;title&#39;: &#39;Heading_2&#39;, &#39;css&#39;: &#39;wym_containers_h2&#39;}&quot;</span><span class="p">,</span>
+</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;H3&#39;, &#39;title&#39;: &#39;Heading_3&#39;, &#39;css&#39;: &#39;wym_containers_h3&#39;}&quot;</span><span class="p">,</span>
+</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;H4&#39;, &#39;title&#39;: &#39;Heading_4&#39;, &#39;css&#39;: &#39;wym_containers_h4&#39;}&quot;</span><span class="p">,</span>
+</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;H5&#39;, &#39;title&#39;: &#39;Heading_5&#39;, &#39;css&#39;: &#39;wym_containers_h5&#39;}&quot;</span><span class="p">,</span>
+</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;H6&#39;, &#39;title&#39;: &#39;Heading_6&#39;, &#39;css&#39;: &#39;wym_containers_h6&#39;}&quot;</span><span class="p">,</span>
+</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;PRE&#39;, &#39;title&#39;: &#39;Preformatted&#39;, &#39;css&#39;: &#39;wym_containers_pre&#39;}&quot;</span><span class="p">,</span>
+</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;BLOCKQUOTE&#39;, &#39;title&#39;: &#39;Blockquote&#39;, &#39;css&#39;: &#39;wym_containers_blockquote&#39;}&quot;</span><span class="p">,</span>
+</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;TH&#39;, &#39;title&#39;: &#39;Table_Header&#39;, &#39;css&#39;: &#39;wym_containers_th&#39;}&quot;</span><span class="p">,</span>
+</span><span class='line'><span class="p">])</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">WYM_CLASSES</span> <span class="o">=</span> <span class="s">&quot;,</span><span class="se">\n</span><span class="s">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span>
+</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;date&#39;, &#39;title&#39;: &#39;PARA: Date&#39;, &#39;expr&#39;: &#39;p&#39;}&quot;</span><span class="p">,</span>
+</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;hidden-note&#39;, &#39;title&#39;: &#39;PARA: Hidden note&#39;, &#39;expr&#39;: &#39;p[@class!=</span><span class="se">\&quot;</span><span class="s">important</span><span class="se">\&quot;</span><span class="s">]&#39;}&quot;</span><span class="p">,</span>
+</span><span class='line'>
+</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;center&#39;, &#39;title&#39;: &#39;PARA: Center&#39;, &#39;expr&#39;: &#39;p&#39;}&quot;</span><span class="p">,</span>
+</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;contentheading&#39;, &#39;title&#39;: &#39;PARA: Center&#39;, &#39;expr&#39;: &#39;p, h1&#39;}&quot;</span><span class="p">,</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="p">])</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">WYM_STYLES</span> <span class="o">=</span> <span class="s">&quot;,</span><span class="se">\n</span><span class="s">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span>
+</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;.hidden-note&#39;, &#39;css&#39;: &#39;color: #999; border: 2px solid #ccc;&#39;}&quot;</span><span class="p">,</span>
+</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;.date&#39;, &#39;css&#39;: &#39;background-color: #ff9; border: 2px solid #ee9;&#39;}&quot;</span><span class="p">,</span>
+</span><span class='line'>
+</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;.center&#39;, &#39;css&#39;: &#39;border: 20px solid #9acd32; text-align:center;&#39;}&quot;</span><span class="p">,</span>
+</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;.contentheading&#39;, &#39;css&#39;: &#39;border: 5px solid #9acd32;&#39;}&quot;</span><span class="p">,</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="p">])</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Многие спросят чего так много?!</h3>
+
+<p>Это скопированно из стандартных настроек редактора
+<strong>/usr/local/lib/python2.6/dist-packages/django_cms-2.2-py2.6.egg/cms/plugins/text/settings.py</strong>
+Там читаем в начале коммент, для тех кто хочет подключить другой редактор, я не стал и дальше из того что скопировал в свой файл настроек django, поудалял строки такого вида:<br/>
+<strong>WYM_TOOLS = getattr(settings, &#8220;WYM_TOOLS&#8221;, WYM_TOOLS)</strong><br/>
+этой строкой он лезет в наш settings.py проекта и достаёт то что мы кастомизируем. Можно кастомизировать не всё,
+а только то, что нужно.</p>
+
+<h3>Теперь по делу</h3>
+
+<ol>
+<li><p>WYM_TOOLS - это то что мы хотим видеть из кнопок настройки, или утилит, к примеру я для себя раскоментировал &#8220;{&#8216;name&#8217;: &#8216;InsertTable&#8217;, &#8216;title&#8217;: &#8216;Table&#8217;, &#8216;css&#8217;: &#8216;wym_tools_table&#8217;}&#8221;,
+Чтобы появилась возможность добавлять таблицы</p></li>
+<li><p>WYM_CONTAINERS это, как следует из названия контейнеры. :)
+Как получилось у меня: для того чтобы применить свойство контейнера для этого нужно было изначально заключить кусок текста в контейнер. Не понятно?</p></li>
+</ol>
+
+
+<blockquote><p>При добавлении контента может случиться так, что вы добавите контент без тега, в смысле, что он не будет заключён в тег параграфа. Тогда вы не сможете применить свойство контейнера.
+Так что перед добавлением сначала нажмите пару раз Enter для появления в визуальном просмотре пары контейнеров <p></p></blockquote>
+
+<p>2.1 Для того чтобы применить контейнер, к примеру {Heading_1}
+Следует текст, который будет выделен этим тегом заключить в отдельный <code>&lt;p&gt;</code>
+И тогда уже выделять этот отдельный <code>&lt;p&gt;</code> и выбирать контейнер, они могут переключаться. Т.е, {Heading_1} можно поменять на {Heading_2} не переключаясь сначала в параграф.</p>
+
+<p><strong>Итог:</strong> текст для применения свойства контейнер должен находиться в теге <code>&lt;p&gt;</code></p>
+
+<h3>WYM_CLASSES</h3>
+
+<p>WYM_CLASSES пример:
+<code>"{'name': 'contentheading', 'title': 'PARA: Center', 'expr': 'p, h1'}",</code><br/>
+Тут мы приступаем к самому вкусному и непонятному.
+Данная строчка позволяет добавлять класс (contentheading) из нашей таблицы стилей сайта к заданным тегам:
+&#8216;expr&#8217;: &#8216;p, h1&#8217;, и отображаться это будет под названием &#8216;title&#8217;: &#8216;PARA: Center&#8217;. Что такое пара, не интересовался. Center можно заменить на своё. Но вообще и работает просто любой title, например Таблица, такой который будет вам понятен.</p>
+
+<p><strong>Другими словами:</strong> Добавили эту строчку, и к тегам <code>&lt;p&gt;</code>, <code>&lt;h1&gt;</code> можем нажатием на PARA: Center задавать класс contentheading заданному тегу.</p>
+
+<h3>WYM_STYLES</h3>
+
+<p>Вот эта строчка показывает нам что, если у нас в html коде встречается тег с классом .contentheading, то мы его обводим каёмочкой в 5 пикселей, и красим в цвет.
+<code>"{'name': '.contentheading', 'css': 'border: 5px solid #9acd32;'}",</code></p>
+
+<p>Вроде всё понятно.</p>
+
+<h3>Особенность</h3>
+
+<p>Заметил такую штуку, что когда мы применили {Classes} к параграфу, а потом решили сделать его всё-таки{Heading_1}, то нужно будет повторно применить класс, иначе он сбросится.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Как упростить себе жизнь в shell/bash]]></title>
+    <link href="http://Anshik.github.com/blog/2012/05/29/simple-shell-bash/"/>
+    <updated>2012-05-29T14:37:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2012/05/29/simple-shell-bash</id>
+    <content type="html"><![CDATA[<h3>Сочетания клавиш linux bash, shell.</h3>
+
+<p>Удобно пользоваться.</p>
+
+<h4>Быстро перемещаться по строчке</h4>
+
+<p><strong>Ctrl + A</strong> Переход в начало строки<br/>
+<strong>Ctrl + E</strong> Переход в конец строки</p>
+
+<p><strong>Alt + F</strong> Прыгать вперёд на слово (ещё может работать Ctrl+ стрелочка вправо)<br/>
+<strong>Alt + B</strong> Прыгать назад на слово (ещё может работать Ctrl+ стрелочка влево)</p>
+
+<!-- more -->
+
+
+<h4>Удобно удалять</h4>
+
+<p><strong>Ctrl + H</strong> как backspace только ближе :)</p>
+
+<p><strong>Ctrl + W</strong> Удалить слово перед курсором<br/>
+<strong>Ctrl + K</strong> Удалить до конца строки</p>
+
+<p><strong>Ctrl + L</strong>  очистка экрана, как команда clear<br/>
+<strong>Ctrl + U</strong> чистит от курсора до начала строки, если в конце, удалит всё</p>
+
+<h4>Менять местами</h4>
+
+<p><strong>Ctrl + T</strong> поменять 2 буковки местами перед курсором<br/>
+<strong>Alt + T</strong> поменять два слова слева от курсора местами</p>
+
+<h4>Работа с процессами</h4>
+
+<p><strong>Ctrl + C</strong> убить что выполнялось<br/>
+<strong>Ctrl + D</strong> выйти из текущего shell<br/>
+<strong>Ctrl + Z</strong> Засунуть в фон, вернуть fg</p>
+
+<h4>Другая вкусняшка</h4>
+
+<p><strong>Tab</strong> заканчивает названия команд и названия файлов/папок<br/>
+<strong>Ctrl + R</strong> поиск по истроии<br/>
+<strong>!</strong> вызов уже исполнявшейся команды пишем восклицательный знак и первые символы команды, будьте аккуратны с брутальными командами типа rm -rf :)<br/>
+<strong>!xxx:p</strong> где xxx, это тоже самое, что и в !(первые буквы(а)) команды, &#8220;флаг&#8221; <strong>:p</strong> позволяет не выполнять эту команду, а только отобразить, безопасный пример:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>rm -rf *
+</span><span class='line'>!r:p
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Отобразит, но не выполнит</p>
+
+<blockquote><p>rm -rf *</p></blockquote>
+
+<p> Есть ещё много разных, но забивать себе голову ими не хочу. Этого должно хватить</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Использование редактора Sublime Text 2]]></title>
+    <link href="http://Anshik.github.com/blog/2012/05/29/ispolzovaniie-riedaktora-sublime-text-2/"/>
+    <updated>2012-05-29T14:24:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2012/05/29/ispolzovaniie-riedaktora-sublime-text-2</id>
+    <content type="html"><![CDATA[<h3>Настройка</h3>
+
+<p>В sublime интересная система настроек: не нужно выбирать кучу флажочков и ползать по меню. Для этого есть несколько текстовых файлов с настройками. Опишу некоторые возможности:</p>
+
+<p><strong>Preferences->GlobalSettings-Default</strong> - это, как видно из названия файл настроек по-умолчанию
+<strong>Preferences->GlobalSettings-User</strong> - это пользовательский файл настроек. Настройки из пользовательского файла перекрывают файл настроек по-умолчанию.</p>
+
+<!-- more -->
+
+
+<p>Первый файл под линуксом лежит в папке <strong>~/.config/sublime-text-2/Packages/Default</strong>
+А второй в папке <strong>~/.config/sublime-text-2/Packages/User</strong>.</p>
+
+<p>Обзор полезных, на мой взгляд настроек файла Global.sublime-settings, а чего-то не нашёл таковых :).</p>
+
+<p>Есть другой более полезный файл настроек: Preferences->File Settings-Default под названием Base File.sublime-settings-Default в нём можно подсмотреть что можно поменять. А менять мы будем в файле <strong>Preferences->File Settings-User</strong> под названием <strong>Base File.sublime-settings-Default</strong>.</p>
+
+<p>При добавлении настроек в файл пользователя обратите внимание, что строчки добавляются внутрь фигурных скобочек, и последняя строчка внутри скобочек не должна заканчиваться запятой, хотя редактор умный и парсит изменения, которые вносит пользователь, и если нужно ругнётся.</p>
+
+<p>Итак настройки:
+Обычно, чтобы включить true, выключить false</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="o">//</span> <span class="n">Set</span> <span class="n">to</span> <span class="n">false</span> <span class="n">to</span> <span class="n">prevent</span> <span class="n">line</span> <span class="n">numbers</span> <span class="n">being</span> <span class="n">drawn</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">gutter</span>
+</span><span class='line'><span class="o">//</span> <span class="err">номера</span> <span class="err">строк</span>
+</span><span class='line'><span class="s">&quot;line_numbers&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">//</span> <span class="n">Columns</span> <span class="ow">in</span> <span class="n">which</span> <span class="n">to</span> <span class="n">display</span> <span class="n">vertical</span> <span class="n">rulers</span>
+</span><span class='line'><span class="o">//</span> <span class="err">добавить</span> <span class="err">линейки</span><span class="p">,</span> <span class="err">кому</span> <span class="err">нужно</span><span class="p">,</span> <span class="err">забавная</span> <span class="err">фича</span><span class="p">,</span> <span class="err">по</span> <span class="err">умолчанию</span> <span class="err">выключена</span>
+</span><span class='line'><span class="o">//</span><span class="s">&quot;rulers&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="o">//</span> <span class="err">пример</span> <span class="err">добавляет</span> <span class="err">две</span> <span class="err">линейки</span> <span class="err">на</span> <span class="err">позиции</span> <span class="mi">5</span> <span class="err">и</span> <span class="mi">10</span>
+</span><span class='line'><span class="s">&quot;rulers&quot;</span><span class="p">:</span> <span class="p">[],</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">//</span> <span class="n">Set</span> <span class="n">to</span> <span class="n">true</span> <span class="n">to</span> <span class="n">turn</span> <span class="n">spell</span> <span class="n">checking</span> <span class="n">on</span> <span class="n">by</span> <span class="n">default</span>
+</span><span class='line'><span class="o">//</span> <span class="err">Проверка</span> <span class="err">на</span> <span class="err">ошибки</span> <span class="err">по</span> <span class="err">умолчанию</span><span class="o">.</span> <span class="err">Если</span> <span class="err">хочется</span><span class="p">,</span> <span class="err">то</span> <span class="err">можно</span> <span class="err">подключить</span> <span class="err">русский</span> <span class="err">словарь</span><span class="p">,</span> <span class="err">я</span> <span class="err">подключал</span><span class="o">.</span>
+</span><span class='line'><span class="s">&quot;spell_check&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">//</span> <span class="n">Word</span> <span class="nb">list</span> <span class="n">to</span> <span class="n">use</span> <span class="k">for</span> <span class="n">spell</span> <span class="n">checking</span>
+</span><span class='line'><span class="o">//</span> <span class="err">Подключение</span> <span class="err">словаря</span>
+</span><span class='line'><span class="s">&quot;dictionary&quot;</span><span class="p">:</span> <span class="s">&quot;Packages/Language - English/en_US.dic&quot;</span><span class="p">,</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">//</span> <span class="n">The</span> <span class="n">number</span> <span class="n">of</span> <span class="n">spaces</span> <span class="n">a</span> <span class="n">tab</span> <span class="ow">is</span> <span class="n">considered</span> <span class="n">equal</span> <span class="n">to</span>
+</span><span class='line'><span class="o">//</span> <span class="err">количество</span> <span class="err">пробелов</span><span class="p">,</span> <span class="err">при</span> <span class="err">нажатии</span> <span class="n">tab</span><span class="p">,</span> <span class="err">хорошее</span> <span class="err">число</span> <span class="mi">4</span><span class="p">,</span> <span class="err">как</span> <span class="err">у</span> <span class="err">всех</span>
+</span><span class='line'><span class="s">&quot;tab_size&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">//</span> <span class="n">Set</span> <span class="n">to</span> <span class="n">true</span> <span class="n">to</span> <span class="n">insert</span> <span class="n">spaces</span> <span class="n">when</span> <span class="n">tab</span> <span class="ow">is</span> <span class="n">pressed</span>
+</span><span class='line'><span class="o">//</span> <span class="err">Установить</span> <span class="err">в</span> <span class="n">true</span> <span class="err">чтобы</span> <span class="err">вставлять</span> <span class="err">пробелы</span> <span class="err">вместо</span> <span class="n">tab</span><span class="p">,</span> <span class="err">если</span> <span class="err">нажимаем</span> <span class="n">tab</span><span class="p">,</span> <span class="err">я</span> <span class="err">обычно</span> <span class="err">ставлю</span> <span class="err">в</span> <span class="n">true</span>
+</span><span class='line'><span class="s">&quot;translate_tabs_to_spaces&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span> <span class="o">//</span> <span class="n">true</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">//</span> <span class="n">The</span> <span class="n">encoding</span> <span class="n">to</span> <span class="n">use</span> <span class="n">when</span> <span class="n">the</span> <span class="n">encoding</span> <span class="n">can</span><span class="s">&#39;t be determined automatically.</span>
+</span><span class='line'><span class="o">//</span> <span class="n">ASCII</span><span class="p">,</span> <span class="n">UTF</span><span class="o">-</span><span class="mi">8</span> <span class="ow">and</span> <span class="n">UTF</span><span class="o">-</span><span class="mi">16</span> <span class="n">encodings</span> <span class="n">will</span> <span class="n">be</span> <span class="n">automatically</span> <span class="n">detected</span><span class="o">.</span>
+</span><span class='line'><span class="o">//</span> <span class="err">Если</span> <span class="err">файл</span> <span class="err">находится</span> <span class="err">не</span> <span class="err">в</span> <span class="err">кодировке</span> <span class="n">UTF</span><span class="o">-</span><span class="mi">8</span> <span class="err">и</span> <span class="err">не</span> <span class="err">в</span> <span class="n">UTF</span><span class="o">-</span><span class="mi">16</span><span class="p">,</span> <span class="err">то</span> <span class="err">в</span> <span class="err">какой</span> <span class="err">кодировке</span> <span class="err">его</span> <span class="err">открывать</span><span class="o">.</span> <span class="err">Для</span> <span class="err">большинства</span> <span class="err">русских</span> <span class="err">виндоузятников</span><span class="p">,</span> <span class="err">копировать</span> <span class="err">раскоментированную</span> <span class="err">строчку</span>
+</span><span class='line'><span class="o">//</span><span class="s">&quot;fallback_encoding&quot;</span><span class="p">:</span> <span class="s">&quot;Western (Windows 1252)&quot;</span><span class="p">,</span>
+</span><span class='line'><span class="s">&quot;fallback_encoding&quot;</span><span class="p">:</span> <span class="s">&quot;Cyrillic (Windows 1251)&quot;</span><span class="p">,</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Настроек, больше, кому нужно разберётся, начальные я рассказал.
+Есть ещё файл с <strong>горячими клавишами</strong>, тоже можно разобраться, если нужно.</p>
+
+<h3>Горячие клавиши, которые нужно знать</h3>
+
+<p><strong>ctrl+p</strong> [show_files] - данное сочтание клавиш позволяет открыть/искать по разным файлам проекта, открытым, или находящимся в проекте<br/>
+<strong>ctrl+r</strong> - поиск по именам функций, структур, похоже на список функций, &#8220;@&#8221;<br/>
+<strong>ctrl+g</strong> - переход на строчку &#8220;:&#8221;<br/>
+<strong>ctrl+;</strong> - поиск по переменным &#8220;#&#8221;</p>
+
+<p>Символы &#8220;@, :, #&#8221; можно комбинировать, пример, вызываем строчку <strong>ctrl+p</strong>
+далее вводим какие-то буквы из имени файла, к примеру у меня открыт файл <strong>Default(Linux).sublime-keymap</strong>
+Для того, чтобы его выбрать достаточно ввести &#8220;deup&#8221;, редактор может понять и гораздо раньше, что вам нужно и подсветит введённые вами буквы в слове. Дальше можно скомбинировать <strong>ctrl+p</strong>, затем <strong>deup#ctrl</strong>, мы перейдём на первое вхождение ctrl, не так интересно, если бы рассматривали файл с кодом, можно было бы найти переменную с именем. Повторюсь, не обязательно помнить дословно, главное хотябы пару букв в нужном порядке :).</p>
+
+<p><strong>ctrl+shift+p</strong> - вот это тоже шикарное сочитание клавиш <em>&#8220;command_palette&#8221;</em>, позволяет менять настройки редактора, маленький пример:<br/>
+нажимаем <strong>ctrl+shift+p</strong>, затем вводим map, и эта команда нам уберёт/покажет миникарту файла.</p>
+
+<h3>Выделение столбика</h3>
+
+<p>Редактор без возможности редактировать столбики не редактор, по моему мнению</p>
+
+<h4>Мышкой</h4>
+
+<p><em>Windows</em><br/>
+Right Mouse Button + Shift
+OR: Middle Mouse Button
+Add to selection: Ctrl
+Subtract from selection: Alt</p>
+
+<p><em>Linux</em><br/>
+Right Mouse Button + Shift
+Add to selection: Ctrl
+Subtract from selection: Alt</p>
+
+<h3>Клавиатурой</h3>
+
+<p>Windows, Linux
+Ctrl + Alt + Up
+Ctrl + Alt + Down</p>
+
+<blockquote><p>у меня в линуксе клавиатурой так не работает :(</p></blockquote>
+
+<h3>Запуск приложения python</h3>
+
+<p>Выбираем билдер (у нас python):</p>
+
+<p>Tools -> Build System -> (choose) Python</p>
+
+<p>ctrl+b - запустит приложение</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Django ORM без Джанги]]></title>
+    <link href="http://Anshik.github.com/blog/2012/05/29/django-orm-biez-dzhanghi/"/>
+    <updated>2012-05-29T14:17:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2012/05/29/django-orm-biez-dzhanghi</id>
+    <content type="html"><![CDATA[<h3>Буду краток</h3>
+
+<p><strong>Проблема:</strong> использовать прелести Django ORM, а он хорош, но для проекта, который не для веба.</p>
+
+<p>Есть ответы на <a href="http://stackoverflow.com/questions/579511/using-only-the-db-part-of-django">stackoverflow</a>,
+а вот <a href="http://pypi.python.org/pypi/django-standalone">это</a> я не пробовал.</p>
+
+<!-- more -->
+
+
+<h3>Опишу свой путь</h3>
+
+<p>файл <strong>settings.py</strong></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c"># -*- coding: utf-8 -*-</span>
+</span><span class='line'>
+</span><span class='line'><span class="kn">import</span> <span class="nn">os</span>
+</span><span class='line'><span class="n">gettext</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span>
+</span><span class='line'><span class="n">PROJECT_PATH</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">))</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="n">DEBUG</span> <span class="o">=</span> <span class="bp">True</span>
+</span><span class='line'><span class="n">TEMPLATE_DEBUG</span> <span class="o">=</span> <span class="n">DEBUG</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">ADMINS</span> <span class="o">=</span> <span class="p">(</span>
+</span><span class='line'> <span class="c"># (&#39;Your Name&#39;, &#39;your_email@example.com&#39;),</span>
+</span><span class='line'><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">LANGUAGES</span> <span class="o">=</span> <span class="p">[</span>
+</span><span class='line'> <span class="p">(</span><span class="s">&#39;ru&#39;</span><span class="p">,</span> <span class="s">&#39;ru&#39;</span><span class="p">),</span>
+</span><span class='line'><span class="p">]</span>
+</span><span class='line'><span class="n">DEFAULT_LANGUAGE</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'> <span class="s">&#39;default&#39;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class='line'> <span class="s">&#39;ENGINE&#39;</span><span class="p">:</span> <span class="s">&#39;django.db.backends.sqlite3&#39;</span><span class="p">,</span> <span class="c"># Add &#39;postgresql_psycopg2&#39;, &#39;postgresql&#39;, &#39;mysql&#39;, &#39;sqlite3&#39; or &#39;oracle&#39;.</span>
+</span><span class='line'> <span class="s">&#39;NAME&#39;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PROJECT_PATH</span><span class="p">,</span> <span class="s">&#39;crimson.sqlite&#39;</span><span class="p">),</span>
+</span><span class='line'> <span class="s">&#39;USER&#39;</span><span class="p">:</span> <span class="s">&#39;&#39;</span><span class="p">,</span> <span class="c"># Not used with sqlite3.</span>
+</span><span class='line'> <span class="s">&#39;PASSWORD&#39;</span><span class="p">:</span> <span class="s">&#39;&#39;</span><span class="p">,</span> <span class="c"># Not used with sqlite3.</span>
+</span><span class='line'> <span class="s">&#39;HOST&#39;</span><span class="p">:</span> <span class="s">&#39;&#39;</span><span class="p">,</span> <span class="c"># Set to empty string for localhost. Not used with sqlite3.</span>
+</span><span class='line'> <span class="s">&#39;PORT&#39;</span><span class="p">:</span> <span class="s">&#39;&#39;</span><span class="p">,</span> <span class="c"># Set to empty string for default. Not used with sqlite3.</span>
+</span><span class='line'> <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">TEST_DATABASE_CHARSET</span> <span class="o">=</span> <span class="s">&quot;utf8&quot;</span>
+</span><span class='line'><span class="n">TEST_DATABASE_COLLATION</span> <span class="o">=</span> <span class="s">&quot;utf8_general_ci&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">TIME_ZONE</span> <span class="o">=</span> <span class="s">&#39;Europe/Moscow&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">LANGUAGE_CODE</span> <span class="o">=</span> <span class="s">&#39;ru-RU&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">SITE_ID</span> <span class="o">=</span> <span class="mi">1</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">USE_I18N</span> <span class="o">=</span> <span class="bp">True</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># If you set this to False, Django will not format dates, numbers and</span>
+</span><span class='line'><span class="c"># calendars according to the current locale</span>
+</span><span class='line'><span class="n">USE_L10N</span> <span class="o">=</span> <span class="bp">True</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">(</span>
+</span><span class='line'><span class="c"># &#39;django.contrib.auth&#39;,</span>
+</span><span class='line'><span class="c"># &#39;django.contrib.contenttypes&#39;,</span>
+</span><span class='line'><span class="c"># &#39;django.contrib.sessions&#39;,</span>
+</span><span class='line'><span class="c"># &#39;django.contrib.sites&#39;,</span>
+</span><span class='line'><span class="c"># &#39;django.contrib.messages&#39;,</span>
+</span><span class='line'><span class="c"># &#39;django.contrib.staticfiles&#39;,</span>
+</span><span class='line'> <span class="s">&#39;src.data_utils&#39;</span><span class="p">,</span>
+</span><span class='line'> <span class="s">&#39;src.crimsonmap&#39;</span><span class="p">,</span>
+</span><span class='line'><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Создаём у себя в корне проекта такой файл.</p>
+
+<p>Затем, там же в папке проекта <strong>manage.py</strong></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c">#!/usr/bin/env python</span>
+</span><span class='line'><span class="kn">from</span> <span class="nn">django.core.management</span> <span class="kn">import</span> <span class="n">execute_manager</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">imp</span>
+</span><span class='line'><span class="k">try</span><span class="p">:</span>
+</span><span class='line'> <span class="n">imp</span><span class="o">.</span><span class="n">find_module</span><span class="p">(</span><span class="s">&#39;settings&#39;</span><span class="p">)</span> <span class="c"># Assumed to be in the same directory.</span>
+</span><span class='line'><span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+</span><span class='line'> <span class="kn">import</span> <span class="nn">sys</span>
+</span><span class='line'> <span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;Error: Can&#39;t find the file &#39;settings.py&#39; in the directory containing </span><span class="si">%r</span><span class="s">. It appears you&#39;ve customized things.</span><span class="se">\n</span><span class="s">You&#39;ll have to run django-admin.py, passing it your settings module.</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">__file__</span><span class="p">)</span>
+</span><span class='line'> <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="kn">import</span> <span class="nn">settings</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+</span><span class='line'> <span class="n">execute_manager</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Ещё создаём пустой файл <strong><strong>init</strong>.py</strong></p>
+
+<p>И файл <strong>urls.py</strong></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">from</span> <span class="nn">django.conf.urls.defaults</span> <span class="kn">import</span> <span class="n">patterns</span><span class="p">,</span> <span class="n">include</span><span class="p">,</span> <span class="n">url</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># Uncomment the next two lines to enable the admin:</span>
+</span><span class='line'><span class="c"># from django.contrib import admin</span>
+</span><span class='line'><span class="c"># admin.autodiscover()</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">urlpatterns</span> <span class="o">=</span> <span class="n">patterns</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">,</span>
+</span><span class='line'> <span class="c"># Examples:</span>
+</span><span class='line'> <span class="c"># url(r&#39;^$&#39;, &#39;src.views.home&#39;, name=&#39;home&#39;),</span>
+</span><span class='line'> <span class="c"># url(r&#39;^src/&#39;, include(&#39;src.foo.urls&#39;)),</span>
+</span><span class='line'>
+</span><span class='line'> <span class="c"># Uncomment the admin/doc line below to enable admin documentation:</span>
+</span><span class='line'> <span class="c"># url(r&#39;^admin/doc/&#39;, include(&#39;django.contrib.admindocs.urls&#39;)),</span>
+</span><span class='line'>
+</span><span class='line'> <span class="c"># Uncomment the next line to enable the admin:</span>
+</span><span class='line'> <span class="c"># url(r&#39;^admin/&#39;, include(admin.site.urls)),</span>
+</span><span class='line'><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Теперь создаём папку с аппом, в котором будет лежать модель
+у меня это src -&lt;&#8212; корень проекта, crimsonmap, это поддиректория
+src/crimsonmap
+В этой поддиректории создаём пустой файл:
+<strong>init</strong>.py - это для того чтобы джанга поняла, что тут лежит апп
+models.py</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c"># coding: utf-8</span>
+</span><span class='line'><span class="kn">from</span> <span class="nn">django.utils.translation</span> <span class="kn">import</span> <span class="n">ugettext_lazy</span> <span class="k">as</span> <span class="n">_</span>
+</span><span class='line'><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Terrarian</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+</span><span class='line'>   <span class="n">ter_type</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">verbose_name</span><span class="o">=</span><span class="n">_</span><span class="p">(</span><span class="s">&#39;terrarian type&#39;</span><span class="p">),</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</span><span class='line'>   <span class="n">ter_color</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">verbose_name</span><span class="o">=</span><span class="n">_</span><span class="p">(</span><span class="s">&#39;terrarian color html&#39;</span><span class="p">),</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">default</span> <span class="o">=</span> <span class="s">&#39;red&#39;</span><span class="p">)</span>
+</span><span class='line'>   <span class="n">ter_hunting</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">FloatField</span><span class="p">(</span><span class="n">verbose_name</span><span class="o">=</span><span class="n">_</span><span class="p">(</span><span class="s">&#39;ter hunting percent&#39;</span><span class="p">),</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</span><span class='line'>   <span class="n">ter_meeting</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">FloatField</span><span class="p">(</span><span class="n">verbose_name</span><span class="o">=</span><span class="n">_</span><span class="p">(</span><span class="s">&#39;ter meeting percent&#39;</span><span class="p">),</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</span><span class='line'>   <span class="n">player_maybehere</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">BooleanField</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&#39;player may be here&#39;</span><span class="p">),</span> <span class="n">default</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Дальше как обычно из /src:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>python manage.py syncdb
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>создастся база данных и радость</p>
+
+<p>И затем, когда нужно использовать нашу базу:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">import</span> <span class="nn">os</span>
+</span><span class='line'><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">&quot;DJANGO_SETTINGS_MODULE&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;settings&quot;</span>
+</span><span class='line'><span class="kn">from</span> <span class="nn">models</span> <span class="kn">import</span> <span class="n">Terrarian</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Есть ещё пацанский метод заполнения базы данных, если кому нужно пишите в комментах, опишу, так лень.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Вкусные шорткаты Midnight Commander]]></title>
+    <link href="http://Anshik.github.com/blog/2012/05/29/vkusnyie-shortkaty-midnight-commander/"/>
+    <updated>2012-05-29T14:14:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2012/05/29/vkusnyie-shortkaty-midnight-commander</id>
+    <content type="html"><![CDATA[<p>Для каталогов:</p>
+
+<p><strong>Alt-y</strong> перемещение к предыдущему каталогу (который был открыт, не к верхнему)<br/>
+<strong>Alt-u</strong> перемещиени к следующему каталогу<br/>
+<strong>Alt-i</strong> Сделать текущий каталог текущим на второй панели<br/>
+<strong>Alt+o</strong> открыть текущий каталог на второй панели<br/>
+<strong>Alt+t</strong> переключение режимов</p>
+
+<p><strong>Alt+p</strong> Перемещение на предыдущую команду<br/>
+<strong>Alt+n</strong> Перемещение на следующую команду</p>
+
+<p><strong>Ctrl+x t (Ctrl+x Ctrl+t)</strong> копирует помеченые файлы в командную строку</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Замена ремонт почтового ящика]]></title>
+    <link href="http://Anshik.github.com/blog/2012/05/29/zamiena-riemont-pochtovogho-iashchika/"/>
+    <updated>2012-05-29T14:06:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2012/05/29/zamiena-riemont-pochtovogho-iashchika</id>
+    <content type="html"><![CDATA[<p>У меня была проблема: сломанный почтовый ящик (акт чьего-то вандализма :). Я погуглил в яндексе, и нашёл, что обычно ремонтировать не хотят.<br/>
+Ремонтно-эксплуатационные службы посылают - говорят нет рем-комплекта.<br/>
+Компании обслуживающие дом говорят, что мы производили замену почтовых ящиков N лет назад. И сейчас ваши проблемы с этим справляться.<br/>
+Почта к ящикам вообще никакого отношения не имеет.</p>
+
+<!-- more -->
+
+
+<h3>Решение</h3>
+
+<p> Я написал электронное письмо в Государственную жилищную инспекцию Санкт-Петербурга по адресу: gzhi собака <strong>gov.spb.ru</strong></p>
+
+<p> <a href="http://gov.spb.ru/gov/admin/otrasl/inspekcija">сайт</a></p>
+
+<p> В письме нужно указать следующее:</p>
+
+<p><strong>ФИО</strong> (лучше честные)<br/>
+<strong>Адрес</strong> ( Санкт-Петербург Улица NN  кв NN)<br/>
+<strong>телефон</strong> 8-xxx-xxx-xx-xx (мне на него не звонили, но на всякий случай)</p>
+
+<blockquote><ol>
+<li>У нас сломан почтовый ящик: отломана крыжка. Ящик находится в секции из 5 ящиков.
+ТСЖ и ремонтно-эксплуатационные службы не хотят ни ремонтировать (нет рем-комплекта), ни менять.</li>
+</ol>
+
+
+<p>Что можно сделать, и куда обратиться подскажите пожалуйста.</p></blockquote>
+
+<p>Излагать без лирики, по существу, так чтобы можно было коротко ответить, ответ придёт на почту бумажную, мне пришёл через 1.5 месяца, письмо шло месяц.</p>
+
+<h3>Результат</h3>
+
+<p>Ящик отремонтирован.</p>
+
+<p>Точного алгоритма работы жилищной инспекции я не знаю, но по моим ощущениям было примерно так:</p>
+
+<ol>
+<li>Послали человечка проверить, действительно ли сломано.</li>
+<li>Написать/позвонить представителям ТСЖ, объяснить, что не правы</li>
+<li>Получить подтверждение, что исправлено</li>
+<li>Написать вам письмо, какая работа проведена</li>
+</ol>
+
+
+<p>У меня на самом деле было два вопроса, второй по поводу замены фановых труб, их поменяли во всём доме, кроме нашего стояка.</p>
+
+<p>В ответном письме пришло, что они не смогли проверить состояние стояка, нет доступа в квартиру. Зато из ТСЖ пришла коммисия из 4х человек, написали акт, что стояк в удовлетворительном состоянии.</p>
+
+<p><strong>Результат: - </strong></p>
+
+<p> ТСЖ говорят, что замену стояков производил город, и городской подрядчик. А в ТСЖ не далёкие люди, не проконтролировали работу.</p>
+
+<p> По моему мнению, нужно снова покопаться в интернетах и написать ещё одно письмо с просьбой разобраться. На чьи деньги производился ремонт, кто нанимал подрядчиков, и куда ушли деньги за стояк.</p>
+
+<h5>PS</h5>
+
+<p>Возможно мне просто повезло и дело было перед выборами&#8230; Пишите в комментах кто найдет этот бложик, о результатах ваших обращений.</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Добавление google webmasters]]></title>
     <link href="http://Anshik.github.com/blog/2012/05/29/dobavlieniie-google-webmasters/"/>
     <updated>2012-05-29T12:05:00+04:00</updated>
     <id>http://Anshik.github.com/blog/2012/05/29/dobavlieniie-google-webmasters</id>
-    <content type="html"><![CDATA[<p>*** Данное решение подходит не только под Google, но и под Yandex</p>
+    <content type="html"><![CDATA[<h3>Данное решение подходит не только под Google, но и под Yandex</h3>
 
 <p>Для подтверждения прав владения сайтом нас просят добавить страничку на сайт, с названием примерно google9blablaf25be8.html и содержанием:</p>
 
@@ -522,281 +1711,6 @@ Friends of Cheat-Sheets.org
 Other Collectors
 After
 The only one you need</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Установка tortoisehg в Ubuntu]]></title>
-    <link href="http://Anshik.github.com/blog/2012/05/25/ustanovka-tortoisehg-v-ubuntu/"/>
-    <updated>2012-05-25T08:35:00+04:00</updated>
-    <id>http://Anshik.github.com/blog/2012/05/25/ustanovka-tortoisehg-v-ubuntu</id>
-    <content type="html"><![CDATA[<p>Всё очень просто:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>sudo add-apt-repository ppa:mercurial-ppa/releases
-</span><span class='line'><span class="nv">$ </span>sudo add-apt-repository ppa:tortoisehg-ppa/releases
-</span><span class='line'><span class="nv">$ </span>sudo apt-get update
-</span><span class='line'><span class="nv">$ </span>sudo apt-get install tortoisehg tortoisehg-nautilus
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Отключение иксов при загрузке Ubuntu (Start ubuntu with no X server)]]></title>
-    <link href="http://Anshik.github.com/blog/2012/05/25/otkliuchieniie-iksov-pri-zaghruzkie-ubuntu/"/>
-    <updated>2012-05-25T08:31:00+04:00</updated>
-    <id>http://Anshik.github.com/blog/2012/05/25/otkliuchieniie-iksov-pri-zaghruzkie-ubuntu</id>
-    <content type="html"><![CDATA[<p>Вписываем в файл <strong>/etc/init/gdm.conf</strong> строчку:<br/>
-and runlevel [5]<br/>
-это условия старта иксов. Для старта иксов нужен 5 runlevel а на этапе загрузки он ещё только второй.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>start on <span class="o">(</span>filesystem
-</span><span class='line'>and runlevel <span class="o">[</span>5<span class="o">]</span>
-</span><span class='line'>and started dbus
-</span><span class='line'>and <span class="o">(</span>drm-device-added card0 <span class="nv">PRIMARY_DEVICE_FOR_DISPLAY</span><span class="o">=</span>1
-</span><span class='line'>or stopped udevtrigger<span class="o">))</span>
-</span><span class='line'>stop on runlevel <span class="o">[</span>016<span class="o">]</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Таким образом мы не загружаем иксов. Для их запуска логинимся и выполняем команду startx.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Python выделение пути и имени файла]]></title>
-    <link href="http://Anshik.github.com/blog/2012/05/25/python-vydielieniie-puti-i-imieni-faila/"/>
-    <updated>2012-05-25T08:11:00+04:00</updated>
-    <id>http://Anshik.github.com/blog/2012/05/25/python-vydielieniie-puti-i-imieni-faila</id>
-    <content type="html"><![CDATA[<h3>В Python</h3>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">import</span> <span class="nn">os.path</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">myPath</span> <span class="o">=</span> <span class="s">&#39;/Users/t/web/perl-python/I_Love_You.html&#39;</span>
-</span><span class='line'><span class="p">(</span><span class="n">dirName</span><span class="p">,</span> <span class="n">fileName</span><span class="p">)</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">myPath</span><span class="p">)</span>
-</span><span class='line'><span class="p">(</span><span class="n">fileBaseName</span><span class="p">,</span> <span class="n">fileExtension</span><span class="p">)</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">fileName</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">print</span> <span class="n">dirName</span> <span class="c"># /Users/t/web/perl-python</span>
-</span><span class='line'><span class="k">print</span> <span class="n">fileName</span> <span class="c"># I_Love_You.html</span>
-</span><span class='line'><span class="k">print</span> <span class="n">fileBaseName</span> <span class="c"># I_Love_You</span>
-</span><span class='line'><span class="k">print</span> <span class="n">fileExtension</span> <span class="c"># .html</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>В QT</h3>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">filePath</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">filePath</span>
-</span><span class='line'><span class="k">if</span> <span class="ow">not</span> <span class="n">filePath</span><span class="p">:</span>
-</span><span class='line'>    <span class="n">filePath</span> <span class="o">=</span> <span class="s">&#39;../data&#39;</span>
-</span><span class='line'><span class="n">fileName</span> <span class="o">=</span> <span class="n">QFileDialog</span><span class="o">.</span><span class="n">getOpenFileName</span> <span class="p">(</span><span class="n">filePath</span><span class="p">,</span> <span class="s">&#39;Arrays (*.inf; *.INF)&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="s">&#39;Select Array&#39;</span><span class="p">)</span>
-</span><span class='line'><span class="k">if</span> <span class="ow">not</span> <span class="n">fileName</span><span class="p">:</span>
-</span><span class='line'>    <span class="k">return</span>
-</span><span class='line'>
-</span></code></pre></td></tr></table></div></figure>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Добавление нового поста и начальный тюннинг]]></title>
-    <link href="http://Anshik.github.com/blog/2012/05/24/dobavlieniie-novogho-posta-i-nachalnyi-tiunningh/"/>
-    <updated>2012-05-24T15:23:00+04:00</updated>
-    <id>http://Anshik.github.com/blog/2012/05/24/dobavlieniie-novogho-posta-i-nachalnyi-tiunningh</id>
-    <content type="html"><![CDATA[<h3>Добавление нового поста в Octopress</h3>
-
-<p>К примеру этот пост был добавлен командой</p>
-
-<pre><code>* rake new_post["Добавление нового поста и начальный тюннинг"]
-</code></pre>
-
-<p>После new_post пробел не ставим, сразу идет квадратная скобочка, выгребете ошибку, будет создан файл new_post.markdown
-Далее octopress создает файл с названием слага и расширением markdown примерно такого содержания:</p>
-
-<!-- more -->
-
-
-<pre><code>* layout: post
-* title: "Добавление нового поста и начальный тюннинг"
-* date: 2012-05-24 15:23
-* comments: true
-* categories: Octopress blogging использование
-</code></pre>
-
-<p>При написании категорий разделять запятыми не нужно</p>
-
-<h3>Меняем название блога</h3>
-
-<p>Идем в корень octopress, открываем файл _conifg.yml</p>
-
-<p>6 строка: title, меняем &#8220;My Octopress Blog&#8221; например на &#8220;Ещё один блог&#8221;</p>
-
-<p>7 строка: subtitle, тоже какой угодно, оставил пока как есть</p>
-
-<h3>Посмотреть что наменяли</h3>
-
-<p><strong>rake preview</strong></p>
-
-<h3>Можно добавить информацию о себе</h3>
-
-<p>Для добавления информации о себе, открываем файл _conifg.yml, и добавляем custom/asides/about.html.</p>
-
-<p>Затем меняем в _includes/custom/asides/about.html содержимое</p>
-
-<p>default_asides: [asides/recent_posts.html, asides/github.html, asides/twitter.html, asides/delicious.html, asides/pinboard.html, asides/googleplus.html, custom/asides/about.html]</p>
-
-<h3>Заметьте</h3>
-
-<p>Что наличие &#8220;ь&#8221; мягкого знака добавляет в слаг &#39; (апостроф), и к примеру у меня локальная ссылка такая не показывается.</p>
-
-<h3>Ни что так не упрощает жизнь, как внимательное чтение документации</h3>
-
-<h4>По поводу категорий</h4>
-
-<p>Правильно писать так :)</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c"># One category</span>
-</span><span class='line'><span class="n">categories</span><span class="p">:</span> <span class="n">Sass</span>
-</span><span class='line'>
-</span><span class='line'><span class="c"># Multiple categories example 1</span>
-</span><span class='line'><span class="n">categories</span><span class="p">:</span> <span class="p">[</span><span class="n">CSS3</span><span class="p">,</span> <span class="n">Sass</span><span class="p">,</span> <span class="n">Media</span> <span class="n">Queries</span><span class="p">]</span>
-</span><span class='line'>
-</span><span class='line'><span class="c"># Multiple categories example 2</span>
-</span><span class='line'><span class="n">categories</span><span class="p">:</span>
-</span><span class='line'><span class="o">-</span> <span class="n">CSS3</span>
-</span><span class='line'><span class="o">-</span> <span class="n">Sass</span>
-</span><span class='line'><span class="o">-</span> <span class="n">Media</span> <span class="n">Queries</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h4>По поводу <strong>cut</strong></h4>
-
-<p>Нужно поставить тег, пошёл везде ставить.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>&lt;!-- more --&gt;
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>Добавление изображения</h3>
-
-<p>Я создал папку <strong>blog_img</strong> в source и добавил картинку таким образом
-Формат тега такой, в начале нужно слеши убрать, добавил для экранирования:</p>
-
-<p><code>\{\% [img] [center] /../blog_img/my_project_visualized.png альт-описание \%\}</code></p>
-
-<p>до этого нужно было додуматься /../blog_img/my_project_visualized.png</p>
-
-<h3>Добавление SEO тегов</h3>
-
-<p>В заголовок файла *.markdown дописываем поля:</p>
-
-<p><strong>description:</strong> &#8220;описание страницы&#8221;<br/>
-<strong>keywords:</strong> &#8220;ключевые слова&#8221;</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Как я устанавливал Octopress]]></title>
-    <link href="http://Anshik.github.com/blog/2012/05/24/kak-ia-ustanavlival-octopress/"/>
-    <updated>2012-05-24T09:21:00+04:00</updated>
-    <id>http://Anshik.github.com/blog/2012/05/24/kak-ia-ustanavlival-octopress</id>
-    <content type="html"><![CDATA[<p>Очень сложно показалось, но потом разобрался.
-Главное <strong>читать внимательно</strong> документацию.
-<a href="http://octopress.org/">Сайт программы</a></p>
-
-<h3><a href="http://octopress.org/docs/setup/">Установка</a></h3>
-
-<!-- more -->
-
-
-<p>Тут проблем возникнуть не должно, я использовал RVM, чего и вам желаю.</p>
-
-<ul>
-<li>команду <strong>rake install</strong> запускаем из папки octopress.</li>
-</ul>
-
-
-<h3>Настройка и деплой</h3>
-
-<p>Вначале идем на <a href="github.com">Гитхаб</a>:</p>
-
-<ul>
-<li><p>Добавляем новый репозиторий <strong>Внимание</strong> он должен называться название_блога.github.com вот пример: git@github.com:Anshik/anshik.github.com.git. То есть при создании нового репозитория я вводил не просто anshik, а anshik.github.com. С этим я намучился, создавал вначале репозиторий просто anshik. И дальше скрипт setup_github_pages, вводил git@github.com:Anshik/anshik.git, а правильно
-git@github.com:Anshik/anshik.github.com.git. Почему так? Объясню :).</p></li>
-<li><p>при коротком названии без суффикса github.com, <a href="http://www.octopress.org">octopress</a> понимает это как Github Project pages (gh-pages), и пушит это автоматом в бранч gh-pages;</p></li>
-<li><p>дальше бедный github видит, что у вас есть такой бранч(gh-pages), выдает сообщение <em>notification</em> о том, что вы успешно добавили странички, и он их с удовольствием переработал. И их можно будет посмотреть по адресу:
-www.имя<em>неправильного</em>проекта.github.com/имя<em>неправильного</em>проекта, что нас совсем не устраивает.</p></li>
-</ul>
-
-
-<p>Тоже самое, только другими словами можно прочитать в документации Github Project pages. Но когда взгляд замылен и подсказать некому, можно и не заметить, что username.github.com, именно название репозитория, а не просто username.</p>
-
-<p>В общем:
-<strong>rake setup_github_pages</strong>
-вводим адрес репозитория.</p>
-
-<p>Дальше генерируем наш блог командой:</p>
-
-<p><strong>rake generate</strong>
-И деплоим (оно пушит в git само)
-<strong>rake deploy</strong></p>
-
-<p>Сгенерит блог, скопирует в _deploy/, добавит в git, закоммитит и запушит в мастер
-И через несколько секунд вы получите email от Github, говорящий, что коммит принят и будет опубликован на сайте</p>
-
-<p>Блог может показаться действительно минут через 10, и только если вам уведомление пришло :).</p>
-
-<h3>Заметил странное</h3>
-
-<p>Ну не очень странное, в опере русский шрифт не отображался
-Идем в source/_includes/custom/head.html, в этом файле в хедер подсасываются гугловские шрифты, на мой взгляд проблема была в этом, детально разбираться не стал, просто коммент делаем так :)</p>
-
-<blockquote><p>Fonts from Google&#8221;s Web font directory at http://google.com/webfonts
-link href=&#8221;http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic&#8221; rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221;
-link href=&#8221;http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic&#8221; rel=&#8221;stylesheet&#8221; type=&#8221;text/css&#8221; &#8211;>
-переносим конец коммента &#8211;> в конец файла</p></blockquote>
-
-<p>Ага, сам поймался, не закоментировал ;)</p>
 ]]></content>
   </entry>
   

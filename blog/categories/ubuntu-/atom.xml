@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Ubuntu, | Ещё один блог]]></title>
+  <link href="http://Anshik.github.com/blog/categories/ubuntu-/atom.xml" rel="self"/>
+  <link href="http://Anshik.github.com/"/>
+  <updated>2012-05-29T15:55:42+04:00</updated>
+  <id>http://Anshik.github.com/</id>
+  <author>
+    <name><![CDATA[Anshik]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Нарезка mp3 файлов Linux Ubuntu]]></title>
+    <link href="http://Anshik.github.com/blog/2012/05/29/nariezka-mp3-failov-linux-ubuntu/"/>
+    <updated>2012-05-29T15:26:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2012/05/29/nariezka-mp3-failov-linux-ubuntu</id>
+    <content type="html"><![CDATA[<p>У меня есть плеер <a href="http://www.cowonrussia.ru/?action=products&amp;mode=search&amp;category_id=6&amp;product_id=27">Cowon E2</a>, флеша в нём 2 Гига.<br/>
+<strong>Плюсы:</strong></p>
+
+<ul>
+<li>удобный</li>
+<li>не прихотливый</li>
+<li>заряжается от usb</li>
+<li>переходник usb втыкается в аудио jack</li>
+<li>навигация по папкам</li>
+</ul>
+
+
+<!-- more -->
+
+
+<p><strong>Минусы</strong>:</p>
+
+<ul>
+<li>кнопка включения можеть быть нажата случайно</li>
+<li>он симметричен, на ощупь не определишь где power, где переключение режимов</li>
+</ul>
+
+
+<p>Иногда нажатие не на ту кнопку может привести к переключению на следующий трек, а если ты слушаешь книгу или подкаст длинной в 2 часа, то перемотка не вариант, поэтому я использую нарезку фалов mp3.</p>
+
+<p>Я пользовался в Windows <strong>mp3cut</strong>, а перейдя на Ubuntu пришлось искать альтернативу.</p>
+
+<p>При использовании mp3cut написал для себя скриптик, который открывает файл, и нарезает его.</p>
+
+<p>В ubuntu всё проще <strong>mp3splt</strong></p>
+
+<p><code>mp3splt -t 5.0 -o @n_@f -d ump_270 ump_podcast270.mp3</code></p>
+
+<p><strong>Комментарий:</strong><br/>
+ <code>-t</code> продолжительность кусочка<br/>
+ <code>-o</code> название выходного файла, в данном случае @счётчик_@название файла<br/>
+ <code>-d</code> название выходной директории</p>
+
+<p>и файл входной.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Меняем время на убунте на правилное]]></title>
+    <link href="http://Anshik.github.com/blog/2012/05/29/mieniaiem-vriemia-na-ubuntie-na-pravilnoie/"/>
+    <updated>2012-05-29T15:12:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2012/05/29/mieniaiem-vriemia-na-ubuntie-na-pravilnoie</id>
+    <content type="html"><![CDATA[<p>``` bash Вот как исправить переход с летнего на зимнее время в Ubuntu 10.10</p>
+
+<h1>!/bin/sh</h1>
+
+<h1>Disallow winter time for Moscow</h1>
+
+<p>echo "Disable winter time for MoscoW"</p>
+
+<p>sleep 3</p>
+
+<p>mkdir ./temp1</p>
+
+<p>cd ./temp1</p>
+
+<h1>wget ftp://elsie.nci.nih.gov/pub/tzdata2011k.tar.gz  уже не работает</h1>
+
+<p> wget http://people.freebsd.org/~edwin/tzdata2011k.tar.gz</p>
+
+<p>tar xzf tzdata2011k.tar.gz</p>
+
+<p>cp /etc/localtime /tmp/localtime.old</p>
+
+<p>zic europe</p>
+
+<p>ln -sf /usr/share/zoneinfo/Europe/Moscow /etc/localtime</p>
+
+<p>cd ..
+rm -rf ./temp1
+```</p>
+]]></content>
+  </entry>
+  
+</feed>

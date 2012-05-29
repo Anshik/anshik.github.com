@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Django | Ещё один блог]]></title>
+  <title><![CDATA[Category: django | Ещё один блог]]></title>
   <link href="http://Anshik.github.com/blog/categories/django/atom.xml" rel="self"/>
   <link href="http://Anshik.github.com/"/>
-  <updated>2012-05-29T12:11:45+04:00</updated>
+  <updated>2012-05-29T15:55:42+04:00</updated>
   <id>http://Anshik.github.com/</id>
   <author>
     <name><![CDATA[Anshik]]></name>
@@ -14,84 +14,22 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Создание схемы базы данных из имеющейся базы данных в Django | database schema from existing database in django]]></title>
-    <link href="http://Anshik.github.com/blog/2012/05/25/sozdaniie-skhiemy-bazy-dannykh-iz-imieiushchieisia-bazy-dannykh-v-django/"/>
-    <updated>2012-05-25T08:49:00+04:00</updated>
-    <id>http://Anshik.github.com/blog/2012/05/25/sozdaniie-skhiemy-bazy-dannykh-iz-imieiushchieisia-bazy-dannykh-v-django</id>
-    <content type="html"><![CDATA[<h3>Сделал базу данных в django. Как сделать из неё картинку, схему базы данных?</h3>
-
-<p>Вот возник такой вопрос, и мне подсказали:<br/>
-<a href="http://code.google.com/p/django-command-extensions/">django-command-extensions</a> устанавливаете, потом manage.py graph_models, только надо еще <a href="http://www.graphviz.org/">graphviz</a> иметь в системе установленным</p>
+    <title type="html"><![CDATA[Отладка почтовых сообщений в django]]></title>
+    <link href="http://Anshik.github.com/blog/2012/05/29/otladka-pochtovykh-soobshchienii-v-django/"/>
+    <updated>2012-05-29T15:42:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2012/05/29/otladka-pochtovykh-soobshchienii-v-django</id>
+    <content type="html"><![CDATA[<p>python -m smtpd -n -c DebuggingServer localhost:25
+Эта одностроковая команда запускает сервер SMTP на порту 1025. Здесь используется стандартная библиотека smtpd для языка Python (задается при помощи -m smtpd) и передаются три аргумента: -n, -c DebuggingServer и localhost:1025.</p>
 
 <!-- more -->
 
 
-<h3>Более развёрнуто:</h3>
+<p>Аргумент -n указывает Python-у не устанавливать для setuid (позволяет изменять пользователя) значение "nobody" — код будет работать под вашим пользователем.
+Аргумент -c DebuggingServer указывает Python-у использовать класс DebuggingServer в качестве реализации SMTP, которая печатает каждое получаемое сообщение в выходной поток stdout.
+Аргумент localhost:1025 указывает Python-у запускать SMTP сервер как locahost на порту1025.
+ Однако, если вы захотите запустить сервер на стандартном порту 25, вам нужно будет использовать команду sudo, поскольку только пользователь с правами root может запускать сервисы на портах 1 — 1024. Они также известны как привилегированные порты.</p>
 
-<ul>
-<li>Если под убунтой, запускаем Synaptic, ставим:
-graphviz<br/>
-graphviz-doc<br/>
-graphviz-dev<br/>
-libgraphviz-dev<br/>
-libgraph4<br/>
-libxdot4<br/>
-убунта подскажет и выставит сама зависимости</li>
-<li><p>Качаем, либо достаём
-<a href="http://networkx.lanl.gov/pygraphviz/download.html">pygraphviz</a>
-Распаковываем, и мне пришлось раскомментировать в setup.py
-строчки:
-``` python</p>
-
-<h1>Linux, generic UNIX</h1>
-
-<p>library_path='/usr/lib/graphviz'
-include_path='/usr/include/graphviz'
-<code>
-Иначе ругается, что переменные не заданы.  
-потом
-</code> bash
-sudo python manage.py setup.py install
-```
-должно установиться.</p></li>
-<li><p>В наш проект джанги добавляем в приложения строчку</p></li>
-</ul>
-
-
-<p><code>python
- INSTALLED_APPS = (
-   'django_extensions',   # оно добавляет к нашим командам manage.py  graph_models
- )
-</code></p>
-
-<ul>
-<li>Теперь самое интересное
-``` bash
-
-<h1>Create a dot file</h1>
-
-$ ./manage.py graph_models -a > my_project.dot
-
-<h1>Create a PNG image file called my_project_visualized.png with application grouping</h1>
-
-$ ./manage.py graph_models -a -g -o my_project_visualized.png
-
-<h1>Create a dot file for only the 'foo' and 'bar' applications of your project</h1>
-
-<p>$ ./manage.py graph_models foo bar > my_project.dot
-```</p></li>
-</ul>
-
-
-<p>Я использовал команду</p>
-
-<p><code>bash
-$ ./manage.py graph_models -a -g -o my_project_visualized.png
-</code></p>
-
-<p>Для создания png-шечки, вот что получилось</p>
-
-<p><img class="center" src="/../blog_img/my_project_visualized.png" title="пример того, что получилось" ></p>
+<p>Есть ещё какие-то приложения, которые запускаешь, шлёшь туда отладочную почту.</p>
 ]]></content>
   </entry>
   

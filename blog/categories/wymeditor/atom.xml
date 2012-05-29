@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: WYMeditor | Ещё один блог]]></title>
+  <link href="http://Anshik.github.com/blog/categories/wymeditor/atom.xml" rel="self"/>
+  <link href="http://Anshik.github.com/"/>
+  <updated>2012-05-29T15:55:42+04:00</updated>
+  <id>http://Anshik.github.com/</id>
+  <author>
+    <name><![CDATA[Anshik]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[WYMeditor Django-cms попробуй забори]]></title>
+    <link href="http://Anshik.github.com/blog/2012/05/29/wymeditor-django-cms-poprobui-zabori/"/>
+    <updated>2012-05-29T14:48:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2012/05/29/wymeditor-django-cms-poprobui-zabori</id>
+    <content type="html"><![CDATA[<h3>В общем сабж</h3>
+
+<p>В интернете нашёл только краткий пост <a href="http://markeev.labwr.ru/2010/02/django-cms-wymeditor.html">Ивана Маркеева</a></p>
+
+<p>Я не прочитал внимательно строчку:<br/>
+Приведенные <strong>WYM_STYLES</strong> определяют то, как контент будет выглядеть в редакторе.
+То есть просто как он будет выглядеть <strong>в редакторе</strong> :) В окошке редактирования</p>
+
+<!-- more -->
+
+
+<ol>
+<li>Для кастомизации <strong>WYMeditora</strong> в рамках <strong>Django-cms</strong> следует изменить свой файл настроек django проекта <strong>settings.py</strong>
+дописав в него примерно следующее:</li>
+</ol>
+
+
+<p>``` python Это нужно добавить в settings.py</p>
+
+<h1>WYMEditor</h1>
+
+<p>WYM_TOOLS = ",\n".join([
+ "{'name': 'Bold', 'title': 'Strong', 'css': 'wym_tools_strong'}",
+ "{'name': 'Italic', 'title': 'Emphasis', 'css': 'wym_tools_emphasis'}",
+ "{'name': 'Superscript', 'title': 'Superscript', 'css': 'wym_tools_superscript'}",
+ "{'name': 'Subscript', 'title': 'Subscript', 'css': 'wym_tools_subscript'}",
+ "{'name': 'InsertOrderedList', 'title': 'Ordered_List', 'css': 'wym_tools_ordered_list'}",
+ "{'name': 'InsertUnorderedList', 'title': 'Unordered_List', 'css': 'wym_tools_unordered_list'}",
+ "{'name': 'Indent', 'title': 'Indent', 'css': 'wym_tools_indent'}",
+ "{'name': 'Outdent', 'title': 'Outdent', 'css': 'wym_tools_outdent'}",
+ "{'name': 'Undo', 'title': 'Undo', 'css': 'wym_tools_undo'}",
+ "{'name': 'Redo', 'title': 'Redo', 'css': 'wym_tools_redo'}",
+ "{'name': 'Paste', 'title': 'Paste_From_Word', 'css': 'wym_tools_paste'}",
+ "{'name': 'ToggleHtml', 'title': 'HTML', 'css': 'wym_tools_html'}",
+ #"{'name': 'CreateLink', 'title': 'Link', 'css': 'wym_tools_link'}",
+ #"{'name': 'Unlink', 'title': 'Unlink', 'css': 'wym_tools_unlink'}",
+ #"{'name': 'InsertImage', 'title': 'Image', 'css': 'wym_tools_image'}",
+ "{'name': 'InsertTable', 'title': 'Table', 'css': 'wym_tools_table'}",
+ #"{'name': 'Preview', 'title': 'Preview', 'css': 'wym_tools_preview'}",
+])</p>
+
+<p>WYM_CONTAINERS = ",\n".join([
+ "{'name': 'P', 'title': 'Paragraph', 'css': 'wym_containers_p'}",
+ "{'name': 'H1', 'title': 'Heading_1', 'css': 'wym_containers_h1'}",
+ "{'name': 'H2', 'title': 'Heading_2', 'css': 'wym_containers_h2'}",
+ "{'name': 'H3', 'title': 'Heading_3', 'css': 'wym_containers_h3'}",
+ "{'name': 'H4', 'title': 'Heading_4', 'css': 'wym_containers_h4'}",
+ "{'name': 'H5', 'title': 'Heading_5', 'css': 'wym_containers_h5'}",
+ "{'name': 'H6', 'title': 'Heading_6', 'css': 'wym_containers_h6'}",
+ "{'name': 'PRE', 'title': 'Preformatted', 'css': 'wym_containers_pre'}",
+ "{'name': 'BLOCKQUOTE', 'title': 'Blockquote', 'css': 'wym_containers_blockquote'}",
+ "{'name': 'TH', 'title': 'Table_Header', 'css': 'wym_containers_th'}",
+])</p>
+
+<p>WYM_CLASSES = ",\n".join([
+ "{'name': 'date', 'title': 'PARA: Date', 'expr': 'p'}",
+ "{'name': 'hidden-note', 'title': 'PARA: Hidden note', 'expr': 'p[@class!=\"important\"]'}",</p>
+
+<p> "{'name': 'center', 'title': 'PARA: Center', 'expr': 'p'}",
+ "{'name': 'contentheading', 'title': 'PARA: Center', 'expr': 'p, h1'}",</p>
+
+<p>])</p>
+
+<p>WYM_STYLES = ",\n".join([
+ "{'name': '.hidden-note', 'css': 'color: #999; border: 2px solid #ccc;'}",
+ "{'name': '.date', 'css': 'background-color: #ff9; border: 2px solid #ee9;'}",</p>
+
+<p> "{'name': '.center', 'css': 'border: 20px solid #9acd32; text-align:center;'}",
+ "{'name': '.contentheading', 'css': 'border: 5px solid #9acd32;'}",</p>
+
+<p>])
+```</p>
+
+<h3>Многие спросят чего так много?!</h3>
+
+<p>Это скопированно из стандартных настроек редактора
+<strong>/usr/local/lib/python2.6/dist-packages/django_cms-2.2-py2.6.egg/cms/plugins/text/settings.py</strong>
+Там читаем в начале коммент, для тех кто хочет подключить другой редактор, я не стал и дальше из того что скопировал в свой файл настроек django, поудалял строки такого вида:<br/>
+<strong>WYM_TOOLS = getattr(settings, "WYM_TOOLS", WYM_TOOLS)</strong><br/>
+этой строкой он лезет в наш settings.py проекта и достаёт то что мы кастомизируем. Можно кастомизировать не всё,
+а только то, что нужно.</p>
+
+<h3>Теперь по делу</h3>
+
+<ol>
+<li><p>WYM_TOOLS - это то что мы хотим видеть из кнопок настройки, или утилит, к примеру я для себя раскоментировал "{'name': 'InsertTable', 'title': 'Table', 'css': 'wym_tools_table'}",
+Чтобы появилась возможность добавлять таблицы</p></li>
+<li><p>WYM_CONTAINERS это, как следует из названия контейнеры. :)
+Как получилось у меня: для того чтобы применить свойство контейнера для этого нужно было изначально заключить кусок текста в контейнер. Не понятно?</p></li>
+</ol>
+
+
+<blockquote><p>При добавлении контента может случиться так, что вы добавите контент без тега, в смысле, что он не будет заключён в тег параграфа. Тогда вы не сможете применить свойство контейнера.
+Так что перед добавлением сначала нажмите пару раз Enter для появления в визуальном просмотре пары контейнеров <p></p></blockquote>
+
+<p>2.1 Для того чтобы применить контейнер, к примеру {Heading_1}
+Следует текст, который будет выделен этим тегом заключить в отдельный <code>&lt;p&gt;</code>
+И тогда уже выделять этот отдельный <code>&lt;p&gt;</code> и выбирать контейнер, они могут переключаться. Т.е, {Heading_1} можно поменять на {Heading_2} не переключаясь сначала в параграф.</p>
+
+<p><strong>Итог:</strong> текст для применения свойства контейнер должен находиться в теге <code>&lt;p&gt;</code></p>
+
+<h3>WYM_CLASSES</h3>
+
+<p>WYM_CLASSES пример:
+<code>"{'name': 'contentheading', 'title': 'PARA: Center', 'expr': 'p, h1'}",</code><br/>
+Тут мы приступаем к самому вкусному и непонятному.
+Данная строчка позволяет добавлять класс (contentheading) из нашей таблицы стилей сайта к заданным тегам:
+'expr': 'p, h1', и отображаться это будет под названием 'title': 'PARA: Center'. Что такое пара, не интересовался. Center можно заменить на своё. Но вообще и работает просто любой title, например Таблица, такой который будет вам понятен.</p>
+
+<p><strong>Другими словами:</strong> Добавили эту строчку, и к тегам <code>&lt;p&gt;</code>, <code>&lt;h1&gt;</code> можем нажатием на PARA: Center задавать класс contentheading заданному тегу.</p>
+
+<h3>WYM_STYLES</h3>
+
+<p>Вот эта строчка показывает нам что, если у нас в html коде встречается тег с классом .contentheading, то мы его обводим каёмочкой в 5 пикселей, и красим в цвет.
+<code>"{'name': '.contentheading', 'css': 'border: 5px solid #9acd32;'}",</code></p>
+
+<p>Вроде всё понятно.</p>
+
+<h3>Особенность</h3>
+
+<p>Заметил такую штуку, что когда мы применили {Classes} к параграфу, а потом решили сделать его всё-таки{Heading_1}, то нужно будет повторно применить класс, иначе он сбросится.</p>
+]]></content>
+  </entry>
+  
+</feed>

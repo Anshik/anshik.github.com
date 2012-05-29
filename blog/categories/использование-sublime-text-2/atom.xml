@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: использование Sublime Text 2 | Ещё один блог]]></title>
+  <link href="http://Anshik.github.com/blog/categories/использование-sublime-text-2/atom.xml" rel="self"/>
+  <link href="http://Anshik.github.com/"/>
+  <updated>2012-05-29T15:55:42+04:00</updated>
+  <id>http://Anshik.github.com/</id>
+  <author>
+    <name><![CDATA[Anshik]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Использование редактора Sublime Text 2]]></title>
+    <link href="http://Anshik.github.com/blog/2012/05/29/ispolzovaniie-riedaktora-sublime-text-2/"/>
+    <updated>2012-05-29T14:24:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2012/05/29/ispolzovaniie-riedaktora-sublime-text-2</id>
+    <content type="html"><![CDATA[<h3>Настройка</h3>
+
+<p>В sublime интересная система настроек: не нужно выбирать кучу флажочков и ползать по меню. Для этого есть несколько текстовых файлов с настройками. Опишу некоторые возможности:</p>
+
+<p><strong>Preferences->GlobalSettings-Default</strong> - это, как видно из названия файл настроек по-умолчанию
+<strong>Preferences->GlobalSettings-User</strong> - это пользовательский файл настроек. Настройки из пользовательского файла перекрывают файл настроек по-умолчанию.</p>
+
+<!-- more -->
+
+
+<p>Первый файл под линуксом лежит в папке <strong>~/.config/sublime-text-2/Packages/Default</strong>
+А второй в папке <strong>~/.config/sublime-text-2/Packages/User</strong>.</p>
+
+<p>Обзор полезных, на мой взгляд настроек файла Global.sublime-settings, а чего-то не нашёл таковых :).</p>
+
+<p>Есть другой более полезный файл настроек: Preferences->File Settings-Default под названием Base File.sublime-settings-Default в нём можно подсмотреть что можно поменять. А менять мы будем в файле <strong>Preferences->File Settings-User</strong> под названием <strong>Base File.sublime-settings-Default</strong>.</p>
+
+<p>При добавлении настроек в файл пользователя обратите внимание, что строчки добавляются внутрь фигурных скобочек, и последняя строчка внутри скобочек не должна заканчиваться запятой, хотя редактор умный и парсит изменения, которые вносит пользователь, и если нужно ругнётся.</p>
+
+<p>Итак настройки:
+Обычно, чтобы включить true, выключить false
+``` python
+// Set to false to prevent line numbers being drawn in the gutter
+// номера строк
+"line_numbers": true,</p>
+
+<p>// Columns in which to display vertical rulers
+// добавить линейки, кому нужно, забавная фича, по умолчанию выключена
+//"rulers": [5, 10], // пример добавляет две линейки на позиции 5 и 10
+"rulers": [],</p>
+
+<p>// Set to true to turn spell checking on by default
+// Проверка на ошибки по умолчанию. Если хочется, то можно подключить русский словарь, я подключал.
+"spell_check": false,</p>
+
+<p>// Word list to use for spell checking
+// Подключение словаря
+"dictionary": "Packages/Language - English/en_US.dic",</p>
+
+<p>// The number of spaces a tab is considered equal to
+// количество пробелов, при нажатии tab, хорошее число 4, как у всех
+"tab_size": 4,</p>
+
+<p>// Set to true to insert spaces when tab is pressed
+// Установить в true чтобы вставлять пробелы вместо tab, если нажимаем tab, я обычно ставлю в true
+"translate_tabs_to_spaces": false, // true</p>
+
+<p>// The encoding to use when the encoding can't be determined automatically.
+// ASCII, UTF-8 and UTF-16 encodings will be automatically detected.
+// Если файл находится не в кодировке UTF-8 и не в UTF-16, то в какой кодировке его открывать. Для большинства русских виндоузятников, копировать раскоментированную строчку
+//"fallback_encoding": "Western (Windows 1252)",
+"fallback_encoding": "Cyrillic (Windows 1251)",
+```</p>
+
+<p>Настроек, больше, кому нужно разберётся, начальные я рассказал.
+Есть ещё файл с <strong>горячими клавишами</strong>, тоже можно разобраться, если нужно.</p>
+
+<h3>Горячие клавиши, которые нужно знать</h3>
+
+<p><strong>ctrl+p</strong> [show_files] - данное сочтание клавиш позволяет открыть/искать по разным файлам проекта, открытым, или находящимся в проекте<br/>
+<strong>ctrl+r</strong> - поиск по именам функций, структур, похоже на список функций, "@"<br/>
+<strong>ctrl+g</strong> - переход на строчку ":"<br/>
+<strong>ctrl+;</strong> - поиск по переменным "#"</p>
+
+<p>Символы "@, :, #" можно комбинировать, пример, вызываем строчку <strong>ctrl+p</strong>
+далее вводим какие-то буквы из имени файла, к примеру у меня открыт файл <strong>Default(Linux).sublime-keymap</strong>
+Для того, чтобы его выбрать достаточно ввести "deup", редактор может понять и гораздо раньше, что вам нужно и подсветит введённые вами буквы в слове. Дальше можно скомбинировать <strong>ctrl+p</strong>, затем <strong>deup#ctrl</strong>, мы перейдём на первое вхождение ctrl, не так интересно, если бы рассматривали файл с кодом, можно было бы найти переменную с именем. Повторюсь, не обязательно помнить дословно, главное хотябы пару букв в нужном порядке :).</p>
+
+<p><strong>ctrl+shift+p</strong> - вот это тоже шикарное сочитание клавиш <em>"command_palette"</em>, позволяет менять настройки редактора, маленький пример:<br/>
+нажимаем <strong>ctrl+shift+p</strong>, затем вводим map, и эта команда нам уберёт/покажет миникарту файла.</p>
+
+<h3>Выделение столбика</h3>
+
+<p>Редактор без возможности редактировать столбики не редактор, по моему мнению</p>
+
+<h4>Мышкой</h4>
+
+<p><em>Windows</em><br/>
+Right Mouse Button + Shift
+OR: Middle Mouse Button
+Add to selection: Ctrl
+Subtract from selection: Alt</p>
+
+<p><em>Linux</em><br/>
+Right Mouse Button + Shift
+Add to selection: Ctrl
+Subtract from selection: Alt</p>
+
+<h3>Клавиатурой</h3>
+
+<p>Windows, Linux
+Ctrl + Alt + Up
+Ctrl + Alt + Down</p>
+
+<blockquote><p>у меня в линуксе клавиатурой так не работает :(</p></blockquote>
+
+<h3>Запуск приложения python</h3>
+
+<p>Выбираем билдер (у нас python):</p>
+
+<p>Tools -> Build System -> (choose) Python</p>
+
+<p>ctrl+b - запустит приложение</p>
+]]></content>
+  </entry>
+  
+</feed>

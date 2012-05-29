@@ -1,0 +1,367 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>ipython for python3.2 WindowsXP - Ещё один блог</title>
+  <meta name="author" content="Anshik">
+
+  
+  <meta name="description" content="Вот, задался целью всё-таки забороть ipython для Python 3.2, и получилось :) Делал примерно так: 1.1. Поставил Python3.2: python-3.2.1.msi
+1.2. &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://Anshik.github.com/blog/2012/05/29/ipython-for-python3-dot-2-windowsxp">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Ещё один блог" type="application/atom+xml">
+  <meta name='yandex-verification' content='6339aed3f1c3b095' />
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Ещё один блог</a></h1>
+  
+    <h2>A blogging framework for hackers or geeks.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:Anshik.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Ipython for python3.2 WindowsXP</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-29T15:19:00+04:00" pubdate data-updated="true">May 29<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Вот, задался целью всё-таки забороть ipython для Python 3.2, и получилось :)</p>
+
+<h3>Делал примерно так:</h3>
+
+<p>1.1. Поставил Python3.2: python-3.2.1.msi<br/>
+1.2. Пропишите пути к новому питону</p>
+
+<ol>
+<li>distribute_setup.py : http://python-distribute.org/distribute_setup.py<br/>
+это для того чтобы заработал easy_install</li>
+</ol>
+
+
+<!-- more -->
+
+
+<ol>
+<li><p>Дальше<br/>
+<code>easy_install http://archive.ipython.org/release/0.11/py3/ipython-0.11-py3.2.egg</code><br/>
+ставится ipython к папке <code>c:/python32/Scripts</code> тоже хорошо бы переменную <strong>path</strong> виндовса поправить</p></li>
+<li><p>Запускаем <code>ipython3.exe</code> в папке Scripts и ловим эксепшн, у меня во всяком случае было так:</p></li>
+</ol>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'> c:<span class="se">\P</span>ython32<span class="se">\S</span>cripts&gt;ipython3.exe
+</span><span class='line'> Error in sys.excepthook:
+</span><span class='line'> TypeError: _isdir<span class="o">()</span> takes exactly 1 argument <span class="o">(</span>0 given<span class="o">)</span>
+</span><span class='line'>
+</span><span class='line'> Original exception was:
+</span><span class='line'> Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
+</span><span class='line'> File <span class="s2">&quot;c:\Python32\Scripts\ipython3-script.py&quot;</span>, line 9, in
+</span><span class='line'> load_entry_point<span class="o">(</span><span class="s1">&#39;ipython==0.11&#39;</span>, <span class="s1">&#39;console_scripts&#39;</span>, <span class="s1">&#39;ipython3&#39;</span><span class="o">)()</span>
+</span><span class='line'> File <span class="s2">&quot;c:\Python32\lib\site-packages\ipython-0.11-py3.2.egg\IPython\frontend\te</span>
+</span><span class='line'><span class="s2">rminal\ipapp.py&quot;</span>, line 369, in launch_new_instance
+</span><span class='line'> app.initialize<span class="o">()</span>
+</span><span class='line'> File <span class="s2">&quot;c:\Python32\lib\site-packages\ipython-0.11-py3.2.egg\IPython\frontend\te</span>
+</span><span class='line'><span class="s2">rminal\ipapp.py&quot;</span>, line 283, in initialize
+</span><span class='line'> self.init_shell<span class="o">()</span>
+</span><span class='line'> File <span class="s2">&quot;c:\Python32\lib\site-packages\ipython-0.11-py3.2.egg\IPython\frontend\te</span>
+</span><span class='line'><span class="s2">rminal\ipapp.py&quot;</span>, line 303, in init_shell
+</span><span class='line'> <span class="nv">ipython_dir</span><span class="o">=</span>self.ipython_dir<span class="o">)</span>
+</span><span class='line'> File <span class="s2">&quot;c:\Python32\lib\site-packages\ipython-0.11-py3.2.egg\IPython\config\conf</span>
+</span><span class='line'><span class="s2">igurable.py&quot;</span>, line 295, in instance
+</span><span class='line'> <span class="nv">inst</span> <span class="o">=</span> cls<span class="o">(</span>*args, **kwargs<span class="o">)</span>
+</span><span class='line'> File <span class="s2">&quot;c:\Python32\lib\site-packages\ipython-0.11-py3.2.egg\IPython\frontend\te</span>
+</span><span class='line'><span class="s2">rminal\interactiveshell.py&quot;</span>, line 112, in __init__
+</span><span class='line'> <span class="nv">user_global_ns</span><span class="o">=</span>user_global_ns, <span class="nv">custom_exceptions</span><span class="o">=</span>custom_exceptions
+</span><span class='line'> File <span class="s2">&quot;c:\Python32\lib\site-packages\ipython-0.11-py3.2.egg\IPython\core\intera</span>
+</span><span class='line'><span class="s2">ctiveshell.py&quot;</span>, line 384, in __init__
+</span><span class='line'> self.db <span class="o">=</span> PickleShareDB<span class="o">(</span>os.path.join<span class="o">(</span>self.profile_dir.location, <span class="s1">&#39;db&#39;</span><span class="o">))</span>
+</span><span class='line'> File <span class="s2">&quot;c:\Python32\lib\site-packages\ipython-0.11-py3.2.egg\IPython\utils\pickl</span>
+</span><span class='line'><span class="s2">eshare.py&quot;</span>, line 52, in __init__
+</span><span class='line'> <span class="k">if </span>not self.root.isdir<span class="o">()</span>:
+</span><span class='line'>TypeError: _isdir<span class="o">()</span> takes exactly 1 argument <span class="o">(</span>0 given<span class="o">)</span>
+</span><span class='line'>
+</span><span class='line'>c:<span class="se">\P</span>ython32<span class="se">\S</span>cripts&gt;
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Решил я это так
+В файле <code>"c:\Python32\lib\site-packages\ipython-0.11-py3.2.egg\IPython\utils\pickleshare.py"</code><br/>
+В 52 строке закомментировал<br/>
+<code>#if not self.root.isdir():</code><br/>
+И 53-ей строкой написал следующее<br/>
+<code>if not os.path.isdir(self.root):</code></p>
+
+<p>Заработало, что не может не радовать.
+Единственное pyreadline ещё похоже нужно замучить</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Anshik</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-29T15:19:00+04:00" pubdate data-updated="true">May 29<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/ipython/'>ipython</a>, <a class='category' href='/blog/categories/python-/'>python,</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://Anshik.github.com/blog/2012/05/29/ipython-for-python3-dot-2-windowsxp/" data-via="" data-counturl="http://Anshik.github.com/blog/2012/05/29/ipython-for-python3-dot-2-windowsxp/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/05/29/intierprietator-dlia-pitonofilov/" title="Previous Post: Интерпретатор для Питонофилов">&laquo; Интерпретатор для Питонофилов</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/05/29/threads-in-pyqt4/" title="Next Post: Как правильно делать треды в PyQT4">Как правильно делать треды в PyQT4 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/05/29/otladka-pochtovykh-soobshchienii-v-django/">Отладка почтовых сообщений в django</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/29/nariezka-mp3-failov-linux-ubuntu/">Нарезка mp3 файлов Linux Ubuntu</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/29/threads-in-pyqt4/">Как правильно делать треды в PyQT4</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/29/ipython-for-python3-dot-2-windowsxp/">ipython for python3.2 WindowsXP</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/29/intierprietator-dlia-pitonofilov/">Интерпретатор для Питонофилов</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+<section>
+  <h1>Обо мне</h1>
+  <p>Мне нравится Python, Qt, PyQt, PySide. Также знаю C/C++, умею программировать под микроконтроллеры. Интересуюсь Django, написал несколько проектов на нем, такие как http://pinta-piva.com, http://dok4you.ru</p>
+</section>
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Anshik -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+
+  <!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter14748103 = new Ya.Metrika({id:14748103, enableAll: true, webvisor:true});
+        } catch(e) {}
+    });
+    
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f);
+    } else { f(); }
+})(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="//mc.yandex.ru/watch/14748103" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'anshik';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://Anshik.github.com/blog/2012/05/29/ipython-for-python3-dot-2-windowsxp/';
+        var disqus_url = 'http://Anshik.github.com/blog/2012/05/29/ipython-for-python3-dot-2-windowsxp/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

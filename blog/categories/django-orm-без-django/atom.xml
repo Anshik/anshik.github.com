@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Django ORM без Django | Ещё один блог]]></title>
+  <link href="http://Anshik.github.com/blog/categories/django-orm-без-django/atom.xml" rel="self"/>
+  <link href="http://Anshik.github.com/"/>
+  <updated>2012-05-29T15:55:42+04:00</updated>
+  <id>http://Anshik.github.com/</id>
+  <author>
+    <name><![CDATA[Anshik]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Django ORM без Джанги]]></title>
+    <link href="http://Anshik.github.com/blog/2012/05/29/django-orm-biez-dzhanghi/"/>
+    <updated>2012-05-29T14:17:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2012/05/29/django-orm-biez-dzhanghi</id>
+    <content type="html"><![CDATA[<h3>Буду краток</h3>
+
+<p><strong>Проблема:</strong> использовать прелести Django ORM, а он хорош, но для проекта, который не для веба.</p>
+
+<p>Есть ответы на <a href="http://stackoverflow.com/questions/579511/using-only-the-db-part-of-django">stackoverflow</a>,
+а вот <a href="http://pypi.python.org/pypi/django-standalone">это</a> я не пробовал.</p>
+
+<!-- more -->
+
+
+<h3>Опишу свой путь</h3>
+
+<p>файл <strong>settings.py</strong></p>
+
+<p>``` python</p>
+
+<h1>-<em>- coding: utf-8 -</em>-</h1>
+
+<p>import os
+gettext = lambda s: s
+PROJECT_PATH = os.path.abspath(os.path.dirname(<strong>file</strong>))</p>
+
+<p>DEBUG = True
+TEMPLATE_DEBUG = DEBUG</p>
+
+<p>ADMINS = (
+ # ('Your Name', 'your_email@example.com'),
+)</p>
+
+<p>LANGUAGES = [
+ ('ru', 'ru'),
+]
+DEFAULT_LANGUAGE = 0</p>
+
+<p>DATABASES = {
+ 'default': {
+ 'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+ 'NAME': os.path.join(PROJECT_PATH, 'crimson.sqlite'),
+ 'USER': '', # Not used with sqlite3.
+ 'PASSWORD': '', # Not used with sqlite3.
+ 'HOST': '', # Set to empty string for localhost. Not used with sqlite3.
+ 'PORT': '', # Set to empty string for default. Not used with sqlite3.
+ }
+}</p>
+
+<p>TEST_DATABASE_CHARSET = "utf8"
+TEST_DATABASE_COLLATION = "utf8_general_ci"</p>
+
+<p>TIME_ZONE = 'Europe/Moscow'</p>
+
+<p>LANGUAGE_CODE = 'ru-RU'</p>
+
+<p>SITE_ID = 1</p>
+
+<p>USE_I18N = True</p>
+
+<h1>If you set this to False, Django will not format dates, numbers and</h1>
+
+<h1>calendars according to the current locale</h1>
+
+<p>USE_L10N = True</p>
+
+<p>INSTALLED_APPS = (</p>
+
+<h1>'django.contrib.auth',</h1>
+
+<h1>'django.contrib.contenttypes',</h1>
+
+<h1>'django.contrib.sessions',</h1>
+
+<h1>'django.contrib.sites',</h1>
+
+<h1>'django.contrib.messages',</h1>
+
+<h1>'django.contrib.staticfiles',</h1>
+
+<p> 'src.data_utils',
+ 'src.crimsonmap',
+)
+```</p>
+
+<p>Создаём у себя в корне проекта такой файл.</p>
+
+<p>Затем, там же в папке проекта <strong>manage.py</strong>
+``` python</p>
+
+<h1>!/usr/bin/env python</h1>
+
+<p>from django.core.management import execute_manager
+import imp
+try:
+ imp.find_module('settings') # Assumed to be in the same directory.
+except ImportError:
+ import sys
+ sys.stderr.write("Error: Can't find the file 'settings.py' in the directory containing %r. It appears you've customized things.\nYou'll have to run django-admin.py, passing it your settings module.\n" % <strong>file</strong>)
+ sys.exit(1)</p>
+
+<p>import settings</p>
+
+<p>if <strong>name</strong> == "<strong>main</strong>":
+ execute_manager(settings)
+```</p>
+
+<p>Ещё создаём пустой файл <strong><strong>init</strong>.py</strong></p>
+
+<p>И файл <strong>urls.py</strong>
+``` python
+from django.conf.urls.defaults import patterns, include, url</p>
+
+<h1>Uncomment the next two lines to enable the admin:</h1>
+
+<h1>from django.contrib import admin</h1>
+
+<h1>admin.autodiscover()</h1>
+
+<p>urlpatterns = patterns('',
+ # Examples:
+ # url(r'<sup>$',</sup> 'src.views.home', name='home'),
+ # url(r'<sup>src/',</sup> include('src.foo.urls')),</p>
+
+<p> # Uncomment the admin/doc line below to enable admin documentation:
+ # url(r'<sup>admin/doc/',</sup> include('django.contrib.admindocs.urls')),</p>
+
+<p> # Uncomment the next line to enable the admin:
+ # url(r'<sup>admin/',</sup> include(admin.site.urls)),
+)
+```</p>
+
+<p>Теперь создаём папку с аппом, в котором будет лежать модель
+у меня это src -&lt;--- корень проекта, crimsonmap, это поддиректория
+src/crimsonmap
+В этой поддиректории создаём пустой файл:
+<strong>init</strong>.py - это для того чтобы джанга поняла, что тут лежит апп
+models.py
+``` python</p>
+
+<h1>coding: utf-8</h1>
+
+<p>from django.utils.translation import ugettext_lazy as _
+from django.db import models</p>
+
+<p>class Terrarian(models.Model):
+   ter_type = models.CharField(verbose_name=<em>('terrarian type'), max_length=20)
+   ter_color = models.CharField(verbose_name=</em>('terrarian color html'), max_length=20, default = 'red')
+   ter_hunting = models.FloatField(verbose_name=<em>('ter hunting percent'), default=0)
+   ter_meeting = models.FloatField(verbose_name=</em>('ter meeting percent'), default=0)
+   player_maybehere = models.BooleanField(_('player may be here'), default=True)
+```</p>
+
+<p>Дальше как обычно из /src:
+<code>bash
+python manage.py syncdb
+</code></p>
+
+<p>создастся база данных и радость</p>
+
+<p>И затем, когда нужно использовать нашу базу:</p>
+
+<p><code>python
+import os
+os.environ["DJANGO_SETTINGS_MODULE"] = "settings"
+from models import Terrarian
+</code></p>
+
+<p>Есть ещё пацанский метод заполнения базы данных, если кому нужно пишите в комментах, опишу, так лень.</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: PyQT4 | Ещё один блог]]></title>
+  <link href="http://Anshik.github.com/blog/categories/pyqt4/atom.xml" rel="self"/>
+  <link href="http://Anshik.github.com/"/>
+  <updated>2012-05-29T15:55:42+04:00</updated>
+  <id>http://Anshik.github.com/</id>
+  <author>
+    <name><![CDATA[Anshik]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Как правильно делать треды в PyQT4]]></title>
+    <link href="http://Anshik.github.com/blog/2012/05/29/threads-in-pyqt4/"/>
+    <updated>2012-05-29T15:24:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2012/05/29/threads-in-pyqt4</id>
+    <content type="html"><![CDATA[<p><a href="http://www.linux.org.ru/forum/development/1529306">Тут</a> нашёл решение
+``` python</p>
+
+<h1>!/usr/bin/env python</h1>
+
+<h1>Вот примерно так оно делается.</h1>
+
+<p>import sys
+from PyQt4.QtCore import QEvent, QThread
+from PyQt4.QtGui import QApplication, QTextEdit</p>
+
+<p>class MyEvent(QEvent):
+def <strong>init</strong>(self, data):
+QEvent.<strong>init</strong>(self, QEvent.User)
+self.data = data</p>
+
+<p>class Timer(QThread):
+def <strong>init</strong>(self, event_receiver):
+QThread.<strong>init</strong>(self)
+self.event_receiver = event_receiver
+self.time = 0
+def run(self):
+while True:
+self.time += 1
+QApplication.postEvent(self.event_receiver, MyEvent(self.time))
+self.sleep(1)</p>
+
+<p>class Display(QTextEdit):
+def customEvent(self, event):
+if isinstance (event, MyEvent):
+self.append('time = %i' % event.data)</p>
+
+<p>a = QApplication(sys.argv)
+display = Display()
+display.show()</p>
+
+<p>timer = Timer(display)
+timer.start()</p>
+
+<p>sys.exit(a.exec_())
+```</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,523 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Django ORM без Джанги - Ещё один блог</title>
+  <meta name="author" content="Anshik">
+
+  
+  <meta name="description" content="Буду краток Проблема: использовать прелести Django ORM, а он хорош, но для проекта, который не для веба. Есть ответы на stackoverflow,
+а вот это я не &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://Anshik.github.com/blog/2012/05/29/django-orm-biez-dzhanghi">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Ещё один блог" type="application/atom+xml">
+  <meta name='yandex-verification' content='6339aed3f1c3b095' />
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Ещё один блог</a></h1>
+  
+    <h2>A blogging framework for hackers or geeks.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:Anshik.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Django ORM без Джанги</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-29T14:17:00+04:00" pubdate data-updated="true">May 29<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h3>Буду краток</h3>
+
+<p><strong>Проблема:</strong> использовать прелести Django ORM, а он хорош, но для проекта, который не для веба.</p>
+
+<p>Есть ответы на <a href="http://stackoverflow.com/questions/579511/using-only-the-db-part-of-django">stackoverflow</a>,
+а вот <a href="http://pypi.python.org/pypi/django-standalone">это</a> я не пробовал.</p>
+
+<!-- more -->
+
+
+<h3>Опишу свой путь</h3>
+
+<p>файл <strong>settings.py</strong></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c"># -*- coding: utf-8 -*-</span>
+</span><span class='line'>
+</span><span class='line'><span class="kn">import</span> <span class="nn">os</span>
+</span><span class='line'><span class="n">gettext</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span>
+</span><span class='line'><span class="n">PROJECT_PATH</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">))</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="n">DEBUG</span> <span class="o">=</span> <span class="bp">True</span>
+</span><span class='line'><span class="n">TEMPLATE_DEBUG</span> <span class="o">=</span> <span class="n">DEBUG</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">ADMINS</span> <span class="o">=</span> <span class="p">(</span>
+</span><span class='line'> <span class="c"># (&#39;Your Name&#39;, &#39;your_email@example.com&#39;),</span>
+</span><span class='line'><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">LANGUAGES</span> <span class="o">=</span> <span class="p">[</span>
+</span><span class='line'> <span class="p">(</span><span class="s">&#39;ru&#39;</span><span class="p">,</span> <span class="s">&#39;ru&#39;</span><span class="p">),</span>
+</span><span class='line'><span class="p">]</span>
+</span><span class='line'><span class="n">DEFAULT_LANGUAGE</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'> <span class="s">&#39;default&#39;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class='line'> <span class="s">&#39;ENGINE&#39;</span><span class="p">:</span> <span class="s">&#39;django.db.backends.sqlite3&#39;</span><span class="p">,</span> <span class="c"># Add &#39;postgresql_psycopg2&#39;, &#39;postgresql&#39;, &#39;mysql&#39;, &#39;sqlite3&#39; or &#39;oracle&#39;.</span>
+</span><span class='line'> <span class="s">&#39;NAME&#39;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PROJECT_PATH</span><span class="p">,</span> <span class="s">&#39;crimson.sqlite&#39;</span><span class="p">),</span>
+</span><span class='line'> <span class="s">&#39;USER&#39;</span><span class="p">:</span> <span class="s">&#39;&#39;</span><span class="p">,</span> <span class="c"># Not used with sqlite3.</span>
+</span><span class='line'> <span class="s">&#39;PASSWORD&#39;</span><span class="p">:</span> <span class="s">&#39;&#39;</span><span class="p">,</span> <span class="c"># Not used with sqlite3.</span>
+</span><span class='line'> <span class="s">&#39;HOST&#39;</span><span class="p">:</span> <span class="s">&#39;&#39;</span><span class="p">,</span> <span class="c"># Set to empty string for localhost. Not used with sqlite3.</span>
+</span><span class='line'> <span class="s">&#39;PORT&#39;</span><span class="p">:</span> <span class="s">&#39;&#39;</span><span class="p">,</span> <span class="c"># Set to empty string for default. Not used with sqlite3.</span>
+</span><span class='line'> <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">TEST_DATABASE_CHARSET</span> <span class="o">=</span> <span class="s">&quot;utf8&quot;</span>
+</span><span class='line'><span class="n">TEST_DATABASE_COLLATION</span> <span class="o">=</span> <span class="s">&quot;utf8_general_ci&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">TIME_ZONE</span> <span class="o">=</span> <span class="s">&#39;Europe/Moscow&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">LANGUAGE_CODE</span> <span class="o">=</span> <span class="s">&#39;ru-RU&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">SITE_ID</span> <span class="o">=</span> <span class="mi">1</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">USE_I18N</span> <span class="o">=</span> <span class="bp">True</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># If you set this to False, Django will not format dates, numbers and</span>
+</span><span class='line'><span class="c"># calendars according to the current locale</span>
+</span><span class='line'><span class="n">USE_L10N</span> <span class="o">=</span> <span class="bp">True</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">(</span>
+</span><span class='line'><span class="c"># &#39;django.contrib.auth&#39;,</span>
+</span><span class='line'><span class="c"># &#39;django.contrib.contenttypes&#39;,</span>
+</span><span class='line'><span class="c"># &#39;django.contrib.sessions&#39;,</span>
+</span><span class='line'><span class="c"># &#39;django.contrib.sites&#39;,</span>
+</span><span class='line'><span class="c"># &#39;django.contrib.messages&#39;,</span>
+</span><span class='line'><span class="c"># &#39;django.contrib.staticfiles&#39;,</span>
+</span><span class='line'> <span class="s">&#39;src.data_utils&#39;</span><span class="p">,</span>
+</span><span class='line'> <span class="s">&#39;src.crimsonmap&#39;</span><span class="p">,</span>
+</span><span class='line'><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Создаём у себя в корне проекта такой файл.</p>
+
+<p>Затем, там же в папке проекта <strong>manage.py</strong></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c">#!/usr/bin/env python</span>
+</span><span class='line'><span class="kn">from</span> <span class="nn">django.core.management</span> <span class="kn">import</span> <span class="n">execute_manager</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">imp</span>
+</span><span class='line'><span class="k">try</span><span class="p">:</span>
+</span><span class='line'> <span class="n">imp</span><span class="o">.</span><span class="n">find_module</span><span class="p">(</span><span class="s">&#39;settings&#39;</span><span class="p">)</span> <span class="c"># Assumed to be in the same directory.</span>
+</span><span class='line'><span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+</span><span class='line'> <span class="kn">import</span> <span class="nn">sys</span>
+</span><span class='line'> <span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;Error: Can&#39;t find the file &#39;settings.py&#39; in the directory containing </span><span class="si">%r</span><span class="s">. It appears you&#39;ve customized things.</span><span class="se">\n</span><span class="s">You&#39;ll have to run django-admin.py, passing it your settings module.</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">__file__</span><span class="p">)</span>
+</span><span class='line'> <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="kn">import</span> <span class="nn">settings</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+</span><span class='line'> <span class="n">execute_manager</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Ещё создаём пустой файл <strong><strong>init</strong>.py</strong></p>
+
+<p>И файл <strong>urls.py</strong></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">from</span> <span class="nn">django.conf.urls.defaults</span> <span class="kn">import</span> <span class="n">patterns</span><span class="p">,</span> <span class="n">include</span><span class="p">,</span> <span class="n">url</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># Uncomment the next two lines to enable the admin:</span>
+</span><span class='line'><span class="c"># from django.contrib import admin</span>
+</span><span class='line'><span class="c"># admin.autodiscover()</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">urlpatterns</span> <span class="o">=</span> <span class="n">patterns</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">,</span>
+</span><span class='line'> <span class="c"># Examples:</span>
+</span><span class='line'> <span class="c"># url(r&#39;^$&#39;, &#39;src.views.home&#39;, name=&#39;home&#39;),</span>
+</span><span class='line'> <span class="c"># url(r&#39;^src/&#39;, include(&#39;src.foo.urls&#39;)),</span>
+</span><span class='line'>
+</span><span class='line'> <span class="c"># Uncomment the admin/doc line below to enable admin documentation:</span>
+</span><span class='line'> <span class="c"># url(r&#39;^admin/doc/&#39;, include(&#39;django.contrib.admindocs.urls&#39;)),</span>
+</span><span class='line'>
+</span><span class='line'> <span class="c"># Uncomment the next line to enable the admin:</span>
+</span><span class='line'> <span class="c"># url(r&#39;^admin/&#39;, include(admin.site.urls)),</span>
+</span><span class='line'><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Теперь создаём папку с аппом, в котором будет лежать модель
+у меня это src -&lt;&#8212; корень проекта, crimsonmap, это поддиректория
+src/crimsonmap
+В этой поддиректории создаём пустой файл:
+<strong>init</strong>.py - это для того чтобы джанга поняла, что тут лежит апп
+models.py</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c"># coding: utf-8</span>
+</span><span class='line'><span class="kn">from</span> <span class="nn">django.utils.translation</span> <span class="kn">import</span> <span class="n">ugettext_lazy</span> <span class="k">as</span> <span class="n">_</span>
+</span><span class='line'><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Terrarian</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+</span><span class='line'>   <span class="n">ter_type</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">verbose_name</span><span class="o">=</span><span class="n">_</span><span class="p">(</span><span class="s">&#39;terrarian type&#39;</span><span class="p">),</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</span><span class='line'>   <span class="n">ter_color</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">verbose_name</span><span class="o">=</span><span class="n">_</span><span class="p">(</span><span class="s">&#39;terrarian color html&#39;</span><span class="p">),</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">default</span> <span class="o">=</span> <span class="s">&#39;red&#39;</span><span class="p">)</span>
+</span><span class='line'>   <span class="n">ter_hunting</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">FloatField</span><span class="p">(</span><span class="n">verbose_name</span><span class="o">=</span><span class="n">_</span><span class="p">(</span><span class="s">&#39;ter hunting percent&#39;</span><span class="p">),</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</span><span class='line'>   <span class="n">ter_meeting</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">FloatField</span><span class="p">(</span><span class="n">verbose_name</span><span class="o">=</span><span class="n">_</span><span class="p">(</span><span class="s">&#39;ter meeting percent&#39;</span><span class="p">),</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</span><span class='line'>   <span class="n">player_maybehere</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">BooleanField</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&#39;player may be here&#39;</span><span class="p">),</span> <span class="n">default</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Дальше как обычно из /src:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>python manage.py syncdb
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>создастся база данных и радость</p>
+
+<p>И затем, когда нужно использовать нашу базу:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">import</span> <span class="nn">os</span>
+</span><span class='line'><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">&quot;DJANGO_SETTINGS_MODULE&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;settings&quot;</span>
+</span><span class='line'><span class="kn">from</span> <span class="nn">models</span> <span class="kn">import</span> <span class="n">Terrarian</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Есть ещё пацанский метод заполнения базы данных, если кому нужно пишите в комментах, опишу, так лень.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Anshik</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-29T14:17:00+04:00" pubdate data-updated="true">May 29<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/django/'>Django</a>, <a class='category' href='/blog/categories/django-orm/'>Django ORM</a>, <a class='category' href='/blog/categories/django-orm-без-django/'>Django ORM без Django</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://Anshik.github.com/blog/2012/05/29/django-orm-biez-dzhanghi/" data-via="" data-counturl="http://Anshik.github.com/blog/2012/05/29/django-orm-biez-dzhanghi/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/05/29/vkusnyie-shortkaty-midnight-commander/" title="Previous Post: Вкусные шорткаты Midnight Commander">&laquo; Вкусные шорткаты Midnight Commander</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/05/29/ispolzovaniie-riedaktora-sublime-text-2/" title="Next Post: Использование редактора Sublime Text 2">Использование редактора Sublime Text 2 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/05/29/otladka-pochtovykh-soobshchienii-v-django/">Отладка почтовых сообщений в django</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/29/nariezka-mp3-failov-linux-ubuntu/">Нарезка mp3 файлов Linux Ubuntu</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/29/threads-in-pyqt4/">Как правильно делать треды в PyQT4</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/29/ipython-for-python3-dot-2-windowsxp/">ipython for python3.2 WindowsXP</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/29/intierprietator-dlia-pitonofilov/">Интерпретатор для Питонофилов</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+<section>
+  <h1>Обо мне</h1>
+  <p>Мне нравится Python, Qt, PyQt, PySide. Также знаю C/C++, умею программировать под микроконтроллеры. Интересуюсь Django, написал несколько проектов на нем, такие как http://pinta-piva.com, http://dok4you.ru</p>
+</section>
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Anshik -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+
+  <!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter14748103 = new Ya.Metrika({id:14748103, enableAll: true, webvisor:true});
+        } catch(e) {}
+    });
+    
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f);
+    } else { f(); }
+})(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="//mc.yandex.ru/watch/14748103" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'anshik';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://Anshik.github.com/blog/2012/05/29/django-orm-biez-dzhanghi/';
+        var disqus_url = 'http://Anshik.github.com/blog/2012/05/29/django-orm-biez-dzhanghi/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
