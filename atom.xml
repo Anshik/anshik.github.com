@@ -4,7 +4,7 @@
   <title><![CDATA[Ещё один блог]]></title>
   <link href="http://Anshik.github.com/atom.xml" rel="self"/>
   <link href="http://Anshik.github.com/"/>
-  <updated>2012-05-29T12:03:25+04:00</updated>
+  <updated>2012-05-29T12:11:45+04:00</updated>
   <id>http://Anshik.github.com/</id>
   <author>
     <name><![CDATA[Anshik]]></name>
@@ -12,6 +12,33 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Добавление google webmasters]]></title>
+    <link href="http://Anshik.github.com/blog/2012/05/29/dobavlieniie-google-webmasters/"/>
+    <updated>2012-05-29T12:05:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2012/05/29/dobavlieniie-google-webmasters</id>
+    <content type="html"><![CDATA[<p>*** Данное решение подходит не только под Google, но и под Yandex</p>
+
+<p>Для подтверждения прав владения сайтом нас просят добавить страничку на сайт, с названием примерно google9blablaf25be8.html и содержанием:</p>
+
+<blockquote><p>google-site-verification: google9blablaf25be8.html</p></blockquote>
+
+<p>Для этого мы создаем страничку rake new_page[&#8220;google9blablaf25be8.html&#8221;]<br/>
+Затем редактируем её, удаляем заголовок, стандартный для постов и страниц, и оставляем только:</p>
+
+<blockquote><p>google-site-verification: google9blablaf25be8.html</p></blockquote>
+
+<p>Дальше как обычно:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>rake generate
+</span><span class='line'>rake deploy
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Добавление комментариев в Octopress]]></title>
