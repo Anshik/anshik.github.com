@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: Mercurial - Ещё один блог</title>
+  <title>Добавление кастомных страниц - Ещё один блог</title>
   <meta name="author" content="Anshik">
 
   
-  <meta name="description" content="Category: Mercurial">
-  
+  <meta name="description" content="Добавление custom pages Octopress">
+  <meta name="keywords" content="Octopress, Octopress custom pages">
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://Anshik.github.comblog/categories/mercurial">
+  <link rel="canonical" href="http://Anshik.github.com/blog/2012/05/29/dobavlieniie-kastomnykh-stranits">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -62,36 +62,125 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: Mercurial</h1>
+    
+      <h1 class="entry-title">Добавление кастомных страниц</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-29T17:04:00+04:00" pubdate data-updated="true">May 29<span>th</span>, 2012</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><p>Блог, архив блога - это хорошо. Но давно интересовал вопрос:</p>
 
-  
-  <h2>2012</h2>
+<blockquote><p>Как добавить свою страницу в меню навигации.</p></blockquote>
 
-<article>
-  
-<h1><a href="/blog/2012/05/25/ustanovka-tortoisehg-v-ubuntu/">Установка tortoisehg в Ubuntu</a></h1>
-<time datetime="2012-05-25T08:35:00+04:00" pubdate><span class='month'>May</span> <span class='day'>25</span> <span class='year'>2012</span></time>
+<p>Нашёл ответ, всё оказалось как всегда просто.</p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/mercurial/'>Mercurial</a>, <a class='category' href='/blog/categories/ubuntu/'>Ubuntu</a>, <a class='category' href='/blog/categories/tortoisehg/'>tortoisehg</a></span>
-</footer>
+<!-- more -->
 
 
-</article>
+<h3>Создаём новую страницу &#8220;О себе&#8221;</h3>
 
+<p><code>rake new_page["about"]</code></p>
+
+<h3>Добавляем её в меню навигации</h3>
+
+<p>Редактируем файл <code>source/custom/navigation.html</code></p>
+
+<figure class='code'><figcaption><span>добавляем урл своей страницы 4 строка</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;main-navigation&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/&quot;</span><span class="nt">&gt;</span>Blog<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/blog/archives&quot;</span><span class="nt">&gt;</span>Archives<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/about&quot;</span><span class="nt">&gt;</span>Обо мне<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class='line'><span class="nt">&lt;/ul&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Редактируем содержимое страницы &#8220;О себе&#8221;</h3>
+
+<p><code>vim source/about/index.markdown</code></p>
+
+<p>Всё!</p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Anshik</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-29T17:04:00+04:00" pubdate data-updated="true">May 29<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/octopress/'>Octopress</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://Anshik.github.com/blog/2012/05/29/dobavlieniie-kastomnykh-stranits/" data-via="" data-counturl="http://Anshik.github.com/blog/2012/05/29/dobavlieniie-kastomnykh-stranits/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/05/29/otladka-pochtovykh-soobshchienii-v-django/" title="Previous Post: Отладка почтовых сообщений в django">&laquo; Отладка почтовых сообщений в django</a>
+      
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -175,7 +264,10 @@
       var disqus_shortname = 'anshik';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://Anshik.github.com/blog/2012/05/29/dobavlieniie-kastomnykh-stranits/';
+        var disqus_url = 'http://Anshik.github.com/blog/2012/05/29/dobavlieniie-kastomnykh-stranits/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

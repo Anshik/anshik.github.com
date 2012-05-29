@@ -4,7 +4,7 @@
   <title><![CDATA[Ещё один блог]]></title>
   <link href="http://Anshik.github.com/atom.xml" rel="self"/>
   <link href="http://Anshik.github.com/"/>
-  <updated>2012-05-29T15:55:42+04:00</updated>
+  <updated>2012-05-29T17:15:02+04:00</updated>
   <id>http://Anshik.github.com/</id>
   <author>
     <name><![CDATA[Anshik]]></name>
@@ -12,6 +12,49 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Добавление кастомных страниц]]></title>
+    <link href="http://Anshik.github.com/blog/2012/05/29/dobavlieniie-kastomnykh-stranits/"/>
+    <updated>2012-05-29T17:04:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2012/05/29/dobavlieniie-kastomnykh-stranits</id>
+    <content type="html"><![CDATA[<p>Блог, архив блога - это хорошо. Но давно интересовал вопрос:</p>
+
+<blockquote><p>Как добавить свою страницу в меню навигации.</p></blockquote>
+
+<p>Нашёл ответ, всё оказалось как всегда просто.</p>
+
+<!-- more -->
+
+
+<h3>Создаём новую страницу &#8220;О себе&#8221;</h3>
+
+<p><code>rake new_page["about"]</code></p>
+
+<h3>Добавляем её в меню навигации</h3>
+
+<p>Редактируем файл <code>source/custom/navigation.html</code></p>
+
+<figure class='code'><figcaption><span>добавляем урл своей страницы 4 строка</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;main-navigation&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/&quot;</span><span class="nt">&gt;</span>Blog<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/blog/archives&quot;</span><span class="nt">&gt;</span>Archives<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/about&quot;</span><span class="nt">&gt;</span>Обо мне<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class='line'><span class="nt">&lt;/ul&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Редактируем содержимое страницы &#8220;О себе&#8221;</h3>
+
+<p><code>vim source/about/index.markdown</code></p>
+
+<p>Всё!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Отладка почтовых сообщений в django]]></title>
@@ -1405,312 +1448,6 @@ libxdot4<br/>
 <h4>PPS: В планах ещё два квеста: отключение радиоточки (лениво к ним ездить, можноб было это сделать через интернет, так они хитрецы не позволяют это. А то кто бы слушал их радио.), капитальный ремонт дома.</h4>
 
 <h5>PPPS: Комментируйте, кому помогло.</h5>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ссылка на шпаргалки cheat-sheets]]></title>
-    <link href="http://Anshik.github.com/blog/2012/05/25/ssylka-na-shparghalki-cheat-sheets/"/>
-    <updated>2012-05-25T08:37:00+04:00</updated>
-    <id>http://Anshik.github.com/blog/2012/05/25/ssylka-na-shparghalki-cheat-sheets</id>
-    <content type="html"><![CDATA[<p>Читал хабр, подкинули интересную ссылку на сайт, там собраны краткие подсказки, шпаргалки по разным языкам программирования и не только.<br/>
-<strong><a href="http://cheat-sheets.org">cheat-sheets.org</a></strong>
- В общем, очень рекомендую.</p>
-
-<p> Я уже скачал хелп по Django, Python, Regular Expressions.</p>
-
-<p> А там ещё есть:<br/>
- <!-- more --></p>
-
-<p>Donate
-.NET
-ActionScript
-Ada
-ADO.NET
-Adobe
-Adobe Acrobat
-AJAX
-Algebra
-Apache
-Apache Ant
-Apache Camel
-Apache Solr
-APT
-Arduino
-ASCII
-Astronomy
-ASP
-Assembly Language
-Atom
-AWK
-Azure
-Bash
-Bazaar
-BDB
-Berkeley DB
-BIRT
-BlazeDS
-Blogger
-Blueprint
-BPEL
-BPM
-BPML
-Business Process Modeling
-C
-C#
-C++
-Calculus
-Camera
-Catalyst
-Characters
-Chef
-Chemistry
-chmod
-Clojure
-Cloud Computing
-Cocoa
-ColdFusion
-Colour
-Computer Science
-Continuous Integration
-Countries
-CSS
-CUE
-CVS
-DB2
-db4o
-DDD
-Debian
-Delphi
-Design Pattern
-Django
-Doctrine
-Doctypes
-DOM
-Domain-Driven Design
-DOT language
-Drupal
-DTD
-Eclipse
-Ed
-EJB
-Emacs
-Emoticon
-Encoding
-Erlang
-F#
-Facebook
-Fedora
-Feed
-File
-Firebug
-Firefox
-Firefox Add-ons
-FitNesse
-Flash
-Flash Catalyst
-Flex
-Fonts
-Fortran
-Freeware
-FTP
-GDB
-Geometry
-Gift
-Gimp
-Git
-GlassFish
-Gmail
-GoF
-Google
-Google App Engine
-Google Chrome
-Google Maps
-Grails
-Griffon
-Groovy
-Guitar
-GWT
-Hadoop
-Hardware
-Haskell
-Hibernate
-High Availability
-htaccess
-HTML
-HTTP
-Icons
-Illustrator
-IntelliJ IDEA
-Internet Explorer
-IRC
-IVR
-Java
-Java EE
-Java Persistence API
-JavaFX
-JavaScript
-JavaServer Faces
-JBoss
-JDBC
-jQuery
-JSF
-JSP
-JUnit
-Languages
-LaTeX
-LaTeX-Suite
-less
-Linux
-Lisp
-Logic
-Lotus Domino
-Lua
-Lucene
-Mac
-Mac OS X
-Maple
-Markdown
-Math
-Mathematica
-MathML
-Mathomatic
-MATLAB
-Maven
-Maxima
-MFC
-Microformats
-Microsoft Excel
-Microsoft Project
-Microsoft Visual Studio
-MIME
-mod_include
-mod_perl
-mod_rewrite
-MooTools
-MSP
-Mule
-Music
-MVVM
-MySQL
-NetBeans
-NMAP
-Node.js
-Numbers
-Objective-C
-Open Source Media Framework
-OpenCL
-OpenCV
-OpenMP
-OpenSearch
-OpenSSH
-OpenVZ
-Oracle
-org-mode
-OS X
-Perforce
-Perl
-Photoshop
-PHP
-PHP Frameworks
-Physics
-Play Framework
-PostgreSQL
-Probability Theory
-Prototype
-Python
-Qt
-Quicksilver
-R
-Red Hat
-Regular Expressions
-Religion
-REST
-RichFaces
-rpm
-RSS
-Ruby
-Ruby on Rails
-Sandcastle
-Scala
-Scalability
-Science
-Screen
-Seam
-Sed
-Selenium
-Sendmail
-ServiceMix
-Shell Script
-Silverlight
-Smile
-Social Bookmarks
-Solaris
-Spring Framework
-Spring Roo
-SQL
-SQL Server
-SQLite
-SSI
-SSL
-Statistics
-SVG
-SVN
-Sybase
-Symfony
-Tapestry
-Tcl/Tk
-TCP
-TeX
-Thunderbird
-TLDs
-TLS
-Trigonometry
-TTCN-3
-Twitter
-UML
-Ubuntu
-Unicode
-Unix
-UTF
-Vaadin
-VB
-VBA
-VBScript
-Veritas Cluster
-Vi
-Vim
-VIM-LaTeX
-Virtualization
-Visual Basic
-VMware
-VoiceXML
-vvvv
-WebGL
-WebMatrix
-Wicket
-Wikipedia
-Windows
-Windows Azure
-Windows Communication Foundation
-Windows Presentation Foundation
-Windows PowerShell
-WordPress
-World of Warcraft
-WS-BPEL
-XHTML
-XML
-XML Schema
-XPath
-XSL
-XSLT
-XSS
-Yahoo
-Zen Coding
-Friends of Cheat-Sheets.org
-Other Collectors
-After
-The only one you need</p>
 ]]></content>
   </entry>
   
