@@ -1,0 +1,464 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Использование virtualenv python - Ещё один блог</title>
+  <meta name="author" content="Anshik">
+
+  
+  <meta name="description" content="Как настроить virtualenv и понять как оно работает. Раз и навсегда.">
+  <meta name="keywords" content="Python, virtualenv">
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://Anshik.github.com/blog/2012/06/05/ispolzovaniie-virtualenv-python">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Ещё один блог" type="application/atom+xml">
+  <meta name='yandex-verification' content='6339aed3f1c3b095' />
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Ещё один блог</a></h1>
+  
+    <h2>A blogging framework for hackers or geeks.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:Anshik.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">Обо мне</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Использование Virtualenv Python</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-06-05T14:05:00+04:00" pubdate data-updated="true">Jun 5<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h3>Введение</h3>
+
+<p>Давно хотел разобраться, как настраивать и использовать <a href="http://pypi.python.org/pypi/virtualenv">virtualenv</a>.
+Virtualenv это средство для создания изолированного окружения Python.</p>
+
+<h4>Зачем оно нужно?</h4>
+
+<p>По умолчанию easy_install ставит питоновские пакеты примерно в <code>/usr/local/lib/python2.6/dist-packages</code>
+И там получается помойка из пакетов, в некоторых случаях мы работаем со старыми версиями пакетов.</p>
+
+<!-- more -->
+
+
+<blockquote><p>К примеру был написан сайт на Django, года два назад, и нужно использовать старую джангу, чтобы всё не переписывать. Тут два варианта :)<br/>
+* Для слабаков:<br/>
+Просто скопировать старую джангу в проект и не париться, и скопировать туда же в проект старые модули, и всё будет работать :)</p>
+
+<ul>
+<li>Для не_слабаков:<br/>
+Настроить virtualenv под проект.</li>
+</ul>
+
+
+<p><strong>Virtualenv</strong> &mdash; позволяет для каждого проекта создать <strong>своё окружение</strong> <em>питонячьих</em> пакетов.</p></blockquote>
+
+<h3>Установка</h3>
+
+<p>sudo easy_install virtualenv</p>
+
+<figure class='code'><figcaption><span>Как-то так оно установливается</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>sudo easy_install virtualenv
+</span><span class='line'>install_dir /usr/local/lib/python2.6/dist-packages/
+</span><span class='line'>Searching <span class="k">for </span>virtualenv
+</span><span class='line'>Reading http://pypi.python.org/simple/virtualenv/
+</span><span class='line'>Reading http://www.virtualenv.org
+</span><span class='line'>Reading http://virtualenv.openplans.org
+</span><span class='line'>Best match: virtualenv 1.7.1.2
+</span><span class='line'>Downloading http://pypi.python.org/packages/source/v/virtualenv/virtualenv-1.7.1.2.tar.gz#md5<span class="o">=</span>3be8a014c27340f48b56465f9109d9fa
+</span><span class='line'>Processing virtualenv-1.7.1.2.tar.gz
+</span><span class='line'>Running virtualenv-1.7.1.2/setup.py -q bdist_egg --dist-dir /tmp/easy_install-yLN55d/virtualenv-1.7.1.2/egg-dist-tmp-a8EZxb
+</span><span class='line'>warning: no previously-included files matching <span class="s1">&#39;*.*&#39;</span> found under directory <span class="s1">&#39;docs/_templates&#39;</span>
+</span><span class='line'>Adding virtualenv 1.7.1.2 to easy-install.pth file
+</span><span class='line'>Installing virtualenv script to /usr/local/bin
+</span><span class='line'>
+</span><span class='line'>Installed /usr/local/lib/python2.6/dist-packages/virtualenv-1.7.1.2-py2.6.egg
+</span><span class='line'>Processing dependencies <span class="k">for </span>virtualenv
+</span><span class='line'>Finished processing dependencies <span class="k">for </span>virtualenv
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span>Проверяем </span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>whereis virtualenv
+</span><span class='line'>virtualenv: /usr/local/bin/virtualenv
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Создание окружения</h3>
+
+<figure class='code'><figcaption><span>Создание окружения</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>home:~/temp<span class="nv">$ </span>virtualenv  -p /usr/bin/python2.6 --no-site-packages custom_python
+</span><span class='line'>Running virtualenv with interpreter /usr/bin/python2.6
+</span><span class='line'>The --no-site-packages flag is deprecated; it is now the default behavior.
+</span><span class='line'>New python executable in custom_python/bin/python2.6
+</span><span class='line'>Also creating executable in custom_python/bin/python
+</span><span class='line'>Installing setuptools............done.
+</span><span class='line'>Installing pip...............done.
+</span><span class='line'>home:~/temp<span class="nv">$ </span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Мы сказали, что хотим чтобы в папке <strong>custom_python</strong> использовался python интерпретатор, лежащий в <code>/usr/bin/python2.6</code>, и сказали, что не нужно использовать системных <strong>site-packages</strong>. А нам подсказали, что теперь писать &#8211;no-site-packages не нужно.</p>
+
+<figure class='code'><figcaption><span>Смотрим, что получилось в папке custom_python.</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>home:~/temp/custom_python<span class="nv">$ </span>ls
+</span><span class='line'>bin  include  lib
+</span><span class='line'>home:~/temp/custom_python<span class="nv">$ </span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Для запуска приложения в нашей среде нужно сказать <code>./bin/python</code></p>
+
+<h3>Пример установки Django</h3>
+
+<p>Мне как раз захотелось запустить Django1.4, потом django-cms и т.д.<br/>
+<code>home:~/temp/custom_python$ ./bin/easy_install django</code></p>
+
+<p>Django скачивается, устанавливается и теперь лежит в:<br/>
+<code>home:~/temp/custom_python/lib/python2.6/site-packages/Django-1.4-py2.6.egg</code></p>
+
+<figure class='code'><figcaption><span>Создание и запуск проекта Django</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>home:~/temp/custom_python<span class="nv">$ </span>./bin/django-admin.py startproject custom_django
+</span><span class='line'>home:~/temp/custom_python<span class="nv">$ </span><span class="nb">cd </span>custom_django/
+</span><span class='line'>home:~/temp/custom_python/custom_django<span class="nv">$ </span>ls
+</span><span class='line'>custom_django  manage.py
+</span><span class='line'>home:~/temp/custom_python/custom_django<span class="nv">$ </span>../bin/python manage.py runserver
+</span><span class='line'>Validating models...
+</span><span class='line'>
+</span><span class='line'>0 errors found
+</span><span class='line'>Django version 1.4, using settings <span class="s1">&#39;custom_django.settings&#39;</span>
+</span><span class='line'>Development server is running at http://127.0.0.1:8000/
+</span><span class='line'>Quit the server with CONTROL-C.
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>В общем-то, можно сказать всё. И не так страшно, как казалось.</p>
+
+<h4>Запуск скрипта</h4>
+
+<p>Создаём файл, обратите внимание на строчку <code>#!./bin/python</code> вначале файла, говорим, что будем при запуске использовать наш интерпретатор.</p>
+
+<figure class='code'><figcaption><span>К примеру такой tst.py</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c">#!./bin/python</span>
+</span><span class='line'><span class="c"># -*- coding: utf-8 -*-</span>
+</span><span class='line'>
+</span><span class='line'><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">random</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">struct</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">sys</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">RAND_NUMS</span> <span class="o">=</span> <span class="mi">10</span>
+</span><span class='line'><span class="n">rand_list</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">RAND_NUMS</span><span class="p">):</span>
+</span><span class='line'>    <span class="n">a</span> <span class="o">=</span> <span class="n">random</span><span class="p">()</span>
+</span><span class='line'>    <span class="n">rand_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="s">&#39;B&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">((</span><span class="n">a</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="o">%</span><span class="mi">255</span><span class="p">)))</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">print</span> <span class="n">rand_list</span>
+</span><span class='line'><span class="k">print</span> <span class="n">sys</span><span class="o">.</span><span class="n">executable</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Говорим <code>chmod +x tst.py</code>, запускаем <code>./tst.py</code></p>
+
+<figure class='code'><figcaption><span>Результат</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>home:~/temp/custom_python<span class="nv">$ </span>./tst.py
+</span><span class='line'><span class="o">[</span><span class="s1">&#39;W&#39;</span>, <span class="s1">&#39;\x1f&#39;</span>, <span class="s1">&#39;\x06&#39;</span>, <span class="s1">&#39;\x0f&#39;</span>, <span class="s1">&#39;\x03&#39;</span>, <span class="s1">&#39;b&#39;</span>, <span class="s1">&#39;T&#39;</span>, <span class="s1">&#39;G&#39;</span>, <span class="s1">&#39;\x17&#39;</span>, <span class="s1">&#39;\x04&#39;</span><span class="o">]</span>
+</span><span class='line'>/home/apalkov/temp/custom_python/bin/python
+</span><span class='line'>
+</span><span class='line'>home:~/temp/custom_python<span class="nv">$ </span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>В общем-то всё.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Anshik</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-06-05T14:05:00+04:00" pubdate data-updated="true">Jun 5<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/python/'>Python</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://Anshik.github.com/blog/2012/06/05/ispolzovaniie-virtualenv-python/" data-via="" data-counturl="http://Anshik.github.com/blog/2012/06/05/ispolzovaniie-virtualenv-python/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/05/29/dobavlieniie-kastomnykh-stranits/" title="Previous Post: Добавление кастомных страниц">&laquo; Добавление кастомных страниц</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/06/05/ispolzovaniie-virtualenv-python/">Использование virtualenv python</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/29/dobavlieniie-kastomnykh-stranits/">Добавление кастомных страниц</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/29/otladka-pochtovykh-soobshchienii-v-django/">Отладка почтовых сообщений в django</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/29/nariezka-mp3-failov-linux-ubuntu/">Нарезка mp3 файлов Linux Ubuntu</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/05/29/threads-in-pyqt4/">Как правильно делать треды в PyQT4</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+<section>
+  <h1>Обо мне</h1>
+  <p>Мне нравится Python, Qt, PyQt, PySide. Также знаю C/C++, умею программировать под микроконтроллеры. Интересуюсь Django, написал несколько проектов на нем, такие как http://pinta-piva.com, http://dok4you.ru</p>
+</section>
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Anshik -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+
+  <!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter14748103 = new Ya.Metrika({id:14748103, enableAll: true, webvisor:true});
+        } catch(e) {}
+    });
+    
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f);
+    } else { f(); }
+})(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="//mc.yandex.ru/watch/14748103" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'anshik';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://Anshik.github.com/blog/2012/06/05/ispolzovaniie-virtualenv-python/';
+        var disqus_url = 'http://Anshik.github.com/blog/2012/06/05/ispolzovaniie-virtualenv-python/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
