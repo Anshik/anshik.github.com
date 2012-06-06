@@ -4,7 +4,7 @@
   <title><![CDATA[Category: favicon.ico | Ещё один блог]]></title>
   <link href="http://Anshik.github.com/blog/categories/favicon-ico/atom.xml" rel="self"/>
   <link href="http://Anshik.github.com/"/>
-  <updated>2012-06-06T14:14:00+04:00</updated>
+  <updated>2012-06-06T14:20:09+04:00</updated>
   <id>http://Anshik.github.com/</id>
   <author>
     <name><![CDATA[Anshik]]></name>
@@ -19,9 +19,12 @@
     <updated>2012-05-29T14:59:00+04:00</updated>
     <id>http://Anshik.github.com/blog/2012/05/29/dobavlieniie-robots-dot-txt-i-favicon-dot-ico-v-django-1-dot-3</id>
     <content type="html"><![CDATA[<p>Добавляем следующее в urls.py и радуемся.
-Файл robots.txt кладём в папку с шаблонами страниц, примерное содержание robots.txt
-&lt;--! more -->
-``` bash примерное содержание robots.txt
+Файл robots.txt кладём в папку с шаблонами страниц, примерное содержание robots.txt</p>
+
+<!-- more -->
+
+
+<p>``` bash примерное содержание robots.txt
 #</p>
 
 <h1>robots.txt http://www.???.ru/</h1>
@@ -60,9 +63,9 @@ Crawl-delay: 10</p>
 
 <p>Для того чтобы поисковому боту сказать, куда заглядывать не нужно, наверняка ещё для чего-то, гуглить лень, можете добавить комменты зачем, перенесу в пост.</p>
 
-<h3>Зачем нужен favicon.ico?</h3>
+<h3>Зачем нужен favicon.ico, он же favicon.png?</h3>
 
-<p>Это иконка которая будет показываться в левом углу вкладки в браузере, и будет отображаться при добавлении в избранное, она в общем так и расшифровывается favicon (favorite  icon), типа любимая иконка.</p>
+<p>Это иконка которая будет показываться в левом углу вкладки в браузере, и будет отображаться при добавлении в избранное, она в общем так и расшифровывается favicon (favorite  icon), типа любимая иконка. Нарисовать эту иконку можно в любом графическом редакторе например <a href="http://gimp.org">Gimp</a>. Картинка должна быть размером 16x16 пикселей.</p>
 
 <blockquote><p><strong>PS:</strong> Не забываем, что это не полный urls.py, а только те строчки, которые добавляют robots.txt и favicon.ico.</p></blockquote>
 

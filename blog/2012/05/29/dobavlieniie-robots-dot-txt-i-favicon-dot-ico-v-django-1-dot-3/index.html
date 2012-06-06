@@ -10,7 +10,7 @@
 
   
   <meta name="description" content="Добавление robots.txt и favicon.ico в Django 1.3 как сделать, чтобы работало">
-  <meta name="keywords" content="Django, robots.txt, favicon.ico">
+  <meta name="keywords" content="Django, robots.txt, favicon.ico, favicon.png">
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -90,8 +90,10 @@
 
 
 <div class="entry-content"><p>Добавляем следующее в urls.py и радуемся.
-Файл robots.txt кладём в папку с шаблонами страниц, примерное содержание robots.txt
-&lt;&#8211;! more &#8211;></p>
+Файл robots.txt кладём в папку с шаблонами страниц, примерное содержание robots.txt</p>
+
+<!-- more -->
+
 
 <figure class='code'><figcaption><span>примерное содержание robots.txt</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -155,9 +157,9 @@
 
 <p>Для того чтобы поисковому боту сказать, куда заглядывать не нужно, наверняка ещё для чего-то, гуглить лень, можете добавить комменты зачем, перенесу в пост.</p>
 
-<h3>Зачем нужен favicon.ico?</h3>
+<h3>Зачем нужен favicon.ico, он же favicon.png?</h3>
 
-<p>Это иконка которая будет показываться в левом углу вкладки в браузере, и будет отображаться при добавлении в избранное, она в общем так и расшифровывается favicon (favorite  icon), типа любимая иконка.</p>
+<p>Это иконка которая будет показываться в левом углу вкладки в браузере, и будет отображаться при добавлении в избранное, она в общем так и расшифровывается favicon (favorite  icon), типа любимая иконка. Нарисовать эту иконку можно в любом графическом редакторе например <a href="http://gimp.org">Gimp</a>. Картинка должна быть размером 16x16 пикселей.</p>
 
 <blockquote><p><strong>PS:</strong> Не забываем, что это не полный urls.py, а только те строчки, которые добавляют robots.txt и favicon.ico.</p></blockquote>
 

@@ -613,83 +613,14 @@ Virtualenv это средство для создания изолирован�
 
 
   <div class="entry-content"><p>Добавляем следующее в urls.py и радуемся.
-Файл robots.txt кладём в папку с шаблонами страниц, примерное содержание robots.txt
-&lt;&#8211;! more &#8211;></p>
+Файл robots.txt кладём в папку с шаблонами страниц, примерное содержание robots.txt</p>
 
-<figure class='code'><figcaption><span>примерное содержание robots.txt</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">#</span>
-</span><span class='line'><span class="c"># robots.txt http://www.???.ru/</span>
-</span><span class='line'><span class="c"># </span>
-</span><span class='line'>
-</span><span class='line'>User-agent: *
-</span><span class='line'>Disallow: /admin
-</span><span class='line'>
-</span><span class='line'>User-agent: Yandex
-</span><span class='line'>Disallow: /admin
-</span><span class='line'>Host: www.???.ru
-</span><span class='line'>Crawl-delay: 10
-</span><span class='line'>
-</span><span class='line'>Sitemap: http://www.???.ru/sitemap.xml
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Иконку <strong>favicon.ico</strong> кладём в папку со статическими файлами сайта.</p>
-
-<figure class='code'><figcaption><span>Добавляем следующее в urls.py</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'> <span class="kn">from</span> <span class="nn">django.conf.urls.defaults</span> <span class="kn">import</span> <span class="n">patterns</span><span class="p">,</span> <span class="n">include</span><span class="p">,</span> <span class="n">url</span>
-</span><span class='line'> <span class="kn">from</span> <span class="nn">django.views.generic.base</span> <span class="kn">import</span> <span class="n">TemplateView</span><span class="p">,</span> <span class="n">RedirectView</span>
-</span><span class='line'>
-</span><span class='line'> <span class="k">class</span> <span class="nc">TextPlainView</span><span class="p">(</span><span class="n">TemplateView</span><span class="p">):</span>
-</span><span class='line'> <span class="k">def</span> <span class="nf">render_to_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-</span><span class='line'> <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">TextPlainView</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">render_to_response</span><span class="p">(</span>
-</span><span class='line'> <span class="n">context</span><span class="p">,</span> <span class="n">content_type</span><span class="o">=</span><span class="s">&#39;text/plain&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'> <span class="n">urlpatterns</span> <span class="o">=</span> <span class="n">patterns</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">,</span>
-</span><span class='line'> <span class="n">url</span><span class="p">(</span><span class="s">r&#39;^robots\.txt$&#39;</span><span class="p">,</span> <span class="n">TextPlainView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(</span><span class="n">template_name</span><span class="o">=</span><span class="s">&#39;robots.txt&#39;</span><span class="p">)),</span>
-</span><span class='line'> <span class="n">url</span><span class="p">(</span><span class="s">r&#39;^favicon\.ico$&#39;</span><span class="p">,</span> <span class="n">RedirectView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s">&#39;/media/img/favicon.ico&#39;</span><span class="p">)),</span>
-</span><span class='line'> <span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>Зачем нужен robots.txt?</h3>
-
-<p>Для того чтобы поисковому боту сказать, куда заглядывать не нужно, наверняка ещё для чего-то, гуглить лень, можете добавить комменты зачем, перенесу в пост.</p>
-
-<h3>Зачем нужен favicon.ico?</h3>
-
-<p>Это иконка которая будет показываться в левом углу вкладки в браузере, и будет отображаться при добавлении в избранное, она в общем так и расшифровывается favicon (favorite  icon), типа любимая иконка.</p>
-
-<blockquote><p><strong>PS:</strong> Не забываем, что это не полный urls.py, а только те строчки, которые добавляют robots.txt и favicon.ico.</p></blockquote>
-
-<p> Я в первый раз попробовал это на сайте <a href="dok4you.ru">Женской консультации 2х2</a>  про акушерство, гинекологию и др.</p>
-
-<blockquote><p><strong>PPS:</strong> Возможно нужно ещё сказать джанге на хостинге
- <code>python manage.py collectstatic</code>, как-то так, может с ошибкой</p></blockquote>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/05/29/dobavlieniie-robots-dot-txt-i-favicon-dot-ico-v-django-1-dot-3/">Читать до конца &rarr;</a>
+    </footer>
   
 
 
