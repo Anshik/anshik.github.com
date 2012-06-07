@@ -9,8 +9,32 @@
   <meta name="author" content="Anshik">
 
   
-  <meta name="description" content="В общем сабж В интернете нашёл только краткий пост Ивана Маркеева Я не прочитал внимательно строчку:
-Приведенные WYM_STYLES определяют то, как &hellip;">
+  <meta name="description" content="Вот как исправить переход с летнего на зимнее время в Ubuntu 10.101
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+#!/bin/sh # &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -64,6 +88,173 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/05/29/mieniaiem-vriemia-na-ubuntie-na-pravilnoie/">Меняем время на убунте на правилное</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-29T15:12:00+04:00" pubdate data-updated="true">May 29<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><figure class='code'><figcaption><span>Вот как исправить переход с летнего на зимнее время в Ubuntu 10.10</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">#!/bin/sh </span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># Disallow winter time for Moscow </span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">echo</span> <span class="s2">&quot;Disable winter time for MoscoW&quot;</span>
+</span><span class='line'>
+</span><span class='line'>sleep 3
+</span><span class='line'>
+</span><span class='line'>mkdir ./temp1
+</span><span class='line'>
+</span><span class='line'><span class="nb">cd</span> ./temp1
+</span><span class='line'>
+</span><span class='line'><span class="c">#wget ftp://elsie.nci.nih.gov/pub/tzdata2011k.tar.gz  уже не работает</span>
+</span><span class='line'> wget http://people.freebsd.org/~edwin/tzdata2011k.tar.gz
+</span><span class='line'>
+</span><span class='line'>tar xzf tzdata2011k.tar.gz
+</span><span class='line'>
+</span><span class='line'>cp /etc/localtime /tmp/localtime.old
+</span><span class='line'>
+</span><span class='line'>zic europe
+</span><span class='line'>
+</span><span class='line'>ln -sf /usr/share/zoneinfo/Europe/Moscow /etc/localtime
+</span><span class='line'>
+</span><span class='line'><span class="nb">cd</span> ..
+</span><span class='line'>rm -rf ./temp1
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/05/29/django-cms-filer-plugin/">Django-cms Filer Plugin</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-29T15:09:00+04:00" pubdate data-updated="true">May 29<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Если вы решили использовать это django-cms filer plugin, то не забудьте сначала поставить filer, потом easy_thumbnails</p>
+
+<p>А если вы используете yandex maps plugin, то почему-то пришлось делать правильный шаблон, и в контекст передавать нормально свой ключ, а то не работает. Потом нужно подробно, это просто чтобы не забыть.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/05/29/dobavlieniie-robots-dot-txt-i-favicon-dot-ico-v-django-1-dot-3/">Добавление robots.txt и favicon.ico в Django 1.3</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-29T14:59:00+04:00" pubdate data-updated="true">May 29<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Добавляем следующее в urls.py и радуемся.
+Файл robots.txt кладём в папку с шаблонами страниц, примерное содержание robots.txt</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/05/29/dobavlieniie-robots-dot-txt-i-favicon-dot-ico-v-django-1-dot-3/">Читать до конца &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -400,147 +591,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/05/25/dobavlieniie-kommientariiev-v-octopress/">Добавление комментариев в Octopress</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-05-25T14:04:00+04:00" pubdate data-updated="true">May 25<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Добавление комментариев оказолось простым, регистрируемся на <a href="http://www.disqus.com">Disqus</a>.<br/>
-При регистрации вводим краткое описание сайта и короткое название. Короткое название потом пригодится. Открываем файл <strong>_config.yml</strong></p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c"># Disqus Comments</span>
-</span><span class='line'><span class="n">disqus_short_name</span><span class="p">:</span> <span class="err">короткое</span> <span class="err">название</span> <span class="err">сайта</span>
-</span><span class='line'><span class="n">disqus_show_comment_count</span><span class="p">:</span> <span class="n">false</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>И всего делов, всё начинает работать.
-Дальше, если хочется русских комментариев, заходим в настройки сайта в дискурсе, и меняем временную зону и язык.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/05/25/zamiena-lampochiek-v-podiezdie/">Замена лампочек в подъезде, парадной</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-05-25T09:52:00+04:00" pubdate data-updated="true">May 25<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h3>Пост с блоггера от среды 28 декабря 2011 года</h3>
-
-<p>Решил сразу написать пост по поводу замены лампочек на лестничной площадке.</p>
-
-<p>Когда мы снимали квартиру, лампочки заменяли сами жильцы. Один раз даже собирали денежку на энергосберегающую лампочку :)</p>
-
-<p>Там где мы сейчас живём всё проще, если не лениться:</p>
-
-<p>Звонишь в ремонтно-эксплуатационную службу, и оставляешь заявку на &#8220;освещение N-го этажа, в N-ом подъезде&#8221;. Телефон службы у меня указан на счёте за коммунальные услуги.</p>
-
-<h4>PS: Не ленитесь, запишите телефон ремонтно-эксплуатационной службы себе в телефон, и если обнаружите неисправную лампочку - звоните. Вы платите за исправное освещение деньги.</h4>
-
-<h5>PPS: Сейчас пробую пройти квест с ремонтом уличного освещения в Петербурге.</h5>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/05/25/sozdaniie-skhiemy-bazy-dannykh-iz-imieiushchieisia-bazy-dannykh-v-django/">Создание схемы базы данных из имеющейся базы данных в Django | Database Schema From Existing Database in Django</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-05-25T08:49:00+04:00" pubdate data-updated="true">May 25<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h3>Сделал базу данных в django. Как сделать из неё картинку, схему базы данных?</h3>
-
-<p>Вот возник такой вопрос, и мне подсказали:<br/>
-<a href="http://code.google.com/p/django-command-extensions/">django-command-extensions</a> устанавливаете, потом manage.py graph_models, только надо еще <a href="http://www.graphviz.org/">graphviz</a> иметь в системе установленным</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/05/25/sozdaniie-skhiemy-bazy-dannykh-iz-imieiushchieisia-bazy-dannykh-v-django/">Читать до конца &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -554,8 +604,20 @@
 <aside class="sidebar">
   
     <section>
-  <h1>Recent Posts</h1>
+  <h1>Последние статьи</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/06/07/module-cuisine/">Module cuisine, как нахлобучка над Fabric</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/06/kak-ustanovit-hypercomments-v-octopress/">Как установить Hypercomments в Octopress</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/06/fabric-dlia-python/">Fabric для python, первые шаги</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2012/06/05/ispolzovaniie-virtualenv-python/">Использование virtualenv python</a>
@@ -563,18 +625,6 @@
     
       <li class="post">
         <a href="/blog/2012/05/29/dobavlieniie-kastomnykh-stranits/">Добавление кастомных страниц</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/05/29/otladka-pochtovykh-soobshchienii-v-django/">Отладка почтовых сообщений в django</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/05/29/nariezka-mp3-failov-linux-ubuntu/">Нарезка mp3 файлов Linux Ubuntu</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/05/29/threads-in-pyqt4/">Как правильно делать треды в PyQT4</a>
       </li>
     
   </ul>
@@ -624,7 +674,7 @@
 </p>
 
 </footer>
-  
+  <!-- 
 
 <script type="text/javascript">
       var disqus_shortname = 'anshik';
@@ -637,6 +687,15 @@
       dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     }());
+</script>
+
+ -->
+
+
+<script type="text/javascript">
+      
+              
+                
 </script>
 
 

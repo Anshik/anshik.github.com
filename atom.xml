@@ -4,7 +4,7 @@
   <title><![CDATA[Ещё один блог]]></title>
   <link href="http://Anshik.github.com/atom.xml" rel="self"/>
   <link href="http://Anshik.github.com/"/>
-  <updated>2012-06-06T14:20:09+04:00</updated>
+  <updated>2012-06-07T11:53:54+04:00</updated>
   <id>http://Anshik.github.com/</id>
   <author>
     <name><![CDATA[Anshik]]></name>
@@ -12,6 +12,191 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Module cuisine, как нахлобучка над Fabric]]></title>
+    <link href="http://Anshik.github.com/blog/2012/06/07/module-cuisine/"/>
+    <updated>2012-06-07T10:25:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2012/06/07/module-cuisine</id>
+    <content type="html"><![CDATA[<h3>Что такое Cuisine?</h3>
+
+<p>Cuisine это надстройка, набор сахара, дополнительный уровень абстракции над <a href="http://Anshik.github.com/blog/2012/06/06/fabric-dlia-python">Fabric</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Как установить Hypercomments в Octopress]]></title>
+    <link href="http://Anshik.github.com/blog/2012/06/06/kak-ustanovit-hypercomments-v-octopress/"/>
+    <updated>2012-06-06T16:59:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2012/06/06/kak-ustanovit-hypercomments-v-octopress</id>
+    <content type="html"><![CDATA[<h3>Введение</h3>
+
+<p>В Octopress по умолчанию предлагается использовать комментарии Disqus, а захотелось попробовать более гиковские Hypercomments. Решил разобраться с вопросом.</p>
+
+<!-- more -->
+
+
+<h3>Регистрация</h3>
+
+<p>Регистрируемся на <a href="http://hypercomments.com/">сайте</a>
+Получаем код виджета для вставления в свой сайт.</p>
+
+<figure class='code'><figcaption><span>У меня он выглядит так</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;hypercomments_widget&quot;</span><span class="nt">&gt;&lt;/div&gt;&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">_hcp</span> <span class="o">=</span> <span class="nx">_hcp</span> <span class="o">||</span> <span class="p">{};</span>
+</span><span class='line'><span class="nx">_hcp</span><span class="p">.</span><span class="nx">widget_id</span> <span class="o">=</span> <span class="mi">1551</span><span class="p">;</span>
+</span><span class='line'><span class="nx">_hcp</span><span class="p">.</span><span class="nx">widget</span> <span class="o">=</span> <span class="s2">&quot;Stream&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">hcc</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;script&quot;</span><span class="p">);</span> <span class="nx">hcc</span><span class="p">.</span><span class="nx">type</span> <span class="o">=</span> <span class="s2">&quot;text/javascript&quot;</span><span class="p">;</span> <span class="nx">hcc</span><span class="p">.</span><span class="nx">async</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span><span class='line'><span class="nx">hcc</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;https:&quot;</span> <span class="o">==</span> <span class="nb">document</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">protocol</span> <span class="o">?</span> <span class="s2">&quot;https&quot;</span> <span class="o">:</span> <span class="s2">&quot;http&quot;</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;://widget.hypercomments.com/apps/js/hc.js&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s2">&quot;script&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span> <span class="nx">s</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">insertBefore</span><span class="p">(</span><span class="nx">hcc</span><span class="p">,</span> <span class="nx">s</span><span class="p">.</span><span class="nx">nextSibling</span><span class="p">);</span>
+</span><span class='line'><span class="p">})();</span><span class="nt">&lt;/script&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Встраивание</h3>
+
+<p>Я встраивал немного костылём, зато быстро.
+Создаём файл <code>source/_insludes/hypercomments.html</code></p>
+
+<p><img class="center" src="http://Anshik.github.com/../blog_img/hypercomments.png" title="Вот как должен выглядеть файл" ></p>
+
+<p>Я оставил проверку наличия комментов Дискурса.
+Дальше меняем файлы <code>source/_layouts/page.html, source/_layouts/page.html</code> в обоих файлах одинаковый кусочек кода</p>
+
+<figure class='code'><figcaption><span>Было, стало</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'>  <span class="c">&lt;!-- Было --&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;section&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;h1&gt;</span>Comments<span class="nt">&lt;/h1&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;disqus_thread&quot;</span> <span class="na">aria-live=</span><span class="s">&quot;polite&quot;</span><span class="nt">&gt;</span><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<span class="nt">&lt;/div&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/section&gt;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c">&lt;!-- Стало --&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;section&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;hypercomments_widget&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/section&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Затем редактируем файл <code>_includes/after_footer.html</code>
+<img class="center" src="http://Anshik.github.com/../blog_img/hypercomments_after_footer.png" title="Вот как должен выглядеть файл after_footer.html" ></p>
+
+<h3>Всё! Should work&#8230; :)</h3>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Fabric для python, первые шаги]]></title>
+    <link href="http://Anshik.github.com/blog/2012/06/06/fabric-dlia-python/"/>
+    <updated>2012-06-06T16:54:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2012/06/06/fabric-dlia-python</id>
+    <content type="html"><![CDATA[<h3>Что такое Fabric?</h3>
+
+<p>Вольный перевод <a href="http://docs.fabfile.org/en/1.4.2/index.html">документации</a><br/>
+Fabric &mdash; это библиотечка для python версии >= 2.5 и консольная утилитка для облегчения использования SSH при деплое проекта, или выполнения админских задач.</p>
+
+<p>Она предоставляет простой набор операций для выполнения локальных или удалённых команд, загрузки, скачивания файлов и др.</p>
+
+<!-- more -->
+
+
+<h3>Установка</h3>
+
+<p>Я устанавливаю в свой питоний инстанс, созданный как написано <a href="http://Anshik.github.com/blog/2012/06/05/ispolzovaniie-virtualenv-python">тут</a><br/>
+<code>$ ./bin/easy_install fabric</code></p>
+
+<p>Он подтягивает ещё <code>ssh 1.7.14</code> и <code>pycrypto 2.6</code>.</p>
+
+<h3>Простейшее использование</h3>
+
+<p>Обычно создают модуль на Python, содержащий одну или более функций, затем исполняют его при помощи <strong>fab</strong>. Рассмотрим простейший пример. Для запуска выполняем из папки с этим скриптом <code>fab hello</code>.</p>
+
+<figure class='code'><figcaption><span>fabric.py</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c">#!./bin/python</span>
+</span><span class='line'><span class="c"># -*- coding: utf-8 -*-</span>
+</span><span class='line'>
+</span><span class='line'><span class="kn">from</span> <span class="nn">fabric.api</span> <span class="kn">import</span> <span class="n">run</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>
+</span><span class='line'>    <span class="k">print</span> <span class="s">&quot;It&#39;s says: hello&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>При его запуске мне выдаёт предупреждение</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>/usr/local/lib/python2.6/dist-packages/pycrypto-2.6-py2.6-linux-x86_64.egg/Crypto/Util/number.py:57: PowmInsecureWarning: Not using mpz_powm_sec.  You should rebuild using libgmp &gt;<span class="o">=</span> 5 to avoid timing attack vulnerability.
+</span><span class='line'>  _warn<span class="o">(</span><span class="s2">&quot;Not using mpz_powm_sec.  You should rebuild using libgmp &gt;= 5 to avoid timing attack vulnerability.&quot;</span>, PowmInsecureWarning<span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<figure class='code'><figcaption><span>И затем непосредственно вывод fabric</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>It<span class="err">&#39;</span>s says: hello
+</span><span class='line'>
+</span><span class='line'>Done.
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Предупреждание выдает даже не Фабрик, а pycrypto, ну и ладно, не буду ничего обновлять</p>
+
+<h3>Передача аргументов</h3>
+
+<p>Передача аргументов происходит следующим образом:<br/>
+<code>&lt;task name&gt;:&lt;arg&gt;,&lt;kwarg&gt;=&lt;value&gt;,....</code></p>
+
+<figure class='code'><figcaption><span>Передача аргументов</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">from</span> <span class="nn">fabric.api</span> <span class="kn">import</span> <span class="n">run</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="n">name_in</span><span class="o">=</span><span class="s">&#39;name&#39;</span><span class="p">):</span>
+</span><span class='line'>    <span class="k">print</span> <span class="s">&quot;It&#39;s says: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">name_in</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Вызов с аргументами можно производить двумя способами:
+<code>fab hello:name_in=Anshik</code><br/>
+<code>fab hello:Anshik</code><br/>
+Первый вариант словарем, второй &mdash; аргументами.</p>
+
+<h3>Продолжение мысли cuisine</h3>
+
+<p>cuisine &mdash; переводится как кухня<br/>
+Оно добавляет ещё уровень абстракции для упрощения</p>
+
+<p><a href="https://github.com/sebastien/cuisine">cuisine</a></p>
+
+<p><a href="http://Anshik.github.com/blog/2012/06/07/module-cuisine">более подробно в блоге</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Использование virtualenv python]]></title>
@@ -1478,146 +1663,6 @@ models.py</p>
 </span><span class='line'>rake deploy
 </span></code></pre></td></tr></table></div></figure>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Добавление комментариев в Octopress]]></title>
-    <link href="http://Anshik.github.com/blog/2012/05/25/dobavlieniie-kommientariiev-v-octopress/"/>
-    <updated>2012-05-25T14:04:00+04:00</updated>
-    <id>http://Anshik.github.com/blog/2012/05/25/dobavlieniie-kommientariiev-v-octopress</id>
-    <content type="html"><![CDATA[<p>Добавление комментариев оказолось простым, регистрируемся на <a href="http://www.disqus.com">Disqus</a>.<br/>
-При регистрации вводим краткое описание сайта и короткое название. Короткое название потом пригодится. Открываем файл <strong>_config.yml</strong></p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c"># Disqus Comments</span>
-</span><span class='line'><span class="n">disqus_short_name</span><span class="p">:</span> <span class="err">короткое</span> <span class="err">название</span> <span class="err">сайта</span>
-</span><span class='line'><span class="n">disqus_show_comment_count</span><span class="p">:</span> <span class="n">false</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>И всего делов, всё начинает работать.
-Дальше, если хочется русских комментариев, заходим в настройки сайта в дискурсе, и меняем временную зону и язык.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Замена лампочек в подъезде, парадной]]></title>
-    <link href="http://Anshik.github.com/blog/2012/05/25/zamiena-lampochiek-v-podiezdie/"/>
-    <updated>2012-05-25T09:52:00+04:00</updated>
-    <id>http://Anshik.github.com/blog/2012/05/25/zamiena-lampochiek-v-podiezdie</id>
-    <content type="html"><![CDATA[<h3>Пост с блоггера от среды 28 декабря 2011 года</h3>
-
-<p>Решил сразу написать пост по поводу замены лампочек на лестничной площадке.</p>
-
-<p>Когда мы снимали квартиру, лампочки заменяли сами жильцы. Один раз даже собирали денежку на энергосберегающую лампочку :)</p>
-
-<p>Там где мы сейчас живём всё проще, если не лениться:</p>
-
-<p>Звонишь в ремонтно-эксплуатационную службу, и оставляешь заявку на &#8220;освещение N-го этажа, в N-ом подъезде&#8221;. Телефон службы у меня указан на счёте за коммунальные услуги.</p>
-
-<h4>PS: Не ленитесь, запишите телефон ремонтно-эксплуатационной службы себе в телефон, и если обнаружите неисправную лампочку - звоните. Вы платите за исправное освещение деньги.</h4>
-
-<h5>PPS: Сейчас пробую пройти квест с ремонтом уличного освещения в Петербурге.</h5>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Создание схемы базы данных из имеющейся базы данных в Django | database schema from existing database in django]]></title>
-    <link href="http://Anshik.github.com/blog/2012/05/25/sozdaniie-skhiemy-bazy-dannykh-iz-imieiushchieisia-bazy-dannykh-v-django/"/>
-    <updated>2012-05-25T08:49:00+04:00</updated>
-    <id>http://Anshik.github.com/blog/2012/05/25/sozdaniie-skhiemy-bazy-dannykh-iz-imieiushchieisia-bazy-dannykh-v-django</id>
-    <content type="html"><![CDATA[<h3>Сделал базу данных в django. Как сделать из неё картинку, схему базы данных?</h3>
-
-<p>Вот возник такой вопрос, и мне подсказали:<br/>
-<a href="http://code.google.com/p/django-command-extensions/">django-command-extensions</a> устанавливаете, потом manage.py graph_models, только надо еще <a href="http://www.graphviz.org/">graphviz</a> иметь в системе установленным</p>
-
-<!-- more -->
-
-
-<h3>Более развёрнуто:</h3>
-
-<ul>
-<li>Если под убунтой, запускаем Synaptic, ставим:
-graphviz<br/>
-graphviz-doc<br/>
-graphviz-dev<br/>
-libgraphviz-dev<br/>
-libgraph4<br/>
-libxdot4<br/>
-убунта подскажет и выставит сама зависимости</li>
-<li>Качаем, либо достаём
-<a href="http://networkx.lanl.gov/pygraphviz/download.html">pygraphviz</a>
-Распаковываем, и мне пришлось раскомментировать в setup.py
-строчки:</li>
-</ul>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c"># Linux, generic UNIX</span>
-</span><span class='line'><span class="n">library_path</span><span class="o">=</span><span class="s">&#39;/usr/lib/graphviz&#39;</span>
-</span><span class='line'><span class="n">include_path</span><span class="o">=</span><span class="s">&#39;/usr/include/graphviz&#39;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Иначе ругается, что переменные не заданы.<br/>
-потом</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo python manage.py setup.py install
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>должно установиться.</p>
-
-<ul>
-<li>В наш проект джанги добавляем в приложения строчку</li>
-</ul>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'> <span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">(</span>
-</span><span class='line'>   <span class="s">&#39;django_extensions&#39;</span><span class="p">,</span>   <span class="c"># оно добавляет к нашим командам manage.py  graph_models</span>
-</span><span class='line'> <span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li>Теперь самое интересное</li>
-</ul>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c"># Create a dot file</span>
-</span><span class='line'><span class="nv">$ </span>./manage.py graph_models -a &gt; my_project.dot
-</span><span class='line'><span class="c"># Create a PNG image file called my_project_visualized.png with application grouping</span>
-</span><span class='line'><span class="nv">$ </span>./manage.py graph_models -a -g -o my_project_visualized.png
-</span><span class='line'><span class="c"># Create a dot file for only the &#39;foo&#39; and &#39;bar&#39; applications of your project</span>
-</span><span class='line'><span class="nv">$ </span>./manage.py graph_models foo bar &gt; my_project.dot
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Я использовал команду</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>./manage.py graph_models -a -g -o my_project_visualized.png
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Для создания png-шечки, вот что получилось</p>
-
-<p><img class="center" src="http://Anshik.github.com/../blog_img/my_project_visualized.png" title="пример того, что получилось" ></p>
 ]]></content>
   </entry>
   

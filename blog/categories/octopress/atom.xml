@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Octopress | Ещё один блог]]></title>
   <link href="http://Anshik.github.com/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://Anshik.github.com/"/>
-  <updated>2012-06-06T14:20:09+04:00</updated>
+  <updated>2012-06-07T11:53:54+04:00</updated>
   <id>http://Anshik.github.com/</id>
   <author>
     <name><![CDATA[Anshik]]></name>
@@ -12,6 +12,76 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Как установить Hypercomments в Octopress]]></title>
+    <link href="http://Anshik.github.com/blog/2012/06/06/kak-ustanovit-hypercomments-v-octopress/"/>
+    <updated>2012-06-06T16:59:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2012/06/06/kak-ustanovit-hypercomments-v-octopress</id>
+    <content type="html"><![CDATA[<h3>Введение</h3>
+
+<p>В Octopress по умолчанию предлагается использовать комментарии Disqus, а захотелось попробовать более гиковские Hypercomments. Решил разобраться с вопросом.</p>
+
+<!-- more -->
+
+
+<h3>Регистрация</h3>
+
+<p>Регистрируемся на <a href="http://hypercomments.com/">сайте</a>
+Получаем код виджета для вставления в свой сайт.
+``` html У меня он выглядит так</p>
+
+<div id="hypercomments_widget"></div>
+
+
+<script type="text/javascript">
+var _hcp = _hcp || {};
+_hcp.widget_id = 1551;
+_hcp.widget = "Stream";
+(function() { 
+var hcc = document.createElement("script"); hcc.type = "text/javascript"; hcc.async = true;
+hcc.src = ("https:" == document.location.protocol ? "https" : "http")+"://widget.hypercomments.com/apps/js/hc.js";
+var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hcc, s.nextSibling); 
+})();</script>
+
+
+<p>```</p>
+
+<h3>Встраивание</h3>
+
+<p>Я встраивал немного костылём, зато быстро.
+Создаём файл <code>source/_insludes/hypercomments.html</code></p>
+
+<p><img class="center" src="/../blog_img/hypercomments.png" title="Вот как должен выглядеть файл" ></p>
+
+<p>Я оставил проверку наличия комментов Дискурса.
+Дальше меняем файлы <code>source/_layouts/page.html, source/_layouts/page.html</code> в обоих файлах одинаковый кусочек кода
+``` html Было, стало
+  <!-- Было -->
+  <section></p>
+
+<pre><code>&lt;h1&gt;Comments&lt;/h1&gt;
+&lt;div id="disqus_thread" aria-live="polite"&gt;<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+&lt;/div&gt;
+</code></pre>
+
+<p>  </section></p>
+
+<p>  <!-- Стало -->
+  <section></p>
+
+<pre><code>&lt;div id="hypercomments_widget"&gt;&lt;/div&gt;
+</code></pre>
+
+<p>  </section>
+```</p>
+
+<p>Затем редактируем файл <code>_includes/after_footer.html</code>
+<img class="center" src="/../blog_img/hypercomments_after_footer.png" title="Вот как должен выглядеть файл after_footer.html" ></p>
+
+<h3>Всё! Should work... :)</h3>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Добавление кастомных страниц]]></title>
@@ -175,6 +245,11 @@ disqus_show_comment_count: false
 
 <p><strong>description:</strong> "описание страницы"<br/>
 <strong>keywords:</strong> "ключевые слова"</p>
+
+<h3>Добавление ссылки на свой пост</h3>
+
+<p>Для того чтобы сделать сслылку на свой уже существующий пост, добавляем ссылку такого вида:<br/>
+<code>[Virtualenv](/blog/2012/06/05/ispolzovaniie-virtualenv-python)</code></p>
 ]]></content>
   </entry>
   
