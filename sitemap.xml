@@ -90,7 +90,7 @@
     </url>
     <url>
         <loc>http://Anshik.github.com/blog/2012/05/29/django-cms-filer-plugin/</loc>
-        <lastmod>2012-06-07T11:15:44+04:00</lastmod>
+        <lastmod>2012-06-09T12:36:46+04:00</lastmod>
     </url>
     <url>
         <loc>
@@ -143,16 +143,22 @@
         <lastmod>2012-06-07T11:15:44+04:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://Anshik.github.com/blog/2012/06/08/django-cms-ustanovka-i-piervichnaia-nastroika/
+        </loc>
+        <lastmod>2012-06-09T08:52:05+04:00</lastmod>
+    </url>
+    <url>
         <loc>http://Anshik.github.com/404.html</loc>
         <lastmod>2012-06-07T11:39:04+04:00</lastmod>
     </url>
     <url>
         <loc>http://Anshik.github.com/blog/archives/</loc>
-        <lastmod>2012-06-07T11:45:43+04:00</lastmod>
+        <lastmod>2012-06-09T12:36:46+04:00</lastmod>
     </url>
     <url>
         <loc>http://Anshik.github.com/</loc>
-        <lastmod>2012-06-07T11:45:43+04:00</lastmod>
+        <lastmod>2012-06-09T12:36:46+04:00</lastmod>
     </url>
     <url>
         <loc>http://Anshik.github.com/about/</loc>

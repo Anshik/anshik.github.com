@@ -4,7 +4,7 @@
   <title><![CDATA[Ещё один блог]]></title>
   <link href="http://Anshik.github.com/atom.xml" rel="self"/>
   <link href="http://Anshik.github.com/"/>
-  <updated>2012-06-07T11:53:54+04:00</updated>
+  <updated>2012-06-13T14:00:17+04:00</updated>
   <id>http://Anshik.github.com/</id>
   <author>
     <name><![CDATA[Anshik]]></name>
@@ -12,6 +12,65 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Django-CMS установка и первичная настройка]]></title>
+    <link href="http://Anshik.github.com/blog/2012/06/08/django-cms-ustanovka-i-piervichnaia-nastroika/"/>
+    <updated>2012-06-08T08:47:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2012/06/08/django-cms-ustanovka-i-piervichnaia-nastroika</id>
+    <content type="html"><![CDATA[<h3>Что такое Djang-CMS</h3>
+
+<p>Django-CMS &mdash; это система управления контентом, написанная на Python, с использованием фреймворка Django. Она гибкая, настраиваемая, для неё создано много модулей. Помимо этого можно добавлять свои модули.</p>
+
+<h3>Установка</h3>
+
+<ol>
+<li>Сделаем новый <a href="http://Anshik.github.com/blog/2012/06/05/ispolzovaniie-virtualenv-python">virtualenv</a></li>
+</ol>
+
+
+<figure class='code'><figcaption><span>Запустите в шеле следующие комманды</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo aptitude install python2.6 python-setuptools python-imaging
+</span><span class='line'>sudo easy_install pip
+</span><span class='line'>sudo pip install <span class="nv">django</span><span class="o">==</span>1.3.1 django-cms south
+</span><span class='line'>django-admin.py startproject mycmsproject
+</span><span class='line'><span class="nb">cd </span>mycmsproject
+</span><span class='line'>rm settings.py
+</span><span class='line'>rm urls.py
+</span><span class='line'>wget https://gist.github.com/raw/1125918/settings.py
+</span><span class='line'>wget https://gist.github.com/raw/1125918/urls.py
+</span><span class='line'>mkdir templates
+</span><span class='line'><span class="nb">cd </span>templates
+</span><span class='line'>wget https://gist.github.com/raw/1125918/example.html
+</span><span class='line'><span class="nb">cd</span> ..
+</span><span class='line'>python manage.py syncdb --all
+</span><span class='line'>python manage.py migrate --fake
+</span><span class='line'>python manage.py runserver
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h1>Установка Блога</h1>
+
+<p>Чего-то перемудрил, пробую чистую установку, проблема с путями.
+Install cmsplugin-blog from pypi:
+pip install cmsplugin-blog</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Module cuisine, как нахлобучка над Fabric]]></title>
@@ -814,6 +873,12 @@ Virtualenv это средство для создания изолирован�
     <content type="html"><![CDATA[<p>Если вы решили использовать это django-cms filer plugin, то не забудьте сначала поставить filer, потом easy_thumbnails</p>
 
 <p>А если вы используете yandex maps plugin, то почему-то пришлось делать правильный шаблон, и в контекст передавать нормально свой ключ, а то не работает. Потом нужно подробно, это просто чтобы не забыть.</p>
+
+<p>Чтобы не забыть ещё в новостях нужно сделать так, в файле cms_plugin/navigation.py</p>
+
+<h1>from cms.utils.navigation import NavigationNode</h1>
+
+<p>from menus.base import NavigationNode</p>
 ]]></content>
   </entry>
   
@@ -1636,33 +1701,6 @@ models.py</p>
 <h5>PS</h5>
 
 <p>Возможно мне просто повезло и дело было перед выборами&#8230; Пишите в комментах кто найдет этот бложик, о результатах ваших обращений.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Добавление google webmasters]]></title>
-    <link href="http://Anshik.github.com/blog/2012/05/29/dobavlieniie-google-webmasters/"/>
-    <updated>2012-05-29T12:05:00+04:00</updated>
-    <id>http://Anshik.github.com/blog/2012/05/29/dobavlieniie-google-webmasters</id>
-    <content type="html"><![CDATA[<h3>Данное решение подходит не только под Google, но и под Yandex</h3>
-
-<p>Для подтверждения прав владения сайтом нас просят добавить страничку на сайт, с названием примерно google9blablaf25be8.html и содержанием:</p>
-
-<blockquote><p>google-site-verification: google9blablaf25be8.html</p></blockquote>
-
-<p>Для этого мы создаем страничку rake new_page[&#8220;google9blablaf25be8.html&#8221;]<br/>
-Затем редактируем её, удаляем заголовок, стандартный для постов и страниц, и оставляем только:</p>
-
-<blockquote><p>google-site-verification: google9blablaf25be8.html</p></blockquote>
-
-<p>Дальше как обычно:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>rake generate
-</span><span class='line'>rake deploy
-</span></code></pre></td></tr></table></div></figure>
-
 ]]></content>
   </entry>
   

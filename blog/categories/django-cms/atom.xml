@@ -4,7 +4,7 @@
   <title><![CDATA[Category: django-cms | Ещё один блог]]></title>
   <link href="http://Anshik.github.com/blog/categories/django-cms/atom.xml" rel="self"/>
   <link href="http://Anshik.github.com/"/>
-  <updated>2012-06-07T11:53:54+04:00</updated>
+  <updated>2012-06-13T14:00:17+04:00</updated>
   <id>http://Anshik.github.com/</id>
   <author>
     <name><![CDATA[Anshik]]></name>
@@ -21,6 +21,12 @@
     <content type="html"><![CDATA[<p>Если вы решили использовать это django-cms filer plugin, то не забудьте сначала поставить filer, потом easy_thumbnails</p>
 
 <p>А если вы используете yandex maps plugin, то почему-то пришлось делать правильный шаблон, и в контекст передавать нормально свой ключ, а то не работает. Потом нужно подробно, это просто чтобы не забыть.</p>
+
+<p>Чтобы не забыть ещё в новостях нужно сделать так, в файле cms_plugin/navigation.py</p>
+
+<h1>from cms.utils.navigation import NavigationNode</h1>
+
+<p>from menus.base import NavigationNode</p>
 ]]></content>
   </entry>
   

@@ -9,8 +9,7 @@
   <meta name="author" content="Anshik">
 
   
-  <meta name="description" content="Что такое Cuisine? Cuisine это надстройка, набор сахара, дополнительный уровень абстракции над Fabric
-">
+  <meta name="description" content="Что такое Djang-CMS Django-CMS &mdash; это система управления контентом, написанная на Python, с использованием фреймворка Django. Она гибкая, &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -64,6 +63,92 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/06/08/django-cms-ustanovka-i-piervichnaia-nastroika/">Django-CMS установка и первичная настройка</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-06-08T08:47:00+04:00" pubdate data-updated="true">Jun 8<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3>Что такое Djang-CMS</h3>
+
+<p>Django-CMS &mdash; это система управления контентом, написанная на Python, с использованием фреймворка Django. Она гибкая, настраиваемая, для неё создано много модулей. Помимо этого можно добавлять свои модули.</p>
+
+<h3>Установка</h3>
+
+<ol>
+<li>Сделаем новый <a href="/blog/2012/06/05/ispolzovaniie-virtualenv-python">virtualenv</a></li>
+</ol>
+
+
+<figure class='code'><figcaption><span>Запустите в шеле следующие комманды</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo aptitude install python2.6 python-setuptools python-imaging
+</span><span class='line'>sudo easy_install pip
+</span><span class='line'>sudo pip install <span class="nv">django</span><span class="o">==</span>1.3.1 django-cms south
+</span><span class='line'>django-admin.py startproject mycmsproject
+</span><span class='line'><span class="nb">cd </span>mycmsproject
+</span><span class='line'>rm settings.py
+</span><span class='line'>rm urls.py
+</span><span class='line'>wget https://gist.github.com/raw/1125918/settings.py
+</span><span class='line'>wget https://gist.github.com/raw/1125918/urls.py
+</span><span class='line'>mkdir templates
+</span><span class='line'><span class="nb">cd </span>templates
+</span><span class='line'>wget https://gist.github.com/raw/1125918/example.html
+</span><span class='line'><span class="nb">cd</span> ..
+</span><span class='line'>python manage.py syncdb --all
+</span><span class='line'>python manage.py migrate --fake
+</span><span class='line'>python manage.py runserver
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h1>Установка Блога</h1>
+
+<p>Чего-то перемудрил, пробую чистую установку, проблема с путями.
+Install cmsplugin-blog from pypi:
+pip install cmsplugin-blog</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -544,48 +629,6 @@ Virtualenv это средство для создания изолирован�
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/05/29/intierprietator-dlia-pitonofilov/">Интерпретатор для Питонофилов</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-05-29T15:15:00+04:00" pubdate data-updated="true">May 29<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Раньше я использовал <strong>iPython</strong>, но хозяйки посоветовали мне <strong>DreamPie</strong>
-Установил под WindowsXP, при первом запуске пришлось фиксить выдало, что не может:</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/05/29/intierprietator-dlia-pitonofilov/">Читать до конца &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -601,6 +644,10 @@ Virtualenv это средство для создания изолирован�
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/06/08/django-cms-ustanovka-i-piervichnaia-nastroika/">Django-CMS установка и первичная настройка</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/06/07/module-cuisine/">Module cuisine, как нахлобучка над Fabric</a>
       </li>
     
@@ -614,10 +661,6 @@ Virtualenv это средство для создания изолирован�
     
       <li class="post">
         <a href="/blog/2012/06/05/ispolzovaniie-virtualenv-python/">Использование virtualenv python</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/05/29/dobavlieniie-kastomnykh-stranits/">Добавление кастомных страниц</a>
       </li>
     
   </ul>

@@ -9,32 +9,8 @@
   <meta name="author" content="Anshik">
 
   
-  <meta name="description" content="Вот как исправить переход с летнего на зимнее время в Ubuntu 10.101
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-#!/bin/sh # &hellip;">
+  <meta name="description" content="Раньше я использовал iPython, но хозяйки посоветовали мне DreamPie
+Установил под WindowsXP, при первом запуске пришлось фиксить выдало, что не может: ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -88,6 +64,48 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/05/29/intierprietator-dlia-pitonofilov/">Интерпретатор для Питонофилов</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-29T15:15:00+04:00" pubdate data-updated="true">May 29<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Раньше я использовал <strong>iPython</strong>, но хозяйки посоветовали мне <strong>DreamPie</strong>
+Установил под WindowsXP, при первом запуске пришлось фиксить выдало, что не может:</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/05/29/intierprietator-dlia-pitonofilov/">Читать до конца &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -207,6 +225,12 @@
   <div class="entry-content"><p>Если вы решили использовать это django-cms filer plugin, то не забудьте сначала поставить filer, потом easy_thumbnails</p>
 
 <p>А если вы используете yandex maps plugin, то почему-то пришлось делать правильный шаблон, и в контекст передавать нормально свой ключ, а то не работает. Потом нужно подробно, это просто чтобы не забыть.</p>
+
+<p>Чтобы не забыть ещё в новостях нужно сделать так, в файле cms_plugin/navigation.py</p>
+
+<h1>from cms.utils.navigation import NavigationNode</h1>
+
+<p>from menus.base import NavigationNode</p>
 </div>
   
   
@@ -537,60 +561,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/05/29/dobavlieniie-google-webmasters/">Добавление Google Webmasters</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-05-29T12:05:00+04:00" pubdate data-updated="true">May 29<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h3>Данное решение подходит не только под Google, но и под Yandex</h3>
-
-<p>Для подтверждения прав владения сайтом нас просят добавить страничку на сайт, с названием примерно google9blablaf25be8.html и содержанием:</p>
-
-<blockquote><p>google-site-verification: google9blablaf25be8.html</p></blockquote>
-
-<p>Для этого мы создаем страничку rake new_page[&#8220;google9blablaf25be8.html&#8221;]<br/>
-Затем редактируем её, удаляем заголовок, стандартный для постов и страниц, и оставляем только:</p>
-
-<blockquote><p>google-site-verification: google9blablaf25be8.html</p></blockquote>
-
-<p>Дальше как обычно:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>rake generate
-</span><span class='line'>rake deploy
-</span></code></pre></td></tr></table></div></figure>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -608,6 +578,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/06/08/django-cms-ustanovka-i-piervichnaia-nastroika/">Django-CMS установка и первичная настройка</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/06/07/module-cuisine/">Module cuisine, как нахлобучка над Fabric</a>
       </li>
     
@@ -621,10 +595,6 @@
     
       <li class="post">
         <a href="/blog/2012/06/05/ispolzovaniie-virtualenv-python/">Использование virtualenv python</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/05/29/dobavlieniie-kastomnykh-stranits/">Добавление кастомных страниц</a>
       </li>
     
   </ul>
