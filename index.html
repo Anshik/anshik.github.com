@@ -9,7 +9,7 @@
   <meta name="author" content="Anshik">
 
   
-  <meta name="description" content="Что такое Djang-CMS Django-CMS &mdash; это система управления контентом, написанная на Python, с использованием фреймворка Django. Она гибкая, &hellip;">
+  <meta name="description" content="Этот пост скорее чтобы не забыть самому как это делается, и всегда знать где найти. Упрощение подключения Идем в папку ~/.ssh, редактируем файл &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -63,6 +63,62 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/06/14/podkliuchieniie-po-ssh-biez-parolia/">Подключение по Ssh без пароля</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-06-14T08:27:00+04:00" pubdate data-updated="true">Jun 14<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Этот пост скорее чтобы не забыть самому как это делается, и всегда знать где найти.</p>
+
+<h1>Упрощение подключения</h1>
+
+<p>Идем в папку ~/.ssh, редактируем файл config (если нет - создаём)</p>
+
+<figure class='code'><figcaption><span>Содержимое файла config</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>Host <span class="nb">test</span>
+</span><span class='line'>HostName ftp.test.ru
+</span><span class='line'>User username
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Это сделано для того, чтобы можно было набрать ssh test, и началось подсоединение, дальше спросит пароль.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/06/14/podkliuchieniie-po-ssh-biez-parolia/">Читать до конца &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -577,58 +633,6 @@ Virtualenv это средство для создания изолирован�
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/05/29/ipython-for-python3-dot-2-windowsxp/">Ipython for python3.2 WindowsXP</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-05-29T15:19:00+04:00" pubdate data-updated="true">May 29<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Вот, задался целью всё-таки забороть ipython для Python 3.2, и получилось :)</p>
-
-<h3>Делал примерно так:</h3>
-
-<p>1.1. Поставил Python3.2: python-3.2.1.msi<br/>
-1.2. Пропишите пути к новому питону</p>
-
-<ol>
-<li>distribute_setup.py : http://python-distribute.org/distribute_setup.py<br/>
-это для того чтобы заработал easy_install</li>
-</ol>
-
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/05/29/ipython-for-python3-dot-2-windowsxp/">Читать до конца &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -644,6 +648,10 @@ Virtualenv это средство для создания изолирован�
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/06/14/podkliuchieniie-po-ssh-biez-parolia/">Подключение по ssh без пароля</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/06/08/django-cms-ustanovka-i-piervichnaia-nastroika/">Django-CMS установка и первичная настройка</a>
       </li>
     
@@ -657,10 +665,6 @@ Virtualenv это средство для создания изолирован�
     
       <li class="post">
         <a href="/blog/2012/06/06/fabric-dlia-python/">Fabric для python, первые шаги</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/06/05/ispolzovaniie-virtualenv-python/">Использование virtualenv python</a>
       </li>
     
   </ul>

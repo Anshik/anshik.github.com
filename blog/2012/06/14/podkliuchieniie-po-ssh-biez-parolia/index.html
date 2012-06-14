@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: лампочек - Ещё один блог</title>
+  <title>Подключение по ssh без пароля - Ещё один блог</title>
   <meta name="author" content="Anshik">
 
   
-  <meta name="description" content="Category: лампочек">
-  
+  <meta name="description" content="Подключение по ssh без пароля">
+  <meta name="keywords" content="Linux, ssh">
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://Anshik.github.comblog/categories/лампочек">
+  <link rel="canonical" href="http://Anshik.github.com/blog/2012/06/14/podkliuchieniie-po-ssh-biez-parolia">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -62,36 +62,114 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: лампочек</h1>
+    
+      <h1 class="entry-title">Подключение по Ssh без пароля</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-06-14T08:27:00+04:00" pubdate data-updated="true">Jun 14<span>th</span>, 2012</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><p>Этот пост скорее чтобы не забыть самому как это делается, и всегда знать где найти.</p>
 
-  
-  <h2>2012</h2>
+<h1>Упрощение подключения</h1>
 
-<article>
-  
-<h1><a href="/blog/2012/05/25/zamiena-lampochiek-v-podiezdie/">Замена лампочек в подъезде, парадной</a></h1>
-<time datetime="2012-05-25T09:52:00+04:00" pubdate><span class='month'>May</span> <span class='day'>25</span> <span class='year'>2012</span></time>
+<p>Идем в папку ~/.ssh, редактируем файл config (если нет - создаём)</p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/замена/'>замена</a>, <a class='category' href='/blog/categories/коммунальщина/'>коммунальщина</a>, <a class='category' href='/blog/categories/лампочек/'>лампочек</a></span>
-</footer>
+<figure class='code'><figcaption><span>Содержимое файла config</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>Host <span class="nb">test</span>
+</span><span class='line'>HostName ftp.test.ru
+</span><span class='line'>User username
+</span></code></pre></td></tr></table></div></figure>
 
 
-</article>
+<p>Это сделано для того, чтобы можно было набрать ssh test, и началось подсоединение, дальше спросит пароль.</p>
+
+<!-- more -->
+
+
+<h1>Сам SSH</h1>
+
+<ol>
+<li>устанавливаем openSSH
+<code>sudo apt-get install openssh-server</code></li>
+<li>генерируем ключи (если их нет)
+<code>ssh-keygen -t rsa</code> спросят место, соглашаться с поумолчанию, спросят пароль, не вводить.</li>
+<li>копируем
+<code>$ scp ~/.ssh/id_dsa.pub test:~/.ssh/authorized_keys</code>
+последний раз вводим пароль.</li>
+</ol>
 
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Anshik</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-06-14T08:27:00+04:00" pubdate data-updated="true">Jun 14<span>th</span>, 2012</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://Anshik.github.com/blog/2012/06/14/podkliuchieniie-po-ssh-biez-parolia/" data-via="" data-counturl="http://Anshik.github.com/blog/2012/06/14/podkliuchieniie-po-ssh-biez-parolia/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/06/08/django-cms-ustanovka-i-piervichnaia-nastroika/" title="Previous Post: Django-CMS установка и первичная настройка">&laquo; Django-CMS установка и первичная настройка</a>
+      
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <div id="hypercomments_widget"></div>
+  </section>
 
 </div>
 
@@ -175,7 +253,10 @@
       var disqus_shortname = 'anshik';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://Anshik.github.com/blog/2012/06/14/podkliuchieniie-po-ssh-biez-parolia/';
+        var disqus_url = 'http://Anshik.github.com/blog/2012/06/14/podkliuchieniie-po-ssh-biez-parolia/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -189,7 +270,14 @@
 
 <script type="text/javascript">
       
-              
+        
+
+          var _hcp = _hcp || {};_hcp.widget_id = 1551;_hcp.widget = "Stream";
+          (function() { 
+          var hcc = document.createElement("script"); hcc.type = "text/javascript"; hcc.async = true;
+          hcc.src = ("https:" == document.location.protocol ? "https" : "http")+"://widget.hypercomments.com/apps/js/hc.js";
+          var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hcc, s.nextSibling); 
+          })();
                 
 </script>
 
