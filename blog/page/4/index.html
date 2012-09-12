@@ -9,18 +9,9 @@
   <meta name="author" content="Anshik">
 
   
-  <meta name="description" content="В Python 1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-import os.path myPath = &#39;/Users/t/web/perl-python/I_Love_You.html&#39;
-(dirName, fileName) = os.path.split(myPath &hellip;">
+  <meta name="description" content="Вписываем в файл /etc/init/gdm.conf строчку:
+and runlevel [5]
+это условия старта иксов. Для старта иксов нужен 5 runlevel а на этапе загрузки он ещё &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -74,6 +65,61 @@ import os.path myPath = &#39;/Users/t/web/perl-python/I_Love_You.html&#39;
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/05/25/otkliuchieniie-iksov-pri-zaghruzkie-ubuntu/">Отключение иксов при загрузке Ubuntu (Start Ubuntu With No X Server)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-25T08:31:00+04:00" pubdate data-updated="true">May 25<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Вписываем в файл <strong>/etc/init/gdm.conf</strong> строчку:<br/>
+and runlevel [5]<br/>
+это условия старта иксов. Для старта иксов нужен 5 runlevel а на этапе загрузки он ещё только второй.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>start on <span class="o">(</span>filesystem
+</span><span class='line'>and runlevel <span class="o">[</span>5<span class="o">]</span>
+</span><span class='line'>and started dbus
+</span><span class='line'>and <span class="o">(</span>drm-device-added card0 <span class="nv">PRIMARY_DEVICE_FOR_DISPLAY</span><span class="o">=</span>1
+</span><span class='line'>or stopped udevtrigger<span class="o">))</span>
+</span><span class='line'>stop on runlevel <span class="o">[</span>016<span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Таким образом мы не загружаем иксов. Для их запуска логинимся и выполняем команду startx.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -248,6 +294,10 @@ import os.path myPath = &#39;/Users/t/web/perl-python/I_Love_You.html&#39;
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/09/12/ia-kupil-arduino/">Я купил Arduino, первые впечетления</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/06/14/1gb-virtualenv-easy-install/">1Gb easy_install</a>
       </li>
     
@@ -261,10 +311,6 @@ import os.path myPath = &#39;/Users/t/web/perl-python/I_Love_You.html&#39;
     
       <li class="post">
         <a href="/blog/2012/06/07/module-cuisine/">Module cuisine, как нахлобучка над Fabric</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/06/06/kak-ustanovit-hypercomments-v-octopress/">Как установить Hypercomments в Octopress</a>
       </li>
     
   </ul>

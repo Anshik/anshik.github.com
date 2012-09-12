@@ -4,7 +4,7 @@
   <title><![CDATA[Ещё один блог]]></title>
   <link href="http://Anshik.github.com/atom.xml" rel="self"/>
   <link href="http://Anshik.github.com/"/>
-  <updated>2012-09-12T09:35:15+04:00</updated>
+  <updated>2012-09-12T11:09:32+04:00</updated>
   <id>http://Anshik.github.com/</id>
   <author>
     <name><![CDATA[Anshik]]></name>
@@ -12,6 +12,97 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Я купил Arduino, первые впечетления]]></title>
+    <link href="http://Anshik.github.com/blog/2012/09/12/ia-kupil-arduino/"/>
+    <updated>2012-09-12T09:37:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2012/09/12/ia-kupil-arduino</id>
+    <content type="html"><![CDATA[<h3>Введение</h3>
+
+<p>Казалось бы, ну купил, и купил. Чего тут рассказывать. Искал подешевле, нашел предложения на alliexpress, но решил брать на buyincoins, как-то привычнее и цена в 11-12 долларов за Arduino Nano меня вполне устроила. Само собой я погуглил в яндексе про &#8220;arduino &amp; buyincoins&#8221;. Нашел на форуме сайта arduino.ru негативный отзыв о покупке arduino nano на buyincoins, что мол заказывал 10 шт. пришли все в одном пакете наваленные, доехали помятые и побитые. Да еще и регулятор напряжения горит и взрывается. В общем мне повезло. Пришло целое, не царапаное, не гнутое, в антистатическом пакете и длинным кабелем mini usb, ничего не греется и не горит. Дошло быстро, заказал 26 августа, 9 сентября уже было на почте. <strong>Рекомендую.</strong></p>
+
+<!-- more -->
+
+
+<h3>Детальное рассмотрение</h3>
+
+<p><img class="center" src="http://Anshik.github.com/../blog_img/arduino_nano_top.jpg" title="arduino nano вид сверху" ></p>
+
+<ul>
+<li>В центре стоит микросхема Atmel Mega328P AU, дата шит на <a href="http://www.atmel.com/devices/ATMEGA328P.aspx?tab=documents">ATMEGA328P</a></li>
+<li>слева кнопочка, маленькая и туговатая reset</li>
+<li>4 светодиода Rx,Tx, Power, L - это пользовательский, которым моргает первое приложение для Ардуино.</li>
+</ul>
+
+
+<p><img class="center" src="http://Anshik.github.com/../blog_img/arduino_nano_bottom.jpg" title="arduino nano вид снизу" ><br/>
+Снизу скучно, микросхема FTDI FT232RL usb to rs232, регулятор напряжения, пара резисторных сборок, конденсаторы и диод.</p>
+
+<h3>Первое включение</h3>
+
+<p>В устройствах всегда самое интересное и ответственное первое включение, хоть я и уверен, что в китае каждую ардуинку проверяют. Тем не менее внимательно просмотрел ножки на наличие &#8220;соплей&#8221;, грязи и др. Включил, заработало (заморгало светодиодами).</p>
+
+<h3>Первое программирование Arduino Nano</h3>
+
+<p>Всё очень просто: скачал с <a href="http://arduino.cc/en/Main/Software">офф сайта</a> софтинку, мне нужно было под Ubuntu, в версии 1.0.1 её даже перевели. Подключил платку к компьютеру, запустил программу Arduino.
+Выставляем нашу плату: Сервис -> Плата -> Arduino Nano w/Atmega328
+Далее Файл -> Примеры -> Basics -> Blink</p>
+
+<p>Загрузится скетч с текстом программы. Далее нажимаем кнопку со стрелочкой вправо, и произойдет загрузка кода в микросхему. И она заморгает светодиодом L раз в секунду.</p>
+
+<figure class='code'><figcaption><span>Привожу код примера</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="cm">/*</span>
+</span><span class='line'><span class="cm">  Blink</span>
+</span><span class='line'><span class="cm">  Turns on an LED on for one second, then off for one second, repeatedly.</span>
+</span><span class='line'><span class="cm"> </span>
+</span><span class='line'><span class="cm">  This example code is in the public domain.</span>
+</span><span class='line'><span class="cm"> */</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// Pin 13 has an LED connected on most Arduino boards.</span>
+</span><span class='line'><span class="c1">// give it a name:</span>
+</span><span class='line'><span class="kt">int</span> <span class="n">led</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// the setup routine runs once when you press reset:</span>
+</span><span class='line'><span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>  <span class="c1">// initialize the digital pin as an output.</span>
+</span><span class='line'>  <span class="n">pinMode</span><span class="p">(</span><span class="n">led</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// the loop routine runs over and over again forever:</span>
+</span><span class='line'><span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>  <span class="n">digitalWrite</span><span class="p">(</span><span class="n">led</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>   <span class="c1">// turn the LED on (HIGH is the voltage level)</span>
+</span><span class='line'>  <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>               <span class="c1">// wait for a second</span>
+</span><span class='line'>  <span class="n">digitalWrite</span><span class="p">(</span><span class="n">led</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>    <span class="c1">// turn the LED off by making the voltage LOW</span>
+</span><span class='line'>  <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>               <span class="c1">// wait for a second</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[1Gb easy_install]]></title>
@@ -1480,270 +1571,6 @@ Ctrl + Alt + Down</p>
 <p>Tools -> Build System -> (choose) Python</p>
 
 <p>ctrl+b - запустит приложение</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Django ORM без Джанги]]></title>
-    <link href="http://Anshik.github.com/blog/2012/05/29/django-orm-biez-dzhanghi/"/>
-    <updated>2012-05-29T14:17:00+04:00</updated>
-    <id>http://Anshik.github.com/blog/2012/05/29/django-orm-biez-dzhanghi</id>
-    <content type="html"><![CDATA[<h3>Буду краток</h3>
-
-<p><strong>Проблема:</strong> использовать прелести Django ORM, а он хорош, но для проекта, который не для веба.</p>
-
-<p>Есть ответы на <a href="http://stackoverflow.com/questions/579511/using-only-the-db-part-of-django">stackoverflow</a>,
-а вот <a href="http://pypi.python.org/pypi/django-standalone">это</a> я не пробовал.</p>
-
-<!-- more -->
-
-
-<h3>Опишу свой путь</h3>
-
-<p>файл <strong>settings.py</strong></p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-<span class='line-number'>53</span>
-<span class='line-number'>54</span>
-<span class='line-number'>55</span>
-<span class='line-number'>56</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c"># -*- coding: utf-8 -*-</span>
-</span><span class='line'>
-</span><span class='line'><span class="kn">import</span> <span class="nn">os</span>
-</span><span class='line'><span class="n">gettext</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span>
-</span><span class='line'><span class="n">PROJECT_PATH</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">))</span>
-</span><span class='line'>
-</span><span class='line'>
-</span><span class='line'><span class="n">DEBUG</span> <span class="o">=</span> <span class="bp">True</span>
-</span><span class='line'><span class="n">TEMPLATE_DEBUG</span> <span class="o">=</span> <span class="n">DEBUG</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">ADMINS</span> <span class="o">=</span> <span class="p">(</span>
-</span><span class='line'> <span class="c"># (&#39;Your Name&#39;, &#39;your_email@example.com&#39;),</span>
-</span><span class='line'><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">LANGUAGES</span> <span class="o">=</span> <span class="p">[</span>
-</span><span class='line'> <span class="p">(</span><span class="s">&#39;ru&#39;</span><span class="p">,</span> <span class="s">&#39;ru&#39;</span><span class="p">),</span>
-</span><span class='line'><span class="p">]</span>
-</span><span class='line'><span class="n">DEFAULT_LANGUAGE</span> <span class="o">=</span> <span class="mi">0</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>
-</span><span class='line'> <span class="s">&#39;default&#39;</span><span class="p">:</span> <span class="p">{</span>
-</span><span class='line'> <span class="s">&#39;ENGINE&#39;</span><span class="p">:</span> <span class="s">&#39;django.db.backends.sqlite3&#39;</span><span class="p">,</span> <span class="c"># Add &#39;postgresql_psycopg2&#39;, &#39;postgresql&#39;, &#39;mysql&#39;, &#39;sqlite3&#39; or &#39;oracle&#39;.</span>
-</span><span class='line'> <span class="s">&#39;NAME&#39;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PROJECT_PATH</span><span class="p">,</span> <span class="s">&#39;crimson.sqlite&#39;</span><span class="p">),</span>
-</span><span class='line'> <span class="s">&#39;USER&#39;</span><span class="p">:</span> <span class="s">&#39;&#39;</span><span class="p">,</span> <span class="c"># Not used with sqlite3.</span>
-</span><span class='line'> <span class="s">&#39;PASSWORD&#39;</span><span class="p">:</span> <span class="s">&#39;&#39;</span><span class="p">,</span> <span class="c"># Not used with sqlite3.</span>
-</span><span class='line'> <span class="s">&#39;HOST&#39;</span><span class="p">:</span> <span class="s">&#39;&#39;</span><span class="p">,</span> <span class="c"># Set to empty string for localhost. Not used with sqlite3.</span>
-</span><span class='line'> <span class="s">&#39;PORT&#39;</span><span class="p">:</span> <span class="s">&#39;&#39;</span><span class="p">,</span> <span class="c"># Set to empty string for default. Not used with sqlite3.</span>
-</span><span class='line'> <span class="p">}</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">TEST_DATABASE_CHARSET</span> <span class="o">=</span> <span class="s">&quot;utf8&quot;</span>
-</span><span class='line'><span class="n">TEST_DATABASE_COLLATION</span> <span class="o">=</span> <span class="s">&quot;utf8_general_ci&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">TIME_ZONE</span> <span class="o">=</span> <span class="s">&#39;Europe/Moscow&#39;</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">LANGUAGE_CODE</span> <span class="o">=</span> <span class="s">&#39;ru-RU&#39;</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">SITE_ID</span> <span class="o">=</span> <span class="mi">1</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">USE_I18N</span> <span class="o">=</span> <span class="bp">True</span>
-</span><span class='line'>
-</span><span class='line'><span class="c"># If you set this to False, Django will not format dates, numbers and</span>
-</span><span class='line'><span class="c"># calendars according to the current locale</span>
-</span><span class='line'><span class="n">USE_L10N</span> <span class="o">=</span> <span class="bp">True</span>
-</span><span class='line'>
-</span><span class='line'>
-</span><span class='line'><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">(</span>
-</span><span class='line'><span class="c"># &#39;django.contrib.auth&#39;,</span>
-</span><span class='line'><span class="c"># &#39;django.contrib.contenttypes&#39;,</span>
-</span><span class='line'><span class="c"># &#39;django.contrib.sessions&#39;,</span>
-</span><span class='line'><span class="c"># &#39;django.contrib.sites&#39;,</span>
-</span><span class='line'><span class="c"># &#39;django.contrib.messages&#39;,</span>
-</span><span class='line'><span class="c"># &#39;django.contrib.staticfiles&#39;,</span>
-</span><span class='line'> <span class="s">&#39;src.data_utils&#39;</span><span class="p">,</span>
-</span><span class='line'> <span class="s">&#39;src.crimsonmap&#39;</span><span class="p">,</span>
-</span><span class='line'><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Создаём у себя в корне проекта такой файл.</p>
-
-<p>Затем, там же в папке проекта <strong>manage.py</strong></p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c">#!/usr/bin/env python</span>
-</span><span class='line'><span class="kn">from</span> <span class="nn">django.core.management</span> <span class="kn">import</span> <span class="n">execute_manager</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">imp</span>
-</span><span class='line'><span class="k">try</span><span class="p">:</span>
-</span><span class='line'> <span class="n">imp</span><span class="o">.</span><span class="n">find_module</span><span class="p">(</span><span class="s">&#39;settings&#39;</span><span class="p">)</span> <span class="c"># Assumed to be in the same directory.</span>
-</span><span class='line'><span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
-</span><span class='line'> <span class="kn">import</span> <span class="nn">sys</span>
-</span><span class='line'> <span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;Error: Can&#39;t find the file &#39;settings.py&#39; in the directory containing </span><span class="si">%r</span><span class="s">. It appears you&#39;ve customized things.</span><span class="se">\n</span><span class="s">You&#39;ll have to run django-admin.py, passing it your settings module.</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">__file__</span><span class="p">)</span>
-</span><span class='line'> <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="kn">import</span> <span class="nn">settings</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
-</span><span class='line'> <span class="n">execute_manager</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Ещё создаём пустой файл <strong><strong>init</strong>.py</strong></p>
-
-<p>И файл <strong>urls.py</strong></p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">from</span> <span class="nn">django.conf.urls.defaults</span> <span class="kn">import</span> <span class="n">patterns</span><span class="p">,</span> <span class="n">include</span><span class="p">,</span> <span class="n">url</span>
-</span><span class='line'>
-</span><span class='line'><span class="c"># Uncomment the next two lines to enable the admin:</span>
-</span><span class='line'><span class="c"># from django.contrib import admin</span>
-</span><span class='line'><span class="c"># admin.autodiscover()</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">urlpatterns</span> <span class="o">=</span> <span class="n">patterns</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">,</span>
-</span><span class='line'> <span class="c"># Examples:</span>
-</span><span class='line'> <span class="c"># url(r&#39;^$&#39;, &#39;src.views.home&#39;, name=&#39;home&#39;),</span>
-</span><span class='line'> <span class="c"># url(r&#39;^src/&#39;, include(&#39;src.foo.urls&#39;)),</span>
-</span><span class='line'>
-</span><span class='line'> <span class="c"># Uncomment the admin/doc line below to enable admin documentation:</span>
-</span><span class='line'> <span class="c"># url(r&#39;^admin/doc/&#39;, include(&#39;django.contrib.admindocs.urls&#39;)),</span>
-</span><span class='line'>
-</span><span class='line'> <span class="c"># Uncomment the next line to enable the admin:</span>
-</span><span class='line'> <span class="c"># url(r&#39;^admin/&#39;, include(admin.site.urls)),</span>
-</span><span class='line'><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Теперь создаём папку с аппом, в котором будет лежать модель
-у меня это src -&lt;&#8212; корень проекта, crimsonmap, это поддиректория
-src/crimsonmap
-В этой поддиректории создаём пустой файл:
-<strong>init</strong>.py - это для того чтобы джанга поняла, что тут лежит апп
-models.py</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c"># coding: utf-8</span>
-</span><span class='line'><span class="kn">from</span> <span class="nn">django.utils.translation</span> <span class="kn">import</span> <span class="n">ugettext_lazy</span> <span class="k">as</span> <span class="n">_</span>
-</span><span class='line'><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">class</span> <span class="nc">Terrarian</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
-</span><span class='line'>   <span class="n">ter_type</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">verbose_name</span><span class="o">=</span><span class="n">_</span><span class="p">(</span><span class="s">&#39;terrarian type&#39;</span><span class="p">),</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-</span><span class='line'>   <span class="n">ter_color</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">verbose_name</span><span class="o">=</span><span class="n">_</span><span class="p">(</span><span class="s">&#39;terrarian color html&#39;</span><span class="p">),</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">default</span> <span class="o">=</span> <span class="s">&#39;red&#39;</span><span class="p">)</span>
-</span><span class='line'>   <span class="n">ter_hunting</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">FloatField</span><span class="p">(</span><span class="n">verbose_name</span><span class="o">=</span><span class="n">_</span><span class="p">(</span><span class="s">&#39;ter hunting percent&#39;</span><span class="p">),</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-</span><span class='line'>   <span class="n">ter_meeting</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">FloatField</span><span class="p">(</span><span class="n">verbose_name</span><span class="o">=</span><span class="n">_</span><span class="p">(</span><span class="s">&#39;ter meeting percent&#39;</span><span class="p">),</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-</span><span class='line'>   <span class="n">player_maybehere</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">BooleanField</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s">&#39;player may be here&#39;</span><span class="p">),</span> <span class="n">default</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Дальше как обычно из /src:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>python manage.py syncdb
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>создастся база данных и радость</p>
-
-<p>И затем, когда нужно использовать нашу базу:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">import</span> <span class="nn">os</span>
-</span><span class='line'><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">&quot;DJANGO_SETTINGS_MODULE&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;settings&quot;</span>
-</span><span class='line'><span class="kn">from</span> <span class="nn">models</span> <span class="kn">import</span> <span class="n">Terrarian</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Есть ещё пацанский метод заполнения базы данных, если кому нужно пишите в комментах, опишу, так лень.</p>
 ]]></content>
   </entry>
   
