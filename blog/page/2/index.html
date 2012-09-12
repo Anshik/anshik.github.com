@@ -9,8 +9,44 @@
   <meta name="author" content="Anshik">
 
   
-  <meta name="description" content="Вот, задался целью всё-таки забороть ipython для Python 3.2, и получилось :) Делал примерно так: 1.1. Поставил Python3.2: python-3.2.1.msi
-1.2. &hellip;">
+  <meta name="description" content="Тут нашёл решение 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+#!/usr/bin/env python # Вот &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -64,6 +100,119 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/05/29/threads-in-pyqt4/">Как правильно делать треды в PyQT4</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-29T15:24:00+04:00" pubdate data-updated="true">May 29<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://www.linux.org.ru/forum/development/1529306">Тут</a> нашёл решение</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c">#!/usr/bin/env python</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># Вот примерно так оно делается.</span>
+</span><span class='line'>
+</span><span class='line'><span class="kn">import</span> <span class="nn">sys</span>
+</span><span class='line'><span class="kn">from</span> <span class="nn">PyQt4.QtCore</span> <span class="kn">import</span> <span class="n">QEvent</span><span class="p">,</span> <span class="n">QThread</span>
+</span><span class='line'><span class="kn">from</span> <span class="nn">PyQt4.QtGui</span> <span class="kn">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QTextEdit</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">MyEvent</span><span class="p">(</span><span class="n">QEvent</span><span class="p">):</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+</span><span class='line'><span class="n">QEvent</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">QEvent</span><span class="o">.</span><span class="n">User</span><span class="p">)</span>
+</span><span class='line'><span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Timer</span><span class="p">(</span><span class="n">QThread</span><span class="p">):</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event_receiver</span><span class="p">):</span>
+</span><span class='line'><span class="n">QThread</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+</span><span class='line'><span class="bp">self</span><span class="o">.</span><span class="n">event_receiver</span> <span class="o">=</span> <span class="n">event_receiver</span>
+</span><span class='line'><span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span><span class='line'><span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+</span><span class='line'><span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">+=</span> <span class="mi">1</span>
+</span><span class='line'><span class="n">QApplication</span><span class="o">.</span><span class="n">postEvent</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">event_receiver</span><span class="p">,</span> <span class="n">MyEvent</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">))</span>
+</span><span class='line'><span class="bp">self</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Display</span><span class="p">(</span><span class="n">QTextEdit</span><span class="p">):</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">customEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+</span><span class='line'><span class="k">if</span> <span class="nb">isinstance</span> <span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">MyEvent</span><span class="p">):</span>
+</span><span class='line'><span class="bp">self</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;time = </span><span class="si">%i</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">event</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">a</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+</span><span class='line'><span class="n">display</span> <span class="o">=</span> <span class="n">Display</span><span class="p">()</span>
+</span><span class='line'><span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">timer</span> <span class="o">=</span> <span class="n">Timer</span><span class="p">(</span><span class="n">display</span><span class="p">)</span>
+</span><span class='line'><span class="n">timer</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -522,53 +671,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/05/29/vkusnyie-shortkaty-midnight-commander/">Вкусные шорткаты Midnight Commander</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-05-29T14:14:00+04:00" pubdate data-updated="true">May 29<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Для каталогов:</p>
-
-<p><strong>Alt-y</strong> перемещение к предыдущему каталогу (который был открыт, не к верхнему)<br/>
-<strong>Alt-u</strong> перемещиени к следующему каталогу<br/>
-<strong>Alt-i</strong> Сделать текущий каталог текущим на второй панели<br/>
-<strong>Alt+o</strong> открыть текущий каталог на второй панели<br/>
-<strong>Alt+t</strong> переключение режимов</p>
-
-<p><strong>Alt+p</strong> Перемещение на предыдущую команду<br/>
-<strong>Alt+n</strong> Перемещение на следующую команду</p>
-
-<p><strong>Ctrl+x t (Ctrl+x Ctrl+t)</strong> копирует помеченые файлы в командную строку</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -586,6 +688,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/06/14/1gb-virtualenv-easy-install/">1Gb easy_install</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/06/14/podkliuchieniie-po-ssh-biez-parolia/">Подключение по ssh без пароля</a>
       </li>
     
@@ -599,10 +705,6 @@
     
       <li class="post">
         <a href="/blog/2012/06/06/kak-ustanovit-hypercomments-v-octopress/">Как установить Hypercomments в Octopress</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/06/06/fabric-dlia-python/">Fabric для python, первые шаги</a>
       </li>
     
   </ul>

@@ -4,7 +4,7 @@
   <title><![CDATA[Ещё один блог]]></title>
   <link href="http://Anshik.github.com/atom.xml" rel="self"/>
   <link href="http://Anshik.github.com/"/>
-  <updated>2012-06-14T08:37:23+04:00</updated>
+  <updated>2012-09-12T09:35:15+04:00</updated>
   <id>http://Anshik.github.com/</id>
   <author>
     <name><![CDATA[Anshik]]></name>
@@ -12,6 +12,89 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[1Gb easy_install]]></title>
+    <link href="http://Anshik.github.com/blog/2012/06/14/1gb-virtualenv-easy-install/"/>
+    <updated>2012-06-14T18:50:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2012/06/14/1gb-virtualenv-easy-install</id>
+    <content type="html"><![CDATA[<h3>Введение</h3>
+
+<p>Зачем пост, опять же, чтобы не забыть.
+Проблема в следующем. На хостинге <a href="http://1gb.ru">1Gb.ru</a> установлены две версии python:
+* python 2.7
+* python 3.2
+по умолчанию используется версия 3.2. <strong>НО</strong> Django работает максимум на версии 2.7, а django-cms с версией Django 1.3, это так к слову.</p>
+
+<blockquote><p>Итак, задача:<br/>
+1. сделать python2.7 по умолчанию<br/>
+2. настроить easy_install</p></blockquote>
+
+<p>Решение частично <a href="http://www.1gb.ru/wiki/index.php?title=Django_-_%D0%B1%D1%8B%D1%81%D1%82%D1%80%D1%8B%D0%B9_%D1%81%D1%82%D0%B0%D1%80%D1%82">описано</a> на 1gb</p>
+
+<p>Приведу только команды от туда, кому хочется слов почитать, зайдет туда.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$export</span> <span class="nv">PYTHON_VERSION</span><span class="o">=</span><span class="sb">`</span>eselect python list --python2 | awk <span class="s1">&#39;/\*$/ {print $2}&#39;</span><span class="sb">`</span>; <span class="nb">echo</span> <span class="k">${</span><span class="nv">PYTHON_VERSION</span><span class="k">}</span>
+</span><span class='line'><span class="nv">$grep</span> -q <span class="s2">&quot;=${PYTHON_VERSION}&quot;</span> ~/.bashrc <span class="o">||</span> sed -i <span class="s2">&quot;/happen/a alias python=${PYTHON_VERSION}\nalias easy_install=easy_install-$(echo ${PYTHON_VERSION} | tr -d python)&quot;</span> ~/.bashrc
+</span><span class='line'><span class="nv">$source</span> ~/.bashrc
+</span><span class='line'><span class="nv">$echo</span> <span class="s1">&#39;export PATH=${HOME}/python/bin:${HOME}/python/lib64/&#39;</span><span class="k">${</span><span class="nv">PYTHON_VERSION</span><span class="k">}</span><span class="s1">&#39;/site-packages:${PATH}&#39;</span> &gt;&gt; ~/.bashrc
+</span><span class='line'><span class="nv">$echo</span> <span class="s1">&#39;export PYTHONPATH=${HOME}/python/lib64/&#39;</span><span class="k">${</span><span class="nv">PYTHON_VERSION</span><span class="k">}</span><span class="s1">&#39;/site-packages:${PYTHONPATH}&#39;</span> &gt;&gt; ~/.bashrc
+</span><span class='line'><span class="nv">$source</span> ~/.bashrc
+</span><span class='line'><span class="nv">$ </span>cat &gt; ~/.pydistutils.cfg <span class="s">&lt;&lt;END</span>
+</span><span class='line'><span class="s">[install]</span>
+</span><span class='line'><span class="s">prefix = \$HOME/python</span>
+</span><span class='line'>
+</span><span class='line'><span class="s">[easy_install]</span>
+</span><span class='line'><span class="s">install_dir = \$HOME/python/lib64/${PYTHON_VERSION}/site-packages</span>
+</span><span class='line'><span class="s">END</span>
+</span><span class='line'><span class="nv">$mkdir</span> -p ~/src ~/python/lib64/<span class="k">${</span><span class="nv">PYTHON_VERSION</span><span class="k">}</span>/site-packages ~/django
+</span><span class='line'><span class="nv">$cd</span> ~/python; ln -s lib64 lib; <span class="nb">cd</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Краткое описание, что делает:<br/>
+1-я строка версия python получается<br/>
+2-я делаются алиасы в .bashrc на python и easy_install (у меня алиас на второе не прописался, я этого не заметил&#8230; решил установкой своего easy_install)<br/>
+4,5-я пути прописываются<br/>
+7-13 файл настроек easy_install создаётся, смотрите, может ругаться на то что в нём написано <strong>$HOME</strong> вместо полного пути<br/>
+14-15 создаются папки и симлинки</p>
+
+<p>Ключ -l выводит пакеты установленный только внутри virtualenv, что при создании окружения с ключем &#8211;no-site-packages теряет всякий смысл.</p>
+
+<p>Далее этот список нужно сохранить:</p>
+
+<p>$ pip freeze -l > pip-requirements</p>
+
+<p>Тепреь в файле pip-requirements лежит список всех необходимых для запуска пакетов. Этот нужно положить в вашу source control и при необходимости обновлять.</p>
+
+<p>Чтобы установить все необходимые пакеты, необходимо выполнить команду:</p>
+
+<p>$ pip install -r pip-requirements</p>
+
+<p>The &#8211;download-cache option should do what you want:
+pip install &#8211;download-cache=&#8221;/pth/to/downloaded/files&#8221; package</p>
+
+<p>However, when I tested this, the main package downloaded, saved and installed ok, but the the dependancies were saved with their full url path as the name - a bit annoying, but all the tar.gz files were there.</p>
+
+<p>The &#8211;download option just downloads the main package without it&#8217;s dependancies and doesn&#8217;t install.
+pip install &#8211;download=&#8221;/pth/to/downloaded/files&#8221; package</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Подключение по ssh без пароля]]></title>
@@ -104,11 +187,16 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h1>Установка Блога</h1>
+<p>Эти новости хорошие, только подправить navigation.py</p>
 
-<p>Чего-то перемудрил, пробую чистую установку, проблема с путями.
-Install cmsplugin-blog from pypi:
-pip install cmsplugin-blog</p>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c">#from cms.utils.navigation import NavigationNode</span>
+</span><span class='line'><span class="kn">from</span> <span class="nn">menus.base</span> <span class="kn">import</span> <span class="n">NavigationNode</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>hg clone ssh://hg@bitbucket.org/zerok/cmsplugin-news</p>
 ]]></content>
   </entry>
   
@@ -1656,26 +1744,6 @@ models.py</p>
 
 
 <p>Есть ещё пацанский метод заполнения базы данных, если кому нужно пишите в комментах, опишу, так лень.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Вкусные шорткаты Midnight Commander]]></title>
-    <link href="http://Anshik.github.com/blog/2012/05/29/vkusnyie-shortkaty-midnight-commander/"/>
-    <updated>2012-05-29T14:14:00+04:00</updated>
-    <id>http://Anshik.github.com/blog/2012/05/29/vkusnyie-shortkaty-midnight-commander</id>
-    <content type="html"><![CDATA[<p>Для каталогов:</p>
-
-<p><strong>Alt-y</strong> перемещение к предыдущему каталогу (который был открыт, не к верхнему)<br/>
-<strong>Alt-u</strong> перемещиени к следующему каталогу<br/>
-<strong>Alt-i</strong> Сделать текущий каталог текущим на второй панели<br/>
-<strong>Alt+o</strong> открыть текущий каталог на второй панели<br/>
-<strong>Alt+t</strong> переключение режимов</p>
-
-<p><strong>Alt+p</strong> Перемещение на предыдущую команду<br/>
-<strong>Alt+n</strong> Перемещение на следующую команду</p>
-
-<p><strong>Ctrl+x t (Ctrl+x Ctrl+t)</strong> копирует помеченые файлы в командную строку</p>
 ]]></content>
   </entry>
   

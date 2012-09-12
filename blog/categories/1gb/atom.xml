@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: 1Gb | Ещё один блог]]></title>
+  <link href="http://Anshik.github.com/blog/categories/1gb/atom.xml" rel="self"/>
+  <link href="http://Anshik.github.com/"/>
+  <updated>2012-09-12T09:35:15+04:00</updated>
+  <id>http://Anshik.github.com/</id>
+  <author>
+    <name><![CDATA[Anshik]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[1Gb easy_install]]></title>
+    <link href="http://Anshik.github.com/blog/2012/06/14/1gb-virtualenv-easy-install/"/>
+    <updated>2012-06-14T18:50:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2012/06/14/1gb-virtualenv-easy-install</id>
+    <content type="html"><![CDATA[<h3>Введение</h3>
+
+<p>Зачем пост, опять же, чтобы не забыть.
+Проблема в следующем. На хостинге <a href="http://1gb.ru">1Gb.ru</a> установлены две версии python:
+* python 2.7
+* python 3.2
+по умолчанию используется версия 3.2. <strong>НО</strong> Django работает максимум на версии 2.7, а django-cms с версией Django 1.3, это так к слову.</p>
+
+<blockquote><p>Итак, задача:<br/>
+1. сделать python2.7 по умолчанию<br/>
+2. настроить easy_install</p></blockquote>
+
+<p>Решение частично <a href="http://www.1gb.ru/wiki/index.php?title=Django_-_%D0%B1%D1%8B%D1%81%D1%82%D1%80%D1%8B%D0%B9_%D1%81%D1%82%D0%B0%D1%80%D1%82">описано</a> на 1gb</p>
+
+<p>Приведу только команды от туда, кому хочется слов почитать, зайдет туда.
+<code>`` bash
+$export PYTHON_VERSION=</code>eselect python list --python2 | awk '/*$/ {print $2}'`; echo ${PYTHON_VERSION}
+$grep -q "=${PYTHON_VERSION}" ~/.bashrc || sed -i "/happen/a alias python=${PYTHON_VERSION}\nalias easy_install=easy_install-$(echo ${PYTHON_VERSION} | tr -d python)" ~/.bashrc
+$source ~/.bashrc
+$echo 'export PATH=${HOME}/python/bin:${HOME}/python/lib64/'${PYTHON_VERSION}'/site-packages:${PATH}' >> ~/.bashrc
+$echo 'export PYTHONPATH=${HOME}/python/lib64/'${PYTHON_VERSION}'/site-packages:${PYTHONPATH}' >> ~/.bashrc
+$source ~/.bashrc
+$ cat > ~/.pydistutils.cfg &lt;&lt;END
+[install]
+prefix = \$HOME/python</p>
+
+<p>[easy_install]
+install_dir = \$HOME/python/lib64/${PYTHON_VERSION}/site-packages
+END
+$mkdir -p ~/src ~/python/lib64/${PYTHON_VERSION}/site-packages ~/django
+$cd ~/python; ln -s lib64 lib; cd
+```
+Краткое описание, что делает:<br/>
+1-я строка версия python получается<br/>
+2-я делаются алиасы в .bashrc на python и easy_install (у меня алиас на второе не прописался, я этого не заметил... решил установкой своего easy_install)<br/>
+4,5-я пути прописываются<br/>
+7-13 файл настроек easy_install создаётся, смотрите, может ругаться на то что в нём написано <strong>$HOME</strong> вместо полного пути<br/>
+14-15 создаются папки и симлинки</p>
+
+<p>Ключ -l выводит пакеты установленный только внутри virtualenv, что при создании окружения с ключем --no-site-packages теряет всякий смысл.</p>
+
+<p>Далее этот список нужно сохранить:</p>
+
+<p>$ pip freeze -l > pip-requirements</p>
+
+<p>Тепреь в файле pip-requirements лежит список всех необходимых для запуска пакетов. Этот нужно положить в вашу source control и при необходимости обновлять.</p>
+
+<p>Чтобы установить все необходимые пакеты, необходимо выполнить команду:</p>
+
+<p>$ pip install -r pip-requirements</p>
+
+<p>The --download-cache option should do what you want:
+pip install --download-cache="/pth/to/downloaded/files" package</p>
+
+<p>However, when I tested this, the main package downloaded, saved and installed ok, but the the dependancies were saved with their full url path as the name - a bit annoying, but all the tar.gz files were there.</p>
+
+<p>The --download option just downloads the main package without it's dependancies and doesn't install.
+pip install --download="/pth/to/downloaded/files" package</p>
+]]></content>
+  </entry>
+  
+</feed>
