@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Как упростить себе жизнь в shell/bash - Ещё один блог</title>
+  <title>QR коды - Ещё один блог</title>
   <meta name="author" content="Anshik">
 
   
-  <meta name="description" content="Как упростить себе жизнь в shell/bash некоторые советы и рекомендации, шорткаты">
-  <meta name="keywords" content="commands shell, key mappings, bash shortcat">
+  <meta name="description" content="Как сделать QR, немного кастомный">
+  <meta name="keywords" content="QR-код, QR">
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://Anshik.github.com/blog/2012/05/29/simple-shell-bash">
+  <link rel="canonical" href="http://Anshik.github.com/blog/2012/09/27/qr-kody">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -66,7 +66,7 @@
   
   <header>
     
-      <h1 class="entry-title">Как упростить себе жизнь в Shell/bash</h1>
+      <h1 class="entry-title">QR коды</h1>
     
     
       <p class="meta">
@@ -82,68 +82,38 @@
   
 
 
-<time datetime="2012-05-29T14:37:00+04:00" pubdate data-updated="true">May 29<span>th</span>, 2012</time>
+<time datetime="2012-09-27T08:33:00+04:00" pubdate data-updated="true">Sep 27<span>th</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><h3>Сочетания клавиш linux bash, shell.</h3>
+<div class="entry-content"><h3>Что такое QR коды</h3>
 
-<p>Удобно пользоваться.</p>
-
-<h4>Быстро перемещаться по строчке</h4>
-
-<p><strong>Ctrl + A</strong> Переход в начало строки<br/>
-<strong>Ctrl + E</strong> Переход в конец строки</p>
-
-<p><strong>Alt + F</strong> Прыгать вперёд на слово (ещё может работать Ctrl+ стрелочка вправо)<br/>
-<strong>Alt + B</strong> Прыгать назад на слово (ещё может работать Ctrl+ стрелочка влево)</p>
+<p>Это такие рисунки, которые могут кодировать некоторое сообщение в разных режимах, такие как буквы, буквы+цифры, цифры и др. Чем больше QR код, и чем больше там точек, тем больше информации можно в него поместить.</p>
 
 <!-- more -->
 
 
-<h4>Удобно удалять</h4>
+<h3>Для чего используются QR коды</h3>
 
-<p><strong>Ctrl + H</strong> как backspace только ближе :)</p>
+<p>QR кодами можно закодировать слово, адрес сайта телефон, и др.</p>
 
-<p><strong>Ctrl + W</strong> Удалить слово перед курсором<br/>
-<strong>Ctrl + K</strong> Удалить до конца строки</p>
+<h3>Как сделать свой QR код</h3>
 
-<p><strong>Ctrl + L</strong>  очистка экрана, как команда clear<br/>
-<strong>Ctrl + U</strong> чистит от курсора до начала строки, если в конце, удалит всё</p>
-
-<h4>Менять местами</h4>
-
-<p><strong>Ctrl + T</strong> поменять 2 буковки местами перед курсором<br/>
-<strong>Alt + T</strong> поменять два слова слева от курсора местами</p>
-
-<h4>Работа с процессами</h4>
-
-<p><strong>Ctrl + C</strong> убить что выполнялось<br/>
-<strong>Ctrl + D</strong> выйти из текущего shell<br/>
-<strong>Ctrl + Z</strong> Засунуть в фон, вернуть fg</p>
-
-<h4>Другая вкусняшка</h4>
-
-<p><strong>Tab</strong> заканчивает названия команд и названия файлов/папок<br/>
-<strong>Ctrl + R</strong> поиск по истроии<br/>
-<strong>!</strong> вызов уже исполнявшейся команды пишем восклицательный знак и первые символы команды, будьте аккуратны с брутальными командами типа rm -rf :)<br/>
-<strong>!xxx:p</strong> где xxx, это тоже самое, что и в !(первые буквы(а)) команды, &#8220;флаг&#8221; <strong>:p</strong> позволяет не выполнять эту команду, а только отобразить, безопасный пример:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>rm -rf *
-</span><span class='line'>!r:p
-</span></code></pre></td></tr></table></div></figure>
+<ol>
+<li>Скучно и <a href="http://www.qrcoder.ru/">не красиво</a></li>
+<li>С выдумкой и возможностью <a href="http://www.qrcoder.ru/">редактировать</a>, даже бесплатно.</li>
+</ol>
 
 
-<p>Отобразит, но не выполнит</p>
+<h4>Более вдумчиво и подробно</h4>
 
-<blockquote><p>rm -rf *</p></blockquote>
+<p>Подробно описано на <a href="http://habrahabr.ru/post/127197/">хабре</a>, с примерами на русском (и пример и статья :).
+Либо в <a href="http://en.wikipedia.org/wiki/QR_code">википедии</a>, подробно и на английском.</p>
 
-<p> Есть ещё много разных, но забивать себе голову ими не хочу. Этого должно хватить</p>
+<p><img class="center" src="/../blog_img/Anshik.github.png" title="Вот, что у меня получилось за несколько минут" ></p>
 </div>
 
 
@@ -166,21 +136,15 @@
   
 
 
-<time datetime="2012-05-29T14:37:00+04:00" pubdate data-updated="true">May 29<span>th</span>, 2012</time>
+<time datetime="2012-09-27T08:33:00+04:00" pubdate data-updated="true">Sep 27<span>th</span>, 2012</time>
       
-
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/commands-bash/'>commands bash</a>, <a class='category' href='/blog/categories/commands-shell/'>commands shell</a>, <a class='category' href='/blog/categories/linux/'>linux</a>
-  
-</span>
 
 
     </p>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://Anshik.github.com/blog/2012/05/29/simple-shell-bash/" data-via="" data-counturl="http://Anshik.github.com/blog/2012/05/29/simple-shell-bash/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://Anshik.github.com/blog/2012/09/27/qr-kody/" data-via="" data-counturl="http://Anshik.github.com/blog/2012/09/27/qr-kody/" >Tweet</a>
   
   
   
@@ -189,10 +153,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2012/05/29/ispolzovaniie-riedaktora-sublime-text-2/" title="Previous Post: Использование редактора Sublime Text 2">&laquo; Использование редактора Sublime Text 2</a>
+        <a class="basic-alignment left" href="/blog/2012/09/12/ia-kupil-arduino/" title="Previous Post: Я купил Arduino, первые впечетления">&laquo; Я купил Arduino, первые впечетления</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2012/05/29/wymeditor-django-cms-poprobui-zabori/" title="Next Post: WYMeditor Django-cms попробуй забори">WYMeditor Django-cms попробуй забори &raquo;</a>
       
     </p>
   </footer>
@@ -285,8 +247,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://Anshik.github.com/blog/2012/05/29/simple-shell-bash/';
-        var disqus_url = 'http://Anshik.github.com/blog/2012/05/29/simple-shell-bash/';
+        var disqus_identifier = 'http://Anshik.github.com/blog/2012/09/27/qr-kody/';
+        var disqus_url = 'http://Anshik.github.com/blog/2012/09/27/qr-kody/';
         var disqus_script = 'embed.js';
       
     (function () {

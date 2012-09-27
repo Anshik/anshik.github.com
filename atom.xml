@@ -4,7 +4,7 @@
   <title><![CDATA[Ещё один блог]]></title>
   <link href="http://Anshik.github.com/atom.xml" rel="self"/>
   <link href="http://Anshik.github.com/"/>
-  <updated>2012-09-12T11:09:32+04:00</updated>
+  <updated>2012-09-27T08:50:47+04:00</updated>
   <id>http://Anshik.github.com/</id>
   <author>
     <name><![CDATA[Anshik]]></name>
@@ -12,6 +12,39 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[QR коды]]></title>
+    <link href="http://Anshik.github.com/blog/2012/09/27/qr-kody/"/>
+    <updated>2012-09-27T08:33:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2012/09/27/qr-kody</id>
+    <content type="html"><![CDATA[<h3>Что такое QR коды</h3>
+
+<p>Это такие рисунки, которые могут кодировать некоторое сообщение в разных режимах, такие как буквы, буквы+цифры, цифры и др. Чем больше QR код, и чем больше там точек, тем больше информации можно в него поместить.</p>
+
+<!-- more -->
+
+
+<h3>Для чего используются QR коды</h3>
+
+<p>QR кодами можно закодировать слово, адрес сайта телефон, и др.</p>
+
+<h3>Как сделать свой QR код</h3>
+
+<ol>
+<li>Скучно и <a href="http://www.qrcoder.ru/">не красиво</a></li>
+<li>С выдумкой и возможностью <a href="http://www.qrcoder.ru/">редактировать</a>, даже бесплатно.</li>
+</ol>
+
+
+<h4>Более вдумчиво и подробно</h4>
+
+<p>Подробно описано на <a href="http://habrahabr.ru/post/127197/">хабре</a>, с примерами на русском (и пример и статья :).
+Либо в <a href="http://en.wikipedia.org/wiki/QR_code">википедии</a>, подробно и на английском.</p>
+
+<p><img class="center" src="http://Anshik.github.com/../blog_img/Anshik.github.png" title="Вот, что у меня получилось за несколько минут" ></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Я купил Arduino, первые впечетления]]></title>
@@ -1429,148 +1462,6 @@ Virtualenv это средство для создания изолирован�
 <blockquote><p>rm -rf *</p></blockquote>
 
 <p> Есть ещё много разных, но забивать себе голову ими не хочу. Этого должно хватить</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Использование редактора Sublime Text 2]]></title>
-    <link href="http://Anshik.github.com/blog/2012/05/29/ispolzovaniie-riedaktora-sublime-text-2/"/>
-    <updated>2012-05-29T14:24:00+04:00</updated>
-    <id>http://Anshik.github.com/blog/2012/05/29/ispolzovaniie-riedaktora-sublime-text-2</id>
-    <content type="html"><![CDATA[<h3>Настройка</h3>
-
-<p>В sublime интересная система настроек: не нужно выбирать кучу флажочков и ползать по меню. Для этого есть несколько текстовых файлов с настройками. Опишу некоторые возможности:</p>
-
-<p><strong>Preferences->GlobalSettings-Default</strong> - это, как видно из названия файл настроек по-умолчанию
-<strong>Preferences->GlobalSettings-User</strong> - это пользовательский файл настроек. Настройки из пользовательского файла перекрывают файл настроек по-умолчанию.</p>
-
-<!-- more -->
-
-
-<p>Первый файл под линуксом лежит в папке <strong>~/.config/sublime-text-2/Packages/Default</strong>
-А второй в папке <strong>~/.config/sublime-text-2/Packages/User</strong>.</p>
-
-<p>Обзор полезных, на мой взгляд настроек файла Global.sublime-settings, а чего-то не нашёл таковых :).</p>
-
-<p>Есть другой более полезный файл настроек: Preferences->File Settings-Default под названием Base File.sublime-settings-Default в нём можно подсмотреть что можно поменять. А менять мы будем в файле <strong>Preferences->File Settings-User</strong> под названием <strong>Base File.sublime-settings-Default</strong>.</p>
-
-<p>При добавлении настроек в файл пользователя обратите внимание, что строчки добавляются внутрь фигурных скобочек, и последняя строчка внутри скобочек не должна заканчиваться запятой, хотя редактор умный и парсит изменения, которые вносит пользователь, и если нужно ругнётся.</p>
-
-<p>Итак настройки:
-Обычно, чтобы включить true, выключить false</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="o">//</span> <span class="n">Set</span> <span class="n">to</span> <span class="n">false</span> <span class="n">to</span> <span class="n">prevent</span> <span class="n">line</span> <span class="n">numbers</span> <span class="n">being</span> <span class="n">drawn</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">gutter</span>
-</span><span class='line'><span class="o">//</span> <span class="err">номера</span> <span class="err">строк</span>
-</span><span class='line'><span class="s">&quot;line_numbers&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">//</span> <span class="n">Columns</span> <span class="ow">in</span> <span class="n">which</span> <span class="n">to</span> <span class="n">display</span> <span class="n">vertical</span> <span class="n">rulers</span>
-</span><span class='line'><span class="o">//</span> <span class="err">добавить</span> <span class="err">линейки</span><span class="p">,</span> <span class="err">кому</span> <span class="err">нужно</span><span class="p">,</span> <span class="err">забавная</span> <span class="err">фича</span><span class="p">,</span> <span class="err">по</span> <span class="err">умолчанию</span> <span class="err">выключена</span>
-</span><span class='line'><span class="o">//</span><span class="s">&quot;rulers&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="o">//</span> <span class="err">пример</span> <span class="err">добавляет</span> <span class="err">две</span> <span class="err">линейки</span> <span class="err">на</span> <span class="err">позиции</span> <span class="mi">5</span> <span class="err">и</span> <span class="mi">10</span>
-</span><span class='line'><span class="s">&quot;rulers&quot;</span><span class="p">:</span> <span class="p">[],</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">//</span> <span class="n">Set</span> <span class="n">to</span> <span class="n">true</span> <span class="n">to</span> <span class="n">turn</span> <span class="n">spell</span> <span class="n">checking</span> <span class="n">on</span> <span class="n">by</span> <span class="n">default</span>
-</span><span class='line'><span class="o">//</span> <span class="err">Проверка</span> <span class="err">на</span> <span class="err">ошибки</span> <span class="err">по</span> <span class="err">умолчанию</span><span class="o">.</span> <span class="err">Если</span> <span class="err">хочется</span><span class="p">,</span> <span class="err">то</span> <span class="err">можно</span> <span class="err">подключить</span> <span class="err">русский</span> <span class="err">словарь</span><span class="p">,</span> <span class="err">я</span> <span class="err">подключал</span><span class="o">.</span>
-</span><span class='line'><span class="s">&quot;spell_check&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">//</span> <span class="n">Word</span> <span class="nb">list</span> <span class="n">to</span> <span class="n">use</span> <span class="k">for</span> <span class="n">spell</span> <span class="n">checking</span>
-</span><span class='line'><span class="o">//</span> <span class="err">Подключение</span> <span class="err">словаря</span>
-</span><span class='line'><span class="s">&quot;dictionary&quot;</span><span class="p">:</span> <span class="s">&quot;Packages/Language - English/en_US.dic&quot;</span><span class="p">,</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">//</span> <span class="n">The</span> <span class="n">number</span> <span class="n">of</span> <span class="n">spaces</span> <span class="n">a</span> <span class="n">tab</span> <span class="ow">is</span> <span class="n">considered</span> <span class="n">equal</span> <span class="n">to</span>
-</span><span class='line'><span class="o">//</span> <span class="err">количество</span> <span class="err">пробелов</span><span class="p">,</span> <span class="err">при</span> <span class="err">нажатии</span> <span class="n">tab</span><span class="p">,</span> <span class="err">хорошее</span> <span class="err">число</span> <span class="mi">4</span><span class="p">,</span> <span class="err">как</span> <span class="err">у</span> <span class="err">всех</span>
-</span><span class='line'><span class="s">&quot;tab_size&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">//</span> <span class="n">Set</span> <span class="n">to</span> <span class="n">true</span> <span class="n">to</span> <span class="n">insert</span> <span class="n">spaces</span> <span class="n">when</span> <span class="n">tab</span> <span class="ow">is</span> <span class="n">pressed</span>
-</span><span class='line'><span class="o">//</span> <span class="err">Установить</span> <span class="err">в</span> <span class="n">true</span> <span class="err">чтобы</span> <span class="err">вставлять</span> <span class="err">пробелы</span> <span class="err">вместо</span> <span class="n">tab</span><span class="p">,</span> <span class="err">если</span> <span class="err">нажимаем</span> <span class="n">tab</span><span class="p">,</span> <span class="err">я</span> <span class="err">обычно</span> <span class="err">ставлю</span> <span class="err">в</span> <span class="n">true</span>
-</span><span class='line'><span class="s">&quot;translate_tabs_to_spaces&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span> <span class="o">//</span> <span class="n">true</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">//</span> <span class="n">The</span> <span class="n">encoding</span> <span class="n">to</span> <span class="n">use</span> <span class="n">when</span> <span class="n">the</span> <span class="n">encoding</span> <span class="n">can</span><span class="s">&#39;t be determined automatically.</span>
-</span><span class='line'><span class="o">//</span> <span class="n">ASCII</span><span class="p">,</span> <span class="n">UTF</span><span class="o">-</span><span class="mi">8</span> <span class="ow">and</span> <span class="n">UTF</span><span class="o">-</span><span class="mi">16</span> <span class="n">encodings</span> <span class="n">will</span> <span class="n">be</span> <span class="n">automatically</span> <span class="n">detected</span><span class="o">.</span>
-</span><span class='line'><span class="o">//</span> <span class="err">Если</span> <span class="err">файл</span> <span class="err">находится</span> <span class="err">не</span> <span class="err">в</span> <span class="err">кодировке</span> <span class="n">UTF</span><span class="o">-</span><span class="mi">8</span> <span class="err">и</span> <span class="err">не</span> <span class="err">в</span> <span class="n">UTF</span><span class="o">-</span><span class="mi">16</span><span class="p">,</span> <span class="err">то</span> <span class="err">в</span> <span class="err">какой</span> <span class="err">кодировке</span> <span class="err">его</span> <span class="err">открывать</span><span class="o">.</span> <span class="err">Для</span> <span class="err">большинства</span> <span class="err">русских</span> <span class="err">виндоузятников</span><span class="p">,</span> <span class="err">копировать</span> <span class="err">раскоментированную</span> <span class="err">строчку</span>
-</span><span class='line'><span class="o">//</span><span class="s">&quot;fallback_encoding&quot;</span><span class="p">:</span> <span class="s">&quot;Western (Windows 1252)&quot;</span><span class="p">,</span>
-</span><span class='line'><span class="s">&quot;fallback_encoding&quot;</span><span class="p">:</span> <span class="s">&quot;Cyrillic (Windows 1251)&quot;</span><span class="p">,</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Настроек, больше, кому нужно разберётся, начальные я рассказал.
-Есть ещё файл с <strong>горячими клавишами</strong>, тоже можно разобраться, если нужно.</p>
-
-<h3>Горячие клавиши, которые нужно знать</h3>
-
-<p><strong>ctrl+p</strong> [show_files] - данное сочтание клавиш позволяет открыть/искать по разным файлам проекта, открытым, или находящимся в проекте<br/>
-<strong>ctrl+r</strong> - поиск по именам функций, структур, похоже на список функций, &#8220;@&#8221;<br/>
-<strong>ctrl+g</strong> - переход на строчку &#8220;:&#8221;<br/>
-<strong>ctrl+;</strong> - поиск по переменным &#8220;#&#8221;</p>
-
-<p>Символы &#8220;@, :, #&#8221; можно комбинировать, пример, вызываем строчку <strong>ctrl+p</strong>
-далее вводим какие-то буквы из имени файла, к примеру у меня открыт файл <strong>Default(Linux).sublime-keymap</strong>
-Для того, чтобы его выбрать достаточно ввести &#8220;deup&#8221;, редактор может понять и гораздо раньше, что вам нужно и подсветит введённые вами буквы в слове. Дальше можно скомбинировать <strong>ctrl+p</strong>, затем <strong>deup#ctrl</strong>, мы перейдём на первое вхождение ctrl, не так интересно, если бы рассматривали файл с кодом, можно было бы найти переменную с именем. Повторюсь, не обязательно помнить дословно, главное хотябы пару букв в нужном порядке :).</p>
-
-<p><strong>ctrl+shift+p</strong> - вот это тоже шикарное сочитание клавиш <em>&#8220;command_palette&#8221;</em>, позволяет менять настройки редактора, маленький пример:<br/>
-нажимаем <strong>ctrl+shift+p</strong>, затем вводим map, и эта команда нам уберёт/покажет миникарту файла.</p>
-
-<h3>Выделение столбика</h3>
-
-<p>Редактор без возможности редактировать столбики не редактор, по моему мнению</p>
-
-<h4>Мышкой</h4>
-
-<p><em>Windows</em><br/>
-Right Mouse Button + Shift
-OR: Middle Mouse Button
-Add to selection: Ctrl
-Subtract from selection: Alt</p>
-
-<p><em>Linux</em><br/>
-Right Mouse Button + Shift
-Add to selection: Ctrl
-Subtract from selection: Alt</p>
-
-<h3>Клавиатурой</h3>
-
-<p>Windows, Linux
-Ctrl + Alt + Up
-Ctrl + Alt + Down</p>
-
-<blockquote><p>у меня в линуксе клавиатурой так не работает :(</p></blockquote>
-
-<h3>Запуск приложения python</h3>
-
-<p>Выбираем билдер (у нас python):</p>
-
-<p>Tools -> Build System -> (choose) Python</p>
-
-<p>ctrl+b - запустит приложение</p>
 ]]></content>
   </entry>
   
