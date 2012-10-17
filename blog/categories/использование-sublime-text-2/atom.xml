@@ -4,7 +4,7 @@
   <title><![CDATA[Category: использование Sublime Text 2 | Ещё один блог]]></title>
   <link href="http://Anshik.github.com/blog/categories/использование-sublime-text-2/atom.xml" rel="self"/>
   <link href="http://Anshik.github.com/"/>
-  <updated>2012-09-27T08:50:47+04:00</updated>
+  <updated>2012-10-17T13:48:15+04:00</updated>
   <id>http://Anshik.github.com/</id>
   <author>
     <name><![CDATA[Anshik]]></name>
@@ -82,7 +82,12 @@
 <strong>ctrl+g</strong> - переход на строчку ":"<br/>
 <strong>ctrl+;</strong> - поиск по переменным "#"</p>
 
-<p>Символы "@, :, #" можно комбинировать, пример, вызываем строчку <strong>ctrl+p</strong>
+<h4>Выделение</h4>
+
+<p><strong>ctrl+d</strong> - выделение слова при повторном нажатии, следуещее вхождение этого слова
+<strong>alt+F3</strong> - выделение всех слов в файле.
+<strong>ctrl+i</strong> - быстрый поиск
+Символы "@, :, #" можно комбинировать, пример, вызываем строчку <strong>ctrl+p</strong>
 далее вводим какие-то буквы из имени файла, к примеру у меня открыт файл <strong>Default(Linux).sublime-keymap</strong>
 Для того, чтобы его выбрать достаточно ввести "deup", редактор может понять и гораздо раньше, что вам нужно и подсветит введённые вами буквы в слове. Дальше можно скомбинировать <strong>ctrl+p</strong>, затем <strong>deup#ctrl</strong>, мы перейдём на первое вхождение ctrl, не так интересно, если бы рассматривали файл с кодом, можно было бы найти переменную с именем. Повторюсь, не обязательно помнить дословно, главное хотябы пару букв в нужном порядке :).</p>
 

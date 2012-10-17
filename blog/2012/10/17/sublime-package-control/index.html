@@ -1,0 +1,326 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Sublime Package Control - Ещё один блог</title>
+  <meta name="author" content="Anshik">
+
+  
+  <meta name="description" content="Настройка, использование, установка Sublime Package Control">
+  <meta name="keywords" content="Sublime, Package Control">
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://Anshik.github.com/blog/2012/10/17/sublime-package-control">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Ещё один блог" type="application/atom+xml">
+  <meta name='yandex-verification' content='6339aed3f1c3b095' />
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Ещё один блог</a></h1>
+  
+    <h2>A blogging framework for hackers or geeks.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:Anshik.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Блог</a></li>
+  <li><a href="/blog/archives">Архив</a></li>
+  <li><a href="/about">Обо мне</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Sublime Package Control</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-17T13:06:00+04:00" pubdate data-updated="true">Oct 17<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h3>Sublime Package Control</h3>
+
+<p>Package Control это плагин для Sublime, который позвляет управлять и устанавливать новые плагины.</p>
+
+<!-- more -->
+
+
+<h3>Установка Sublime Package Control</h3>
+
+<p>Для установки нужно зайти на <a href="http://wbond.net/sublime_packages/package_control/installation">сайт</a> и скопировать следующее:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">import</span> <span class="nn">urllib2</span><span class="o">,</span><span class="nn">os</span><span class="p">;</span> <span class="n">pf</span><span class="o">=</span><span class="s">&#39;Package Control.sublime-package&#39;</span><span class="p">;</span> <span class="n">ipp</span><span class="o">=</span><span class="n">sublime</span><span class="o">.</span><span class="n">installed_packages_path</span><span class="p">();</span> <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">ipp</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">ipp</span><span class="p">)</span> <span class="k">else</span> <span class="bp">None</span><span class="p">;</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">install_opener</span><span class="p">(</span><span class="n">urllib2</span><span class="o">.</span><span class="n">build_opener</span><span class="p">(</span><span class="n">urllib2</span><span class="o">.</span><span class="n">ProxyHandler</span><span class="p">()));</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ipp</span><span class="p">,</span><span class="n">pf</span><span class="p">),</span><span class="s">&#39;wb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s">&#39;http://sublime.wbond.net/&#39;</span><span class="o">+</span><span class="n">pf</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39; &#39;</span><span class="p">,</span><span class="s">&#39;%20&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">read</span><span class="p">());</span> <span class="k">print</span> <span class="s">&#39;Please restart Sublime Text to finish installation&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Дальше в Sublime Text 2 открыть консоль python <strong>ctrl+~</strong><br/>
+Вставить код туда, нажать Enter и перезапустить Sublime.
+Всё, Package Control установлен.</p>
+
+<h3>Использование Package Control</h3>
+
+<p>Нажимаем <strong>Ctrl+Shift+p</strong>, набираем <strong>install</strong>. Программка подсасывает из интернета список плагинов для установки. И медитируем на длинный список плагинов.</p>
+
+<h3>Описание некоторых плагинов</h3>
+
+<h4>Sublime-Aduino</h4>
+
+<p>Подсветка синтаксиса, и ещё чего-то для Ардуино.</p>
+
+<h4>Markdown Preview</h4>
+
+<p>Для тех кому нужно, в браузере показывает md.</p>
+
+<h4>SideBarEnhancements</h4>
+
+<p>Тоже полезная штука, добавляет действий при правом клике в сайдбаре.</p>
+
+<h4><a href="https://github.com/aziz/PlainTasks">PlainTasks</a></h4>
+
+<p>Это шикарная TODO-шница. Файлы с расширением todo, и др.
+Строчка заканчивающаяся на &#8220;:&#8221; является проектом<br/>
+<strong><code>⌘ + enter</code> or <code>⌘ + i</code></strong>: новая задача<br/>
+<strong><code>⌘ + d</code></strong>: завершить/незавершить задачу<br/>
+<strong><code>⌘ + shift + a</code></strong> архивировать задачу<br/>
+<strong><code>⌘ + r</code></strong> быстро переключаться по проектам<br/>
+<code>--</code> и затем <code>tab key</code> сделает это: <code>--- ✄ -----------------------</code></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Anshik</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-17T13:06:00+04:00" pubdate data-updated="true">Oct 17<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/sublime/'>Sublime</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://Anshik.github.com/blog/2012/10/17/sublime-package-control/" data-via="" data-counturl="http://Anshik.github.com/blog/2012/10/17/sublime-package-control/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/09/27/qr-kody/" title="Previous Post: QR коды">&laquo; QR коды</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <div id="hypercomments_widget"></div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Последние статьи</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/10/17/sublime-package-control/">Sublime Package Control</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/09/27/qr-kody/">QR коды</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/09/12/ia-kupil-arduino/">Я купил Arduino, первые впечетления</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/14/1gb-virtualenv-easy-install/">1Gb easy_install</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/06/14/podkliuchieniie-po-ssh-biez-parolia/">Подключение по ssh без пароля</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+<section>
+  <h1>Обо мне</h1>
+  <p>Мне нравится Python, Qt, PyQt, PySide. Также знаю C/C++, умею программировать под микроконтроллеры. Интересуюсь Django, написал несколько проектов на нем, такие как http://pinta-piva.com, http://dok4you.ru</p>
+</section>
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Anshik -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+
+  <!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter14748103 = new Ya.Metrika({id:14748103, enableAll: true, webvisor:true});
+        } catch(e) {}
+    });
+    
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f);
+    } else { f(); }
+})(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="//mc.yandex.ru/watch/14748103" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</p>
+
+</footer>
+  <!-- 
+
+<script type="text/javascript">
+      var disqus_shortname = 'anshik';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://Anshik.github.com/blog/2012/10/17/sublime-package-control/';
+        var disqus_url = 'http://Anshik.github.com/blog/2012/10/17/sublime-package-control/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+ -->
+
+
+<script type="text/javascript">
+      
+        
+
+          var _hcp = _hcp || {};_hcp.widget_id = 1551;_hcp.widget = "Stream";
+          (function() { 
+          var hcc = document.createElement("script"); hcc.type = "text/javascript"; hcc.async = true;
+          hcc.src = ("https:" == document.location.protocol ? "https" : "http")+"://widget.hypercomments.com/apps/js/hc.js";
+          var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hcc, s.nextSibling); 
+          })();
+                
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

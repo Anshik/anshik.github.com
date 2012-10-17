@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Sublime | Ещё один блог]]></title>
+  <link href="http://Anshik.github.com/blog/categories/sublime/atom.xml" rel="self"/>
+  <link href="http://Anshik.github.com/"/>
+  <updated>2012-10-17T13:48:15+04:00</updated>
+  <id>http://Anshik.github.com/</id>
+  <author>
+    <name><![CDATA[Anshik]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Sublime Package Control]]></title>
+    <link href="http://Anshik.github.com/blog/2012/10/17/sublime-package-control/"/>
+    <updated>2012-10-17T13:06:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2012/10/17/sublime-package-control</id>
+    <content type="html"><![CDATA[<h3>Sublime Package Control</h3>
+
+<p>Package Control это плагин для Sublime, который позвляет управлять и устанавливать новые плагины.</p>
+
+<!-- more -->
+
+
+<h3>Установка Sublime Package Control</h3>
+
+<p>Для установки нужно зайти на <a href="http://wbond.net/sublime_packages/package_control/installation">сайт</a> и скопировать следующее:
+<code>python
+import urllib2,os; pf='Package Control.sublime-package'; ipp=sublime.installed_packages_path(); os.makedirs(ipp) if not os.path.exists(ipp) else None; urllib2.install_opener(urllib2.build_opener(urllib2.ProxyHandler())); open(os.path.join(ipp,pf),'wb').write(urllib2.urlopen('http://sublime.wbond.net/'+pf.replace(' ','%20')).read()); print 'Please restart Sublime Text to finish installation'
+</code>
+Дальше в Sublime Text 2 открыть консоль python <strong>ctrl+~</strong><br/>
+Вставить код туда, нажать Enter и перезапустить Sublime.
+Всё, Package Control установлен.</p>
+
+<h3>Использование Package Control</h3>
+
+<p>Нажимаем <strong>Ctrl+Shift+p</strong>, набираем <strong>install</strong>. Программка подсасывает из интернета список плагинов для установки. И медитируем на длинный список плагинов.</p>
+
+<h3>Описание некоторых плагинов</h3>
+
+<h4>Sublime-Aduino</h4>
+
+<p>Подсветка синтаксиса, и ещё чего-то для Ардуино.</p>
+
+<h4>Markdown Preview</h4>
+
+<p>Для тех кому нужно, в браузере показывает md.</p>
+
+<h4>SideBarEnhancements</h4>
+
+<p>Тоже полезная штука, добавляет действий при правом клике в сайдбаре.</p>
+
+<h4><a href="https://github.com/aziz/PlainTasks">PlainTasks</a></h4>
+
+<p>Это шикарная TODO-шница. Файлы с расширением todo, и др.
+Строчка заканчивающаяся на ":" является проектом<br/>
+<strong><code>⌘ + enter</code> or <code>⌘ + i</code></strong>: новая задача<br/>
+<strong><code>⌘ + d</code></strong>: завершить/незавершить задачу<br/>
+<strong><code>⌘ + shift + a</code></strong> архивировать задачу<br/>
+<strong><code>⌘ + r</code></strong> быстро переключаться по проектам<br/>
+<code>--</code> и затем <code>tab key</code> сделает это: <code>--- ✄ -----------------------</code></p>
+]]></content>
+  </entry>
+  
+</feed>
