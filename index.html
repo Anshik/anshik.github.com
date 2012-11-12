@@ -9,7 +9,7 @@
   <meta name="author" content="Anshik">
 
   
-  <meta name="description" content="Sublime Package Control Package Control это плагин для Sublime, который позвляет управлять и устанавливать новые плагины. ">
+  <meta name="description" content="Первый вариант WebDAV в Linux и FreeBSD Тут описано как подключать диск через Наутилус и Дельфин. Познавательно, но хочется большего. Второй вариант &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -63,6 +63,106 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/11/12/webdav-na-primierie-iandieks-dot-disk/">WebDAV на примере Яндекс.Диск</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-12T10:52:00+04:00" pubdate data-updated="true">Nov 12<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3>Первый вариант WebDAV в Linux и FreeBSD</h3>
+
+<p><a href="http://help.yandex.ru/disk/webdav/webdav-linux.xml">Тут</a> описано как подключать диск через Наутилус и Дельфин. Познавательно, но хочется большего.</p>
+
+<h3>Второй вариант davfs2</h3>
+
+<p>Устанавливаем пакет для работы с файловой системой WebDAV</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo apt-get install davfs2
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span>создаём точку монтирования и монтируем</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>mkdir ~/YNDXDisk
+</span><span class='line'>mount -t davfs https://webdav.yandex.ru ~/YNDXDisk
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Вводим имя пользователя и пароль.</p>
+
+<h3>Третий вариант Cadaver</h3>
+
+<p>sudo apt-get install cadaver
+cadaver -t http://example.com/webdav/autopub/dir/you/want</p>
+
+<p>Вот пример <a href="http://robertmarkbramprogrammer.blogspot.ru/2010/09/using-webdav-and-cadaver-with-dotcms.html">скрипта</a>, правда не пробовал</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">#! /bin/bash</span>
+</span><span class='line'><span class="c"># webDavTransfer.sh</span>
+</span><span class='line'><span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;$1&quot;</span> !<span class="o">=</span> <span class="s2">&quot;-d&quot;</span> <span class="o">]</span> ; <span class="k">then</span>
+</span><span class='line'><span class="k">   </span><span class="nb">echo </span>Usage <span class="nv">$0</span> -d dest-path files ...
+</span><span class='line'>   <span class="nb">echo </span>Transfer files from current directory to dest-path in webDAV.
+</span><span class='line'>   <span class="nb">exit </span>2
+</span><span class='line'><span class="k">fi</span>
+</span><span class='line'><span class="nv">destPath</span><span class="o">=</span><span class="nv">$2</span>
+</span><span class='line'><span class="nb">shift</span>; <span class="nb">shift</span>
+</span><span class='line'>
+</span><span class='line'>cadaver -t <span class="s">&lt;&lt;EOF</span>
+</span><span class='line'><span class="s">open http://example.com/webdav/autopub/base-path</span>
+</span><span class='line'><span class="s">cd $destPath</span>
+</span><span class='line'><span class="s">mput $@</span>
+</span><span class='line'><span class="s">quit</span>
+</span><span class='line'><span class="s">EOF</span>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -577,55 +677,6 @@ Fabric &mdash; это библиотечка для python версии >= 2.5 �
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/06/05/ispolzovaniie-virtualenv-python/">Использование Virtualenv Python</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-06-05T14:05:00+04:00" pubdate data-updated="true">Jun 5<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h3>Введение</h3>
-
-<p>Давно хотел разобраться, как настраивать и использовать <a href="http://pypi.python.org/pypi/virtualenv">virtualenv</a>.
-Virtualenv это средство для создания изолированного окружения Python.</p>
-
-<h4>Зачем оно нужно?</h4>
-
-<p>По умолчанию easy_install ставит питоновские пакеты примерно в <code>/usr/local/lib/python2.6/dist-packages</code>
-И там получается помойка из пакетов, в некоторых случаях мы работаем со старыми версиями пакетов.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/06/05/ispolzovaniie-virtualenv-python/">Читать до конца &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -641,6 +692,10 @@ Virtualenv это средство для создания изолирован�
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/11/12/webdav-na-primierie-iandieks-dot-disk/">WebDAV на примере Яндекс.Диск</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/10/17/sublime-package-control/">Sublime Package Control</a>
       </li>
     
@@ -654,10 +709,6 @@ Virtualenv это средство для создания изолирован�
     
       <li class="post">
         <a href="/blog/2012/06/14/1gb-virtualenv-easy-install/">1Gb easy_install</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/06/14/podkliuchieniie-po-ssh-biez-parolia/">Подключение по ssh без пароля</a>
       </li>
     
   </ul>

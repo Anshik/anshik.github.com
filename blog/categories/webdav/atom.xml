@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: WebDAV | Ещё один блог]]></title>
+  <link href="http://Anshik.github.com/blog/categories/webdav/atom.xml" rel="self"/>
+  <link href="http://Anshik.github.com/"/>
+  <updated>2012-11-12T13:43:13+04:00</updated>
+  <id>http://Anshik.github.com/</id>
+  <author>
+    <name><![CDATA[Anshik]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[WebDAV на примере Яндекс.Диск]]></title>
+    <link href="http://Anshik.github.com/blog/2012/11/12/webdav-na-primierie-iandieks-dot-disk/"/>
+    <updated>2012-11-12T10:52:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2012/11/12/webdav-na-primierie-iandieks-dot-disk</id>
+    <content type="html"><![CDATA[<h3>Первый вариант WebDAV в Linux и FreeBSD</h3>
+
+<p><a href="http://help.yandex.ru/disk/webdav/webdav-linux.xml">Тут</a> описано как подключать диск через Наутилус и Дельфин. Познавательно, но хочется большего.</p>
+
+<h3>Второй вариант davfs2</h3>
+
+<p>Устанавливаем пакет для работы с файловой системой WebDAV
+<code>bash
+sudo apt-get install davfs2
+</code></p>
+
+<p><code>bash создаём точку монтирования и монтируем
+mkdir ~/YNDXDisk
+mount -t davfs https://webdav.yandex.ru ~/YNDXDisk
+</code>
+Вводим имя пользователя и пароль.</p>
+
+<h3>Третий вариант Cadaver</h3>
+
+<p>sudo apt-get install cadaver
+cadaver -t http://example.com/webdav/autopub/dir/you/want</p>
+
+<p>Вот пример <a href="http://robertmarkbramprogrammer.blogspot.ru/2010/09/using-webdav-and-cadaver-with-dotcms.html">скрипта</a>, правда не пробовал
+``` bash</p>
+
+<h1>! /bin/bash</h1>
+
+<h1>webDavTransfer.sh</h1>
+
+<p>if [ "$1" != "-d" ] ; then
+   echo Usage $0 -d dest-path files ...
+   echo Transfer files from current directory to dest-path in webDAV.
+   exit 2
+fi
+destPath=$2
+shift; shift</p>
+
+<p>cadaver -t &lt;&lt;EOF
+open http://example.com/webdav/autopub/base-path
+cd $destPath
+mput $@
+quit
+EOF
+```</p>
+
+<h3>Вывод</h3>
+
+<p>Мне оказолось удобнее иногда монтировать Яндекс.Диск и бэкапиться на него. Т.к. соединение с интернетом не стабильное.</p>
+]]></content>
+  </entry>
+  
+</feed>
