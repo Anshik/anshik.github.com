@@ -4,7 +4,7 @@
   <title><![CDATA[Ещё один блог]]></title>
   <link href="http://Anshik.github.com/atom.xml" rel="self"/>
   <link href="http://Anshik.github.com/"/>
-  <updated>2012-11-12T13:41:25+04:00</updated>
+  <updated>2012-11-14T09:54:39+04:00</updated>
   <id>http://Anshik.github.com/</id>
   <author>
     <name><![CDATA[Anshik]]></name>
@@ -14,6 +14,97 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Sublime Vintage mode keymap]]></title>
+    <link href="http://Anshik.github.com/blog/2012/11/13/sublime-vintage-mode-keymap/"/>
+    <updated>2012-11-13T17:26:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2012/11/13/sublime-vintage-mode-keymap</id>
+    <content type="html"><![CDATA[<h3>Введение</h3>
+
+<p>Sublime Vintage mode, это Винтажный режим, который поддерживает команды редактора vi || vim, в сочетании с фичами Sublime Text, включая множественное выделение.</p>
+
+<!-- more -->
+
+
+<h3>Установка Vintage (Включение)</h3>
+
+<p>По умолчанию Vintage режим выключен путём игнорирования данного пакета. Для включения нужно Preferences/Settings - Default меню выбрать. Найти строчку</p>
+
+<blockquote><p>&#8220;ignored_packages&#8221;: [&#8220;Vintage&#8221;]</p></blockquote>
+
+<p>затем открыть пользовательские настройки и вставить строчку</p>
+
+<blockquote><p>&#8220;ignored_packages&#8221;: []</p></blockquote>
+
+<p>Теперь Vintage режим включён. Вы увидите &#8220;INSERT MODE&#8221; внизу в строке состояния. Редактор стартует в режиме вставки вначале, а правильно в командном:</p>
+
+<blockquote><p>&#8220;vintage_start_in_command_mode&#8221;: true</p></blockquote>
+
+<h3>Sublime Vintage mode keymap, кнопки</h3>
+
+<h4>Vintage позволяет делать простые действия кнопками:</h4>
+
+<p>d (delete) удалить<br/>
+y (copy) копировать<br/>
+c (change) изменить<br/>
+gu (lower case) преобразовать в нижний регистр<br/>
+gU (upper case) преобразовать в верхний регистр<br/>
+g~ (swap case) инвертировать регистр<br/>
+&lt; (unindent) уменьшить отступ<br/>
+> (indent) увеличить отступ</p>
+
+<h4>Перемещения в Vintage mode</h4>
+
+<p><strong>курсор</strong><br/>
+l - влево<br/>
+h - вправо<br/>
+j - вниз<br/>
+k - вверх<br/>
+W - перемещение вперёд по &#8220;большим&#8221; словам (к началу)<br/>
+w - перемещение вперёд по &#8220;маленьким&#8221; словам (к началу)<br/>
+e - перемещение вперёд по &#8220;маленьким&#8221; словам (к концу)<br/>
+E - перемещение вперёд по &#8220;большим&#8221; словам (к концу)<br/>
+b - перемещение назад по &#8220;маленьким&#8221; словам<br/>
+B - перемещение назад по &#8220;большим&#8221; словам<br/>
+alt+w (move by sub-words) - перемещение по &#8220;подсловам&#8221; вперёд<br/>
+alt+W (move backwards by sub-words) перемещение по &#8220;подсловам&#8221; назад<br/>
+$ - перемещение к концу строки<br/>
+^ - перемещение к началу строки (первый &#8220;не пробельный&#8221; символ)<br/>
+% - перемещение к открывающей/закрывающей скобочке<br/>
+0 - перемещение к началу строки (нулевой позиции) <br/>
+G - переход к концу документа<br/>
+gg - переход к началу документа <br/>
+f + символ - поиск первого вхождения буквы в строке (вперёд)<br/>
+F + символ - поиск первого вхождения буквы в строке (назад)<br/>
+t - (till) переход до символа (вперёд)<br/>
+T - (till) переход до символа (назад)<br/>
+ctrl+f - page down<br/>
+ctrl+b - page up<br/>
+H - курсор вверх экрана<br/>
+M - курсор посередине экрана<br/>
+L - курсор вниз экрана</p>
+
+<p>Текстовые объекты поддерживаются включая слова, кавычки, скобочки и теги.</p>
+
+<p>Повтор последней команды (&#8216;.&#8217;)</p>
+
+<p>Поддерживаются макросы, закладки и регистры.<br/>
+Также поддерживаются команды:<br/>
+* - переход по тегам (начало/конец)<br/>
+/ - <strong>поиск</strong> после слеша набираем искомое, похоже на ctrl+i</p>
+
+<h4>Выделение</h4>
+
+<p>v - переход в режим выделения, дальше командами навигации</p>
+
+<h3>Замечания</h3>
+
+<p>Правильно будет установить в настройках также, чтобы некоторые команда sublime не пересекались с Vintage</p>
+
+<blockquote><p>&#8220;vintage_ctrl_keys&#8221;: true</p></blockquote>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[WebDAV на примере Яндекс.Диск]]></title>
     <link href="http://Anshik.github.com/blog/2012/11/12/webdav-na-primierie-iandieks-dot-disk/"/>
     <updated>2012-11-12T10:52:00+04:00</updated>
@@ -21,6 +112,9 @@
     <content type="html"><![CDATA[<h3>Первый вариант WebDAV в Linux и FreeBSD</h3>
 
 <p><a href="http://help.yandex.ru/disk/webdav/webdav-linux.xml">Тут</a> описано как подключать диск через Наутилус и Дельфин. Познавательно, но хочется большего.</p>
+
+<!-- more -->
+
 
 <h3>Второй вариант davfs2</h3>
 
@@ -83,6 +177,10 @@ cadaver -t http://example.com/webdav/autopub/dir/you/want</p>
 </span><span class='line'><span class="s">EOF</span>
 </span></code></pre></td></tr></table></div></figure>
 
+
+<h3>Вывод</h3>
+
+<p>Мне оказолось удобнее иногда монтировать Яндекс.Диск и бэкапиться на него. Т.к. соединение с интернетом не стабильное.</p>
 ]]></content>
   </entry>
   
@@ -138,6 +236,72 @@ cadaver -t http://example.com/webdav/autopub/dir/you/want</p>
 <strong><code>⌘ + shift + a</code></strong> архивировать задачу<br/>
 <strong><code>⌘ + r</code></strong> быстро переключаться по проектам<br/>
 <code>--</code> и затем <code>tab key</code> сделает это: <code>--- ✄ -----------------------</code></p>
+
+<h4>Проблемы при работе с Package Control</h4>
+
+<h5>Ошибка &#8220;sublime package control UnicodeEncodeError: &#8216;ascii&#8217; codec can&#8217;t encode&#8230;&#8221;</h5>
+
+<p>Проблема возникает под виндой, не догадался бы, если бы в консоль не посмотрел. ctrl+~</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="ne">Exception</span> <span class="ow">in</span> <span class="n">thread</span> <span class="n">Thread</span><span class="o">-</span><span class="mi">4</span><span class="p">:</span>
+</span><span class='line'><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+</span><span class='line'>  <span class="n">File</span> <span class="s">&quot;.</span><span class="se">\t</span><span class="s">hreading.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">532</span><span class="p">,</span> <span class="ow">in</span> <span class="n">__bootstrap_inner</span>
+</span><span class='line'>  <span class="n">File</span> <span class="s">&quot;.\Package Control.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1890</span><span class="p">,</span> <span class="ow">in</span> <span class="n">run</span>
+</span><span class='line'>  <span class="n">File</span> <span class="s">&quot;.\Package Control.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1759</span><span class="p">,</span> <span class="ow">in</span> <span class="n">make_package_list</span>
+</span><span class='line'>  <span class="n">File</span> <span class="s">&quot;.\Package Control.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1121</span><span class="p">,</span> <span class="ow">in</span> <span class="n">list_available_packages</span>
+</span><span class='line'>  <span class="n">File</span> <span class="s">&quot;.\Package Control.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1066</span><span class="p">,</span> <span class="ow">in</span> <span class="n">list_repositories</span>
+</span><span class='line'>  <span class="n">File</span> <span class="s">&quot;.\Package Control.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">175</span><span class="p">,</span> <span class="ow">in</span> <span class="n">get_repositories</span>
+</span><span class='line'>  <span class="n">File</span> <span class="s">&quot;.\Package Control.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">148</span><span class="p">,</span> <span class="ow">in</span> <span class="n">fetch_channel</span>
+</span><span class='line'>  <span class="n">File</span> <span class="s">&quot;.\Package Control.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1007</span><span class="p">,</span> <span class="ow">in</span> <span class="n">download_url</span>
+</span><span class='line'>  <span class="n">File</span> <span class="s">&quot;.\Package Control.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">602</span><span class="p">,</span> <span class="ow">in</span> <span class="n">download</span>
+</span><span class='line'>  <span class="n">File</span> <span class="s">&quot;.\urllib2.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">126</span><span class="p">,</span> <span class="ow">in</span> <span class="n">urlopen</span>
+</span><span class='line'>  <span class="n">File</span> <span class="s">&quot;.\urllib2.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">391</span><span class="p">,</span> <span class="ow">in</span> <span class="nb">open</span>
+</span><span class='line'>  <span class="n">File</span> <span class="s">&quot;.\urllib2.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">409</span><span class="p">,</span> <span class="ow">in</span> <span class="n">_open</span>
+</span><span class='line'>  <span class="n">File</span> <span class="s">&quot;.\urllib2.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">369</span><span class="p">,</span> <span class="ow">in</span> <span class="n">_call_chain</span>
+</span><span class='line'>  <span class="n">File</span> <span class="s">&quot;.\Package Control.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">92</span><span class="p">,</span> <span class="ow">in</span> <span class="n">https_open</span>
+</span><span class='line'>  <span class="n">File</span> <span class="s">&quot;.\urllib2.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1133</span><span class="p">,</span> <span class="ow">in</span> <span class="n">do_open</span>
+</span><span class='line'>  <span class="n">File</span> <span class="s">&quot;.\httplib.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">910</span><span class="p">,</span> <span class="ow">in</span> <span class="n">request</span>
+</span><span class='line'>  <span class="n">File</span> <span class="s">&quot;.\httplib.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">947</span><span class="p">,</span> <span class="ow">in</span> <span class="n">_send_request</span>
+</span><span class='line'>  <span class="n">File</span> <span class="s">&quot;.\httplib.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">904</span><span class="p">,</span> <span class="ow">in</span> <span class="n">endheaders</span>
+</span><span class='line'>  <span class="n">File</span> <span class="s">&quot;.\httplib.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">776</span><span class="p">,</span> <span class="ow">in</span> <span class="n">_send_output</span>
+</span><span class='line'>  <span class="n">File</span> <span class="s">&quot;.\httplib.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">735</span><span class="p">,</span> <span class="ow">in</span> <span class="n">send</span>
+</span><span class='line'>  <span class="n">File</span> <span class="s">&quot;.\Package Control.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">71</span><span class="p">,</span> <span class="ow">in</span> <span class="n">connect</span>
+</span><span class='line'>  <span class="n">File</span> <span class="s">&quot;.\ssl.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">350</span><span class="p">,</span> <span class="ow">in</span> <span class="n">wrap_socket</span>
+</span><span class='line'>  <span class="n">File</span> <span class="s">&quot;.\ssl.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">113</span><span class="p">,</span> <span class="ow">in</span> <span class="n">__init__</span>
+</span><span class='line'><span class="ne">UnicodeEncodeError</span><span class="p">:</span> <span class="s">&#39;ascii&#39;</span> <span class="n">codec</span> <span class="n">can</span><span class="s">&#39;t encode characters in position 26-37: ordinal not in range(128)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Решение есть <a href="https://github.com/wbond/sublime_package_control/issues/125">тут</a>
+Суть его <a href="http://sublime.wbond.net/testing/Package%20Control.sublime-package">скачать</a>, скопировать в папку Package Control содержимое архива, и перезапустить sublime. Будет всё работать.</p>
+
+<h3>А под виндой работать тяжело&#8230; Зато играть легко :)</h3>
 ]]></content>
   </entry>
   
@@ -1259,92 +1423,6 @@ Virtualenv это средство для создания изолирован�
 <h1>from cms.utils.navigation import NavigationNode</h1>
 
 <p>from menus.base import NavigationNode</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Добавление robots.txt и favicon.ico в Django 1.3]]></title>
-    <link href="http://Anshik.github.com/blog/2012/05/29/dobavlieniie-robots-dot-txt-i-favicon-dot-ico-v-django-1-dot-3/"/>
-    <updated>2012-05-29T14:59:00+04:00</updated>
-    <id>http://Anshik.github.com/blog/2012/05/29/dobavlieniie-robots-dot-txt-i-favicon-dot-ico-v-django-1-dot-3</id>
-    <content type="html"><![CDATA[<p>Добавляем следующее в urls.py и радуемся.
-Файл robots.txt кладём в папку с шаблонами страниц, примерное содержание robots.txt</p>
-
-<!-- more -->
-
-
-<figure class='code'><figcaption><span>примерное содержание robots.txt</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">#</span>
-</span><span class='line'><span class="c"># robots.txt http://www.???.ru/</span>
-</span><span class='line'><span class="c"># </span>
-</span><span class='line'>
-</span><span class='line'>User-agent: *
-</span><span class='line'>Disallow: /admin
-</span><span class='line'>
-</span><span class='line'>User-agent: Yandex
-</span><span class='line'>Disallow: /admin
-</span><span class='line'>Host: www.???.ru
-</span><span class='line'>Crawl-delay: 10
-</span><span class='line'>
-</span><span class='line'>Sitemap: http://www.???.ru/sitemap.xml
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Иконку <strong>favicon.ico</strong> кладём в папку со статическими файлами сайта.</p>
-
-<figure class='code'><figcaption><span>Добавляем следующее в urls.py</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'> <span class="kn">from</span> <span class="nn">django.conf.urls.defaults</span> <span class="kn">import</span> <span class="n">patterns</span><span class="p">,</span> <span class="n">include</span><span class="p">,</span> <span class="n">url</span>
-</span><span class='line'> <span class="kn">from</span> <span class="nn">django.views.generic.base</span> <span class="kn">import</span> <span class="n">TemplateView</span><span class="p">,</span> <span class="n">RedirectView</span>
-</span><span class='line'>
-</span><span class='line'> <span class="k">class</span> <span class="nc">TextPlainView</span><span class="p">(</span><span class="n">TemplateView</span><span class="p">):</span>
-</span><span class='line'> <span class="k">def</span> <span class="nf">render_to_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-</span><span class='line'> <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">TextPlainView</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">render_to_response</span><span class="p">(</span>
-</span><span class='line'> <span class="n">context</span><span class="p">,</span> <span class="n">content_type</span><span class="o">=</span><span class="s">&#39;text/plain&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'> <span class="n">urlpatterns</span> <span class="o">=</span> <span class="n">patterns</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">,</span>
-</span><span class='line'> <span class="n">url</span><span class="p">(</span><span class="s">r&#39;^robots\.txt$&#39;</span><span class="p">,</span> <span class="n">TextPlainView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(</span><span class="n">template_name</span><span class="o">=</span><span class="s">&#39;robots.txt&#39;</span><span class="p">)),</span>
-</span><span class='line'> <span class="n">url</span><span class="p">(</span><span class="s">r&#39;^favicon\.ico$&#39;</span><span class="p">,</span> <span class="n">RedirectView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s">&#39;/media/img/favicon.ico&#39;</span><span class="p">)),</span>
-</span><span class='line'> <span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>Зачем нужен robots.txt?</h3>
-
-<p>Для того чтобы поисковому боту сказать, куда заглядывать не нужно, наверняка ещё для чего-то, гуглить лень, можете добавить комменты зачем, перенесу в пост.</p>
-
-<h3>Зачем нужен favicon.ico, он же favicon.png?</h3>
-
-<p>Это иконка которая будет показываться в левом углу вкладки в браузере, и будет отображаться при добавлении в избранное, она в общем так и расшифровывается favicon (favorite  icon), типа любимая иконка. Нарисовать эту иконку можно в любом графическом редакторе например <a href="http://gimp.org">Gimp</a>. Картинка должна быть размером 16x16 пикселей.</p>
-
-<blockquote><p><strong>PS:</strong> Не забываем, что это не полный urls.py, а только те строчки, которые добавляют robots.txt и favicon.ico.</p></blockquote>
-
-<p> Я в первый раз попробовал это на сайте <a href="dok4you.ru">Женской консультации 2х2</a>  про акушерство, гинекологию и др.</p>
-
-<blockquote><p><strong>PPS:</strong> Возможно нужно ещё сказать джанге на хостинге
- <code>python manage.py collectstatic</code>, как-то так, может с ошибкой</p></blockquote>
 ]]></content>
   </entry>
   

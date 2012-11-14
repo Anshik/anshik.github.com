@@ -136,6 +136,72 @@
 <strong><code>⌘ + shift + a</code></strong> архивировать задачу<br/>
 <strong><code>⌘ + r</code></strong> быстро переключаться по проектам<br/>
 <code>--</code> и затем <code>tab key</code> сделает это: <code>--- ✄ -----------------------</code></p>
+
+<h4>Проблемы при работе с Package Control</h4>
+
+<h5>Ошибка &#8220;sublime package control UnicodeEncodeError: &#8216;ascii&#8217; codec can&#8217;t encode&#8230;&#8221;</h5>
+
+<p>Проблема возникает под виндой, не догадался бы, если бы в консоль не посмотрел. ctrl+~</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="ne">Exception</span> <span class="ow">in</span> <span class="n">thread</span> <span class="n">Thread</span><span class="o">-</span><span class="mi">4</span><span class="p">:</span>
+</span><span class='line'><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+</span><span class='line'>  <span class="n">File</span> <span class="s">&quot;.</span><span class="se">\t</span><span class="s">hreading.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">532</span><span class="p">,</span> <span class="ow">in</span> <span class="n">__bootstrap_inner</span>
+</span><span class='line'>  <span class="n">File</span> <span class="s">&quot;.\Package Control.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1890</span><span class="p">,</span> <span class="ow">in</span> <span class="n">run</span>
+</span><span class='line'>  <span class="n">File</span> <span class="s">&quot;.\Package Control.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1759</span><span class="p">,</span> <span class="ow">in</span> <span class="n">make_package_list</span>
+</span><span class='line'>  <span class="n">File</span> <span class="s">&quot;.\Package Control.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1121</span><span class="p">,</span> <span class="ow">in</span> <span class="n">list_available_packages</span>
+</span><span class='line'>  <span class="n">File</span> <span class="s">&quot;.\Package Control.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1066</span><span class="p">,</span> <span class="ow">in</span> <span class="n">list_repositories</span>
+</span><span class='line'>  <span class="n">File</span> <span class="s">&quot;.\Package Control.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">175</span><span class="p">,</span> <span class="ow">in</span> <span class="n">get_repositories</span>
+</span><span class='line'>  <span class="n">File</span> <span class="s">&quot;.\Package Control.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">148</span><span class="p">,</span> <span class="ow">in</span> <span class="n">fetch_channel</span>
+</span><span class='line'>  <span class="n">File</span> <span class="s">&quot;.\Package Control.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1007</span><span class="p">,</span> <span class="ow">in</span> <span class="n">download_url</span>
+</span><span class='line'>  <span class="n">File</span> <span class="s">&quot;.\Package Control.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">602</span><span class="p">,</span> <span class="ow">in</span> <span class="n">download</span>
+</span><span class='line'>  <span class="n">File</span> <span class="s">&quot;.\urllib2.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">126</span><span class="p">,</span> <span class="ow">in</span> <span class="n">urlopen</span>
+</span><span class='line'>  <span class="n">File</span> <span class="s">&quot;.\urllib2.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">391</span><span class="p">,</span> <span class="ow">in</span> <span class="nb">open</span>
+</span><span class='line'>  <span class="n">File</span> <span class="s">&quot;.\urllib2.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">409</span><span class="p">,</span> <span class="ow">in</span> <span class="n">_open</span>
+</span><span class='line'>  <span class="n">File</span> <span class="s">&quot;.\urllib2.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">369</span><span class="p">,</span> <span class="ow">in</span> <span class="n">_call_chain</span>
+</span><span class='line'>  <span class="n">File</span> <span class="s">&quot;.\Package Control.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">92</span><span class="p">,</span> <span class="ow">in</span> <span class="n">https_open</span>
+</span><span class='line'>  <span class="n">File</span> <span class="s">&quot;.\urllib2.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1133</span><span class="p">,</span> <span class="ow">in</span> <span class="n">do_open</span>
+</span><span class='line'>  <span class="n">File</span> <span class="s">&quot;.\httplib.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">910</span><span class="p">,</span> <span class="ow">in</span> <span class="n">request</span>
+</span><span class='line'>  <span class="n">File</span> <span class="s">&quot;.\httplib.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">947</span><span class="p">,</span> <span class="ow">in</span> <span class="n">_send_request</span>
+</span><span class='line'>  <span class="n">File</span> <span class="s">&quot;.\httplib.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">904</span><span class="p">,</span> <span class="ow">in</span> <span class="n">endheaders</span>
+</span><span class='line'>  <span class="n">File</span> <span class="s">&quot;.\httplib.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">776</span><span class="p">,</span> <span class="ow">in</span> <span class="n">_send_output</span>
+</span><span class='line'>  <span class="n">File</span> <span class="s">&quot;.\httplib.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">735</span><span class="p">,</span> <span class="ow">in</span> <span class="n">send</span>
+</span><span class='line'>  <span class="n">File</span> <span class="s">&quot;.\Package Control.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">71</span><span class="p">,</span> <span class="ow">in</span> <span class="n">connect</span>
+</span><span class='line'>  <span class="n">File</span> <span class="s">&quot;.\ssl.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">350</span><span class="p">,</span> <span class="ow">in</span> <span class="n">wrap_socket</span>
+</span><span class='line'>  <span class="n">File</span> <span class="s">&quot;.\ssl.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">113</span><span class="p">,</span> <span class="ow">in</span> <span class="n">__init__</span>
+</span><span class='line'><span class="ne">UnicodeEncodeError</span><span class="p">:</span> <span class="s">&#39;ascii&#39;</span> <span class="n">codec</span> <span class="n">can</span><span class="s">&#39;t encode characters in position 26-37: ordinal not in range(128)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Решение есть <a href="https://github.com/wbond/sublime_package_control/issues/125">тут</a>
+Суть его <a href="http://sublime.wbond.net/testing/Package%20Control.sublime-package">скачать</a>, скопировать в папку Package Control содержимое архива, и перезапустить sublime. Будет всё работать.</p>
+
+<h3>А под виндой работать тяжело&#8230; Зато играть легко :)</h3>
 </div>
 
 
@@ -203,6 +269,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/11/13/sublime-vintage-mode-keymap/">Sublime Vintage mode keymap</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2012/11/12/webdav-na-primierie-iandieks-dot-disk/">WebDAV на примере Яндекс.Диск</a>
       </li>
     
@@ -216,10 +286,6 @@
     
       <li class="post">
         <a href="/blog/2012/09/12/ia-kupil-arduino/">Я купил Arduino, первые впечетления</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/06/14/1gb-virtualenv-easy-install/">1Gb easy_install</a>
       </li>
     
   </ul>

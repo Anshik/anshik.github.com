@@ -1,0 +1,362 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Sublime Vintage mode keymap - Ещё один блог</title>
+  <meta name="author" content="Anshik">
+
+  
+  <meta name="description" content="Sublime Vintage mode, обзор, замечание">
+  <meta name="keywords" content="Sublime, Sublime Vintage, Vintage">
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://Anshik.github.com/blog/2012/11/13/sublime-vintage-mode-keymap">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Ещё один блог" type="application/atom+xml">
+  <meta name='yandex-verification' content='6339aed3f1c3b095' />
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Ещё один блог</a></h1>
+  
+    <h2>A blogging framework for hackers or geeks.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:Anshik.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Блог</a></li>
+  <li><a href="/blog/archives">Архив</a></li>
+  <li><a href="/about">Обо мне</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Sublime Vintage Mode Keymap</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-13T17:26:00+04:00" pubdate data-updated="true">Nov 13<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h3>Введение</h3>
+
+<p>Sublime Vintage mode, это Винтажный режим, который поддерживает команды редактора vi || vim, в сочетании с фичами Sublime Text, включая множественное выделение.</p>
+
+<!-- more -->
+
+
+<h3>Установка Vintage (Включение)</h3>
+
+<p>По умолчанию Vintage режим выключен путём игнорирования данного пакета. Для включения нужно Preferences/Settings - Default меню выбрать. Найти строчку</p>
+
+<blockquote><p>&#8220;ignored_packages&#8221;: [&#8220;Vintage&#8221;]</p></blockquote>
+
+<p>затем открыть пользовательские настройки и вставить строчку</p>
+
+<blockquote><p>&#8220;ignored_packages&#8221;: []</p></blockquote>
+
+<p>Теперь Vintage режим включён. Вы увидите &#8220;INSERT MODE&#8221; внизу в строке состояния. Редактор стартует в режиме вставки вначале, а правильно в командном:</p>
+
+<blockquote><p>&#8220;vintage_start_in_command_mode&#8221;: true</p></blockquote>
+
+<h3>Sublime Vintage mode keymap, кнопки</h3>
+
+<h4>Vintage позволяет делать простые действия кнопками:</h4>
+
+<p>d (delete) удалить<br/>
+y (copy) копировать<br/>
+c (change) изменить<br/>
+gu (lower case) преобразовать в нижний регистр<br/>
+gU (upper case) преобразовать в верхний регистр<br/>
+g~ (swap case) инвертировать регистр<br/>
+&lt; (unindent) уменьшить отступ<br/>
+> (indent) увеличить отступ</p>
+
+<h4>Перемещения в Vintage mode</h4>
+
+<p><strong>курсор</strong><br/>
+l - влево<br/>
+h - вправо<br/>
+j - вниз<br/>
+k - вверх<br/>
+W - перемещение вперёд по &#8220;большим&#8221; словам (к началу)<br/>
+w - перемещение вперёд по &#8220;маленьким&#8221; словам (к началу)<br/>
+e - перемещение вперёд по &#8220;маленьким&#8221; словам (к концу)<br/>
+E - перемещение вперёд по &#8220;большим&#8221; словам (к концу)<br/>
+b - перемещение назад по &#8220;маленьким&#8221; словам<br/>
+B - перемещение назад по &#8220;большим&#8221; словам<br/>
+alt+w (move by sub-words) - перемещение по &#8220;подсловам&#8221; вперёд<br/>
+alt+W (move backwards by sub-words) перемещение по &#8220;подсловам&#8221; назад<br/>
+$ - перемещение к концу строки<br/>
+^ - перемещение к началу строки (первый &#8220;не пробельный&#8221; символ)<br/>
+% - перемещение к открывающей/закрывающей скобочке<br/>
+0 - перемещение к началу строки (нулевой позиции) <br/>
+G - переход к концу документа<br/>
+gg - переход к началу документа <br/>
+f + символ - поиск первого вхождения буквы в строке (вперёд)<br/>
+F + символ - поиск первого вхождения буквы в строке (назад)<br/>
+t - (till) переход до символа (вперёд)<br/>
+T - (till) переход до символа (назад)<br/>
+ctrl+f - page down<br/>
+ctrl+b - page up<br/>
+H - курсор вверх экрана<br/>
+M - курсор посередине экрана<br/>
+L - курсор вниз экрана</p>
+
+<p>Текстовые объекты поддерживаются включая слова, кавычки, скобочки и теги.</p>
+
+<p>Повтор последней команды (&#8216;.&#8217;)</p>
+
+<p>Поддерживаются макросы, закладки и регистры.<br/>
+Также поддерживаются команды:<br/>
+* - переход по тегам (начало/конец)<br/>
+/ - <strong>поиск</strong> после слеша набираем искомое, похоже на ctrl+i</p>
+
+<h4>Выделение</h4>
+
+<p>v - переход в режим выделения, дальше командами навигации</p>
+
+<h3>Замечания</h3>
+
+<p>Правильно будет установить в настройках также, чтобы некоторые команда sublime не пересекались с Vintage</p>
+
+<blockquote><p>&#8220;vintage_ctrl_keys&#8221;: true</p></blockquote>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Anshik</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-11-13T17:26:00+04:00" pubdate data-updated="true">Nov 13<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/sublime/'>Sublime</a>, <a class='category' href='/blog/categories/sublime-vintage/'>Sublime Vintage</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://Anshik.github.com/blog/2012/11/13/sublime-vintage-mode-keymap/" data-via="" data-counturl="http://Anshik.github.com/blog/2012/11/13/sublime-vintage-mode-keymap/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/11/12/webdav-na-primierie-iandieks-dot-disk/" title="Previous Post: WebDAV на примере Яндекс.Диск">&laquo; WebDAV на примере Яндекс.Диск</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <div id="hypercomments_widget"></div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Последние статьи</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/11/13/sublime-vintage-mode-keymap/">Sublime Vintage mode keymap</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/11/12/webdav-na-primierie-iandieks-dot-disk/">WebDAV на примере Яндекс.Диск</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/10/17/sublime-package-control/">Sublime Package Control</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/09/27/qr-kody/">QR коды</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/09/12/ia-kupil-arduino/">Я купил Arduino, первые впечетления</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+<section>
+  <h1>Обо мне</h1>
+  <p>Мне нравится Python, Qt, PyQt, PySide. Также знаю C/C++, умею программировать под микроконтроллеры. Интересуюсь Django, написал несколько проектов на нем, такие как http://pinta-piva.com, http://dok4you.ru</p>
+</section>
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2012 - Anshik -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+
+  <!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter14748103 = new Ya.Metrika({id:14748103, enableAll: true, webvisor:true});
+        } catch(e) {}
+    });
+    
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f);
+    } else { f(); }
+})(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="//mc.yandex.ru/watch/14748103" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</p>
+
+</footer>
+  <!-- 
+
+<script type="text/javascript">
+      var disqus_shortname = 'anshik';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://Anshik.github.com/blog/2012/11/13/sublime-vintage-mode-keymap/';
+        var disqus_url = 'http://Anshik.github.com/blog/2012/11/13/sublime-vintage-mode-keymap/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+ -->
+
+
+<script type="text/javascript">
+      
+        
+
+          var _hcp = _hcp || {};_hcp.widget_id = 1551;_hcp.widget = "Stream";
+          (function() { 
+          var hcc = document.createElement("script"); hcc.type = "text/javascript"; hcc.async = true;
+          hcc.src = ("https:" == document.location.protocol ? "https" : "http")+"://widget.hypercomments.com/apps/js/hc.js";
+          var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hcc, s.nextSibling); 
+          })();
+                
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

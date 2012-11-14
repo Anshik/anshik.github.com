@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Hypercomments | Ещё один блог]]></title>
   <link href="http://Anshik.github.com/blog/categories/hypercomments/atom.xml" rel="self"/>
   <link href="http://Anshik.github.com/"/>
-  <updated>2012-11-12T13:43:13+04:00</updated>
+  <updated>2012-11-14T09:54:39+04:00</updated>
   <id>http://Anshik.github.com/</id>
   <author>
     <name><![CDATA[Anshik]]></name>
@@ -52,7 +52,7 @@ var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hc
 <p>Я встраивал немного костылём, зато быстро.
 Создаём файл <code>source/_insludes/hypercomments.html</code></p>
 
-<p>{% img center /../blog_img/hypercomments.png Вот как должен выглядеть файл %}</p>
+<p><img class="center" src="/../blog_img/hypercomments.png" title="Вот как должен выглядеть файл" ></p>
 
 <p>Я оставил проверку наличия комментов Дискурса.
 Дальше меняем файлы <code>source/_layouts/page.html, source/_layouts/page.html</code> в обоих файлах одинаковый кусочек кода
@@ -61,7 +61,8 @@ var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hc
   <section></p>
 
 <pre><code>&lt;h1&gt;Comments&lt;/h1&gt;
-&lt;div id="disqus_thread" aria-live="polite"&gt;{% include post/disqus_thread.html %}&lt;/div&gt;
+&lt;div id="disqus_thread" aria-live="polite"&gt;<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+&lt;/div&gt;
 </code></pre>
 
 <p>  </section></p>
@@ -76,7 +77,7 @@ var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hc
 ```</p>
 
 <p>Затем редактируем файл <code>_includes/after_footer.html</code>
-{% img center /../blog_img/hypercomments_after_footer.png Вот как должен выглядеть файл after_footer.html%}</p>
+<img class="center" src="/../blog_img/hypercomments_after_footer.png" title="Вот как должен выглядеть файл after_footer.html" ></p>
 
 <h3>Всё! Should work... :)</h3>
 ]]></content>
