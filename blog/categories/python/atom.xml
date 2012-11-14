@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Python | Ещё один блог]]></title>
   <link href="http://Anshik.github.com/blog/categories/python/atom.xml" rel="self"/>
   <link href="http://Anshik.github.com/"/>
-  <updated>2012-11-14T09:54:39+04:00</updated>
+  <updated>2012-11-14T10:32:26+04:00</updated>
   <id>http://Anshik.github.com/</id>
   <author>
     <name><![CDATA[Anshik]]></name>
@@ -232,7 +232,7 @@ $ ./manage.py graph_models -a -g -o my_project_visualized.png
 
 <p>Для создания png-шечки, вот что получилось</p>
 
-<p><img class="center" src="/../blog_img/my_project_visualized.png" title="пример того, что получилось" ></p>
+<p>{% img center /../blog_img/my_project_visualized.png пример того, что получилось %}</p>
 ]]></content>
   </entry>
   

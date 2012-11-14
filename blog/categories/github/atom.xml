@@ -4,7 +4,7 @@
   <title><![CDATA[Category: github | Ещё один блог]]></title>
   <link href="http://Anshik.github.com/blog/categories/github/atom.xml" rel="self"/>
   <link href="http://Anshik.github.com/"/>
-  <updated>2012-11-14T09:54:39+04:00</updated>
+  <updated>2012-11-14T10:32:26+04:00</updated>
   <id>http://Anshik.github.com/</id>
   <author>
     <name><![CDATA[Anshik]]></name>
@@ -73,6 +73,11 @@ www.имя<em>неправильного</em>проекта.github.com/имя<em
 link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css"
 link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css" -->
 переносим конец коммента --> в конец файла</p></blockquote>
+
+<h3>Добавление категорий и облака тегов</h3>
+
+<p><a href="http://www.mr-rino.com/blog/2012/05/25/dobavliaiem-oblako-tieghov-tag-cloud-v-octopress/">Тут</a>
+толково всё расписано. Автору спасибо.</p>
 
 <p>Ага, сам поймался, не закоментировал ;)</p>
 ]]></content>
