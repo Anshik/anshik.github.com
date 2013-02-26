@@ -4,7 +4,7 @@
   <title><![CDATA[Ещё один блог]]></title>
   <link href="http://Anshik.github.com/atom.xml" rel="self"/>
   <link href="http://Anshik.github.com/"/>
-  <updated>2012-11-16T15:27:29+04:00</updated>
+  <updated>2012-11-19T13:02:28+04:00</updated>
   <id>http://Anshik.github.com/</id>
   <author>
     <name><![CDATA[Anshik]]></name>
@@ -1003,6 +1003,44 @@ Virtualenv это средство для создания изолирован�
 </span><span class='line'>home:~/temp/custom_python<span class="nv">$ </span>
 </span></code></pre></td></tr></table></div></figure>
 
+
+<h4>Облегчение работы с virtualenv при помощи virtualenvwrapper</h4>
+
+<p><a href="http://www.doughellmann.com/docs/virtualenvwrapper/">virtualenvwrapper</a> написанный Doug Hellmann. Позволяет управлять виртуальными окружениями.</p>
+
+<h5>Установка</h5>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo easy_install virtualenvwrapper
+</span><span class='line'>mkdir ~/.virtualenvs
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>~/.bashrc следующие содержание
+export WORKON_HOME=$HOME/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">source</span> ~/.bashrc
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Создаем новое окружение:</p>
+
+<blockquote><p>mkvirtualenv blog</p></blockquote>
+
+<p>Активируем:</p>
+
+<blockquote><p>workon blog</p></blockquote>
+
+<p>Деактивируем</p>
+
+<blockquote><p>deactivate</p></blockquote>
+
+<p>Удаляем</p>
+
+<blockquote><p>rmvirtualenv blog</p></blockquote>
 
 <p>В общем-то всё.</p>
 ]]></content>

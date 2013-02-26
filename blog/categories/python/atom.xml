@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Python | Ещё один блог]]></title>
   <link href="http://Anshik.github.com/blog/categories/python/atom.xml" rel="self"/>
   <link href="http://Anshik.github.com/"/>
-  <updated>2012-11-16T15:27:29+04:00</updated>
+  <updated>2012-11-19T13:02:28+04:00</updated>
   <id>http://Anshik.github.com/</id>
   <author>
     <name><![CDATA[Anshik]]></name>
@@ -149,8 +149,41 @@ home:~/temp/custom_python$ ./tst.py
 /home/apalkov/temp/custom_python/bin/python</p>
 
 <p>home:~/temp/custom_python$
-```
-В общем-то всё.</p>
+```</p>
+
+<h4>Облегчение работы с virtualenv при помощи virtualenvwrapper</h4>
+
+<p><a href="http://www.doughellmann.com/docs/virtualenvwrapper/">virtualenvwrapper</a> написанный Doug Hellmann. Позволяет управлять виртуальными окружениями.</p>
+
+<h5>Установка</h5>
+
+<p><code>bash
+sudo easy_install virtualenvwrapper
+mkdir ~/.virtualenvs
+</code>
+~/.bashrc следующие содержание
+export WORKON_HOME=$HOME/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
+<code>bash
+source ~/.bashrc
+</code>
+Создаем новое окружение:</p>
+
+<blockquote><p>mkvirtualenv blog</p></blockquote>
+
+<p>Активируем:</p>
+
+<blockquote><p>workon blog</p></blockquote>
+
+<p>Деактивируем</p>
+
+<blockquote><p>deactivate</p></blockquote>
+
+<p>Удаляем</p>
+
+<blockquote><p>rmvirtualenv blog</p></blockquote>
+
+<p>В общем-то всё.</p>
 ]]></content>
   </entry>
   
