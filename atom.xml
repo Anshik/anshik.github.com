@@ -4,7 +4,7 @@
   <title><![CDATA[Ещё один блог]]></title>
   <link href="http://Anshik.github.com/atom.xml" rel="self"/>
   <link href="http://Anshik.github.com/"/>
-  <updated>2012-11-19T13:02:28+04:00</updated>
+  <updated>2013-02-28T16:36:53+04:00</updated>
   <id>http://Anshik.github.com/</id>
   <author>
     <name><![CDATA[Anshik]]></name>
@@ -549,6 +549,11 @@ pip install &#8211;download=&#8221;/pth/to/downloaded/files&#8221; package</p>
 последний раз вводим пароль.</li>
 </ol>
 
+
+<p>Есть альтернатива копированию scp:<br/>
+ <code>bash
+ ssh-copy-id [-i [identity_file]] [user@]machines
+</code></p>
 ]]></content>
   </entry>
   
