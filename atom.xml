@@ -4,7 +4,7 @@
   <title><![CDATA[Ещё один блог]]></title>
   <link href="http://Anshik.github.com/atom.xml" rel="self"/>
   <link href="http://Anshik.github.com/"/>
-  <updated>2013-02-28T16:36:53+04:00</updated>
+  <updated>2013-03-22T13:55:42+04:00</updated>
   <id>http://Anshik.github.com/</id>
   <author>
     <name><![CDATA[Anshik]]></name>
@@ -12,6 +12,96 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Установка PyQt4 в ubuntu 10.10, Python3.3]]></title>
+    <link href="http://Anshik.github.com/blog/2013/03/22/ustanovka-pyqt4-v-ubuntu-10-dot-10/"/>
+    <updated>2013-03-22T12:45:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2013/03/22/ustanovka-pyqt4-v-ubuntu-10-dot-10</id>
+    <content type="html"><![CDATA[<h3>Введение</h3>
+
+<p>Возник вопрос:</p>
+
+<blockquote><p>Как установить в ubuntu 10.10 PyQt4 с python 3.3?</p></blockquote>
+
+<p>Есть ответ:</p>
+
+<!-- more -->
+
+
+<h3>Установка Python 3.3</h3>
+
+<p>Для установки потребуются пакеты</p>
+
+<p>Для Ubuntu/ LinuxMint/Debian</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo apt-get install build-essential libncursesw5-dev libreadline5-dev libssl-dev libgdbm-dev libc6-dev libsqlite3-dev tk-dev
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Скачать релиз <a href="http://www.python.org/download/releases">Python 3.3</a><br/>
+К примеру так:</p>
+
+<blockquote><p>wget http://www.python.org/ftp/python/3.x/Python-3.x.tar.bz2</p></blockquote>
+
+<p>Распаковать:</p>
+
+<blockquote><p>tar -xjf Python-3.xtar.bz2 cd Python-3.x</p></blockquote>
+
+<p>Сконфигурировать и собрать с префиксом (install dir) of /opt/python3, скомпилировать, и установить.</p>
+
+<figure class='code'><figcaption><span>последовательность конфигурирования, сборки и установки</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>./configure --prefix<span class="o">=</span>/opt/python3
+</span><span class='line'>make
+</span><span class='line'>sudo make install
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Теперь Python установлен в папке /opt/python3.</p>
+
+<p>В скрипты в начало добавлять</p>
+
+<blockquote><p>#!/opt/python3/bin/python3</p></blockquote>
+
+<h3>Установка SIP</h3>
+
+<p>Скачать<br/>
+SIP взять <a href="http://www.riverbankcomputing.com/software/sip/download">тут</a></p>
+
+<p>Распаковать</p>
+
+<blockquote><p>tar zxvf sip-4.14.4.tar.gz</p></blockquote>
+
+<p>Зайти в распакованную папку, запустить конфигурирование, сборку, установку:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>/opt/python3/bin/python3 configure.py
+</span><span class='line'>make
+</span><span class='line'>sudo make install
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Установка самого PyQt4</h3>
+
+<p>Алгоритм такой же: скачать, распаковать, сконфигурировать, <strong>есть нюанс</strong>, указать где лежит qmake-qt4:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>/opt/python3/bin/python3 configure.py --qmake /usr/bin/qmake-qt4
+</span><span class='line'>make
+</span><span class='line'>sudo make install
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Sublime Vintage mode keymap]]></title>
@@ -1449,23 +1539,6 @@ source /usr/local/bin/virtualenvwrapper.sh</p>
 </span><span class='line'>rm -rf ./temp1
 </span></code></pre></td></tr></table></div></figure>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[django-cms filer plugin]]></title>
-    <link href="http://Anshik.github.com/blog/2012/05/29/django-cms-filer-plugin/"/>
-    <updated>2012-05-29T15:09:00+04:00</updated>
-    <id>http://Anshik.github.com/blog/2012/05/29/django-cms-filer-plugin</id>
-    <content type="html"><![CDATA[<p>Если вы решили использовать это django-cms filer plugin, то не забудьте сначала поставить filer, потом easy_thumbnails</p>
-
-<p>А если вы используете yandex maps plugin, то почему-то пришлось делать правильный шаблон, и в контекст передавать нормально свой ключ, а то не работает. Потом нужно подробно, это просто чтобы не забыть.</p>
-
-<p>Чтобы не забыть ещё в новостях нужно сделать так, в файле cms_plugin/navigation.py</p>
-
-<h1>from cms.utils.navigation import NavigationNode</h1>
-
-<p>from menus.base import NavigationNode</p>
 ]]></content>
   </entry>
   

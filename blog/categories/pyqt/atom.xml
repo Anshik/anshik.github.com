@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: PyQt | Ещё один блог]]></title>
+  <link href="http://Anshik.github.com/blog/categories/pyqt/atom.xml" rel="self"/>
+  <link href="http://Anshik.github.com/"/>
+  <updated>2013-03-22T13:55:42+04:00</updated>
+  <id>http://Anshik.github.com/</id>
+  <author>
+    <name><![CDATA[Anshik]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Установка PyQt4 в ubuntu 10.10, Python3.3]]></title>
+    <link href="http://Anshik.github.com/blog/2013/03/22/ustanovka-pyqt4-v-ubuntu-10-dot-10/"/>
+    <updated>2013-03-22T12:45:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2013/03/22/ustanovka-pyqt4-v-ubuntu-10-dot-10</id>
+    <content type="html"><![CDATA[<h3>Введение</h3>
+
+<p>Возник вопрос:</p>
+
+<blockquote><p>Как установить в ubuntu 10.10 PyQt4 с python 3.3?</p></blockquote>
+
+<p>Есть ответ:</p>
+
+<!-- more -->
+
+
+<h3>Установка Python 3.3</h3>
+
+<p>Для установки потребуются пакеты</p>
+
+<p>Для Ubuntu/ LinuxMint/Debian</p>
+
+<p><code>bash
+sudo apt-get install build-essential libncursesw5-dev libreadline5-dev libssl-dev libgdbm-dev libc6-dev libsqlite3-dev tk-dev
+</code></p>
+
+<p>Скачать релиз <a href="http://www.python.org/download/releases">Python 3.3</a><br/>
+К примеру так:</p>
+
+<blockquote><p>wget http://www.python.org/ftp/python/3.x/Python-3.x.tar.bz2</p></blockquote>
+
+<p>Распаковать:</p>
+
+<blockquote><p>tar -xjf Python-3.xtar.bz2 cd Python-3.x</p></blockquote>
+
+<p>Сконфигурировать и собрать с префиксом (install dir) of /opt/python3, скомпилировать, и установить.<br/>
+<code>bash последовательность конфигурирования, сборки и установки
+./configure --prefix=/opt/python3
+make
+sudo make install
+</code></p>
+
+<p>Теперь Python установлен в папке /opt/python3.</p>
+
+<p>В скрипты в начало добавлять</p>
+
+<blockquote><p>#!/opt/python3/bin/python3</p></blockquote>
+
+<h3>Установка SIP</h3>
+
+<p>Скачать<br/>
+SIP взять <a href="http://www.riverbankcomputing.com/software/sip/download">тут</a></p>
+
+<p>Распаковать</p>
+
+<blockquote><p>tar zxvf sip-4.14.4.tar.gz</p></blockquote>
+
+<p>Зайти в распакованную папку, запустить конфигурирование, сборку, установку:
+<code>bash
+/opt/python3/bin/python3 configure.py
+make
+sudo make install
+</code></p>
+
+<h3>Установка самого PyQt4</h3>
+
+<p>Алгоритм такой же: скачать, распаковать, сконфигурировать, <strong>есть нюанс</strong>, указать где лежит qmake-qt4:</p>
+
+<p><code>bash
+/opt/python3/bin/python3 configure.py --qmake /usr/bin/qmake-qt4  
+make
+sudo make install
+</code></p>
+]]></content>
+  </entry>
+  
+</feed>
