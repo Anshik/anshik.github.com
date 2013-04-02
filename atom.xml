@@ -4,7 +4,7 @@
   <title><![CDATA[Ещё один блог]]></title>
   <link href="http://Anshik.github.com/atom.xml" rel="self"/>
   <link href="http://Anshik.github.com/"/>
-  <updated>2013-03-22T13:55:42+04:00</updated>
+  <updated>2013-04-02T10:47:15+04:00</updated>
   <id>http://Anshik.github.com/</id>
   <author>
     <name><![CDATA[Anshik]]></name>
@@ -12,6 +12,23 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Изменение размера диска Virtualbox]]></title>
+    <link href="http://Anshik.github.com/blog/2013/04/02/izmienieniie-razmiera-diska-virtualbox/"/>
+    <updated>2013-04-02T09:55:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2013/04/02/izmienieniie-razmiera-diska-virtualbox</id>
+    <content type="html"><![CDATA[<h3>Введение, основная часть и заключение</h3>
+
+<blockquote><p>VBoxManage modifyhd YOUR_HARD_DISK.vdi &#8211;resize SIZE_IN_MB</p></blockquote>
+
+<p><strong>Пример</strong><br/>
+Диск станет 10 Гб<br/>
+VBoxManage modifyhd YOUR_HARD_DISK.vdi &#8211;resize 10000</p>
+
+<p>Только для того, чтобы увидеть увеличенный в windows нужно ещё како-нибудь программой сделать resize раздела.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Установка PyQt4 в ubuntu 10.10, Python3.3]]></title>
@@ -99,7 +116,11 @@ SIP взять <a href="http://www.riverbankcomputing.com/software/sip/download"
 </span></code></pre></td></tr></table></div></figure>
 
 
+<h3>Использование</h3>
 
+<blockquote><p>/opt/python3/bin/pyvenv &#8211;system-site-packages a</p></blockquote>
+
+<p>Это мы сказали: создай виртуальное окружение в папке &#8220;a&#8221;, с использованием site-packages из системы.</p>
 ]]></content>
   </entry>
   
@@ -1479,66 +1500,6 @@ source /usr/local/bin/virtualenvwrapper.sh</p>
 <p>Альтернативные решения <a href="https://bugs.launchpad.net/dreampie/+bug/716377">данной</a> баги</p>
 
 <blockquote><p><strong>PS:</strong> признаться продолжаю пользоваться Ipython, привык, ничего не могу с собой поделать. Может нужно ещё раз посмотреть по-внимательнее</p></blockquote>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Меняем время на убунте на правилное]]></title>
-    <link href="http://Anshik.github.com/blog/2012/05/29/mieniaiem-vriemia-na-ubuntie-na-pravilnoie/"/>
-    <updated>2012-05-29T15:12:00+04:00</updated>
-    <id>http://Anshik.github.com/blog/2012/05/29/mieniaiem-vriemia-na-ubuntie-na-pravilnoie</id>
-    <content type="html"><![CDATA[<figure class='code'><figcaption><span>Вот как исправить переход с летнего на зимнее время в Ubuntu 10.10</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">#!/bin/sh </span>
-</span><span class='line'>
-</span><span class='line'><span class="c"># Disallow winter time for Moscow </span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">echo</span> <span class="s2">&quot;Disable winter time for MoscoW&quot;</span>
-</span><span class='line'>
-</span><span class='line'>sleep 3
-</span><span class='line'>
-</span><span class='line'>mkdir ./temp1
-</span><span class='line'>
-</span><span class='line'><span class="nb">cd</span> ./temp1
-</span><span class='line'>
-</span><span class='line'><span class="c">#wget ftp://elsie.nci.nih.gov/pub/tzdata2011k.tar.gz  уже не работает</span>
-</span><span class='line'> wget http://people.freebsd.org/~edwin/tzdata2011k.tar.gz
-</span><span class='line'>
-</span><span class='line'>tar xzf tzdata2011k.tar.gz
-</span><span class='line'>
-</span><span class='line'>cp /etc/localtime /tmp/localtime.old
-</span><span class='line'>
-</span><span class='line'>zic europe
-</span><span class='line'>
-</span><span class='line'>ln -sf /usr/share/zoneinfo/Europe/Moscow /etc/localtime
-</span><span class='line'>
-</span><span class='line'><span class="nb">cd</span> ..
-</span><span class='line'>rm -rf ./temp1
-</span></code></pre></td></tr></table></div></figure>
-
 ]]></content>
   </entry>
   

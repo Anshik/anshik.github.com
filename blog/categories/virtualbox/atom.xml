@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Virtualbox | Ещё один блог]]></title>
+  <link href="http://Anshik.github.com/blog/categories/virtualbox/atom.xml" rel="self"/>
+  <link href="http://Anshik.github.com/"/>
+  <updated>2013-04-02T10:47:15+04:00</updated>
+  <id>http://Anshik.github.com/</id>
+  <author>
+    <name><![CDATA[Anshik]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Изменение размера диска Virtualbox]]></title>
+    <link href="http://Anshik.github.com/blog/2013/04/02/izmienieniie-razmiera-diska-virtualbox/"/>
+    <updated>2013-04-02T09:55:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2013/04/02/izmienieniie-razmiera-diska-virtualbox</id>
+    <content type="html"><![CDATA[<h3>Введение, основная часть и заключение</h3>
+
+<blockquote><p>VBoxManage modifyhd YOUR_HARD_DISK.vdi --resize SIZE_IN_MB</p></blockquote>
+
+<p><strong>Пример</strong><br/>
+Диск станет 10 Гб<br/>
+VBoxManage modifyhd YOUR_HARD_DISK.vdi --resize 10000</p>
+
+<p>Только для того, чтобы увидеть увеличенный в windows нужно ещё како-нибудь программой сделать resize раздела.</p>
+]]></content>
+  </entry>
+  
+</feed>
