@@ -4,7 +4,7 @@
   <title><![CDATA[Ещё один блог]]></title>
   <link href="http://Anshik.github.com/atom.xml" rel="self"/>
   <link href="http://Anshik.github.com/"/>
-  <updated>2013-04-02T10:47:15+04:00</updated>
+  <updated>2013-04-24T10:05:36+04:00</updated>
   <id>http://Anshik.github.com/</id>
   <author>
     <name><![CDATA[Anshik]]></name>
@@ -729,6 +729,9 @@ pip install &#8211;download=&#8221;/pth/to/downloaded/files&#8221; package</p>
 
 
 <p>hg clone ssh://hg@bitbucket.org/zerok/cmsplugin-news</p>
+
+<p>Ещё для использования sqlite
+<code>easy_install pysqlite</code></p>
 ]]></content>
   </entry>
   
