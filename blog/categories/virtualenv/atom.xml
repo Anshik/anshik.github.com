@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: virtualenv | Ещё один блог]]></title>
+  <link href="http://Anshik.github.com/blog/categories/virtualenv/atom.xml" rel="self"/>
+  <link href="http://Anshik.github.com/"/>
+  <updated>2013-05-27T15:23:14+04:00</updated>
+  <id>http://Anshik.github.com/</id>
+  <author>
+    <name><![CDATA[Anshik]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Установка mysql в virtualenv linux]]></title>
+    <link href="http://Anshik.github.com/blog/2013/05/27/ustanovka-mysql-v-virtualenv-linux/"/>
+    <updated>2013-05-27T15:05:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2013/05/27/ustanovka-mysql-v-virtualenv-linux</id>
+    <content type="html"><![CDATA[<h1>Установка mysql в virtualenv</h1>
+
+<p>Столкнулся с данной проблемой, устанавливаю - не устанавливается.
+``` bash
+ % bin/pip install mysql-python</p>
+
+<pre><code>metadata, options = get_config()
+  File "setup_posix.py", line 43, in get_config
+    libs = mysql_config("libs_r")
+  File "setup_posix.py", line 25, in mysql_config
+    raise EnvironmentError("%s not found" % (mysql_config.path,))
+EnvironmentError: mysql_config not found
+</code></pre>
+
+<p>```</p>
+
+<p>Я сначала установил <code>% bin/pip install distribute</code>.<br/>
+Потом <code>% sudo apt-get install libmysqlclient-dev</code><br/>
+И в конце концов <code>% bin/pip install mysql-python</code></p>
+]]></content>
+  </entry>
+  
+</feed>

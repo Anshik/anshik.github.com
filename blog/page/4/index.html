@@ -9,8 +9,8 @@
   <meta name="author" content="Anshik">
 
   
-  <meta name="description" content="Добавление комментариев оказолось простым, регистрируемся на Disqus.
-При регистрации вводим краткое описание сайта и короткое название. Короткое &hellip;">
+  <meta name="description" content="У меня была проблема: сломанный почтовый ящик (акт чьего-то вандализма :). Я погуглил в яндексе, и нашёл, что обычно ремонтировать не хотят.
+Ремонтно &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -84,6 +84,104 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/05/29/zamiena-riemont-pochtovogho-iashchika/">Замена ремонт почтового ящика</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-29T14:06:00+04:00" pubdate data-updated="true">May 29<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>У меня была проблема: сломанный почтовый ящик (акт чьего-то вандализма :). Я погуглил в яндексе, и нашёл, что обычно ремонтировать не хотят.<br/>
+Ремонтно-эксплуатационные службы посылают - говорят нет рем-комплекта.<br/>
+Компании обслуживающие дом говорят, что мы производили замену почтовых ящиков N лет назад. И сейчас ваши проблемы с этим справляться.<br/>
+Почта к ящикам вообще никакого отношения не имеет.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/05/29/zamiena-riemont-pochtovogho-iashchika/">Читать до конца &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/05/29/dobavlieniie-google-webmasters/">Добавление Google Webmasters</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-05-29T12:05:00+04:00" pubdate data-updated="true">May 29<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3>Данное решение подходит не только под Google, но и под Yandex</h3>
+
+<p>Для подтверждения прав владения сайтом нас просят добавить страничку на сайт, с названием примерно google9blablaf25be8.html и содержанием:</p>
+
+<blockquote><p>google-site-verification: google9blablaf25be8.html</p></blockquote>
+
+<p>Для этого мы создаем страничку rake new_page[&#8220;google9blablaf25be8.html&#8221;]<br/>
+Затем редактируем её, удаляем заголовок, стандартный для постов и страниц, и оставляем только:</p>
+
+<blockquote><p>google-site-verification: google9blablaf25be8.html</p></blockquote>
+
+<p>Дальше как обычно:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>rake generate
+</span><span class='line'>rake deploy
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -485,101 +583,9 @@ and runlevel [5]<br/>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/05/24/dobavlieniie-novogho-posta-i-nachalnyi-tiunningh/">Добавление нового поста и начальный тюннинг</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-05-24T15:23:00+04:00" pubdate data-updated="true">May 24<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h3>Добавление нового поста в Octopress</h3>
-
-<p>К примеру этот пост был добавлен командой</p>
-
-<pre><code>* rake new_post["Добавление нового поста и начальный тюннинг"]
-</code></pre>
-
-<p>После new_post пробел не ставим, сразу идет квадратная скобочка, выгребете ошибку, будет создан файл new_post.markdown
-Далее octopress создает файл с названием слага и расширением markdown примерно такого содержания:</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/05/24/dobavlieniie-novogho-posta-i-nachalnyi-tiunningh/">Читать до конца &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/05/24/kak-ia-ustanavlival-octopress/">Как я устанавливал Octopress</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-05-24T09:21:00+04:00" pubdate data-updated="true">May 24<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Очень сложно показалось, но потом разобрался.
-Главное <strong>читать внимательно</strong> документацию.
-<a href="http://octopress.org/">Сайт программы</a></p>
-
-<h3><a href="http://octopress.org/docs/setup/">Установка</a></h3>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/05/24/kak-ia-ustanavlival-octopress/">Читать до конца &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
+    
+      <a class="prev" href="/blog/page/5/">&larr; Older</a>
     
     <a href="/blog/archives">Blog Archives</a>
     
@@ -595,6 +601,14 @@ and runlevel [5]<br/>
 <ul id="recent_posts">
     
     <li class="post">
+        <a href="/blog/2013/05/27/zvukovaja-dorozhka-iz-filma-linux/">Звуковая дорожка из фильма linux</a>
+    </li>
+    
+    <li class="post">
+        <a href="/blog/2013/05/27/ustanovka-mysql-v-virtualenv-linux/">Установка mysql в virtualenv linux</a>
+    </li>
+    
+    <li class="post">
         <a href="/blog/2013/04/02/izmienieniie-razmiera-diska-virtualbox/">Изменение размера диска Virtualbox</a>
     </li>
     
@@ -606,19 +620,11 @@ and runlevel [5]<br/>
         <a href="/blog/2012/11/13/sublime-vintage-mode-keymap/">Sublime Vintage mode keymap</a>
     </li>
     
-    <li class="post">
-        <a href="/blog/2012/11/12/webdav-na-primierie-iandieks-dot-disk/">WebDAV на примере Яндекс.Диск</a>
-    </li>
-    
-    <li class="post">
-        <a href="/blog/2012/10/17/sublime-package-control/">Sublime Package Control</a>
-    </li>
-    
 </ul>
   <h1>Категории</h1>
   <ul>
     <li>
-      <a class='category' href='/blog/categories/1gb/'>1Gb</a>, <a class='category' href='/blog/categories/arduino/'>Arduino</a>, <a class='category' href='/blog/categories/disqus/'>Disqus</a>, <a class='category' href='/blog/categories/django/'>Django</a>, <a class='category' href='/blog/categories/django-orm/'>Django ORM</a>, <a class='category' href='/blog/categories/django-orm-без-django/'>Django ORM без Django</a>, <a class='category' href='/blog/categories/django-cms/'>Django-cms</a>, <a class='category' href='/blog/categories/dreampie/'>DreamPie</a>, <a class='category' href='/blog/categories/fabric/'>Fabric</a>, <a class='category' href='/blog/categories/hypercomments/'>Hypercomments</a>, <a class='category' href='/blog/categories/linux/'>Linux</a>, <a class='category' href='/blog/categories/linux-/'>Linux,</a>, <a class='category' href='/blog/categories/mercurial/'>Mercurial</a>, <a class='category' href='/blog/categories/midnight-commander/'>Midnight Commander</a>, <a class='category' href='/blog/categories/octopress/'>Octopress</a>, <a class='category' href='/blog/categories/pyqt4/'>PyQT4</a>, <a class='category' href='/blog/categories/pyqt/'>PyQt</a>, <a class='category' href='/blog/categories/python/'>Python</a>, <a class='category' href='/blog/categories/qt/'>QT</a>, <a class='category' href='/blog/categories/sublime/'>Sublime</a>, <a class='category' href='/blog/categories/sublime-text-2/'>Sublime Text 2</a>, <a class='category' href='/blog/categories/sublime-vintage/'>Sublime Vintage</a>, <a class='category' href='/blog/categories/ubuntu/'>Ubuntu</a>, <a class='category' href='/blog/categories/ubuntu-/'>Ubuntu,</a>, <a class='category' href='/blog/categories/virtualbox/'>Virtualbox</a>, <a class='category' href='/blog/categories/wymeditor/'>WYMeditor</a>, <a class='category' href='/blog/categories/webdav/'>WebDAV</a>, <a class='category' href='/blog/categories/blogging/'>blogging</a>, <a class='category' href='/blog/categories/commands-bash/'>commands bash</a>, <a class='category' href='/blog/categories/commands-shell/'>commands shell</a>, <a class='category' href='/blog/categories/comments/'>comments</a>, <a class='category' href='/blog/categories/cuisine/'>cuisine</a>, <a class='category' href='/blog/categories/django/'>django</a>, <a class='category' href='/blog/categories/django-cms/'>django-cms</a>, <a class='category' href='/blog/categories/easy-install/'>easy_install</a>, <a class='category' href='/blog/categories/favicon-ico/'>favicon.ico</a>, <a class='category' href='/blog/categories/github/'>github</a>, <a class='category' href='/blog/categories/google/'>google</a>, <a class='category' href='/blog/categories/ipython-/'>iPython,</a>, <a class='category' href='/blog/categories/ipython/'>ipython</a>, <a class='category' href='/blog/categories/linux/'>linux</a>, <a class='category' href='/blog/categories/mp3splt/'>mp3splt</a>, <a class='category' href='/blog/categories/octopress-/'>octopress,</a>, <a class='category' href='/blog/categories/python/'>python</a>, <a class='category' href='/blog/categories/python-/'>python,</a>, <a class='category' href='/blog/categories/robots-txt/'>robots.txt</a>, <a class='category' href='/blog/categories/tortoisehg/'>tortoisehg</a>, <a class='category' href='/blog/categories/webmasters/'>webmasters</a>, <a class='category' href='/blog/categories/yandex/'>yandex</a>, <a class='category' href='/blog/categories/замена/'>замена</a>, <a class='category' href='/blog/categories/использование-octopress/'>использование Octopress</a>, <a class='category' href='/blog/categories/использование-sublime-text-2/'>использование Sublime Text 2</a>, <a class='category' href='/blog/categories/как-починить-ящик/'>как починить ящик</a>, <a class='category' href='/blog/categories/комментарии-octopress/'>комментарии Octopress</a>, <a class='category' href='/blog/categories/коммунальщина/'>коммунальщина</a>, <a class='category' href='/blog/categories/лампочек/'>лампочек</a>, <a class='category' href='/blog/categories/настройка-sublime-text-2/'>настройка Sublime Text 2</a>, <a class='category' href='/blog/categories/освещение/'>освещение</a>, <a class='category' href='/blog/categories/ремонт-почтового-ящика/'>ремонт почтового ящика</a>, <a class='category' href='/blog/categories/уличное/'>уличное</a>, <a class='category' href='/blog/categories/шпаргалки/'>шпаргалки</a>
+      <a class='category' href='/blog/categories/1gb/'>1Gb</a>, <a class='category' href='/blog/categories/arduino/'>Arduino</a>, <a class='category' href='/blog/categories/disqus/'>Disqus</a>, <a class='category' href='/blog/categories/django/'>Django</a>, <a class='category' href='/blog/categories/django-orm/'>Django ORM</a>, <a class='category' href='/blog/categories/django-orm-без-django/'>Django ORM без Django</a>, <a class='category' href='/blog/categories/django-cms/'>Django-cms</a>, <a class='category' href='/blog/categories/dreampie/'>DreamPie</a>, <a class='category' href='/blog/categories/fabric/'>Fabric</a>, <a class='category' href='/blog/categories/hypercomments/'>Hypercomments</a>, <a class='category' href='/blog/categories/linux/'>Linux</a>, <a class='category' href='/blog/categories/linux-/'>Linux,</a>, <a class='category' href='/blog/categories/mercurial/'>Mercurial</a>, <a class='category' href='/blog/categories/midnight-commander/'>Midnight Commander</a>, <a class='category' href='/blog/categories/octopress/'>Octopress</a>, <a class='category' href='/blog/categories/pyqt4/'>PyQT4</a>, <a class='category' href='/blog/categories/pyqt/'>PyQt</a>, <a class='category' href='/blog/categories/python/'>Python</a>, <a class='category' href='/blog/categories/qt/'>QT</a>, <a class='category' href='/blog/categories/sublime/'>Sublime</a>, <a class='category' href='/blog/categories/sublime-text-2/'>Sublime Text 2</a>, <a class='category' href='/blog/categories/sublime-vintage/'>Sublime Vintage</a>, <a class='category' href='/blog/categories/ubuntu/'>Ubuntu</a>, <a class='category' href='/blog/categories/ubuntu-/'>Ubuntu,</a>, <a class='category' href='/blog/categories/virtualbox/'>Virtualbox</a>, <a class='category' href='/blog/categories/wymeditor/'>WYMeditor</a>, <a class='category' href='/blog/categories/webdav/'>WebDAV</a>, <a class='category' href='/blog/categories/blogging/'>blogging</a>, <a class='category' href='/blog/categories/commands-bash/'>commands bash</a>, <a class='category' href='/blog/categories/commands-shell/'>commands shell</a>, <a class='category' href='/blog/categories/comments/'>comments</a>, <a class='category' href='/blog/categories/cuisine/'>cuisine</a>, <a class='category' href='/blog/categories/django/'>django</a>, <a class='category' href='/blog/categories/django-cms/'>django-cms</a>, <a class='category' href='/blog/categories/easy-install/'>easy_install</a>, <a class='category' href='/blog/categories/favicon-ico/'>favicon.ico</a>, <a class='category' href='/blog/categories/github/'>github</a>, <a class='category' href='/blog/categories/google/'>google</a>, <a class='category' href='/blog/categories/ipython-/'>iPython,</a>, <a class='category' href='/blog/categories/ipython/'>ipython</a>, <a class='category' href='/blog/categories/linux/'>linux</a>, <a class='category' href='/blog/categories/mp3splt/'>mp3splt</a>, <a class='category' href='/blog/categories/octopress-/'>octopress,</a>, <a class='category' href='/blog/categories/python/'>python</a>, <a class='category' href='/blog/categories/python-/'>python,</a>, <a class='category' href='/blog/categories/robots-txt/'>robots.txt</a>, <a class='category' href='/blog/categories/tortoisehg/'>tortoisehg</a>, <a class='category' href='/blog/categories/virtualenv/'>virtualenv</a>, <a class='category' href='/blog/categories/webmasters/'>webmasters</a>, <a class='category' href='/blog/categories/yandex/'>yandex</a>, <a class='category' href='/blog/categories/замена/'>замена</a>, <a class='category' href='/blog/categories/использование-octopress/'>использование Octopress</a>, <a class='category' href='/blog/categories/использование-sublime-text-2/'>использование Sublime Text 2</a>, <a class='category' href='/blog/categories/как-починить-ящик/'>как починить ящик</a>, <a class='category' href='/blog/categories/комментарии-octopress/'>комментарии Octopress</a>, <a class='category' href='/blog/categories/коммунальщина/'>коммунальщина</a>, <a class='category' href='/blog/categories/лампочек/'>лампочек</a>, <a class='category' href='/blog/categories/настройка-sublime-text-2/'>настройка Sublime Text 2</a>, <a class='category' href='/blog/categories/освещение/'>освещение</a>, <a class='category' href='/blog/categories/ремонт-почтового-ящика/'>ремонт почтового ящика</a>, <a class='category' href='/blog/categories/уличное/'>уличное</a>, <a class='category' href='/blog/categories/шпаргалки/'>шпаргалки</a>
   </li>
 </ul>
 
@@ -629,7 +635,7 @@ and runlevel [5]<br/>
 </div>
 <div id="tags">
   <ul>
-      <a class='category' href='/blog/categories/1gb/'>1Gb</a>, <a class='category' href='/blog/categories/arduino/'>Arduino</a>, <a class='category' href='/blog/categories/disqus/'>Disqus</a>, <a class='category' href='/blog/categories/django/'>Django</a>, <a class='category' href='/blog/categories/django-orm/'>Django ORM</a>, <a class='category' href='/blog/categories/django-orm-без-django/'>Django ORM без Django</a>, <a class='category' href='/blog/categories/django-cms/'>Django-cms</a>, <a class='category' href='/blog/categories/dreampie/'>DreamPie</a>, <a class='category' href='/blog/categories/fabric/'>Fabric</a>, <a class='category' href='/blog/categories/hypercomments/'>Hypercomments</a>, <a class='category' href='/blog/categories/linux/'>Linux</a>, <a class='category' href='/blog/categories/linux-/'>Linux,</a>, <a class='category' href='/blog/categories/mercurial/'>Mercurial</a>, <a class='category' href='/blog/categories/midnight-commander/'>Midnight Commander</a>, <a class='category' href='/blog/categories/octopress/'>Octopress</a>, <a class='category' href='/blog/categories/pyqt4/'>PyQT4</a>, <a class='category' href='/blog/categories/pyqt/'>PyQt</a>, <a class='category' href='/blog/categories/python/'>Python</a>, <a class='category' href='/blog/categories/qt/'>QT</a>, <a class='category' href='/blog/categories/sublime/'>Sublime</a>, <a class='category' href='/blog/categories/sublime-text-2/'>Sublime Text 2</a>, <a class='category' href='/blog/categories/sublime-vintage/'>Sublime Vintage</a>, <a class='category' href='/blog/categories/ubuntu/'>Ubuntu</a>, <a class='category' href='/blog/categories/ubuntu-/'>Ubuntu,</a>, <a class='category' href='/blog/categories/virtualbox/'>Virtualbox</a>, <a class='category' href='/blog/categories/wymeditor/'>WYMeditor</a>, <a class='category' href='/blog/categories/webdav/'>WebDAV</a>, <a class='category' href='/blog/categories/blogging/'>blogging</a>, <a class='category' href='/blog/categories/commands-bash/'>commands bash</a>, <a class='category' href='/blog/categories/commands-shell/'>commands shell</a>, <a class='category' href='/blog/categories/comments/'>comments</a>, <a class='category' href='/blog/categories/cuisine/'>cuisine</a>, <a class='category' href='/blog/categories/django/'>django</a>, <a class='category' href='/blog/categories/django-cms/'>django-cms</a>, <a class='category' href='/blog/categories/easy-install/'>easy_install</a>, <a class='category' href='/blog/categories/favicon-ico/'>favicon.ico</a>, <a class='category' href='/blog/categories/github/'>github</a>, <a class='category' href='/blog/categories/google/'>google</a>, <a class='category' href='/blog/categories/ipython-/'>iPython,</a>, <a class='category' href='/blog/categories/ipython/'>ipython</a>, <a class='category' href='/blog/categories/linux/'>linux</a>, <a class='category' href='/blog/categories/mp3splt/'>mp3splt</a>, <a class='category' href='/blog/categories/octopress-/'>octopress,</a>, <a class='category' href='/blog/categories/python/'>python</a>, <a class='category' href='/blog/categories/python-/'>python,</a>, <a class='category' href='/blog/categories/robots-txt/'>robots.txt</a>, <a class='category' href='/blog/categories/tortoisehg/'>tortoisehg</a>, <a class='category' href='/blog/categories/webmasters/'>webmasters</a>, <a class='category' href='/blog/categories/yandex/'>yandex</a>, <a class='category' href='/blog/categories/замена/'>замена</a>, <a class='category' href='/blog/categories/использование-octopress/'>использование Octopress</a>, <a class='category' href='/blog/categories/использование-sublime-text-2/'>использование Sublime Text 2</a>, <a class='category' href='/blog/categories/как-починить-ящик/'>как починить ящик</a>, <a class='category' href='/blog/categories/комментарии-octopress/'>комментарии Octopress</a>, <a class='category' href='/blog/categories/коммунальщина/'>коммунальщина</a>, <a class='category' href='/blog/categories/лампочек/'>лампочек</a>, <a class='category' href='/blog/categories/настройка-sublime-text-2/'>настройка Sublime Text 2</a>, <a class='category' href='/blog/categories/освещение/'>освещение</a>, <a class='category' href='/blog/categories/ремонт-почтового-ящика/'>ремонт почтового ящика</a>, <a class='category' href='/blog/categories/уличное/'>уличное</a>, <a class='category' href='/blog/categories/шпаргалки/'>шпаргалки</a>
+      <a class='category' href='/blog/categories/1gb/'>1Gb</a>, <a class='category' href='/blog/categories/arduino/'>Arduino</a>, <a class='category' href='/blog/categories/disqus/'>Disqus</a>, <a class='category' href='/blog/categories/django/'>Django</a>, <a class='category' href='/blog/categories/django-orm/'>Django ORM</a>, <a class='category' href='/blog/categories/django-orm-без-django/'>Django ORM без Django</a>, <a class='category' href='/blog/categories/django-cms/'>Django-cms</a>, <a class='category' href='/blog/categories/dreampie/'>DreamPie</a>, <a class='category' href='/blog/categories/fabric/'>Fabric</a>, <a class='category' href='/blog/categories/hypercomments/'>Hypercomments</a>, <a class='category' href='/blog/categories/linux/'>Linux</a>, <a class='category' href='/blog/categories/linux-/'>Linux,</a>, <a class='category' href='/blog/categories/mercurial/'>Mercurial</a>, <a class='category' href='/blog/categories/midnight-commander/'>Midnight Commander</a>, <a class='category' href='/blog/categories/octopress/'>Octopress</a>, <a class='category' href='/blog/categories/pyqt4/'>PyQT4</a>, <a class='category' href='/blog/categories/pyqt/'>PyQt</a>, <a class='category' href='/blog/categories/python/'>Python</a>, <a class='category' href='/blog/categories/qt/'>QT</a>, <a class='category' href='/blog/categories/sublime/'>Sublime</a>, <a class='category' href='/blog/categories/sublime-text-2/'>Sublime Text 2</a>, <a class='category' href='/blog/categories/sublime-vintage/'>Sublime Vintage</a>, <a class='category' href='/blog/categories/ubuntu/'>Ubuntu</a>, <a class='category' href='/blog/categories/ubuntu-/'>Ubuntu,</a>, <a class='category' href='/blog/categories/virtualbox/'>Virtualbox</a>, <a class='category' href='/blog/categories/wymeditor/'>WYMeditor</a>, <a class='category' href='/blog/categories/webdav/'>WebDAV</a>, <a class='category' href='/blog/categories/blogging/'>blogging</a>, <a class='category' href='/blog/categories/commands-bash/'>commands bash</a>, <a class='category' href='/blog/categories/commands-shell/'>commands shell</a>, <a class='category' href='/blog/categories/comments/'>comments</a>, <a class='category' href='/blog/categories/cuisine/'>cuisine</a>, <a class='category' href='/blog/categories/django/'>django</a>, <a class='category' href='/blog/categories/django-cms/'>django-cms</a>, <a class='category' href='/blog/categories/easy-install/'>easy_install</a>, <a class='category' href='/blog/categories/favicon-ico/'>favicon.ico</a>, <a class='category' href='/blog/categories/github/'>github</a>, <a class='category' href='/blog/categories/google/'>google</a>, <a class='category' href='/blog/categories/ipython-/'>iPython,</a>, <a class='category' href='/blog/categories/ipython/'>ipython</a>, <a class='category' href='/blog/categories/linux/'>linux</a>, <a class='category' href='/blog/categories/mp3splt/'>mp3splt</a>, <a class='category' href='/blog/categories/octopress-/'>octopress,</a>, <a class='category' href='/blog/categories/python/'>python</a>, <a class='category' href='/blog/categories/python-/'>python,</a>, <a class='category' href='/blog/categories/robots-txt/'>robots.txt</a>, <a class='category' href='/blog/categories/tortoisehg/'>tortoisehg</a>, <a class='category' href='/blog/categories/virtualenv/'>virtualenv</a>, <a class='category' href='/blog/categories/webmasters/'>webmasters</a>, <a class='category' href='/blog/categories/yandex/'>yandex</a>, <a class='category' href='/blog/categories/замена/'>замена</a>, <a class='category' href='/blog/categories/использование-octopress/'>использование Octopress</a>, <a class='category' href='/blog/categories/использование-sublime-text-2/'>использование Sublime Text 2</a>, <a class='category' href='/blog/categories/как-починить-ящик/'>как починить ящик</a>, <a class='category' href='/blog/categories/комментарии-octopress/'>комментарии Octopress</a>, <a class='category' href='/blog/categories/коммунальщина/'>коммунальщина</a>, <a class='category' href='/blog/categories/лампочек/'>лампочек</a>, <a class='category' href='/blog/categories/настройка-sublime-text-2/'>настройка Sublime Text 2</a>, <a class='category' href='/blog/categories/освещение/'>освещение</a>, <a class='category' href='/blog/categories/ремонт-почтового-ящика/'>ремонт почтового ящика</a>, <a class='category' href='/blog/categories/уличное/'>уличное</a>, <a class='category' href='/blog/categories/шпаргалки/'>шпаргалки</a>
   </ul>
 </div>
 

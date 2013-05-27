@@ -146,7 +146,7 @@
         <loc>
             http://Anshik.github.com/blog/2012/06/08/django-cms-ustanovka-i-piervichnaia-nastroika/
         </loc>
-        <lastmod>2013-05-17T08:50:50+04:00</lastmod>
+        <lastmod>2013-05-27T15:23:10+04:00</lastmod>
     </url>
     <url>
         <loc>http://Anshik.github.com/blog/2012/06/14/podkliuchieniie-po-ssh-biez-parolia/</loc>
@@ -187,16 +187,24 @@
         <lastmod>2013-04-04T10:00:36+04:00</lastmod>
     </url>
     <url>
+        <loc>http://Anshik.github.com/blog/2013/05/27/ustanovka-mysql-v-virtualenv-linux/</loc>
+        <lastmod>2013-05-27T15:13:28+04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://Anshik.github.com/blog/2013/05/27/zvukovaja-dorozhka-iz-filma-linux/</loc>
+        <lastmod>2013-05-27T15:21:06+04:00</lastmod>
+    </url>
+    <url>
         <loc>http://Anshik.github.com/404.html</loc>
         <lastmod>2012-11-16T15:27:28+04:00</lastmod>
     </url>
     <url>
         <loc>http://Anshik.github.com/blog/archives/</loc>
-        <lastmod>2013-05-17T08:50:50+04:00</lastmod>
+        <lastmod>2013-05-27T15:23:10+04:00</lastmod>
     </url>
     <url>
         <loc>http://Anshik.github.com/</loc>
-        <lastmod>2013-05-17T08:50:50+04:00</lastmod>
+        <lastmod>2013-05-27T15:23:10+04:00</lastmod>
     </url>
     <url>
         <loc>http://Anshik.github.com/about/</loc>

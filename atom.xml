@@ -4,7 +4,7 @@
   <title><![CDATA[Ещё один блог]]></title>
   <link href="http://Anshik.github.com/atom.xml" rel="self"/>
   <link href="http://Anshik.github.com/"/>
-  <updated>2013-05-17T08:51:09+04:00</updated>
+  <updated>2013-05-27T15:23:14+04:00</updated>
   <id>http://Anshik.github.com/</id>
   <author>
     <name><![CDATA[Anshik]]></name>
@@ -12,6 +12,60 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Звуковая дорожка из фильма linux]]></title>
+    <link href="http://Anshik.github.com/blog/2013/05/27/zvukovaja-dorozhka-iz-filma-linux/"/>
+    <updated>2013-05-27T15:05:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2013/05/27/zvukovaja-dorozhka-iz-filma-linux</id>
+    <content type="html"><![CDATA[<h1>Для чего нужно извлекать звуковую дорожку из фильма</h1>
+
+<p>В интернете очень много скринкастов, лекций, сам видео ряд там интересен, но не очень важен. И мне достаточно порой только звука.
+Я извлекал звук из <a href="http://events.yandex.ru/events/shri/">этих Яндексовских лекций</a></p>
+
+<!-- more -->
+
+
+<h2>Извлечение свелось к паре команд</h2>
+
+<p>Сначала нужно установить библиотечку:<br/>
+<code>libavcodec-extra-53</code> или как-то так можно подглядеть в менеджере пакетов, какая будет подходить для вашего линукса.<br/>
+Затем пробуем грабить дорожку, примерно так:<br/>
+<code>avconv -i in.mp4 -vn -c:a libmp3lame -q:a 2 output.mp3</code></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Установка mysql в virtualenv linux]]></title>
+    <link href="http://Anshik.github.com/blog/2013/05/27/ustanovka-mysql-v-virtualenv-linux/"/>
+    <updated>2013-05-27T15:05:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2013/05/27/ustanovka-mysql-v-virtualenv-linux</id>
+    <content type="html"><![CDATA[<h1>Установка mysql в virtualenv</h1>
+
+<p>Столкнулся с данной проблемой, устанавливаю - не устанавливается.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'> % bin/pip install mysql-python
+</span><span class='line'>    metadata, <span class="nv">options</span> <span class="o">=</span> get_config<span class="o">()</span>
+</span><span class='line'>      File <span class="s2">&quot;setup_posix.py&quot;</span>, line 43, in get_config
+</span><span class='line'>        <span class="nv">libs</span> <span class="o">=</span> mysql_config<span class="o">(</span><span class="s2">&quot;libs_r&quot;</span><span class="o">)</span>
+</span><span class='line'>      File <span class="s2">&quot;setup_posix.py&quot;</span>, line 25, in mysql_config
+</span><span class='line'>        raise EnvironmentError<span class="o">(</span><span class="s2">&quot;%s not found&quot;</span> % <span class="o">(</span>mysql_config.path,<span class="o">))</span>
+</span><span class='line'>    EnvironmentError: mysql_config not found
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Я сначала установил <code>% bin/pip install distribute</code>.<br/>
+Потом <code>% sudo apt-get install libmysqlclient-dev</code><br/>
+И в конце концов <code>% bin/pip install mysql-python</code></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Изменение размера диска Virtualbox]]></title>
@@ -777,7 +831,7 @@ pip install &#8211;download=&#8221;/pth/to/downloaded/files&#8221; package</p>
 
 <p>Часто требуется повторение элементов с главной страницы на всех страницах
 Для этого нужно в <strong>расширенных свойствах</strong> страницы указать id страницы <code>index</code> (к примеру)
-И написать что-то вроде этого: {% show_placeholder &#8220;teaser_right_bottom&#8221; &#8220;index&#8221; %}</p>
+И написать что-то вроде этого: {\% show_placeholder &#8220;teaser_right_bottom&#8221; &#8220;index&#8221; \%}</p>
 
 <h3>Новостной плагин для django-cms</h3>
 
@@ -792,7 +846,7 @@ pip install &#8211;download=&#8221;/pth/to/downloaded/files&#8221; package</p>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Дальше кастомизировать шаблоны, предварительно скопировав их в папку templates проекта. Возможно вся кастомизация будет заключаться в прописвании {% extends &#8220;base.html&#8221; %} в начало каждого шаблона новостей.</p>
+<p>Дальше кастомизировать шаблоны, предварительно скопировав их в папку templates проекта. Возможно вся кастомизация будет заключаться в прописвании {\% extends &#8220;base.html&#8221; \%} в начало каждого шаблона новостей.</p>
 
 <p>Ещё для использования sqlite
 <code>easy_install pysqlite</code></p>
@@ -1662,151 +1716,6 @@ source /usr/local/bin/virtualenvwrapper.sh</p>
 </span><span class='line'><span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
 </span></code></pre></td></tr></table></div></figure>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[ipython for python3.2 WindowsXP]]></title>
-    <link href="http://Anshik.github.com/blog/2012/05/29/ipython-for-python3-dot-2-windowsxp/"/>
-    <updated>2012-05-29T15:19:00+04:00</updated>
-    <id>http://Anshik.github.com/blog/2012/05/29/ipython-for-python3-dot-2-windowsxp</id>
-    <content type="html"><![CDATA[<p>Вот, задался целью всё-таки забороть ipython для Python 3.2, и получилось :)</p>
-
-<h3>Делал примерно так:</h3>
-
-<p>1.1. Поставил Python3.2: python-3.2.1.msi<br/>
-1.2. Пропишите пути к новому питону</p>
-
-<ol>
-<li>distribute_setup.py : http://python-distribute.org/distribute_setup.py<br/>
-это для того чтобы заработал easy_install</li>
-</ol>
-
-
-<!-- more -->
-
-
-<ol>
-<li><p>Дальше<br/>
-<code>easy_install http://archive.ipython.org/release/0.11/py3/ipython-0.11-py3.2.egg</code><br/>
-ставится ipython к папке <code>c:/python32/Scripts</code> тоже хорошо бы переменную <strong>path</strong> виндовса поправить</p></li>
-<li><p>Запускаем <code>ipython3.exe</code> в папке Scripts и ловим эксепшн, у меня во всяком случае было так:</p></li>
-</ol>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'> c:<span class="se">\P</span>ython32<span class="se">\S</span>cripts&gt;ipython3.exe
-</span><span class='line'> Error in sys.excepthook:
-</span><span class='line'> TypeError: _isdir<span class="o">()</span> takes exactly 1 argument <span class="o">(</span>0 given<span class="o">)</span>
-</span><span class='line'>
-</span><span class='line'> Original exception was:
-</span><span class='line'> Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
-</span><span class='line'> File <span class="s2">&quot;c:\Python32\Scripts\ipython3-script.py&quot;</span>, line 9, in
-</span><span class='line'> load_entry_point<span class="o">(</span><span class="s1">&#39;ipython==0.11&#39;</span>, <span class="s1">&#39;console_scripts&#39;</span>, <span class="s1">&#39;ipython3&#39;</span><span class="o">)()</span>
-</span><span class='line'> File <span class="s2">&quot;c:\Python32\lib\site-packages\ipython-0.11-py3.2.egg\IPython\frontend\te</span>
-</span><span class='line'><span class="s2">rminal\ipapp.py&quot;</span>, line 369, in launch_new_instance
-</span><span class='line'> app.initialize<span class="o">()</span>
-</span><span class='line'> File <span class="s2">&quot;c:\Python32\lib\site-packages\ipython-0.11-py3.2.egg\IPython\frontend\te</span>
-</span><span class='line'><span class="s2">rminal\ipapp.py&quot;</span>, line 283, in initialize
-</span><span class='line'> self.init_shell<span class="o">()</span>
-</span><span class='line'> File <span class="s2">&quot;c:\Python32\lib\site-packages\ipython-0.11-py3.2.egg\IPython\frontend\te</span>
-</span><span class='line'><span class="s2">rminal\ipapp.py&quot;</span>, line 303, in init_shell
-</span><span class='line'> <span class="nv">ipython_dir</span><span class="o">=</span>self.ipython_dir<span class="o">)</span>
-</span><span class='line'> File <span class="s2">&quot;c:\Python32\lib\site-packages\ipython-0.11-py3.2.egg\IPython\config\conf</span>
-</span><span class='line'><span class="s2">igurable.py&quot;</span>, line 295, in instance
-</span><span class='line'> <span class="nv">inst</span> <span class="o">=</span> cls<span class="o">(</span>*args, **kwargs<span class="o">)</span>
-</span><span class='line'> File <span class="s2">&quot;c:\Python32\lib\site-packages\ipython-0.11-py3.2.egg\IPython\frontend\te</span>
-</span><span class='line'><span class="s2">rminal\interactiveshell.py&quot;</span>, line 112, in __init__
-</span><span class='line'> <span class="nv">user_global_ns</span><span class="o">=</span>user_global_ns, <span class="nv">custom_exceptions</span><span class="o">=</span>custom_exceptions
-</span><span class='line'> File <span class="s2">&quot;c:\Python32\lib\site-packages\ipython-0.11-py3.2.egg\IPython\core\intera</span>
-</span><span class='line'><span class="s2">ctiveshell.py&quot;</span>, line 384, in __init__
-</span><span class='line'> self.db <span class="o">=</span> PickleShareDB<span class="o">(</span>os.path.join<span class="o">(</span>self.profile_dir.location, <span class="s1">&#39;db&#39;</span><span class="o">))</span>
-</span><span class='line'> File <span class="s2">&quot;c:\Python32\lib\site-packages\ipython-0.11-py3.2.egg\IPython\utils\pickl</span>
-</span><span class='line'><span class="s2">eshare.py&quot;</span>, line 52, in __init__
-</span><span class='line'> <span class="k">if </span>not self.root.isdir<span class="o">()</span>:
-</span><span class='line'>TypeError: _isdir<span class="o">()</span> takes exactly 1 argument <span class="o">(</span>0 given<span class="o">)</span>
-</span><span class='line'>
-</span><span class='line'>c:<span class="se">\P</span>ython32<span class="se">\S</span>cripts&gt;
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Решил я это так
-В файле <code>"c:\Python32\lib\site-packages\ipython-0.11-py3.2.egg\IPython\utils\pickleshare.py"</code><br/>
-В 52 строке закомментировал<br/>
-<code>#if not self.root.isdir():</code><br/>
-И 53-ей строкой написал следующее<br/>
-<code>if not os.path.isdir(self.root):</code></p>
-
-<p>Заработало, что не может не радовать.
-Единственное pyreadline ещё похоже нужно замучить</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Интерпретатор для Питонофилов]]></title>
-    <link href="http://Anshik.github.com/blog/2012/05/29/intierprietator-dlia-pitonofilov/"/>
-    <updated>2012-05-29T15:15:00+04:00</updated>
-    <id>http://Anshik.github.com/blog/2012/05/29/intierprietator-dlia-pitonofilov</id>
-    <content type="html"><![CDATA[<p>Раньше я использовал <strong>iPython</strong>, но хозяйки посоветовали мне <strong>DreamPie</strong>
-Установил под WindowsXP, при первом запуске пришлось фиксить выдало, что не может:</p>
-
-<!-- more -->
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>File <span class="s2">&quot;C:\Program Files\DreamPie\share\dreampie\subp_main.py&quot;</span>, line 30, in &lt;module&gt;
-</span><span class='line'> sys.setdefaultencoding<span class="o">(</span><span class="s1">&#39;utf-8&#39;</span><span class="o">)</span>
-</span><span class='line'>AttributeError: <span class="s1">&#39;module&#39;</span> object has no attribute <span class="s1">&#39;setdefaultencoding&#39;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><figcaption><span>Фиксим в файле &#8220;c:\Program Files\DreamPie\share\dreampie\subp_main.py&#8221;</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'> <span class="kn">import</span> <span class="nn">platform</span>
-</span><span class='line'> <span class="k">if</span> <span class="ow">not</span> <span class="s">&quot;3.2&quot;</span> <span class="ow">in</span> <span class="n">platform</span><span class="o">.</span><span class="n">python_version</span><span class="p">():</span>
-</span><span class='line'>    <span class="n">sys</span><span class="o">.</span><span class="n">setdefaultencoding</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Альтернативные решения <a href="https://bugs.launchpad.net/dreampie/+bug/716377">данной</a> баги</p>
-
-<blockquote><p><strong>PS:</strong> признаться продолжаю пользоваться Ipython, привык, ничего не могу с собой поделать. Может нужно ещё раз посмотреть по-внимательнее</p></blockquote>
 ]]></content>
   </entry>
   
