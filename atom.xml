@@ -4,7 +4,7 @@
   <title><![CDATA[Ещё один блог]]></title>
   <link href="http://Anshik.github.com/atom.xml" rel="self"/>
   <link href="http://Anshik.github.com/"/>
-  <updated>2013-05-27T15:23:14+04:00</updated>
+  <updated>2013-05-30T13:07:07+04:00</updated>
   <id>http://Anshik.github.com/</id>
   <author>
     <name><![CDATA[Anshik]]></name>
@@ -18,7 +18,7 @@
     <link href="http://Anshik.github.com/blog/2013/05/27/zvukovaja-dorozhka-iz-filma-linux/"/>
     <updated>2013-05-27T15:05:00+04:00</updated>
     <id>http://Anshik.github.com/blog/2013/05/27/zvukovaja-dorozhka-iz-filma-linux</id>
-    <content type="html"><![CDATA[<h1>Для чего нужно извлекать звуковую дорожку из фильма</h1>
+    <content type="html"><![CDATA[<h4>Для чего нужно извлекать звуковую дорожку из фильма</h4>
 
 <p>В интернете очень много скринкастов, лекций, сам видео ряд там интересен, но не очень важен. И мне достаточно порой только звука.
 Я извлекал звук из <a href="http://events.yandex.ru/events/shri/">этих Яндексовских лекций</a></p>
@@ -40,7 +40,7 @@
     <link href="http://Anshik.github.com/blog/2013/05/27/ustanovka-mysql-v-virtualenv-linux/"/>
     <updated>2013-05-27T15:05:00+04:00</updated>
     <id>http://Anshik.github.com/blog/2013/05/27/ustanovka-mysql-v-virtualenv-linux</id>
-    <content type="html"><![CDATA[<h1>Установка mysql в virtualenv</h1>
+    <content type="html"><![CDATA[<h4>Установка mysql в virtualenv</h4>
 
 <p>Столкнулся с данной проблемой, устанавливаю - не устанавливается.</p>
 
@@ -59,6 +59,9 @@
 </span><span class='line'>        raise EnvironmentError<span class="o">(</span><span class="s2">&quot;%s not found&quot;</span> % <span class="o">(</span>mysql_config.path,<span class="o">))</span>
 </span><span class='line'>    EnvironmentError: mysql_config not found
 </span></code></pre></td></tr></table></div></figure>
+
+
+<!-- more -->
 
 
 <p>Я сначала установил <code>% bin/pip install distribute</code>.<br/>
@@ -1622,14 +1625,15 @@ source /usr/local/bin/virtualenvwrapper.sh</p>
 
 <p>В ubuntu всё проще <strong>mp3splt</strong></p>
 
-<p><code>mp3splt -t 5.0 -o @n_@f -d ump_270 ump_podcast270.mp3</code></p>
+<p><code>mp3splt -t 3.0 -o @n_@f -d out file_name.mp3</code></p>
 
 <p><strong>Комментарий:</strong><br/>
  <code>-t</code> продолжительность кусочка<br/>
  <code>-o</code> название выходного файла, в данном случае @счётчик_@название файла<br/>
- <code>-d</code> название выходной директории</p>
-
-<p>и файл входной.</p>
+ <code>-d</code> название выходной директории<br/>
+ <code>@f</code> оригинальное название файла
+ <code>@n</code> цифры
+и файл входной.</p>
 ]]></content>
   </entry>
   
