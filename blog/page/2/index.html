@@ -9,7 +9,11 @@
   <meta name="author" content="Anshik">
 
   
-  <meta name="description" content="Этот пост скорее чтобы не забыть самому как это делается, и всегда знать где найти. Упрощение подключения Идем в папку ~/.ssh, редактируем файл &hellip;">
+  <meta name="description" content="Введение Зачем пост, опять же, чтобы не забыть.
+Проблема в следующем. На хостинге 1Gb.ru установлены две версии python:
+* python 2.7
+* python 3.2
+по &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -83,6 +87,116 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/06/14/1gb-virtualenv-easy-install/">1Gb Easy_install</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-06-14T18:50:00+04:00" pubdate data-updated="true">Jun 14<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3>Введение</h3>
+
+<p>Зачем пост, опять же, чтобы не забыть.
+Проблема в следующем. На хостинге <a href="http://1gb.ru">1Gb.ru</a> установлены две версии python:
+* python 2.7
+* python 3.2
+по умолчанию используется версия 3.2. <strong>НО</strong> Django работает максимум на версии 2.7, а django-cms с версией Django 1.3, это так к слову.</p>
+
+<blockquote><p>Итак, задача:<br/>
+1. сделать python2.7 по умолчанию<br/>
+2. настроить easy_install</p></blockquote>
+
+<p>Решение частично <a href="http://www.1gb.ru/wiki/index.php?title=Django_-_%D0%B1%D1%8B%D1%81%D1%82%D1%80%D1%8B%D0%B9_%D1%81%D1%82%D0%B0%D1%80%D1%82">описано</a> на 1gb</p>
+
+<p>Приведу только команды от туда, кому хочется слов почитать, зайдет туда.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$export</span> <span class="nv">PYTHON_VERSION</span><span class="o">=</span><span class="sb">`</span>eselect python list --python2 | awk <span class="s1">&#39;/\*$/ {print $2}&#39;</span><span class="sb">`</span>; <span class="nb">echo</span> <span class="k">${</span><span class="nv">PYTHON_VERSION</span><span class="k">}</span>
+</span><span class='line'><span class="nv">$grep</span> -q <span class="s2">&quot;=${PYTHON_VERSION}&quot;</span> ~/.bashrc <span class="o">||</span> sed -i <span class="s2">&quot;/happen/a alias python=${PYTHON_VERSION}\nalias easy_install=easy_install-$(echo ${PYTHON_VERSION} | tr -d python)&quot;</span> ~/.bashrc
+</span><span class='line'><span class="nv">$source</span> ~/.bashrc
+</span><span class='line'><span class="nv">$echo</span> <span class="s1">&#39;export PATH=${HOME}/python/bin:${HOME}/python/lib64/&#39;</span><span class="k">${</span><span class="nv">PYTHON_VERSION</span><span class="k">}</span><span class="s1">&#39;/site-packages:${PATH}&#39;</span> &gt;&gt; ~/.bashrc
+</span><span class='line'><span class="nv">$echo</span> <span class="s1">&#39;export PYTHONPATH=${HOME}/python/lib64/&#39;</span><span class="k">${</span><span class="nv">PYTHON_VERSION</span><span class="k">}</span><span class="s1">&#39;/site-packages:${PYTHONPATH}&#39;</span> &gt;&gt; ~/.bashrc
+</span><span class='line'><span class="nv">$source</span> ~/.bashrc
+</span><span class='line'><span class="nv">$ </span>cat &gt; ~/.pydistutils.cfg <span class="s">&lt;&lt;END</span>
+</span><span class='line'><span class="s">[install]</span>
+</span><span class='line'><span class="s">prefix = \$HOME/python</span>
+</span><span class='line'>
+</span><span class='line'><span class="s">[easy_install]</span>
+</span><span class='line'><span class="s">install_dir = \$HOME/python/lib64/${PYTHON_VERSION}/site-packages</span>
+</span><span class='line'><span class="s">END</span>
+</span><span class='line'><span class="nv">$mkdir</span> -p ~/src ~/python/lib64/<span class="k">${</span><span class="nv">PYTHON_VERSION</span><span class="k">}</span>/site-packages ~/django
+</span><span class='line'><span class="nv">$cd</span> ~/python; ln -s lib64 lib; <span class="nb">cd</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Краткое описание, что делает:<br/>
+1-я строка версия python получается<br/>
+2-я делаются алиасы в .bashrc на python и easy_install (у меня алиас на второе не прописался, я этого не заметил&#8230; решил установкой своего easy_install)<br/>
+4,5-я пути прописываются<br/>
+7-13 файл настроек easy_install создаётся, смотрите, может ругаться на то что в нём написано <strong>$HOME</strong> вместо полного пути<br/>
+14-15 создаются папки и симлинки</p>
+
+<p>Ключ -l выводит пакеты установленный только внутри virtualenv, что при создании окружения с ключем &#8211;no-site-packages теряет всякий смысл.</p>
+
+<p>Далее этот список нужно сохранить:</p>
+
+<p>$ pip freeze -l > pip-requirements</p>
+
+<p>Тепреь в файле pip-requirements лежит список всех необходимых для запуска пакетов. Этот нужно положить в вашу source control и при необходимости обновлять.</p>
+
+<p>Чтобы установить все необходимые пакеты, необходимо выполнить команду:</p>
+
+<p>$ pip install -r pip-requirements</p>
+
+<p>The &#8211;download-cache option should do what you want:
+pip install &#8211;download-cache=&#8221;/pth/to/downloaded/files&#8221; package</p>
+
+<p>However, when I tested this, the main package downloaded, saved and installed ok, but the the dependancies were saved with their full url path as the name - a bit annoying, but all the tar.gz files were there.</p>
+
+<p>The &#8211;download option just downloads the main package without it&#8217;s dependancies and doesn&#8217;t install.
+pip install &#8211;download=&#8221;/pth/to/downloaded/files&#8221; package</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -852,119 +966,6 @@ Virtualenv это средство для создания изолирован�
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/05/29/threads-in-pyqt4/">Как правильно делать треды в PyQT4</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-05-29T15:24:00+04:00" pubdate data-updated="true">May 29<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://www.linux.org.ru/forum/development/1529306">Тут</a> нашёл решение</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c">#!/usr/bin/env python</span>
-</span><span class='line'>
-</span><span class='line'><span class="c"># Вот примерно так оно делается.</span>
-</span><span class='line'>
-</span><span class='line'><span class="kn">import</span> <span class="nn">sys</span>
-</span><span class='line'><span class="kn">from</span> <span class="nn">PyQt4.QtCore</span> <span class="kn">import</span> <span class="n">QEvent</span><span class="p">,</span> <span class="n">QThread</span>
-</span><span class='line'><span class="kn">from</span> <span class="nn">PyQt4.QtGui</span> <span class="kn">import</span> <span class="n">QApplication</span><span class="p">,</span> <span class="n">QTextEdit</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">class</span> <span class="nc">MyEvent</span><span class="p">(</span><span class="n">QEvent</span><span class="p">):</span>
-</span><span class='line'><span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-</span><span class='line'><span class="n">QEvent</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">QEvent</span><span class="o">.</span><span class="n">User</span><span class="p">)</span>
-</span><span class='line'><span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">class</span> <span class="nc">Timer</span><span class="p">(</span><span class="n">QThread</span><span class="p">):</span>
-</span><span class='line'><span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event_receiver</span><span class="p">):</span>
-</span><span class='line'><span class="n">QThread</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-</span><span class='line'><span class="bp">self</span><span class="o">.</span><span class="n">event_receiver</span> <span class="o">=</span> <span class="n">event_receiver</span>
-</span><span class='line'><span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="mi">0</span>
-</span><span class='line'><span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span><span class='line'><span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
-</span><span class='line'><span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">+=</span> <span class="mi">1</span>
-</span><span class='line'><span class="n">QApplication</span><span class="o">.</span><span class="n">postEvent</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">event_receiver</span><span class="p">,</span> <span class="n">MyEvent</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">))</span>
-</span><span class='line'><span class="bp">self</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">class</span> <span class="nc">Display</span><span class="p">(</span><span class="n">QTextEdit</span><span class="p">):</span>
-</span><span class='line'><span class="k">def</span> <span class="nf">customEvent</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
-</span><span class='line'><span class="k">if</span> <span class="nb">isinstance</span> <span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">MyEvent</span><span class="p">):</span>
-</span><span class='line'><span class="bp">self</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&#39;time = </span><span class="si">%i</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">event</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">a</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
-</span><span class='line'><span class="n">display</span> <span class="o">=</span> <span class="n">Display</span><span class="p">()</span>
-</span><span class='line'><span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">timer</span> <span class="o">=</span> <span class="n">Timer</span><span class="p">(</span><span class="n">display</span><span class="p">)</span>
-</span><span class='line'><span class="n">timer</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
-</span></code></pre></td></tr></table></div></figure>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -983,6 +984,10 @@ Virtualenv это средство для создания изолирован�
 <ul id="recent_posts">
     
     <li class="post">
+        <a href="/blog/2013/10/22/pygame-initsializatsiia/">Pygame инициализация, работа с прямоугольниками, прозрачностью</a>
+    </li>
+    
+    <li class="post">
         <a href="/blog/2013/05/27/zvukovaja-dorozhka-iz-filma-linux/">Звуковая дорожка из фильма linux</a>
     </li>
     
@@ -998,15 +1003,11 @@ Virtualenv это средство для создания изолирован�
         <a href="/blog/2013/03/22/ustanovka-pyqt4-v-ubuntu-10-dot-10/">Установка PyQt4 в ubuntu 10.10, Python3.3</a>
     </li>
     
-    <li class="post">
-        <a href="/blog/2012/11/13/sublime-vintage-mode-keymap/">Sublime Vintage mode keymap</a>
-    </li>
-    
 </ul>
   <h1>Категории</h1>
   <ul>
     <li>
-      <a class='category' href='/blog/categories/1gb/'>1Gb</a>, <a class='category' href='/blog/categories/arduino/'>Arduino</a>, <a class='category' href='/blog/categories/disqus/'>Disqus</a>, <a class='category' href='/blog/categories/django/'>Django</a>, <a class='category' href='/blog/categories/django-orm/'>Django ORM</a>, <a class='category' href='/blog/categories/django-orm-без-django/'>Django ORM без Django</a>, <a class='category' href='/blog/categories/django-cms/'>Django-cms</a>, <a class='category' href='/blog/categories/dreampie/'>DreamPie</a>, <a class='category' href='/blog/categories/fabric/'>Fabric</a>, <a class='category' href='/blog/categories/hypercomments/'>Hypercomments</a>, <a class='category' href='/blog/categories/linux/'>Linux</a>, <a class='category' href='/blog/categories/linux-/'>Linux,</a>, <a class='category' href='/blog/categories/mercurial/'>Mercurial</a>, <a class='category' href='/blog/categories/midnight-commander/'>Midnight Commander</a>, <a class='category' href='/blog/categories/octopress/'>Octopress</a>, <a class='category' href='/blog/categories/pyqt4/'>PyQT4</a>, <a class='category' href='/blog/categories/pyqt/'>PyQt</a>, <a class='category' href='/blog/categories/python/'>Python</a>, <a class='category' href='/blog/categories/qt/'>QT</a>, <a class='category' href='/blog/categories/sublime/'>Sublime</a>, <a class='category' href='/blog/categories/sublime-text-2/'>Sublime Text 2</a>, <a class='category' href='/blog/categories/sublime-vintage/'>Sublime Vintage</a>, <a class='category' href='/blog/categories/ubuntu/'>Ubuntu</a>, <a class='category' href='/blog/categories/ubuntu-/'>Ubuntu,</a>, <a class='category' href='/blog/categories/virtualbox/'>Virtualbox</a>, <a class='category' href='/blog/categories/wymeditor/'>WYMeditor</a>, <a class='category' href='/blog/categories/webdav/'>WebDAV</a>, <a class='category' href='/blog/categories/blogging/'>blogging</a>, <a class='category' href='/blog/categories/commands-bash/'>commands bash</a>, <a class='category' href='/blog/categories/commands-shell/'>commands shell</a>, <a class='category' href='/blog/categories/comments/'>comments</a>, <a class='category' href='/blog/categories/cuisine/'>cuisine</a>, <a class='category' href='/blog/categories/django/'>django</a>, <a class='category' href='/blog/categories/django-cms/'>django-cms</a>, <a class='category' href='/blog/categories/easy-install/'>easy_install</a>, <a class='category' href='/blog/categories/favicon-ico/'>favicon.ico</a>, <a class='category' href='/blog/categories/github/'>github</a>, <a class='category' href='/blog/categories/google/'>google</a>, <a class='category' href='/blog/categories/ipython-/'>iPython,</a>, <a class='category' href='/blog/categories/ipython/'>ipython</a>, <a class='category' href='/blog/categories/linux/'>linux</a>, <a class='category' href='/blog/categories/mp3splt/'>mp3splt</a>, <a class='category' href='/blog/categories/octopress-/'>octopress,</a>, <a class='category' href='/blog/categories/python/'>python</a>, <a class='category' href='/blog/categories/python-/'>python,</a>, <a class='category' href='/blog/categories/robots-txt/'>robots.txt</a>, <a class='category' href='/blog/categories/tortoisehg/'>tortoisehg</a>, <a class='category' href='/blog/categories/virtualenv/'>virtualenv</a>, <a class='category' href='/blog/categories/webmasters/'>webmasters</a>, <a class='category' href='/blog/categories/yandex/'>yandex</a>, <a class='category' href='/blog/categories/замена/'>замена</a>, <a class='category' href='/blog/categories/использование-octopress/'>использование Octopress</a>, <a class='category' href='/blog/categories/использование-sublime-text-2/'>использование Sublime Text 2</a>, <a class='category' href='/blog/categories/как-починить-ящик/'>как починить ящик</a>, <a class='category' href='/blog/categories/комментарии-octopress/'>комментарии Octopress</a>, <a class='category' href='/blog/categories/коммунальщина/'>коммунальщина</a>, <a class='category' href='/blog/categories/лампочек/'>лампочек</a>, <a class='category' href='/blog/categories/настройка-sublime-text-2/'>настройка Sublime Text 2</a>, <a class='category' href='/blog/categories/освещение/'>освещение</a>, <a class='category' href='/blog/categories/ремонт-почтового-ящика/'>ремонт почтового ящика</a>, <a class='category' href='/blog/categories/уличное/'>уличное</a>, <a class='category' href='/blog/categories/шпаргалки/'>шпаргалки</a>
+      <a class='category' href='/blog/categories/1gb/'>1Gb</a>, <a class='category' href='/blog/categories/arduino/'>Arduino</a>, <a class='category' href='/blog/categories/disqus/'>Disqus</a>, <a class='category' href='/blog/categories/django/'>Django</a>, <a class='category' href='/blog/categories/django-orm/'>Django ORM</a>, <a class='category' href='/blog/categories/django-orm-без-django/'>Django ORM без Django</a>, <a class='category' href='/blog/categories/django-cms/'>Django-cms</a>, <a class='category' href='/blog/categories/dreampie/'>DreamPie</a>, <a class='category' href='/blog/categories/fabric/'>Fabric</a>, <a class='category' href='/blog/categories/hypercomments/'>Hypercomments</a>, <a class='category' href='/blog/categories/linux/'>Linux</a>, <a class='category' href='/blog/categories/linux-/'>Linux,</a>, <a class='category' href='/blog/categories/mercurial/'>Mercurial</a>, <a class='category' href='/blog/categories/midnight-commander/'>Midnight Commander</a>, <a class='category' href='/blog/categories/octopress/'>Octopress</a>, <a class='category' href='/blog/categories/pyqt4/'>PyQT4</a>, <a class='category' href='/blog/categories/pyqt/'>PyQt</a>, <a class='category' href='/blog/categories/python/'>Python</a>, <a class='category' href='/blog/categories/qt/'>QT</a>, <a class='category' href='/blog/categories/sublime/'>Sublime</a>, <a class='category' href='/blog/categories/sublime-text-2/'>Sublime Text 2</a>, <a class='category' href='/blog/categories/sublime-vintage/'>Sublime Vintage</a>, <a class='category' href='/blog/categories/ubuntu/'>Ubuntu</a>, <a class='category' href='/blog/categories/ubuntu-/'>Ubuntu,</a>, <a class='category' href='/blog/categories/virtualbox/'>Virtualbox</a>, <a class='category' href='/blog/categories/wymeditor/'>WYMeditor</a>, <a class='category' href='/blog/categories/webdav/'>WebDAV</a>, <a class='category' href='/blog/categories/blogging/'>blogging</a>, <a class='category' href='/blog/categories/commands-bash/'>commands bash</a>, <a class='category' href='/blog/categories/commands-shell/'>commands shell</a>, <a class='category' href='/blog/categories/comments/'>comments</a>, <a class='category' href='/blog/categories/cuisine/'>cuisine</a>, <a class='category' href='/blog/categories/django/'>django</a>, <a class='category' href='/blog/categories/django-cms/'>django-cms</a>, <a class='category' href='/blog/categories/easy-install/'>easy_install</a>, <a class='category' href='/blog/categories/favicon-ico/'>favicon.ico</a>, <a class='category' href='/blog/categories/github/'>github</a>, <a class='category' href='/blog/categories/google/'>google</a>, <a class='category' href='/blog/categories/ipython-/'>iPython,</a>, <a class='category' href='/blog/categories/ipython/'>ipython</a>, <a class='category' href='/blog/categories/linux/'>linux</a>, <a class='category' href='/blog/categories/mp3splt/'>mp3splt</a>, <a class='category' href='/blog/categories/octopress-/'>octopress,</a>, <a class='category' href='/blog/categories/pygame/'>pygame</a>, <a class='category' href='/blog/categories/python/'>python</a>, <a class='category' href='/blog/categories/python-/'>python,</a>, <a class='category' href='/blog/categories/robots-txt/'>robots.txt</a>, <a class='category' href='/blog/categories/tortoisehg/'>tortoisehg</a>, <a class='category' href='/blog/categories/virtualenv/'>virtualenv</a>, <a class='category' href='/blog/categories/webmasters/'>webmasters</a>, <a class='category' href='/blog/categories/yandex/'>yandex</a>, <a class='category' href='/blog/categories/замена/'>замена</a>, <a class='category' href='/blog/categories/использование-octopress/'>использование Octopress</a>, <a class='category' href='/blog/categories/использование-sublime-text-2/'>использование Sublime Text 2</a>, <a class='category' href='/blog/categories/как-починить-ящик/'>как починить ящик</a>, <a class='category' href='/blog/categories/комментарии-octopress/'>комментарии Octopress</a>, <a class='category' href='/blog/categories/коммунальщина/'>коммунальщина</a>, <a class='category' href='/blog/categories/лампочек/'>лампочек</a>, <a class='category' href='/blog/categories/настройка-sublime-text-2/'>настройка Sublime Text 2</a>, <a class='category' href='/blog/categories/освещение/'>освещение</a>, <a class='category' href='/blog/categories/ремонт-почтового-ящика/'>ремонт почтового ящика</a>, <a class='category' href='/blog/categories/уличное/'>уличное</a>, <a class='category' href='/blog/categories/шпаргалки/'>шпаргалки</a>
   </li>
 </ul>
 
@@ -1017,7 +1018,7 @@ Virtualenv это средство для создания изолирован�
 </div>
 <div id="tags">
   <ul>
-      <a class='category' href='/blog/categories/1gb/'>1Gb</a>, <a class='category' href='/blog/categories/arduino/'>Arduino</a>, <a class='category' href='/blog/categories/disqus/'>Disqus</a>, <a class='category' href='/blog/categories/django/'>Django</a>, <a class='category' href='/blog/categories/django-orm/'>Django ORM</a>, <a class='category' href='/blog/categories/django-orm-без-django/'>Django ORM без Django</a>, <a class='category' href='/blog/categories/django-cms/'>Django-cms</a>, <a class='category' href='/blog/categories/dreampie/'>DreamPie</a>, <a class='category' href='/blog/categories/fabric/'>Fabric</a>, <a class='category' href='/blog/categories/hypercomments/'>Hypercomments</a>, <a class='category' href='/blog/categories/linux/'>Linux</a>, <a class='category' href='/blog/categories/linux-/'>Linux,</a>, <a class='category' href='/blog/categories/mercurial/'>Mercurial</a>, <a class='category' href='/blog/categories/midnight-commander/'>Midnight Commander</a>, <a class='category' href='/blog/categories/octopress/'>Octopress</a>, <a class='category' href='/blog/categories/pyqt4/'>PyQT4</a>, <a class='category' href='/blog/categories/pyqt/'>PyQt</a>, <a class='category' href='/blog/categories/python/'>Python</a>, <a class='category' href='/blog/categories/qt/'>QT</a>, <a class='category' href='/blog/categories/sublime/'>Sublime</a>, <a class='category' href='/blog/categories/sublime-text-2/'>Sublime Text 2</a>, <a class='category' href='/blog/categories/sublime-vintage/'>Sublime Vintage</a>, <a class='category' href='/blog/categories/ubuntu/'>Ubuntu</a>, <a class='category' href='/blog/categories/ubuntu-/'>Ubuntu,</a>, <a class='category' href='/blog/categories/virtualbox/'>Virtualbox</a>, <a class='category' href='/blog/categories/wymeditor/'>WYMeditor</a>, <a class='category' href='/blog/categories/webdav/'>WebDAV</a>, <a class='category' href='/blog/categories/blogging/'>blogging</a>, <a class='category' href='/blog/categories/commands-bash/'>commands bash</a>, <a class='category' href='/blog/categories/commands-shell/'>commands shell</a>, <a class='category' href='/blog/categories/comments/'>comments</a>, <a class='category' href='/blog/categories/cuisine/'>cuisine</a>, <a class='category' href='/blog/categories/django/'>django</a>, <a class='category' href='/blog/categories/django-cms/'>django-cms</a>, <a class='category' href='/blog/categories/easy-install/'>easy_install</a>, <a class='category' href='/blog/categories/favicon-ico/'>favicon.ico</a>, <a class='category' href='/blog/categories/github/'>github</a>, <a class='category' href='/blog/categories/google/'>google</a>, <a class='category' href='/blog/categories/ipython-/'>iPython,</a>, <a class='category' href='/blog/categories/ipython/'>ipython</a>, <a class='category' href='/blog/categories/linux/'>linux</a>, <a class='category' href='/blog/categories/mp3splt/'>mp3splt</a>, <a class='category' href='/blog/categories/octopress-/'>octopress,</a>, <a class='category' href='/blog/categories/python/'>python</a>, <a class='category' href='/blog/categories/python-/'>python,</a>, <a class='category' href='/blog/categories/robots-txt/'>robots.txt</a>, <a class='category' href='/blog/categories/tortoisehg/'>tortoisehg</a>, <a class='category' href='/blog/categories/virtualenv/'>virtualenv</a>, <a class='category' href='/blog/categories/webmasters/'>webmasters</a>, <a class='category' href='/blog/categories/yandex/'>yandex</a>, <a class='category' href='/blog/categories/замена/'>замена</a>, <a class='category' href='/blog/categories/использование-octopress/'>использование Octopress</a>, <a class='category' href='/blog/categories/использование-sublime-text-2/'>использование Sublime Text 2</a>, <a class='category' href='/blog/categories/как-починить-ящик/'>как починить ящик</a>, <a class='category' href='/blog/categories/комментарии-octopress/'>комментарии Octopress</a>, <a class='category' href='/blog/categories/коммунальщина/'>коммунальщина</a>, <a class='category' href='/blog/categories/лампочек/'>лампочек</a>, <a class='category' href='/blog/categories/настройка-sublime-text-2/'>настройка Sublime Text 2</a>, <a class='category' href='/blog/categories/освещение/'>освещение</a>, <a class='category' href='/blog/categories/ремонт-почтового-ящика/'>ремонт почтового ящика</a>, <a class='category' href='/blog/categories/уличное/'>уличное</a>, <a class='category' href='/blog/categories/шпаргалки/'>шпаргалки</a>
+      <a class='category' href='/blog/categories/1gb/'>1Gb</a>, <a class='category' href='/blog/categories/arduino/'>Arduino</a>, <a class='category' href='/blog/categories/disqus/'>Disqus</a>, <a class='category' href='/blog/categories/django/'>Django</a>, <a class='category' href='/blog/categories/django-orm/'>Django ORM</a>, <a class='category' href='/blog/categories/django-orm-без-django/'>Django ORM без Django</a>, <a class='category' href='/blog/categories/django-cms/'>Django-cms</a>, <a class='category' href='/blog/categories/dreampie/'>DreamPie</a>, <a class='category' href='/blog/categories/fabric/'>Fabric</a>, <a class='category' href='/blog/categories/hypercomments/'>Hypercomments</a>, <a class='category' href='/blog/categories/linux/'>Linux</a>, <a class='category' href='/blog/categories/linux-/'>Linux,</a>, <a class='category' href='/blog/categories/mercurial/'>Mercurial</a>, <a class='category' href='/blog/categories/midnight-commander/'>Midnight Commander</a>, <a class='category' href='/blog/categories/octopress/'>Octopress</a>, <a class='category' href='/blog/categories/pyqt4/'>PyQT4</a>, <a class='category' href='/blog/categories/pyqt/'>PyQt</a>, <a class='category' href='/blog/categories/python/'>Python</a>, <a class='category' href='/blog/categories/qt/'>QT</a>, <a class='category' href='/blog/categories/sublime/'>Sublime</a>, <a class='category' href='/blog/categories/sublime-text-2/'>Sublime Text 2</a>, <a class='category' href='/blog/categories/sublime-vintage/'>Sublime Vintage</a>, <a class='category' href='/blog/categories/ubuntu/'>Ubuntu</a>, <a class='category' href='/blog/categories/ubuntu-/'>Ubuntu,</a>, <a class='category' href='/blog/categories/virtualbox/'>Virtualbox</a>, <a class='category' href='/blog/categories/wymeditor/'>WYMeditor</a>, <a class='category' href='/blog/categories/webdav/'>WebDAV</a>, <a class='category' href='/blog/categories/blogging/'>blogging</a>, <a class='category' href='/blog/categories/commands-bash/'>commands bash</a>, <a class='category' href='/blog/categories/commands-shell/'>commands shell</a>, <a class='category' href='/blog/categories/comments/'>comments</a>, <a class='category' href='/blog/categories/cuisine/'>cuisine</a>, <a class='category' href='/blog/categories/django/'>django</a>, <a class='category' href='/blog/categories/django-cms/'>django-cms</a>, <a class='category' href='/blog/categories/easy-install/'>easy_install</a>, <a class='category' href='/blog/categories/favicon-ico/'>favicon.ico</a>, <a class='category' href='/blog/categories/github/'>github</a>, <a class='category' href='/blog/categories/google/'>google</a>, <a class='category' href='/blog/categories/ipython-/'>iPython,</a>, <a class='category' href='/blog/categories/ipython/'>ipython</a>, <a class='category' href='/blog/categories/linux/'>linux</a>, <a class='category' href='/blog/categories/mp3splt/'>mp3splt</a>, <a class='category' href='/blog/categories/octopress-/'>octopress,</a>, <a class='category' href='/blog/categories/pygame/'>pygame</a>, <a class='category' href='/blog/categories/python/'>python</a>, <a class='category' href='/blog/categories/python-/'>python,</a>, <a class='category' href='/blog/categories/robots-txt/'>robots.txt</a>, <a class='category' href='/blog/categories/tortoisehg/'>tortoisehg</a>, <a class='category' href='/blog/categories/virtualenv/'>virtualenv</a>, <a class='category' href='/blog/categories/webmasters/'>webmasters</a>, <a class='category' href='/blog/categories/yandex/'>yandex</a>, <a class='category' href='/blog/categories/замена/'>замена</a>, <a class='category' href='/blog/categories/использование-octopress/'>использование Octopress</a>, <a class='category' href='/blog/categories/использование-sublime-text-2/'>использование Sublime Text 2</a>, <a class='category' href='/blog/categories/как-починить-ящик/'>как починить ящик</a>, <a class='category' href='/blog/categories/комментарии-octopress/'>комментарии Octopress</a>, <a class='category' href='/blog/categories/коммунальщина/'>коммунальщина</a>, <a class='category' href='/blog/categories/лампочек/'>лампочек</a>, <a class='category' href='/blog/categories/настройка-sublime-text-2/'>настройка Sublime Text 2</a>, <a class='category' href='/blog/categories/освещение/'>освещение</a>, <a class='category' href='/blog/categories/ремонт-почтового-ящика/'>ремонт почтового ящика</a>, <a class='category' href='/blog/categories/уличное/'>уличное</a>, <a class='category' href='/blog/categories/шпаргалки/'>шпаргалки</a>
   </ul>
 </div>
 
