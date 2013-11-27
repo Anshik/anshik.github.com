@@ -4,7 +4,7 @@
   <title><![CDATA[Category: virtualenv | Ещё один блог]]></title>
   <link href="http://Anshik.github.com/blog/categories/virtualenv/atom.xml" rel="self"/>
   <link href="http://Anshik.github.com/"/>
-  <updated>2013-10-22T15:21:34+04:00</updated>
+  <updated>2013-11-27T15:25:38+04:00</updated>
   <id>http://Anshik.github.com/</id>
   <author>
     <name><![CDATA[Anshik]]></name>
@@ -12,6 +12,84 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[PIL virtualenv error _imaging.c:76]]></title>
+    <link href="http://Anshik.github.com/blog/2013/11/27/pil-virtualenv-error-imaging-dot-c-76/"/>
+    <updated>2013-11-27T15:18:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2013/11/27/pil-virtualenv-error-imaging-dot-c-76</id>
+    <content type="html"><![CDATA[<p>Очень кратко, долго искал решение такой проблемы. У меня несколько питонов установлено на Ubuntu 10.10.
+Для python2.6 установлены sudo apt-get install python-dev.<br/>
+А для второго, питона, который используется в virtualenv (python2.7) оно не было установлено.<br/>
+<em>Решение проблемы:</em></p>
+
+<p><code>sudo apt-get install python2.7-dev</code>
+А затем:
+Само собой вы не забыли сделать
+<code>source bin/activate</code></p>
+
+<p>pip install Pillow</p>
+
+<p>или</p>
+
+<p>pip install PIL</p>
+
+<!-- more -->
+
+
+<p>А так была следующая ошибка</p>
+
+<p>'''
+  % pip install Pillow --download-cache  distrib                                                                          !4048
+Downloading/unpacking Pillow
+  Running setup.py egg_info for package Pillow</p>
+
+<p>Installing collected packages: Pillow
+  Running setup.py install for Pillow</p>
+
+<pre><code>building 'PIL._imaging' extension
+gcc -pthread -fno-strict-aliasing -g -O2 -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -I/usr/include/freetype2 -IlibImaging -I/home/apalkov/PycharmProjects/dok4you/dok4you/include -I/usr/local/include -I/usr/include -I/usr/include/python2.7 -c _imaging.c -o build/temp.linux-x86_64-2.7/_imaging.o
+_imaging.c:76: fatal error: Python.h: Нет такого файла или каталога
+compilation terminated.
+error: command 'gcc' failed with exit status 1
+Complete output from command /home/apalkov/PycharmProjects/dok4you/dok4you/bin/python2.7 -c "import setuptools;__file__='/home/apalkov/PycharmProjects/dok4you/dok4you/build/Pillow/setup.py';exec(compile(open(__file__).read().replace('\r\n', '\n'), __file__, 'exec'))" install --record /tmp/pip-VPTaMy-record/install-record.txt --single-version-externally-managed --install-headers /home/apalkov/PycharmProjects/dok4you/dok4you/include/site/python2.7:
+running install
+</code></pre>
+
+<p>running build</p>
+
+<p>running build_py</p>
+
+<p>running egg_info</p>
+
+<p>writing Pillow.egg-info/PKG-INFO</p>
+
+<p>writing top-level names to Pillow.egg-info/top_level.txt</p>
+
+<p>writing dependency_links to Pillow.egg-info/dependency_links.txt</p>
+
+<p>warning: manifest_maker: standard file '-c' not found</p>
+
+<p>reading manifest file 'Pillow.egg-info/SOURCES.txt'</p>
+
+<p>reading manifest template 'MANIFEST.in'</p>
+
+<p>writing manifest file 'Pillow.egg-info/SOURCES.txt'</p>
+
+<p>running build_ext</p>
+
+<p>building 'PIL._imaging' extension</p>
+
+<p>gcc -pthread -fno-strict-aliasing -g -O2 -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -I/usr/include/freetype2 -IlibImaging -I/home/apalkov/PycharmProjects/dok4you/dok4you/include -I/usr/local/include -I/usr/include -I/usr/include/python2.7 -c <em>imaging.c -o build/temp.linux-x86_64-2.7/</em>imaging.o</p>
+
+<p>_imaging.c:76: fatal error: Python.h: Нет такого файла или каталога</p>
+
+<p>compilation terminated.</p>
+
+<p>error: command 'gcc' failed with exit status 1
+'''</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Установка mysql в virtualenv linux]]></title>

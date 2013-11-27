@@ -4,7 +4,7 @@
   <title><![CDATA[Ещё один блог]]></title>
   <link href="http://Anshik.github.com/atom.xml" rel="self"/>
   <link href="http://Anshik.github.com/"/>
-  <updated>2013-10-22T15:21:34+04:00</updated>
+  <updated>2013-11-27T15:25:38+04:00</updated>
   <id>http://Anshik.github.com/</id>
   <author>
     <name><![CDATA[Anshik]]></name>
@@ -12,6 +12,84 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[PIL virtualenv error _imaging.c:76]]></title>
+    <link href="http://Anshik.github.com/blog/2013/11/27/pil-virtualenv-error-imaging-dot-c-76/"/>
+    <updated>2013-11-27T15:18:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2013/11/27/pil-virtualenv-error-imaging-dot-c-76</id>
+    <content type="html"><![CDATA[<p>Очень кратко, долго искал решение такой проблемы. У меня несколько питонов установлено на Ubuntu 10.10.
+Для python2.6 установлены sudo apt-get install python-dev.<br/>
+А для второго, питона, который используется в virtualenv (python2.7) оно не было установлено.<br/>
+<em>Решение проблемы:</em></p>
+
+<p><code>sudo apt-get install python2.7-dev</code>
+А затем:
+Само собой вы не забыли сделать
+<code>source bin/activate</code></p>
+
+<p>pip install Pillow</p>
+
+<p>или</p>
+
+<p>pip install PIL</p>
+
+<!-- more -->
+
+
+<p>А так была следующая ошибка</p>
+
+<p>&#8221;&#8217;
+  % pip install Pillow &#8211;download-cache  distrib                                                                          !4048
+Downloading/unpacking Pillow
+  Running setup.py egg_info for package Pillow</p>
+
+<p>Installing collected packages: Pillow
+  Running setup.py install for Pillow</p>
+
+<pre><code>building 'PIL._imaging' extension
+gcc -pthread -fno-strict-aliasing -g -O2 -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -I/usr/include/freetype2 -IlibImaging -I/home/apalkov/PycharmProjects/dok4you/dok4you/include -I/usr/local/include -I/usr/include -I/usr/include/python2.7 -c _imaging.c -o build/temp.linux-x86_64-2.7/_imaging.o
+_imaging.c:76: fatal error: Python.h: Нет такого файла или каталога
+compilation terminated.
+error: command 'gcc' failed with exit status 1
+Complete output from command /home/apalkov/PycharmProjects/dok4you/dok4you/bin/python2.7 -c "import setuptools;__file__='/home/apalkov/PycharmProjects/dok4you/dok4you/build/Pillow/setup.py';exec(compile(open(__file__).read().replace('\r\n', '\n'), __file__, 'exec'))" install --record /tmp/pip-VPTaMy-record/install-record.txt --single-version-externally-managed --install-headers /home/apalkov/PycharmProjects/dok4you/dok4you/include/site/python2.7:
+running install
+</code></pre>
+
+<p>running build</p>
+
+<p>running build_py</p>
+
+<p>running egg_info</p>
+
+<p>writing Pillow.egg-info/PKG-INFO</p>
+
+<p>writing top-level names to Pillow.egg-info/top_level.txt</p>
+
+<p>writing dependency_links to Pillow.egg-info/dependency_links.txt</p>
+
+<p>warning: manifest_maker: standard file &#8216;-c&#8217; not found</p>
+
+<p>reading manifest file &#8216;Pillow.egg-info/SOURCES.txt&#8217;</p>
+
+<p>reading manifest template &#8216;MANIFEST.in&#8217;</p>
+
+<p>writing manifest file &#8216;Pillow.egg-info/SOURCES.txt&#8217;</p>
+
+<p>running build_ext</p>
+
+<p>building &#8216;PIL._imaging&#8217; extension</p>
+
+<p>gcc -pthread -fno-strict-aliasing -g -O2 -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -I/usr/include/freetype2 -IlibImaging -I/home/apalkov/PycharmProjects/dok4you/dok4you/include -I/usr/local/include -I/usr/include -I/usr/include/python2.7 -c <em>imaging.c -o build/temp.linux-x86_64-2.7/</em>imaging.o</p>
+
+<p>_imaging.c:76: fatal error: Python.h: Нет такого файла или каталога</p>
+
+<p>compilation terminated.</p>
+
+<p>error: command &#8216;gcc&#8217; failed with exit status 1
+&#8221;&#8217;</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Pygame инициализация, работа с прямоугольниками, прозрачностью]]></title>
@@ -1946,54 +2024,6 @@ source /usr/local/bin/virtualenvwrapper.sh</p>
  Однако, если вы захотите запустить сервер на стандартном порту 25, вам нужно будет использовать команду sudo, поскольку только пользователь с правами root может запускать сервисы на портах 1 — 1024. Они также известны как привилегированные порты.</p>
 
 <p>Есть ещё какие-то приложения, которые запускаешь, шлёшь туда отладочную почту.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Нарезка mp3 файлов Linux Ubuntu]]></title>
-    <link href="http://Anshik.github.com/blog/2012/05/29/nariezka-mp3-failov-linux-ubuntu/"/>
-    <updated>2012-05-29T15:26:00+04:00</updated>
-    <id>http://Anshik.github.com/blog/2012/05/29/nariezka-mp3-failov-linux-ubuntu</id>
-    <content type="html"><![CDATA[<p>У меня есть плеер <a href="http://www.cowonrussia.ru/?action=products&amp;mode=search&amp;category_id=6&amp;product_id=27">Cowon E2</a>, флеша в нём 2 Гига.<br/>
-<strong>Плюсы:</strong></p>
-
-<ul>
-<li>удобный</li>
-<li>не прихотливый</li>
-<li>заряжается от usb</li>
-<li>переходник usb втыкается в аудио jack</li>
-<li>навигация по папкам</li>
-</ul>
-
-
-<!-- more -->
-
-
-<p><strong>Минусы</strong>:</p>
-
-<ul>
-<li>кнопка включения можеть быть нажата случайно</li>
-<li>он симметричен, на ощупь не определишь где power, где переключение режимов</li>
-</ul>
-
-
-<p>Иногда нажатие не на ту кнопку может привести к переключению на следующий трек, а если ты слушаешь книгу или подкаст длинной в 2 часа, то перемотка не вариант, поэтому я использую нарезку фалов mp3.</p>
-
-<p>Я пользовался в Windows <strong>mp3cut</strong>, а перейдя на Ubuntu пришлось искать альтернативу.</p>
-
-<p>При использовании mp3cut написал для себя скриптик, который открывает файл, и нарезает его.</p>
-
-<p>В ubuntu всё проще <strong>mp3splt</strong></p>
-
-<p><code>mp3splt -t 3.0 -o @n_@f -d out file_name.mp3</code></p>
-
-<p><strong>Комментарий:</strong><br/>
- <code>-t</code> продолжительность кусочка<br/>
- <code>-o</code> название выходного файла, в данном случае @счётчик_@название файла<br/>
- <code>-d</code> название выходной директории<br/>
- <code>@f</code> оригинальное название файла
- <code>@n</code> цифры
-и файл входной.</p>
 ]]></content>
   </entry>
   
