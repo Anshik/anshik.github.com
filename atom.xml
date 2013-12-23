@@ -4,7 +4,7 @@
   <title><![CDATA[Ещё один блог]]></title>
   <link href="http://Anshik.github.com/atom.xml" rel="self"/>
   <link href="http://Anshik.github.com/"/>
-  <updated>2013-11-27T15:25:38+04:00</updated>
+  <updated>2013-12-23T09:49:16+04:00</updated>
   <id>http://Anshik.github.com/</id>
   <author>
     <name><![CDATA[Anshik]]></name>
@@ -12,6 +12,29 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Mail.ru cloud WebDav]]></title>
+    <link href="http://Anshik.github.com/blog/2013/12/23/mail-dot-ru-cloud-webdav/"/>
+    <updated>2013-12-23T09:39:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2013/12/23/mail-dot-ru-cloud-webdav</id>
+    <content type="html"><![CDATA[<p>У Mail.ru акция с 20 дек 2013 по 20 января 2014 можно установить их приложение на смартфон или десктоп и получить 1 Тб облачного хранилища бесплатно.</p>
+
+<!-- more -->
+
+
+<p><code>Когда будете логиниться в программе, указывайте логин полностью: bla-bla@mail.ru</code></p>
+
+<h2>Подключение по Web Dav в linux</h2>
+
+<p>В линуксе, запускаем Nautilus, или что вам нравится,<br/>
+<strong>Сервер:</strong> webdav.cloud.mail.ru<br/>
+<strong>Домашняя папка:</strong> /<br/>
+<strong>Логин</strong>: bla-bla@mail.ru</p>
+
+<p>И всё.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[PIL virtualenv error _imaging.c:76]]></title>
@@ -2004,26 +2027,6 @@ source /usr/local/bin/virtualenvwrapper.sh</p>
 <p><code>vim source/about/index.markdown</code></p>
 
 <p>Всё!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Отладка почтовых сообщений в django]]></title>
-    <link href="http://Anshik.github.com/blog/2012/05/29/otladka-pochtovykh-soobshchienii-v-django/"/>
-    <updated>2012-05-29T15:42:00+04:00</updated>
-    <id>http://Anshik.github.com/blog/2012/05/29/otladka-pochtovykh-soobshchienii-v-django</id>
-    <content type="html"><![CDATA[<p>python -m smtpd -n -c DebuggingServer localhost:25
-Эта одностроковая команда запускает сервер SMTP на порту 1025. Здесь используется стандартная библиотека smtpd для языка Python (задается при помощи -m smtpd) и передаются три аргумента: -n, -c DebuggingServer и localhost:1025.</p>
-
-<!-- more -->
-
-
-<p>Аргумент -n указывает Python-у не устанавливать для setuid (позволяет изменять пользователя) значение &#8220;nobody&#8221; — код будет работать под вашим пользователем.
-Аргумент -c DebuggingServer указывает Python-у использовать класс DebuggingServer в качестве реализации SMTP, которая печатает каждое получаемое сообщение в выходной поток stdout.
-Аргумент localhost:1025 указывает Python-у запускать SMTP сервер как locahost на порту1025.
- Однако, если вы захотите запустить сервер на стандартном порту 25, вам нужно будет использовать команду sudo, поскольку только пользователь с правами root может запускать сервисы на портах 1 — 1024. Они также известны как привилегированные порты.</p>
-
-<p>Есть ещё какие-то приложения, которые запускаешь, шлёшь туда отладочную почту.</p>
 ]]></content>
   </entry>
   

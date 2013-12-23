@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: WebDAV | Ещё один блог]]></title>
+  <title><![CDATA[Category: WebDav | Ещё один блог]]></title>
   <link href="http://Anshik.github.com/blog/categories/webdav/atom.xml" rel="self"/>
   <link href="http://Anshik.github.com/"/>
-  <updated>2013-11-27T15:25:38+04:00</updated>
+  <updated>2013-12-23T09:49:16+04:00</updated>
   <id>http://Anshik.github.com/</id>
   <author>
     <name><![CDATA[Anshik]]></name>
@@ -14,61 +14,25 @@
 
   
   <entry>
-    <title type="html"><![CDATA[WebDAV на примере Яндекс.Диск]]></title>
-    <link href="http://Anshik.github.com/blog/2012/11/12/webdav-na-primierie-iandieks-dot-disk/"/>
-    <updated>2012-11-12T10:52:00+04:00</updated>
-    <id>http://Anshik.github.com/blog/2012/11/12/webdav-na-primierie-iandieks-dot-disk</id>
-    <content type="html"><![CDATA[<h3>Первый вариант WebDAV в Linux и FreeBSD</h3>
-
-<p><a href="http://help.yandex.ru/disk/webdav/webdav-linux.xml">Тут</a> описано как подключать диск через Наутилус и Дельфин. Познавательно, но хочется большего.</p>
+    <title type="html"><![CDATA[Mail.ru cloud WebDav]]></title>
+    <link href="http://Anshik.github.com/blog/2013/12/23/mail-dot-ru-cloud-webdav/"/>
+    <updated>2013-12-23T09:39:00+04:00</updated>
+    <id>http://Anshik.github.com/blog/2013/12/23/mail-dot-ru-cloud-webdav</id>
+    <content type="html"><![CDATA[<p>У Mail.ru акция с 20 дек 2013 по 20 января 2014 можно установить их приложение на смартфон или десктоп и получить 1 Тб облачного хранилища бесплатно.</p>
 
 <!-- more -->
 
 
-<h3>Второй вариант davfs2</h3>
+<p><code>Когда будете логиниться в программе, указывайте логин полностью: bla-bla@mail.ru</code></p>
 
-<p>Устанавливаем пакет для работы с файловой системой WebDAV
-<code>bash
-sudo apt-get install davfs2
-</code></p>
+<h2>Подключение по Web Dav в linux</h2>
 
-<p><code>bash создаём точку монтирования и монтируем
-mkdir ~/YNDXDisk
-mount -t davfs https://webdav.yandex.ru ~/YNDXDisk
-</code>
-Вводим имя пользователя и пароль.</p>
+<p>В линуксе, запускаем Nautilus, или что вам нравится,<br/>
+<strong>Сервер:</strong> webdav.cloud.mail.ru<br/>
+<strong>Домашняя папка:</strong> /<br/>
+<strong>Логин</strong>: bla-bla@mail.ru</p>
 
-<h3>Третий вариант Cadaver</h3>
-
-<p>sudo apt-get install cadaver
-cadaver -t http://example.com/webdav/autopub/dir/you/want</p>
-
-<p>Вот пример <a href="http://robertmarkbramprogrammer.blogspot.ru/2010/09/using-webdav-and-cadaver-with-dotcms.html">скрипта</a>, правда не пробовал
-``` bash</p>
-
-<h1>! /bin/bash</h1>
-
-<h1>webDavTransfer.sh</h1>
-
-<p>if [ "$1" != "-d" ] ; then
-   echo Usage $0 -d dest-path files ...
-   echo Transfer files from current directory to dest-path in webDAV.
-   exit 2
-fi
-destPath=$2
-shift; shift</p>
-
-<p>cadaver -t &lt;&lt;EOF
-open http://example.com/webdav/autopub/base-path
-cd $destPath
-mput $@
-quit
-EOF
-```</p>
-
-<h3>Вывод</h3>
-
-<p>Мне оказолось удобнее иногда монтировать Яндекс.Диск и бэкапиться на него. Т.к. соединение с интернетом не стабильное.</p>
+<p>И всё.</p>
 ]]></content>
   </entry>
   
