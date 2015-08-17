@@ -1,0 +1,378 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Ещё один блог</title>
+    <meta name="description" content="">
+    <meta name="author" content="Anshik">
+
+    <link rel="stylesheet" href="/theme/css/foundation.css" />
+    <link rel="stylesheet" href="/theme/css/pygment/monokai.css" />
+    <link rel="stylesheet" href="/theme/css/custom.css" />
+
+    <link rel="stylesheet" href="/theme/css/magnific-popup.css" />
+
+
+    <script src="/theme/js/modernizr.js"></script>
+
+    <!-- Feeds -->
+
+
+    <!-- mathjax config similar to math.stackexchange -->
+    <script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+			jax: ["input/TeX", "output/HTML-CSS"],
+			tex2jax: {
+				inlineMath: [ ['$', '$'] ],
+				displayMath: [ ['$$', '$$']],
+				processEscapes: true,
+				skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+			},
+			messageStyle: "none",
+			"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+		});
+		</script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="off-canvas-wrap">
+    <div class="inner-wrap">
+        <!-- mobile top bar to activate nav -->
+        <nav class="tab-bar show-for-small">
+            <section class="left-small">
+                <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+            </section>
+
+            <section class="middle tab-bar-section">
+                <h1 class="title">Ещё&nbsp;один&nbsp;блог</h1>
+            </section>
+        </nav>
+
+        <!-- mobile side bar nav -->
+        <aside class="left-off-canvas-menu">
+            <ul class="off-canvas-list">
+                <li><a href="">Главная</a></li>
+                <li><label>Категории</label></li>
+                    <li class="active"><a href="/category/raznoe.html">разное</a></li>
+
+                <li><label>Ссылки</label></li>
+                    <li><a href="/pages/training_school.html">Подготовка к школе</a></li>
+
+
+
+                <li><label>Соц. сети</label></li>
+                    <li><a href="http://vk.com/mnogosala">Я Вконтакте</a></li>
+            </ul>
+        </aside>
+
+        <!-- top bar nav -->
+        <nav class="top-bar hide-for-small-only" data-topbar>
+            <ul class="title-area">
+                <li class="name">
+                    <h1><a href="/">Ещё один блог</a></h1>
+                </li>
+            </ul>
+
+            <section class="top-bar-section">
+                <ul class="right">
+                            <li><a href="/pages/about.html">Обо мне</a></li>
+                </ul>
+            </section>
+        </nav>
+
+        <!-- Main Page Content and Sidebar -->
+        <section class="main-section">
+            <div class="row">
+                <!-- Main Content -->
+                <div class="medium-9 small-12 columns" role="content">
+    <article>
+        <h2>Django-CMS установка и первичная настройка</h2>
+        <div class="entry-content">
+            <h3>Что такое Djang-CMS</h3>
+<p>Django-CMS &mdash; это система управления контентом, написанная на Python, с использованием фреймворка Django. Она гибкая, настраиваемая, для неё создано много модулей. Помимо этого можно добавлять свои модули.</p>
+<h3>Установка</h3>
+<ol>
+<li>Сделаем новый <a href="/blog/2012/06/05/ispolzovaniie-virtualenv-python">virtualenv</a></li>
+</ol>
+<p>``` bash Запустите в шеле следующие комманды
+sudo aptitude install python2.6 python-setuptools python-imaging
+sudo easy_install pip
+sudo pip install django==1.3.1 django-cms south
+django-admin.py startproject mycmsproject
+cd mycmsproject
+rm settings.py
+rm urls.py
+wget https://gist.github.com/raw/1125918/settings.py
+wget https://gist.github.com/raw/1125918/urls.py
+mkdir templates
+cd templates
+wget https://gist.github.com/raw/1125918/example.html
+cd ..
+python manage.py syncdb --all
+python manage.py migrate --fake
+python manage.py runserver</p>
+<div class="highlight"><pre>### Настройка одного языка для django-cms 2.4.1
+Так чтобы небыло префикса &#39;ru&#39; в урлах
+В файл settings.py
+
+``` python
+CMS_LANGUAGES = {
+    1: [
+        {
+            &#39;code&#39;: &#39;ru&#39;,
+            &#39;name&#39;: gettext(&#39;Russian&#39;),
+            # &#39;fallbacks&#39;: [],
+            &#39;public&#39;: True,
+            &#39;hide_untranslated&#39;: True,
+            &#39;redirect_on_fallback&#39;:False,
+        },
+        ],
+        &#39;default&#39;: {
+        &#39;fallbacks&#39;: [&#39;ru&#39;],
+        &#39;redirect_on_fallback&#39;:True,
+        &#39;public&#39;: False,
+        &#39;hide_untranslated&#39;: False,
+    }
+}
+
+DEFAULT_LANGUAGE = 0
+LANGUAGE_CODE = &#39;ru-RU&#39;
+USE_I18N = True
+USE_L10N = True
+</pre></div>
+
+
+<h3>Повторение place_holder элементов на всех страницах</h3>
+<p>Часто требуется повторение элементов с главной страницы на всех страницах
+Для этого нужно в <strong>расширенных свойствах</strong> страницы указать id страницы <code>index</code> (к примеру)
+И написать что-то вроде этого: {\% show_placeholder "teaser_right_bottom" "index" \%}</p>
+<h3>Новостной плагин для django-cms</h3>
+<p><code>hg clone ssh://hg@bitbucket.org/zerok/cmsplugin-news</code>  </p>
+<p>Эти новости хорошие, только подправить navigation.py</p>
+<div class="highlight"><pre><span class="c">#from cms.utils.navigation import NavigationNode</span>
+<span class="kn">from</span> <span class="nn">menus.base</span> <span class="kn">import</span> <span class="n">NavigationNode</span>
+</pre></div>
+
+
+<p>Дальше кастомизировать шаблоны, предварительно скопировав их в папку templates проекта. Возможно вся кастомизация будет заключаться в прописвании {\% extends "base.html" \%} в начало каждого шаблона новостей.</p>
+<p>Ещё для использования sqlite
+<code>easy_install pysqlite</code></p>
+<p>Для моего проекта используются следующие модули, сделано командой pip freeze:</p>
+<div class="highlight"><pre>../../bin/pip freeze
+<span class="nv">Django</span><span class="o">==</span>1.3.1
+<span class="nv">PIL</span><span class="o">==</span>1.1.7
+<span class="nv">South</span><span class="o">==</span>0.7.3
+cmsplugin-contact<span class="o">==</span>0.9.8
+cmsplugin-filer<span class="o">==</span>0.8.0
+cmsplugin-filer-gallery<span class="o">==</span>1.0.1.pre-alpha
+cmsplugin-news<span class="o">==</span>0.3b
+django-appmedia<span class="o">==</span>1.0.1
+django-categories<span class="o">==</span>0.8.5
+django-classy-tags<span class="o">==</span>0.3.4.1
+django-cms<span class="o">==</span>2.2
+django-filer<span class="o">==</span>0.8.5
+django-filer-gallery<span class="o">==</span>1.0.pre-alpha
+django-mptt<span class="o">==</span>0.4.2
+django-polymorphic<span class="o">==</span>0.4.2
+django-sekizai<span class="o">==</span>0.5
+easy-thumbnails<span class="o">==</span>1.0-alpha-20
+<span class="nv">html5lib</span><span class="o">==</span>0.90
+<span class="nv">wsgiref</span><span class="o">==</span>0.1.2
+</pre></div>
+
+
+<p>Если есть уже работающий на сервере проект, а его нужно запустить локально, то создаем виртуальную питоновскую среду, и кропотливо устанавливаем все зависимости. Иначе выйдет боком.</p>
+<h3>Использование Bootstrap</h3>
+<p>Я скачиваю с <a href="https://github.com/twitter/bootstrap">гитхаб</a> zip архив bootstrap. Затем кладу в папку статических файлов папки из master-bootstrap: img, js, less</p>
+<p>В папке less создаю файл style.less примерно такого содержания:</p>
+<div class="highlight"><pre><span class="k">@inputHeight</span><span class="o">:</span> <span class="nt">10px</span><span class="p">;</span>
+
+
+<span class="k">@import</span> <span class="s1">&#39;mixins.less&#39;</span><span class="p">;</span>
+
+
+<span class="nt">header</span> <span class="p">{</span>
+  <span class="k">color</span><span class="o">:</span> <span class="m">#000000</span><span class="p">;</span>
+  <span class="o">//</span> <span class="k">background-color</span><span class="o">:</span> <span class="m">#666666</span><span class="p">;</span>
+  <span class="o">//</span> <span class="m">#gradie</span><span class="n">nt</span> <span class="o">&gt;</span> <span class="o">.</span><span class="n">vertical</span><span class="p">(</span><span class="m">#D695B3</span><span class="o">,</span> <span class="m">#666666</span><span class="p">);</span>
+
+  <span class="o">//</span> <span class="k">background-image</span><span class="o">:</span> <span class="sx">url(../img/maket_03.png)</span><span class="p">;</span>
+  <span class="o">//</span> <span class="k">background-repeat</span><span class="o">:</span> <span class="k">no-repeat</span><span class="p">;</span>
+  <span class="o">//</span> <span class="k">background-position</span><span class="o">:</span> <span class="k">center</span><span class="p">;</span>
+
+  <span class="p">}</span>
+<span class="nt">body</span><span class="p">{</span>
+    <span class="k">background-color</span><span class="o">:</span> <span class="m">#666666</span><span class="p">;</span>
+    <span class="k">color</span><span class="o">:</span> <span class="m">#FEFCFD</span><span class="p">;</span>
+    <span class="k">height</span><span class="o">:</span> <span class="m">100%</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.my_nav_bar</span><span class="p">{</span>
+  <span class="k">font</span><span class="o">:</span> <span class="k">bold</span> <span class="m">16px</span> <span class="n">Arial</span><span class="p">;</span>
+
+
+<span class="p">}</span>
+
+<span class="nt">article</span><span class="p">{</span>
+  <span class="k">line-height</span><span class="o">:</span> <span class="m">25px</span><span class="p">;</span>
+  <span class="k">background</span><span class="o">:</span> <span class="sx">url(../img/stroke.jpg)</span> <span class="m">100%</span> <span class="m">50%</span> <span class="k">repeat-y</span> <span class="k">transparent</span><span class="p">;</span>
+  <span class="n">p</span><span class="err">{</span>
+    <span class="k">margin-bottom</span><span class="o">:</span> <span class="m">30px</span><span class="p">;</span>
+    <span class="k">margin-right</span><span class="o">:</span> <span class="m">40px</span><span class="p">;</span>
+    <span class="k">padding-right</span><span class="o">:</span> <span class="m">10px</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="err">}</span>
+
+<span class="nc">.my_grad</span><span class="p">{</span>
+  <span class="k">background-color</span><span class="o">:</span> <span class="m">#666666</span><span class="p">;</span>
+  <span class="m">#gradie</span><span class="n">nt</span> <span class="o">&gt;</span> <span class="o">.</span><span class="n">vertical</span><span class="p">(</span><span class="m">#D695B3</span><span class="o">,</span> <span class="m">#666666</span><span class="p">);</span>    
+<span class="p">}</span>
+
+<span class="nf">#myhr</span> <span class="p">{</span>
+    <span class="k">border-bottom</span><span class="o">:</span> <span class="m">2px</span> <span class="k">solid</span> <span class="m">#D594B2</span><span class="p">;</span>
+    <span class="k">padding-bottom</span><span class="o">:</span> <span class="m">10px</span><span class="p">;</span>
+    <span class="k">margin-bottom</span><span class="o">:</span> <span class="m">15px</span><span class="p">;</span>
+
+<span class="p">}</span>
+
+<span class="nc">.footer_cups</span><span class="p">{</span>
+  <span class="k">background-image</span><span class="o">:</span> <span class="sx">url(../img/bcups.jpg)</span><span class="p">;</span>
+  <span class="k">background-repeat</span><span class="o">:</span> <span class="k">no-repeat</span><span class="p">;</span>
+  <span class="k">background-position</span><span class="o">:</span> <span class="k">right</span><span class="p">;</span>
+  <span class="k">height</span><span class="o">:</span> <span class="m">100px</span><span class="p">;</span>
+  <span class="n">a</span> <span class="err">{</span>
+      <span class="k">color</span><span class="o">:</span> <span class="m">#FEFCFD</span><span class="p">;</span>
+      <span class="k">text-decoration</span><span class="o">:</span> <span class="k">underline</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="nt">a</span><span class="nd">:hover</span> <span class="p">{</span>
+    <span class="k">color</span><span class="o">:</span> <span class="m">#000</span><span class="p">;</span>
+  <span class="p">}</span>
+
+<span class="err">}</span>
+
+<span class="nc">.thumbnails</span> <span class="p">{</span>
+    <span class="k">text-align</span><span class="o">:</span><span class="k">center</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nc">.thumbnails</span> <span class="o">&gt;</span> <span class="nt">li</span> <span class="p">{</span>
+    <span class="k">display</span><span class="o">:</span> <span class="k">inline</span><span class="o">-</span><span class="k">block</span><span class="p">;</span>
+    <span class="o">*</span><span class="k">display</span><span class="o">:</span><span class="k">inline</span><span class="p">;</span> <span class="c">/* ie7 fix */</span>
+    <span class="k">float</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span> <span class="c">/* this is the part that makes it work */</span>
+<span class="p">}</span>
+
+<span class="o">//</span><span class="nt">CUSTOM</span>
+<span class="nc">.offers</span> <span class="nt">img</span><span class="p">{</span>
+  <span class="k">margin</span><span class="o">:</span> <span class="m">10px</span><span class="p">;</span>
+
+<span class="p">}</span>
+
+<span class="nt">aside</span> <span class="nt">img</span><span class="p">{</span>
+  <span class="k">margin</span><span class="o">:</span> <span class="m">10px</span><span class="p">;</span>
+
+<span class="p">}</span>
+
+<span class="nc">.plugin_yandexmap</span> <span class="nt">img</span><span class="p">{</span>
+ <span class="k">max-width</span><span class="o">:</span> <span class="k">none</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Дальше компилирую его командой, то как это настраивается можно почитать <a href="http://bootstrap.lesscss.ru/less.html">тут</a>.
+<code>lessc style.less style.css</code>
+И соответственно в шаблоне уже ссылаемся на новый style.css</p>
+<p>Ещё с главной страницы bootstrap качаем скомпилированный bootstrap.zip, копируем файлы в соответствующие папки</p>
+        </div><!-- /.entry-content -->
+        <hr/>
+
+    </article>
+
+    <h6><a href="/pages/about.html">Anshik</a> в <a href="/category/raznoe.html">разное</a>  Пт. 08 Июнь 2012.</h6>
+
+    <hr/>
+                </div>
+                <!-- End Main Content -->
+                <!-- Sidebar -->
+                <aside class="medium-3 hide-for-small-only columns">
+
+
+
+                    <div class="panel">
+                        <h5>Социальные сети</h5>
+                        <ul class="side-nav">
+                                <li><a href="http://vk.com/mnogosala">Я Вконтакте</a></li>
+                        </ul>
+                    </div>
+                </aside>
+                <!-- End Sidebar -->
+            </div>
+
+            <!-- Footer -->
+            <footer class="row">
+                <div class="medium-9 small-12">
+                    <hr/>
+                    <p class="text-center">&copy; Anshik 2012-2015</p>
+                </div>
+            </footer>
+            <!-- End Footer -->
+        </section>
+        <a class="exit-off-canvas"></a>
+    </div><!--off-canvas inner-->
+</div><!--off-canvas wrap-->
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="/theme/js/foundation.min.js"></script>
+<script>
+    $(document).foundation();
+</script>
+
+<script src="/theme/js/jquery.magnific-popup.min.js"></script>
+<script>
+    $('.gallery').magnificPopup({
+        delegate: 'a',
+        type: 'image',
+        gallery: {
+            enabled: true,
+            navigateByImgClick: true,
+            preload: [1,2]
+        },
+        image: {
+            titleSrc: function(item) {
+                if (item.el.attr('caption') && item.el.attr('exif')) {
+                    return (item.el.attr('caption').replace(/\\n/g, '<br />') +
+                    '<small>' + item.el.attr('title') + ' - ' + item.el.attr('exif') + '</small>');
+                }
+                return item.el.attr('title') + '<small>' + item.el.attr('exif') + '</small>';
+            } }
+    });
+</script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter30550117 = new Ya.Metrika({id:30550117,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="//mc.yandex.ru/watch/30550117" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</body>
+</html>

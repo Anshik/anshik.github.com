@@ -1,494 +1,278 @@
-
-<!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<!doctype html>
+<html class="no-js" lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>WYMeditor Django-cms попробуй забори - Ещё один блог</title>
-  <meta name="author" content="Anshik">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  
-  <meta name="description" content="WYMeditor Django-cms как настроить так, чтобы работало.">
-  <meta name="keywords" content="Django, Django-cms, WYMeditor">
+    <title>Ещё один блог</title>
+    <meta name="description" content="">
+    <meta name="author" content="Anshik">
 
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/theme/css/foundation.css" />
+    <link rel="stylesheet" href="/theme/css/pygment/monokai.css" />
+    <link rel="stylesheet" href="/theme/css/custom.css" />
 
-  
-  <link rel="canonical" href="http://Anshik.github.com/blog/2012/05/29/wymeditor-django-cms-poprobui-zabori">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="/javascripts/ender.js"></script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <link href="/atom.xml" rel="alternate" title="Ещё один блог" type="application/atom+xml">
-  <meta name='yandex-verification' content='6339aed3f1c3b095' />
+    <link rel="stylesheet" href="/theme/css/magnific-popup.css" />
 
-  <!--[if lt IE 9]><script type="text/javascript" src="excanvas.js"></script><![endif]-->
-<script src="/javascripts/tagcanvas.min.js" type="text/javascript"></script>
-<script type="text/javascript">
-  window.onload = function() {
-  try {
-    TagCanvas.Start('myCanvas','tags',{
-    textColour: '#222226',
-    outlineColour: '#ff00ff',
-    reverse: true,
-    depth: 0.5,
-    maxSpeed: 0.03,
-    textHeight: 25,
-    minBrightness: 0.5
-    });
-  } catch(e) {
-  // something went wrong, hide the canvas container
-    document.getElementById('myCanvasContainer').style.display = 'none';
-    }
-  };
-</script>
-  
 
+    <script src="/theme/js/modernizr.js"></script>
+
+    <!-- Feeds -->
+
+
+    <!-- mathjax config similar to math.stackexchange -->
+    <script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+			jax: ["input/TeX", "output/HTML-CSS"],
+			tex2jax: {
+				inlineMath: [ ['$', '$'] ],
+				displayMath: [ ['$$', '$$']],
+				processEscapes: true,
+				skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+			},
+			messageStyle: "none",
+			"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+		});
+		</script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </head>
+<body>
+<div class="off-canvas-wrap">
+    <div class="inner-wrap">
+        <!-- mobile top bar to activate nav -->
+        <nav class="tab-bar show-for-small">
+            <section class="left-small">
+                <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+            </section>
 
-<body   >
-  <header role="banner"><hgroup>
-  <h1><a href="/">Ещё один блог</a></h1>
-  
-    <h2>A blogging framework for hackers or geeks.</h2>
-  
-</hgroup>
+            <section class="middle tab-bar-section">
+                <h1 class="title">Ещё&nbsp;один&nbsp;блог</h1>
+            </section>
+        </nav>
 
-</header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<form action="http://google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="q" value="site:Anshik.github.com" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<ul class="main-navigation">
-  <li><a href="/">Блог</a></li>
-  <li><a href="/blog/archives">Архив</a></li>
-  <li><a href="/about">Обо мне</a></li>
-</ul>
+        <!-- mobile side bar nav -->
+        <aside class="left-off-canvas-menu">
+            <ul class="off-canvas-list">
+                <li><a href="">Главная</a></li>
+                <li><label>Категории</label></li>
+                    <li class="active"><a href="/category/raznoe.html">разное</a></li>
 
-</nav>
-  <div id="main">
-    <div id="content">
-      <div>
-<article class="hentry" role="article">
-  
-  <header>
-    
-      <h1 class="entry-title">WYMeditor Django-cms попробуй забори</h1>
-    
-    
-      <p class="meta">
-        
+                <li><label>Ссылки</label></li>
+                    <li><a href="/pages/training_school.html">Подготовка к школе</a></li>
 
 
 
+                <li><label>Соц. сети</label></li>
+                    <li><a href="http://vk.com/mnogosala">Я Вконтакте</a></li>
+            </ul>
+        </aside>
 
+        <!-- top bar nav -->
+        <nav class="top-bar hide-for-small-only" data-topbar>
+            <ul class="title-area">
+                <li class="name">
+                    <h1><a href="/">Ещё один блог</a></h1>
+                </li>
+            </ul>
 
+            <section class="top-bar-section">
+                <ul class="right">
+                            <li><a href="/pages/about.html">Обо мне</a></li>
+                </ul>
+            </section>
+        </nav>
 
-
-
-  
-
-
-<time datetime="2012-05-29T14:48:00+04:00" pubdate data-updated="true">May 29<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-<div class="entry-content"><h3>В общем сабж</h3>
-
+        <!-- Main Page Content and Sidebar -->
+        <section class="main-section">
+            <div class="row">
+                <!-- Main Content -->
+                <div class="medium-9 small-12 columns" role="content">
+    <article>
+        <h2>WYMeditor Django-cms попробуй забори</h2>
+        <div class="entry-content">
+            <h3>В общем сабж</h3>
 <p>В интернете нашёл только краткий пост <a href="http://markeev.labwr.ru/2010/02/django-cms-wymeditor.html">Ивана Маркеева</a></p>
-
-<p>Я не прочитал внимательно строчку:<br/>
-Приведенные <strong>WYM_STYLES</strong> определяют то, как контент будет выглядеть в редакторе.
-То есть просто как он будет выглядеть <strong>в редакторе</strong> :) В окошке редактирования</p>
-
+<p>Я не прочитал внимательно строчку:<br />
+Приведенные <strong>WYM_STYLES</strong> определяют то, как контент будет выглядеть в редакторе. 
+То есть просто как он будет выглядеть <strong>в редакторе</strong> :) В окошке редактирования
 <!-- more -->
-
-
-<ol>
-<li>Для кастомизации <strong>WYMeditora</strong> в рамках <strong>Django-cms</strong> следует изменить свой файл настроек django проекта <strong>settings.py</strong>
-дописав в него примерно следующее:</li>
-</ol>
-
-
-<figure class='code'><figcaption><span>Это нужно добавить в settings.py</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-<span class='line-number'>53</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c">#WYMEditor</span>
-</span><span class='line'><span class="n">WYM_TOOLS</span> <span class="o">=</span> <span class="s">&quot;,</span><span class="se">\n</span><span class="s">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span>
-</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;Bold&#39;, &#39;title&#39;: &#39;Strong&#39;, &#39;css&#39;: &#39;wym_tools_strong&#39;}&quot;</span><span class="p">,</span>
-</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;Italic&#39;, &#39;title&#39;: &#39;Emphasis&#39;, &#39;css&#39;: &#39;wym_tools_emphasis&#39;}&quot;</span><span class="p">,</span>
-</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;Superscript&#39;, &#39;title&#39;: &#39;Superscript&#39;, &#39;css&#39;: &#39;wym_tools_superscript&#39;}&quot;</span><span class="p">,</span>
-</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;Subscript&#39;, &#39;title&#39;: &#39;Subscript&#39;, &#39;css&#39;: &#39;wym_tools_subscript&#39;}&quot;</span><span class="p">,</span>
-</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;InsertOrderedList&#39;, &#39;title&#39;: &#39;Ordered_List&#39;, &#39;css&#39;: &#39;wym_tools_ordered_list&#39;}&quot;</span><span class="p">,</span>
-</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;InsertUnorderedList&#39;, &#39;title&#39;: &#39;Unordered_List&#39;, &#39;css&#39;: &#39;wym_tools_unordered_list&#39;}&quot;</span><span class="p">,</span>
-</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;Indent&#39;, &#39;title&#39;: &#39;Indent&#39;, &#39;css&#39;: &#39;wym_tools_indent&#39;}&quot;</span><span class="p">,</span>
-</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;Outdent&#39;, &#39;title&#39;: &#39;Outdent&#39;, &#39;css&#39;: &#39;wym_tools_outdent&#39;}&quot;</span><span class="p">,</span>
-</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;Undo&#39;, &#39;title&#39;: &#39;Undo&#39;, &#39;css&#39;: &#39;wym_tools_undo&#39;}&quot;</span><span class="p">,</span>
-</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;Redo&#39;, &#39;title&#39;: &#39;Redo&#39;, &#39;css&#39;: &#39;wym_tools_redo&#39;}&quot;</span><span class="p">,</span>
-</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;Paste&#39;, &#39;title&#39;: &#39;Paste_From_Word&#39;, &#39;css&#39;: &#39;wym_tools_paste&#39;}&quot;</span><span class="p">,</span>
-</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;ToggleHtml&#39;, &#39;title&#39;: &#39;HTML&#39;, &#39;css&#39;: &#39;wym_tools_html&#39;}&quot;</span><span class="p">,</span>
-</span><span class='line'> <span class="c">#&quot;{&#39;name&#39;: &#39;CreateLink&#39;, &#39;title&#39;: &#39;Link&#39;, &#39;css&#39;: &#39;wym_tools_link&#39;}&quot;,</span>
-</span><span class='line'> <span class="c">#&quot;{&#39;name&#39;: &#39;Unlink&#39;, &#39;title&#39;: &#39;Unlink&#39;, &#39;css&#39;: &#39;wym_tools_unlink&#39;}&quot;,</span>
-</span><span class='line'> <span class="c">#&quot;{&#39;name&#39;: &#39;InsertImage&#39;, &#39;title&#39;: &#39;Image&#39;, &#39;css&#39;: &#39;wym_tools_image&#39;}&quot;,</span>
-</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;InsertTable&#39;, &#39;title&#39;: &#39;Table&#39;, &#39;css&#39;: &#39;wym_tools_table&#39;}&quot;</span><span class="p">,</span>
-</span><span class='line'> <span class="c">#&quot;{&#39;name&#39;: &#39;Preview&#39;, &#39;title&#39;: &#39;Preview&#39;, &#39;css&#39;: &#39;wym_tools_preview&#39;}&quot;,</span>
-</span><span class='line'><span class="p">])</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">WYM_CONTAINERS</span> <span class="o">=</span> <span class="s">&quot;,</span><span class="se">\n</span><span class="s">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span>
-</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;P&#39;, &#39;title&#39;: &#39;Paragraph&#39;, &#39;css&#39;: &#39;wym_containers_p&#39;}&quot;</span><span class="p">,</span>
-</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;H1&#39;, &#39;title&#39;: &#39;Heading_1&#39;, &#39;css&#39;: &#39;wym_containers_h1&#39;}&quot;</span><span class="p">,</span>
-</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;H2&#39;, &#39;title&#39;: &#39;Heading_2&#39;, &#39;css&#39;: &#39;wym_containers_h2&#39;}&quot;</span><span class="p">,</span>
-</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;H3&#39;, &#39;title&#39;: &#39;Heading_3&#39;, &#39;css&#39;: &#39;wym_containers_h3&#39;}&quot;</span><span class="p">,</span>
-</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;H4&#39;, &#39;title&#39;: &#39;Heading_4&#39;, &#39;css&#39;: &#39;wym_containers_h4&#39;}&quot;</span><span class="p">,</span>
-</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;H5&#39;, &#39;title&#39;: &#39;Heading_5&#39;, &#39;css&#39;: &#39;wym_containers_h5&#39;}&quot;</span><span class="p">,</span>
-</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;H6&#39;, &#39;title&#39;: &#39;Heading_6&#39;, &#39;css&#39;: &#39;wym_containers_h6&#39;}&quot;</span><span class="p">,</span>
-</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;PRE&#39;, &#39;title&#39;: &#39;Preformatted&#39;, &#39;css&#39;: &#39;wym_containers_pre&#39;}&quot;</span><span class="p">,</span>
-</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;BLOCKQUOTE&#39;, &#39;title&#39;: &#39;Blockquote&#39;, &#39;css&#39;: &#39;wym_containers_blockquote&#39;}&quot;</span><span class="p">,</span>
-</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;TH&#39;, &#39;title&#39;: &#39;Table_Header&#39;, &#39;css&#39;: &#39;wym_containers_th&#39;}&quot;</span><span class="p">,</span>
-</span><span class='line'><span class="p">])</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">WYM_CLASSES</span> <span class="o">=</span> <span class="s">&quot;,</span><span class="se">\n</span><span class="s">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span>
-</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;date&#39;, &#39;title&#39;: &#39;PARA: Date&#39;, &#39;expr&#39;: &#39;p&#39;}&quot;</span><span class="p">,</span>
-</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;hidden-note&#39;, &#39;title&#39;: &#39;PARA: Hidden note&#39;, &#39;expr&#39;: &#39;p[@class!=</span><span class="se">\&quot;</span><span class="s">important</span><span class="se">\&quot;</span><span class="s">]&#39;}&quot;</span><span class="p">,</span>
-</span><span class='line'>
-</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;center&#39;, &#39;title&#39;: &#39;PARA: Center&#39;, &#39;expr&#39;: &#39;p&#39;}&quot;</span><span class="p">,</span>
-</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;contentheading&#39;, &#39;title&#39;: &#39;PARA: Center&#39;, &#39;expr&#39;: &#39;p, h1&#39;}&quot;</span><span class="p">,</span>
-</span><span class='line'>
-</span><span class='line'>
-</span><span class='line'><span class="p">])</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">WYM_STYLES</span> <span class="o">=</span> <span class="s">&quot;,</span><span class="se">\n</span><span class="s">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span>
-</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;.hidden-note&#39;, &#39;css&#39;: &#39;color: #999; border: 2px solid #ccc;&#39;}&quot;</span><span class="p">,</span>
-</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;.date&#39;, &#39;css&#39;: &#39;background-color: #ff9; border: 2px solid #ee9;&#39;}&quot;</span><span class="p">,</span>
-</span><span class='line'>
-</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;.center&#39;, &#39;css&#39;: &#39;border: 20px solid #9acd32; text-align:center;&#39;}&quot;</span><span class="p">,</span>
-</span><span class='line'> <span class="s">&quot;{&#39;name&#39;: &#39;.contentheading&#39;, &#39;css&#39;: &#39;border: 5px solid #9acd32;&#39;}&quot;</span><span class="p">,</span>
-</span><span class='line'>
-</span><span class='line'>
-</span><span class='line'><span class="p">])</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
+1. Для кастомизации <strong>WYMeditora</strong> в рамках <strong>Django-cms</strong> следует изменить свой файл настроек django проекта <strong>settings.py</strong>
+дописав в него примерно следующее:</p>
+<p>``` python Это нужно добавить в settings.py</p>
+<h1>WYMEditor</h1>
+<p>WYM_TOOLS = ",\n".join([
+ "{'name': 'Bold', 'title': 'Strong', 'css': 'wym_tools_strong'}",
+ "{'name': 'Italic', 'title': 'Emphasis', 'css': 'wym_tools_emphasis'}",
+ "{'name': 'Superscript', 'title': 'Superscript', 'css': 'wym_tools_superscript'}",
+ "{'name': 'Subscript', 'title': 'Subscript', 'css': 'wym_tools_subscript'}",
+ "{'name': 'InsertOrderedList', 'title': 'Ordered_List', 'css': 'wym_tools_ordered_list'}",
+ "{'name': 'InsertUnorderedList', 'title': 'Unordered_List', 'css': 'wym_tools_unordered_list'}",
+ "{'name': 'Indent', 'title': 'Indent', 'css': 'wym_tools_indent'}",
+ "{'name': 'Outdent', 'title': 'Outdent', 'css': 'wym_tools_outdent'}",
+ "{'name': 'Undo', 'title': 'Undo', 'css': 'wym_tools_undo'}",
+ "{'name': 'Redo', 'title': 'Redo', 'css': 'wym_tools_redo'}",
+ "{'name': 'Paste', 'title': 'Paste_From_Word', 'css': 'wym_tools_paste'}",
+ "{'name': 'ToggleHtml', 'title': 'HTML', 'css': 'wym_tools_html'}",
+ #"{'name': 'CreateLink', 'title': 'Link', 'css': 'wym_tools_link'}",
+ #"{'name': 'Unlink', 'title': 'Unlink', 'css': 'wym_tools_unlink'}",
+ #"{'name': 'InsertImage', 'title': 'Image', 'css': 'wym_tools_image'}",
+ "{'name': 'InsertTable', 'title': 'Table', 'css': 'wym_tools_table'}",
+ #"{'name': 'Preview', 'title': 'Preview', 'css': 'wym_tools_preview'}",
+])</p>
+<p>WYM_CONTAINERS = ",\n".join([
+ "{'name': 'P', 'title': 'Paragraph', 'css': 'wym_containers_p'}",
+ "{'name': 'H1', 'title': 'Heading_1', 'css': 'wym_containers_h1'}",
+ "{'name': 'H2', 'title': 'Heading_2', 'css': 'wym_containers_h2'}",
+ "{'name': 'H3', 'title': 'Heading_3', 'css': 'wym_containers_h3'}",
+ "{'name': 'H4', 'title': 'Heading_4', 'css': 'wym_containers_h4'}",
+ "{'name': 'H5', 'title': 'Heading_5', 'css': 'wym_containers_h5'}",
+ "{'name': 'H6', 'title': 'Heading_6', 'css': 'wym_containers_h6'}",
+ "{'name': 'PRE', 'title': 'Preformatted', 'css': 'wym_containers_pre'}",
+ "{'name': 'BLOCKQUOTE', 'title': 'Blockquote', 'css': 'wym_containers_blockquote'}",
+ "{'name': 'TH', 'title': 'Table_Header', 'css': 'wym_containers_th'}",
+])</p>
+<p>WYM_CLASSES = ",\n".join([
+ "{'name': 'date', 'title': 'PARA: Date', 'expr': 'p'}",
+ "{'name': 'hidden-note', 'title': 'PARA: Hidden note', 'expr': 'p[@class!=\"important\"]'}",</p>
+<p>"{'name': 'center', 'title': 'PARA: Center', 'expr': 'p'}",
+ "{'name': 'contentheading', 'title': 'PARA: Center', 'expr': 'p, h1'}",</p>
+<p>])</p>
+<p>WYM_STYLES = ",\n".join([
+ "{'name': '.hidden-note', 'css': 'color: #999; border: 2px solid #ccc;'}",
+ "{'name': '.date', 'css': 'background-color: #ff9; border: 2px solid #ee9;'}",</p>
+<p>"{'name': '.center', 'css': 'border: 20px solid #9acd32; text-align:center;'}",
+ "{'name': '.contentheading', 'css': 'border: 5px solid #9acd32;'}",</p>
+<p>])
+```</p>
 <h3>Многие спросят чего так много?!</h3>
-
 <p>Это скопированно из стандартных настроек редактора
 <strong>/usr/local/lib/python2.6/dist-packages/django_cms-2.2-py2.6.egg/cms/plugins/text/settings.py</strong>
-Там читаем в начале коммент, для тех кто хочет подключить другой редактор, я не стал и дальше из того что скопировал в свой файл настроек django, поудалял строки такого вида:<br/>
-<strong>WYM_TOOLS = getattr(settings, &#8220;WYM_TOOLS&#8221;, WYM_TOOLS)</strong><br/>
+Там читаем в начале коммент, для тех кто хочет подключить другой редактор, я не стал и дальше из того что скопировал в свой файл настроек django, поудалял строки такого вида:<br />
+<strong>WYM_TOOLS = getattr(settings, "WYM_TOOLS", WYM_TOOLS)</strong><br />
 этой строкой он лезет в наш settings.py проекта и достаёт то что мы кастомизируем. Можно кастомизировать не всё,
 а только то, что нужно.</p>
-
 <h3>Теперь по делу</h3>
-
 <ol>
-<li><p>WYM_TOOLS - это то что мы хотим видеть из кнопок настройки, или утилит, к примеру я для себя раскоментировал &#8220;{&#8216;name&#8217;: &#8216;InsertTable&#8217;, &#8216;title&#8217;: &#8216;Table&#8217;, &#8216;css&#8217;: &#8216;wym_tools_table&#8217;}&#8221;,
-Чтобы появилась возможность добавлять таблицы</p></li>
-<li><p>WYM_CONTAINERS это, как следует из названия контейнеры. :)
-Как получилось у меня: для того чтобы применить свойство контейнера для этого нужно было изначально заключить кусок текста в контейнер. Не понятно?</p></li>
+<li>
+<p>WYM_TOOLS - это то что мы хотим видеть из кнопок настройки, или утилит, к примеру я для себя раскоментировал "{'name': 'InsertTable', 'title': 'Table', 'css': 'wym_tools_table'}",
+Чтобы появилась возможность добавлять таблицы</p>
+</li>
+<li>
+<p>WYM_CONTAINERS это, как следует из названия контейнеры. :)
+Как получилось у меня: для того чтобы применить свойство контейнера для этого нужно было изначально заключить кусок текста в контейнер. Не понятно?</p>
+</li>
 </ol>
-
-
-<blockquote><p>При добавлении контента может случиться так, что вы добавите контент без тега, в смысле, что он не будет заключён в тег параграфа. Тогда вы не сможете применить свойство контейнера.
-Так что перед добавлением сначала нажмите пару раз Enter для появления в визуальном просмотре пары контейнеров <p></p></blockquote>
-
+<blockquote>
+<p>При добавлении контента может случиться так, что вы добавите контент без тега, в смысле, что он не будет заключён в тег параграфа. Тогда вы не сможете применить свойство контейнера.
+Так что перед добавлением сначала нажмите пару раз Enter для появления в визуальном просмотре пары контейнеров <p></p>
+</blockquote>
 <p>2.1 Для того чтобы применить контейнер, к примеру {Heading_1}
 Следует текст, который будет выделен этим тегом заключить в отдельный <code>&lt;p&gt;</code>
 И тогда уже выделять этот отдельный <code>&lt;p&gt;</code> и выбирать контейнер, они могут переключаться. Т.е, {Heading_1} можно поменять на {Heading_2} не переключаясь сначала в параграф.</p>
-
 <p><strong>Итог:</strong> текст для применения свойства контейнер должен находиться в теге <code>&lt;p&gt;</code></p>
-
 <h3>WYM_CLASSES</h3>
-
 <p>WYM_CLASSES пример:
-<code>"{'name': 'contentheading', 'title': 'PARA: Center', 'expr': 'p, h1'}",</code><br/>
+<code>"{'name': 'contentheading', 'title': 'PARA: Center', 'expr': 'p, h1'}",</code><br />
 Тут мы приступаем к самому вкусному и непонятному.
 Данная строчка позволяет добавлять класс (contentheading) из нашей таблицы стилей сайта к заданным тегам:
-&#8216;expr&#8217;: &#8216;p, h1&#8217;, и отображаться это будет под названием &#8216;title&#8217;: &#8216;PARA: Center&#8217;. Что такое пара, не интересовался. Center можно заменить на своё. Но вообще и работает просто любой title, например Таблица, такой который будет вам понятен.</p>
-
+'expr': 'p, h1', и отображаться это будет под названием 'title': 'PARA: Center'. Что такое пара, не интересовался. Center можно заменить на своё. Но вообще и работает просто любой title, например Таблица, такой который будет вам понятен.</p>
 <p><strong>Другими словами:</strong> Добавили эту строчку, и к тегам <code>&lt;p&gt;</code>, <code>&lt;h1&gt;</code> можем нажатием на PARA: Center задавать класс contentheading заданному тегу.</p>
-
 <h3>WYM_STYLES</h3>
-
 <p>Вот эта строчка показывает нам что, если у нас в html коде встречается тег с классом .contentheading, то мы его обводим каёмочкой в 5 пикселей, и красим в цвет.
-<code>"{'name': '.contentheading', 'css': 'border: 5px solid #9acd32;'}",</code></p>
-
+<code>"{'name': '.contentheading', 'css': 'border: 5px solid #9acd32;'}",</code>  </p>
 <p>Вроде всё понятно.</p>
-
 <h3>Особенность</h3>
-
 <p>Заметил такую штуку, что когда мы применили {Classes} к параграфу, а потом решили сделать его всё-таки{Heading_1}, то нужно будет повторно применить класс, иначе он сбросится.</p>
-</div>
+        </div><!-- /.entry-content -->
+        <hr/>
 
+    </article>
 
-  <footer>
-    <p class="meta">
-      
-  
+    <h6><a href="/pages/about.html">Anshik</a> в <a href="/category/raznoe.html">разное</a>  Вт. 29 Май 2012. Tags: <a href="/tag/django.html">[Django</a>, <a href="/tag/django-cms.html">Django-cms</a>, <a href="/tag/wymeditor.html">WYMeditor]</a>, </h6>
 
-<span class="byline author vcard">Posted by <span class="fn">Anshik</span></span>
-
-      
-
-
-
-
+    <hr/>
+                </div>
+                <!-- End Main Content -->
+                <!-- Sidebar -->
+                <aside class="medium-3 hide-for-small-only columns">
 
 
 
+                    <div class="panel">
+                        <h5>Социальные сети</h5>
+                        <ul class="side-nav">
+                                <li><a href="http://vk.com/mnogosala">Я Вконтакте</a></li>
+                        </ul>
+                    </div>
+                </aside>
+                <!-- End Sidebar -->
+            </div>
 
-  
+            <!-- Footer -->
+            <footer class="row">
+                <div class="medium-9 small-12">
+                    <hr/>
+                    <p class="text-center">&copy; Anshik 2012-2015</p>
+                </div>
+            </footer>
+            <!-- End Footer -->
+        </section>
+        <a class="exit-off-canvas"></a>
+    </div><!--off-canvas inner-->
+</div><!--off-canvas wrap-->
 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="/theme/js/foundation.min.js"></script>
+<script>
+    $(document).foundation();
+</script>
 
-<time datetime="2012-05-29T14:48:00+04:00" pubdate data-updated="true">May 29<span>th</span>, 2012</time>
-      
-
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/django/'>Django</a>, <a class='category' href='/blog/categories/django-cms/'>Django-cms</a>, <a class='category' href='/blog/categories/wymeditor/'>WYMeditor</a>
-  
-</span>
-
-
-    </p>
-    
-      <div class="sharing">
-  
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://Anshik.github.com/blog/2012/05/29/wymeditor-django-cms-poprobui-zabori/" data-via="" data-counturl="http://Anshik.github.com/blog/2012/05/29/wymeditor-django-cms-poprobui-zabori/" >Tweet</a>
-  
-  
-  
-</div>
-
-    
-    <p class="meta">
-      
-        <a class="basic-alignment left" href="/blog/2012/05/29/simple-shell-bash/" title="Previous Post: Как упростить себе жизнь в shell/bash">&laquo; Как упростить себе жизнь в shell/bash</a>
-      
-      
-        <a class="basic-alignment right" href="/blog/2012/05/29/dobavlieniie-robots-dot-txt-i-favicon-dot-ico-v-django-1-dot-3/" title="Next Post: Добавление robots.txt и favicon.ico в Django 1.3">Добавление robots.txt и favicon.ico в Django 1.3 &raquo;</a>
-      
-    </p>
-  </footer>
-</article>
-
-  <section>
-    <div id="hypercomments_widget"></div>
-  </section>
-
-</div>
-
-<aside class="sidebar">
-  
-    <section>
-<table cellpadding="0" cellspacing="0" border="0" style="font: 0.8em Arial, sans-serif"><tr><td style="border: 0; background:url('http://img.yandex.net/i/money/top-5rub-purple.gif') repeat-y; text-align:center; padding: 0; vertical-align:bottom; width:116px; height:77px" align="center"><form style="margin: 0; padding: 0 0 2px;" action="https://money.yandex.ru/donate.xml" method="post"><input type="hidden" name="to" value="41001350396407"><input type="hidden" name="s5" value="5rub"><input type="submit" value="Дай пять"></form></td></tr><tr><td style="font-size:13px; color:black;padding: 0; border: 0; background:url('http://img.yandex.net/i/money/bg-purple.gif') repeat-y; text-align:center; padding: 5px 0; vertical-align:top; width:116px; height:38px" align="center" ><b></b></td></tr><tr><td style="padding: 0; border:0;"><img src="http://img.yandex.net/i/money/bottom-purple.gif" width="116" height="40" alt="" usemap="#button" border="0"><map name="button"><area alt="Яндекс" coords="38,2,49,21" href="http://www.yandex.ru"><area alt="Яндекс. Деньги" coords="52,1,84,28" href="https://money.yandex.ru"><area alt="Хочу такую же кнопку" coords="17,29,100,40" href="https://money.yandex.ru/choose-banner.xml"></map></td></tr></table>
-<h1>Последние статьи</h1>
-<ul id="recent_posts">
-    
-    <li class="post">
-        <a href="/blog/2014/02/07/kak-uskorit-zagruzku-sayta/">Как ускорить загрузку сайта</a>
-    </li>
-    
-    <li class="post">
-        <a href="/blog/2013/12/23/mail-dot-ru-cloud-webdav/">Mail.ru cloud WebDav</a>
-    </li>
-    
-    <li class="post">
-        <a href="/blog/2013/11/27/pil-virtualenv-error-imaging-dot-c-76/">PIL virtualenv error _imaging.c:76</a>
-    </li>
-    
-    <li class="post">
-        <a href="/blog/2013/10/22/pygame-initsializatsiia/">Pygame инициализация, работа с прямоугольниками, прозрачностью</a>
-    </li>
-    
-    <li class="post">
-        <a href="/blog/2013/05/27/zvukovaja-dorozhka-iz-filma-linux/">Звуковая дорожка из фильма linux</a>
-    </li>
-    
-</ul>
-  <h1>Категории</h1>
-  <ul>
-    <li>
-      <a class='category' href='/blog/categories/1gb/'>1Gb</a>, <a class='category' href='/blog/categories/arduino/'>Arduino</a>, <a class='category' href='/blog/categories/cloud/'>Cloud</a>, <a class='category' href='/blog/categories/disqus/'>Disqus</a>, <a class='category' href='/blog/categories/django/'>Django</a>, <a class='category' href='/blog/categories/django-orm/'>Django ORM</a>, <a class='category' href='/blog/categories/django-orm-без-django/'>Django ORM без Django</a>, <a class='category' href='/blog/categories/django-cms/'>Django-cms</a>, <a class='category' href='/blog/categories/dreampie/'>DreamPie</a>, <a class='category' href='/blog/categories/fabric/'>Fabric</a>, <a class='category' href='/blog/categories/hypercomments/'>Hypercomments</a>, <a class='category' href='/blog/categories/linux/'>Linux</a>, <a class='category' href='/blog/categories/linux-/'>Linux,</a>, <a class='category' href='/blog/categories/mail-ru/'>Mail.ru</a>, <a class='category' href='/blog/categories/mercurial/'>Mercurial</a>, <a class='category' href='/blog/categories/midnight-commander/'>Midnight Commander</a>, <a class='category' href='/blog/categories/octopress/'>Octopress</a>, <a class='category' href='/blog/categories/pil/'>PIL</a>, <a class='category' href='/blog/categories/pyqt4/'>PyQT4</a>, <a class='category' href='/blog/categories/pyqt/'>PyQt</a>, <a class='category' href='/blog/categories/python/'>Python</a>, <a class='category' href='/blog/categories/qt/'>QT</a>, <a class='category' href='/blog/categories/sublime/'>Sublime</a>, <a class='category' href='/blog/categories/sublime-text-2/'>Sublime Text 2</a>, <a class='category' href='/blog/categories/sublime-vintage/'>Sublime Vintage</a>, <a class='category' href='/blog/categories/ubuntu/'>Ubuntu</a>, <a class='category' href='/blog/categories/ubuntu-/'>Ubuntu,</a>, <a class='category' href='/blog/categories/virtualbox/'>Virtualbox</a>, <a class='category' href='/blog/categories/wymeditor/'>WYMeditor</a>, <a class='category' href='/blog/categories/web/'>Web</a>, <a class='category' href='/blog/categories/webdav/'>WebDAV</a>, <a class='category' href='/blog/categories/webdav/'>WebDav</a>, <a class='category' href='/blog/categories/blogging/'>blogging</a>, <a class='category' href='/blog/categories/commands-bash/'>commands bash</a>, <a class='category' href='/blog/categories/commands-shell/'>commands shell</a>, <a class='category' href='/blog/categories/comments/'>comments</a>, <a class='category' href='/blog/categories/cuisine/'>cuisine</a>, <a class='category' href='/blog/categories/django/'>django</a>, <a class='category' href='/blog/categories/django-cms/'>django-cms</a>, <a class='category' href='/blog/categories/easy-install/'>easy_install</a>, <a class='category' href='/blog/categories/favicon-ico/'>favicon.ico</a>, <a class='category' href='/blog/categories/github/'>github</a>, <a class='category' href='/blog/categories/google/'>google</a>, <a class='category' href='/blog/categories/ipython-/'>iPython,</a>, <a class='category' href='/blog/categories/ipython/'>ipython</a>, <a class='category' href='/blog/categories/linux/'>linux</a>, <a class='category' href='/blog/categories/mp3splt/'>mp3splt</a>, <a class='category' href='/blog/categories/octopress-/'>octopress,</a>, <a class='category' href='/blog/categories/pygame/'>pygame</a>, <a class='category' href='/blog/categories/python/'>python</a>, <a class='category' href='/blog/categories/python-/'>python,</a>, <a class='category' href='/blog/categories/robots-txt/'>robots.txt</a>, <a class='category' href='/blog/categories/tortoisehg/'>tortoisehg</a>, <a class='category' href='/blog/categories/virtualenv/'>virtualenv</a>, <a class='category' href='/blog/categories/webmasters/'>webmasters</a>, <a class='category' href='/blog/categories/yandex/'>yandex</a>, <a class='category' href='/blog/categories/замена/'>замена</a>, <a class='category' href='/blog/categories/использование-octopress/'>использование Octopress</a>, <a class='category' href='/blog/categories/использование-sublime-text-2/'>использование Sublime Text 2</a>, <a class='category' href='/blog/categories/как-починить-ящик/'>как починить ящик</a>, <a class='category' href='/blog/categories/комментарии-octopress/'>комментарии Octopress</a>, <a class='category' href='/blog/categories/коммунальщина/'>коммунальщина</a>, <a class='category' href='/blog/categories/лампочек/'>лампочек</a>, <a class='category' href='/blog/categories/настройка-sublime-text-2/'>настройка Sublime Text 2</a>, <a class='category' href='/blog/categories/освещение/'>освещение</a>, <a class='category' href='/blog/categories/ремонт-почтового-ящика/'>ремонт почтового ящика</a>, <a class='category' href='/blog/categories/уличное/'>уличное</a>, <a class='category' href='/blog/categories/шпаргалки/'>шпаргалки</a>
-  </li>
-</ul>
-
-<div id="myCanvasContainer">
-    <canvas width="260" height="205" id="myCanvas">
-        <p>Anything in here will be replaced on browsers that support the canvas element</p>
-    </canvas>
-</div>
-<div id="tags">
-  <ul>
-      <a class='category' href='/blog/categories/1gb/'>1Gb</a>, <a class='category' href='/blog/categories/arduino/'>Arduino</a>, <a class='category' href='/blog/categories/cloud/'>Cloud</a>, <a class='category' href='/blog/categories/disqus/'>Disqus</a>, <a class='category' href='/blog/categories/django/'>Django</a>, <a class='category' href='/blog/categories/django-orm/'>Django ORM</a>, <a class='category' href='/blog/categories/django-orm-без-django/'>Django ORM без Django</a>, <a class='category' href='/blog/categories/django-cms/'>Django-cms</a>, <a class='category' href='/blog/categories/dreampie/'>DreamPie</a>, <a class='category' href='/blog/categories/fabric/'>Fabric</a>, <a class='category' href='/blog/categories/hypercomments/'>Hypercomments</a>, <a class='category' href='/blog/categories/linux/'>Linux</a>, <a class='category' href='/blog/categories/linux-/'>Linux,</a>, <a class='category' href='/blog/categories/mail-ru/'>Mail.ru</a>, <a class='category' href='/blog/categories/mercurial/'>Mercurial</a>, <a class='category' href='/blog/categories/midnight-commander/'>Midnight Commander</a>, <a class='category' href='/blog/categories/octopress/'>Octopress</a>, <a class='category' href='/blog/categories/pil/'>PIL</a>, <a class='category' href='/blog/categories/pyqt4/'>PyQT4</a>, <a class='category' href='/blog/categories/pyqt/'>PyQt</a>, <a class='category' href='/blog/categories/python/'>Python</a>, <a class='category' href='/blog/categories/qt/'>QT</a>, <a class='category' href='/blog/categories/sublime/'>Sublime</a>, <a class='category' href='/blog/categories/sublime-text-2/'>Sublime Text 2</a>, <a class='category' href='/blog/categories/sublime-vintage/'>Sublime Vintage</a>, <a class='category' href='/blog/categories/ubuntu/'>Ubuntu</a>, <a class='category' href='/blog/categories/ubuntu-/'>Ubuntu,</a>, <a class='category' href='/blog/categories/virtualbox/'>Virtualbox</a>, <a class='category' href='/blog/categories/wymeditor/'>WYMeditor</a>, <a class='category' href='/blog/categories/web/'>Web</a>, <a class='category' href='/blog/categories/webdav/'>WebDAV</a>, <a class='category' href='/blog/categories/webdav/'>WebDav</a>, <a class='category' href='/blog/categories/blogging/'>blogging</a>, <a class='category' href='/blog/categories/commands-bash/'>commands bash</a>, <a class='category' href='/blog/categories/commands-shell/'>commands shell</a>, <a class='category' href='/blog/categories/comments/'>comments</a>, <a class='category' href='/blog/categories/cuisine/'>cuisine</a>, <a class='category' href='/blog/categories/django/'>django</a>, <a class='category' href='/blog/categories/django-cms/'>django-cms</a>, <a class='category' href='/blog/categories/easy-install/'>easy_install</a>, <a class='category' href='/blog/categories/favicon-ico/'>favicon.ico</a>, <a class='category' href='/blog/categories/github/'>github</a>, <a class='category' href='/blog/categories/google/'>google</a>, <a class='category' href='/blog/categories/ipython-/'>iPython,</a>, <a class='category' href='/blog/categories/ipython/'>ipython</a>, <a class='category' href='/blog/categories/linux/'>linux</a>, <a class='category' href='/blog/categories/mp3splt/'>mp3splt</a>, <a class='category' href='/blog/categories/octopress-/'>octopress,</a>, <a class='category' href='/blog/categories/pygame/'>pygame</a>, <a class='category' href='/blog/categories/python/'>python</a>, <a class='category' href='/blog/categories/python-/'>python,</a>, <a class='category' href='/blog/categories/robots-txt/'>robots.txt</a>, <a class='category' href='/blog/categories/tortoisehg/'>tortoisehg</a>, <a class='category' href='/blog/categories/virtualenv/'>virtualenv</a>, <a class='category' href='/blog/categories/webmasters/'>webmasters</a>, <a class='category' href='/blog/categories/yandex/'>yandex</a>, <a class='category' href='/blog/categories/замена/'>замена</a>, <a class='category' href='/blog/categories/использование-octopress/'>использование Octopress</a>, <a class='category' href='/blog/categories/использование-sublime-text-2/'>использование Sublime Text 2</a>, <a class='category' href='/blog/categories/как-починить-ящик/'>как починить ящик</a>, <a class='category' href='/blog/categories/комментарии-octopress/'>комментарии Octopress</a>, <a class='category' href='/blog/categories/коммунальщина/'>коммунальщина</a>, <a class='category' href='/blog/categories/лампочек/'>лампочек</a>, <a class='category' href='/blog/categories/настройка-sublime-text-2/'>настройка Sublime Text 2</a>, <a class='category' href='/blog/categories/освещение/'>освещение</a>, <a class='category' href='/blog/categories/ремонт-почтового-ящика/'>ремонт почтового ящика</a>, <a class='category' href='/blog/categories/уличное/'>уличное</a>, <a class='category' href='/blog/categories/шпаргалки/'>шпаргалки</a>
-  </ul>
-</div>
-
-</section>
-
-
-
-
-
-<section>
-  <h1>Обо мне</h1>
-  <p>Мне нравится Python, Qt, PyQt, PySide. Также знаю C/C++, умею программировать под микроконтроллеры. Интересуюсь Django, написал несколько проектов на нем, такие как http://pinta-piva.com, http://dok4you.ru</p>
-</section>
-
-  
-</aside>
-
-
-    </div>
-  </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2014 - Anshik -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
-
-  <!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-(function (d, w, c) {
-    (w[c] = w[c] || []).push(function() {
-        try {
-            w.yaCounter14748103 = new Ya.Metrika({id:14748103, enableAll: true, webvisor:true});
-        } catch(e) {}
+<script src="/theme/js/jquery.magnific-popup.min.js"></script>
+<script>
+    $('.gallery').magnificPopup({
+        delegate: 'a',
+        type: 'image',
+        gallery: {
+            enabled: true,
+            navigateByImgClick: true,
+            preload: [1,2]
+        },
+        image: {
+            titleSrc: function(item) {
+                if (item.el.attr('caption') && item.el.attr('exif')) {
+                    return (item.el.attr('caption').replace(/\\n/g, '<br />') +
+                    '<small>' + item.el.attr('title') + ' - ' + item.el.attr('exif') + '</small>');
+                }
+                return item.el.attr('title') + '<small>' + item.el.attr('exif') + '</small>';
+            } }
     });
-    
-    var n = d.getElementsByTagName("script")[0],
-        s = d.createElement("script"),
-        f = function () { n.parentNode.insertBefore(s, n); };
-    s.type = "text/javascript";
-    s.async = true;
-    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
-
-    if (w.opera == "[object Opera]") {
-        d.addEventListener("DOMContentLoaded", f);
-    } else { f(); }
-})(document, window, "yandex_metrika_callbacks");
 </script>
-<noscript><div><img src="//mc.yandex.ru/watch/14748103" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter30550117 = new Ya.Metrika({id:30550117,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="//mc.yandex.ru/watch/30550117" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
-</p>
-
-</footer>
-  <!-- 
-
-<script type="text/javascript">
-      var disqus_shortname = 'anshik';
-      
-        
-        // var disqus_developer = 1;
-        var disqus_identifier = 'http://Anshik.github.com/blog/2012/05/29/wymeditor-django-cms-poprobui-zabori/';
-        var disqus_url = 'http://Anshik.github.com/blog/2012/05/29/wymeditor-django-cms-poprobui-zabori/';
-        var disqus_script = 'embed.js';
-      
-    (function () {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
-</script>
-
- -->
-
-
-<script type="text/javascript">
-      
-        
-
-          var _hcp = _hcp || {};_hcp.widget_id = 1551;_hcp.widget = "Stream";
-          (function() { 
-          var hcc = document.createElement("script"); hcc.type = "text/javascript"; hcc.async = true;
-          hcc.src = ("https:" == document.location.protocol ? "https" : "http")+"://widget.hypercomments.com/apps/js/hc.js";
-          var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hcc, s.nextSibling); 
-          })();
-                
-</script>
-
-
-
-
-
-
-
-  <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-    })();
-  </script>
-
-
-
-
-
 </body>
 </html>

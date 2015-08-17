@@ -1,0 +1,235 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Ещё один блог</title>
+    <meta name="description" content="">
+    <meta name="author" content="Anshik">
+
+    <link rel="stylesheet" href="/theme/css/foundation.css" />
+    <link rel="stylesheet" href="/theme/css/pygment/monokai.css" />
+    <link rel="stylesheet" href="/theme/css/custom.css" />
+
+    <link rel="stylesheet" href="/theme/css/magnific-popup.css" />
+
+
+    <script src="/theme/js/modernizr.js"></script>
+
+    <!-- Feeds -->
+
+
+    <!-- mathjax config similar to math.stackexchange -->
+    <script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+			jax: ["input/TeX", "output/HTML-CSS"],
+			tex2jax: {
+				inlineMath: [ ['$', '$'] ],
+				displayMath: [ ['$$', '$$']],
+				processEscapes: true,
+				skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+			},
+			messageStyle: "none",
+			"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+		});
+		</script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="off-canvas-wrap">
+    <div class="inner-wrap">
+        <!-- mobile top bar to activate nav -->
+        <nav class="tab-bar show-for-small">
+            <section class="left-small">
+                <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+            </section>
+
+            <section class="middle tab-bar-section">
+                <h1 class="title">Ещё&nbsp;один&nbsp;блог</h1>
+            </section>
+        </nav>
+
+        <!-- mobile side bar nav -->
+        <aside class="left-off-canvas-menu">
+            <ul class="off-canvas-list">
+                <li><a href="">Главная</a></li>
+                <li><label>Категории</label></li>
+                    <li class="active"><a href="/category/raznoe.html">разное</a></li>
+
+                <li><label>Ссылки</label></li>
+                    <li><a href="/pages/training_school.html">Подготовка к школе</a></li>
+
+
+
+                <li><label>Соц. сети</label></li>
+                    <li><a href="http://vk.com/mnogosala">Я Вконтакте</a></li>
+            </ul>
+        </aside>
+
+        <!-- top bar nav -->
+        <nav class="top-bar hide-for-small-only" data-topbar>
+            <ul class="title-area">
+                <li class="name">
+                    <h1><a href="/">Ещё один блог</a></h1>
+                </li>
+            </ul>
+
+            <section class="top-bar-section">
+                <ul class="right">
+                            <li><a href="/pages/about.html">Обо мне</a></li>
+                </ul>
+            </section>
+        </nav>
+
+        <!-- Main Page Content and Sidebar -->
+        <section class="main-section">
+            <div class="row">
+                <!-- Main Content -->
+                <div class="medium-9 small-12 columns" role="content">
+    <article>
+        <h2>Fabric для python, первые шаги</h2>
+        <div class="entry-content">
+            <h3>Что такое Fabric?</h3>
+<p>Вольный перевод <a href="http://docs.fabfile.org/en/1.4.2/index.html">документации</a><br />
+Fabric &mdash; это библиотечка для python версии &gt;= 2.5 и консольная утилитка для облегчения использования SSH при деплое проекта, или выполнения админских задач.</p>
+<p>Она предоставляет простой набор операций для выполнения локальных или удалённых команд, загрузки, скачивания файлов и др.
+<!-- more --></p>
+<h3>Установка</h3>
+<p>Я устанавливаю в свой питоний инстанс, созданный как написано <a href="/blog/2012/06/05/ispolzovaniie-virtualenv-python">тут</a><br />
+<code>$ ./bin/easy_install fabric</code></p>
+<p>Он подтягивает ещё <code>ssh 1.7.14</code> и <code>pycrypto 2.6</code>.</p>
+<h3>Простейшее использование</h3>
+<p>Обычно создают модуль на Python, содержащий одну или более функций, затем исполняют его при помощи <strong>fab</strong>. Рассмотрим простейший пример. Для запуска выполняем из папки с этим скриптом <code>fab hello</code>.</p>
+<p>``` python fabric.py</p>
+<h1>!./bin/python</h1>
+<h1>-<em>- coding: utf-8 -</em>-</h1>
+<p>from fabric.api import run</p>
+<p>def hello():
+    print "It's says: hello"</p>
+<div class="highlight"><pre>При его запуске мне выдаёт предупреждение
+``` bash
+/usr/local/lib/python2.6/dist-packages/pycrypto-2.6-py2.6-linux-x86_64.egg/Crypto/Util/number.py:57: PowmInsecureWarning: Not using mpz_powm_sec.  You should rebuild using libgmp &gt;= 5 to avoid timing attack vulnerability.
+  _warn(&quot;Not using mpz_powm_sec.  You should rebuild using libgmp &gt;= 5 to avoid timing attack vulnerability.&quot;, PowmInsecureWarning)
+</pre></div>
+
+
+<p>``` bash И затем непосредственно вывод fabric
+It's says: hello</p>
+<p>Done.</p>
+<div class="highlight"><pre><span class="err">Предупреждание</span> <span class="err">выдает</span> <span class="err">даже</span> <span class="err">не</span> <span class="err">Фабрик</span><span class="p">,</span> <span class="err">а</span> <span class="n">pycrypto</span><span class="p">,</span> <span class="err">ну</span> <span class="err">и</span> <span class="err">ладно</span><span class="p">,</span> <span class="err">не</span> <span class="err">буду</span> <span class="err">ничего</span> <span class="err">обновлять</span>
+
+<span class="c">### Передача аргументов</span>
+<span class="err">Передача</span> <span class="err">аргументов</span> <span class="err">происходит</span> <span class="err">следующим</span> <span class="err">образом</span><span class="p">:</span>  
+<span class="sb">`&lt;task name&gt;:&lt;arg&gt;,&lt;kwarg&gt;=&lt;value&gt;,....`</span>
+
+<span class="sb">``</span><span class="err">`</span> <span class="n">python</span> <span class="err">Передача</span> <span class="err">аргументов</span>
+<span class="kn">from</span> <span class="nn">fabric.api</span> <span class="kn">import</span> <span class="n">run</span>
+
+<span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="n">name_in</span><span class="o">=</span><span class="s">&#39;name&#39;</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s">&quot;It&#39;s says: </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">name_in</span>
+</pre></div>
+
+
+<p>Вызов с аргументами можно производить двумя способами:
+<code>fab hello:name_in=Anshik</code><br />
+<code>fab hello:Anshik</code><br />
+Первый вариант словарем, второй &mdash; аргументами.</p>
+<h3>Продолжение мысли cuisine</h3>
+<p>cuisine &mdash; переводится как кухня<br />
+Оно добавляет ещё уровень абстракции для упрощения</p>
+<p><a href="https://github.com/sebastien/cuisine">cuisine</a></p>
+<p><a href="/blog/2012/06/07/module-cuisine">более подробно в блоге</a>  </p>
+        </div><!-- /.entry-content -->
+        <hr/>
+
+    </article>
+
+    <h6><a href="/pages/about.html">Anshik</a> в <a href="/category/raznoe.html">разное</a>  Ср. 06 Июнь 2012. Tags: <a href="/tag/fabric.html">[Fabric</a>, <a href="/tag/python.html">python]</a>, </h6>
+
+    <hr/>
+                </div>
+                <!-- End Main Content -->
+                <!-- Sidebar -->
+                <aside class="medium-3 hide-for-small-only columns">
+
+
+
+                    <div class="panel">
+                        <h5>Социальные сети</h5>
+                        <ul class="side-nav">
+                                <li><a href="http://vk.com/mnogosala">Я Вконтакте</a></li>
+                        </ul>
+                    </div>
+                </aside>
+                <!-- End Sidebar -->
+            </div>
+
+            <!-- Footer -->
+            <footer class="row">
+                <div class="medium-9 small-12">
+                    <hr/>
+                    <p class="text-center">&copy; Anshik 2012-2015</p>
+                </div>
+            </footer>
+            <!-- End Footer -->
+        </section>
+        <a class="exit-off-canvas"></a>
+    </div><!--off-canvas inner-->
+</div><!--off-canvas wrap-->
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="/theme/js/foundation.min.js"></script>
+<script>
+    $(document).foundation();
+</script>
+
+<script src="/theme/js/jquery.magnific-popup.min.js"></script>
+<script>
+    $('.gallery').magnificPopup({
+        delegate: 'a',
+        type: 'image',
+        gallery: {
+            enabled: true,
+            navigateByImgClick: true,
+            preload: [1,2]
+        },
+        image: {
+            titleSrc: function(item) {
+                if (item.el.attr('caption') && item.el.attr('exif')) {
+                    return (item.el.attr('caption').replace(/\\n/g, '<br />') +
+                    '<small>' + item.el.attr('title') + ' - ' + item.el.attr('exif') + '</small>');
+                }
+                return item.el.attr('title') + '<small>' + item.el.attr('exif') + '</small>';
+            } }
+    });
+</script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter30550117 = new Ya.Metrika({id:30550117,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="//mc.yandex.ru/watch/30550117" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</body>
+</html>

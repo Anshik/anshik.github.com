@@ -1,0 +1,226 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Ещё один блог</title>
+    <meta name="description" content="">
+    <meta name="author" content="Anshik">
+
+    <link rel="stylesheet" href="/theme/css/foundation.css" />
+    <link rel="stylesheet" href="/theme/css/pygment/monokai.css" />
+    <link rel="stylesheet" href="/theme/css/custom.css" />
+
+    <link rel="stylesheet" href="/theme/css/magnific-popup.css" />
+
+
+    <script src="/theme/js/modernizr.js"></script>
+
+    <!-- Feeds -->
+
+
+    <!-- mathjax config similar to math.stackexchange -->
+    <script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+			jax: ["input/TeX", "output/HTML-CSS"],
+			tex2jax: {
+				inlineMath: [ ['$', '$'] ],
+				displayMath: [ ['$$', '$$']],
+				processEscapes: true,
+				skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+			},
+			messageStyle: "none",
+			"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+		});
+		</script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="off-canvas-wrap">
+    <div class="inner-wrap">
+        <!-- mobile top bar to activate nav -->
+        <nav class="tab-bar show-for-small">
+            <section class="left-small">
+                <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+            </section>
+
+            <section class="middle tab-bar-section">
+                <h1 class="title">Ещё&nbsp;один&nbsp;блог</h1>
+            </section>
+        </nav>
+
+        <!-- mobile side bar nav -->
+        <aside class="left-off-canvas-menu">
+            <ul class="off-canvas-list">
+                <li><a href="">Главная</a></li>
+                <li><label>Категории</label></li>
+                    <li class="active"><a href="/category/raznoe.html">разное</a></li>
+
+                <li><label>Ссылки</label></li>
+                    <li><a href="/pages/training_school.html">Подготовка к школе</a></li>
+
+
+
+                <li><label>Соц. сети</label></li>
+                    <li><a href="http://vk.com/mnogosala">Я Вконтакте</a></li>
+            </ul>
+        </aside>
+
+        <!-- top bar nav -->
+        <nav class="top-bar hide-for-small-only" data-topbar>
+            <ul class="title-area">
+                <li class="name">
+                    <h1><a href="/">Ещё один блог</a></h1>
+                </li>
+            </ul>
+
+            <section class="top-bar-section">
+                <ul class="right">
+                            <li><a href="/pages/about.html">Обо мне</a></li>
+                </ul>
+            </section>
+        </nav>
+
+        <!-- Main Page Content and Sidebar -->
+        <section class="main-section">
+            <div class="row">
+                <!-- Main Content -->
+                <div class="medium-9 small-12 columns" role="content">
+    <article>
+        <h2>Я купил Arduino, первые впечетления</h2>
+        <div class="entry-content">
+            <h3>Введение</h3>
+<p>Казалось бы, ну купил, и купил. Чего тут рассказывать. Искал подешевле, нашел предложения на alliexpress, но решил брать на buyincoins, как-то привычнее и цена в 11-12 долларов за Arduino Nano меня вполне устроила. Само собой я погуглил в яндексе про "arduino &amp; buyincoins". Нашел на форуме сайта arduino.ru негативный отзыв о покупке arduino nano на buyincoins, что мол заказывал 10 шт. пришли все в одном пакете наваленные, доехали помятые и побитые. Да еще и регулятор напряжения горит и взрывается. В общем мне повезло. Пришло целое, не царапаное, не гнутое, в антистатическом пакете и длинным кабелем mini usb, ничего не греется и не горит. Дошло быстро, заказал 26 августа, 9 сентября уже было на почте. <strong>Рекомендую.</strong>
+<!-- more --></p>
+<h3>Детальное рассмотрение</h3>
+<p>{% img center /../blog_img/arduino_nano_top.jpg  arduino nano вид сверху %}  </p>
+<ul>
+<li>В центре стоит микросхема Atmel Mega328P AU, дата шит на <a href="http://www.atmel.com/devices/ATMEGA328P.aspx?tab=documents">ATMEGA328P</a></li>
+<li>слева кнопочка, маленькая и туговатая reset</li>
+<li>4 светодиода Rx,Tx, Power, L - это пользовательский, которым моргает первое приложение для Ардуино.</li>
+</ul>
+<p>{% img center /../blog_img/arduino_nano_bottom.jpg arduino nano вид снизу %}<br />
+Снизу скучно, микросхема FTDI FT232RL usb to rs232, регулятор напряжения, пара резисторных сборок, конденсаторы и диод.</p>
+<h3>Первое включение</h3>
+<p>В устройствах всегда самое интересное и ответственное первое включение, хоть я и уверен, что в китае каждую ардуинку проверяют. Тем не менее внимательно просмотрел ножки на наличие "соплей", грязи и др. Включил, заработало (заморгало светодиодами).</p>
+<h3>Первое программирование Arduino Nano</h3>
+<p>Всё очень просто: скачал с <a href="http://arduino.cc/en/Main/Software">офф сайта</a> софтинку, мне нужно было под Ubuntu, в версии 1.0.1 её даже перевели. Подключил платку к компьютеру, запустил программу Arduino. 
+Выставляем нашу плату: Сервис -&gt; Плата -&gt; Arduino Nano w/Atmega328
+Далее Файл -&gt; Примеры -&gt; Basics -&gt; Blink</p>
+<p>Загрузится скетч с текстом программы. Далее нажимаем кнопку со стрелочкой вправо, и произойдет загрузка кода в микросхему. И она заморгает светодиодом L раз в секунду.
+``` c Привожу код примера
+/*
+  Blink
+  Turns on an LED on for one second, then off for one second, repeatedly.</p>
+<p>This example code is in the public domain.
+ */</p>
+<p>// Pin 13 has an LED connected on most Arduino boards.
+// give it a name:
+int led = 13;</p>
+<p>// the setup routine runs once when you press reset:
+void setup() {              <br />
+  // initialize the digital pin as an output.
+  pinMode(led, OUTPUT);   <br />
+}</p>
+<p>// the loop routine runs over and over again forever:
+void loop() {
+  digitalWrite(led, HIGH);   // turn the LED on (HIGH is the voltage level)
+  delay(100);               // wait for a second
+  digitalWrite(led, LOW);    // turn the LED off by making the voltage LOW
+  delay(100);               // wait for a second
+}
+```</p>
+        </div><!-- /.entry-content -->
+        <hr/>
+
+    </article>
+
+    <h6><a href="/pages/about.html">Anshik</a> в <a href="/category/raznoe.html">разное</a>  Ср. 12 Сентябрь 2012. Tags: <a href="/tag/arduino.html">Arduino</a>, </h6>
+
+    <hr/>
+                </div>
+                <!-- End Main Content -->
+                <!-- Sidebar -->
+                <aside class="medium-3 hide-for-small-only columns">
+
+
+
+                    <div class="panel">
+                        <h5>Социальные сети</h5>
+                        <ul class="side-nav">
+                                <li><a href="http://vk.com/mnogosala">Я Вконтакте</a></li>
+                        </ul>
+                    </div>
+                </aside>
+                <!-- End Sidebar -->
+            </div>
+
+            <!-- Footer -->
+            <footer class="row">
+                <div class="medium-9 small-12">
+                    <hr/>
+                    <p class="text-center">&copy; Anshik 2012-2015</p>
+                </div>
+            </footer>
+            <!-- End Footer -->
+        </section>
+        <a class="exit-off-canvas"></a>
+    </div><!--off-canvas inner-->
+</div><!--off-canvas wrap-->
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="/theme/js/foundation.min.js"></script>
+<script>
+    $(document).foundation();
+</script>
+
+<script src="/theme/js/jquery.magnific-popup.min.js"></script>
+<script>
+    $('.gallery').magnificPopup({
+        delegate: 'a',
+        type: 'image',
+        gallery: {
+            enabled: true,
+            navigateByImgClick: true,
+            preload: [1,2]
+        },
+        image: {
+            titleSrc: function(item) {
+                if (item.el.attr('caption') && item.el.attr('exif')) {
+                    return (item.el.attr('caption').replace(/\\n/g, '<br />') +
+                    '<small>' + item.el.attr('title') + ' - ' + item.el.attr('exif') + '</small>');
+                }
+                return item.el.attr('title') + '<small>' + item.el.attr('exif') + '</small>';
+            } }
+    });
+</script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter30550117 = new Ya.Metrika({id:30550117,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="//mc.yandex.ru/watch/30550117" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</body>
+</html>

@@ -1,0 +1,327 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Ещё один блог</title>
+    <meta name="description" content="">
+    <meta name="author" content="Anshik">
+
+    <link rel="stylesheet" href="/theme/css/foundation.css" />
+    <link rel="stylesheet" href="/theme/css/pygment/monokai.css" />
+    <link rel="stylesheet" href="/theme/css/custom.css" />
+
+    <link rel="stylesheet" href="/theme/css/magnific-popup.css" />
+
+
+    <script src="/theme/js/modernizr.js"></script>
+
+    <!-- Feeds -->
+
+
+    <!-- mathjax config similar to math.stackexchange -->
+    <script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+			jax: ["input/TeX", "output/HTML-CSS"],
+			tex2jax: {
+				inlineMath: [ ['$', '$'] ],
+				displayMath: [ ['$$', '$$']],
+				processEscapes: true,
+				skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+			},
+			messageStyle: "none",
+			"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+		});
+		</script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="off-canvas-wrap">
+    <div class="inner-wrap">
+        <!-- mobile top bar to activate nav -->
+        <nav class="tab-bar show-for-small">
+            <section class="left-small">
+                <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+            </section>
+
+            <section class="middle tab-bar-section">
+                <h1 class="title">Ещё&nbsp;один&nbsp;блог</h1>
+            </section>
+        </nav>
+
+        <!-- mobile side bar nav -->
+        <aside class="left-off-canvas-menu">
+            <ul class="off-canvas-list">
+                <li><a href="">Главная</a></li>
+                <li><label>Категории</label></li>
+                    <li class="active"><a href="/category/raznoe.html">разное</a></li>
+
+                <li><label>Ссылки</label></li>
+                    <li><a href="/pages/training_school.html">Подготовка к школе</a></li>
+
+
+
+                <li><label>Соц. сети</label></li>
+                    <li><a href="http://vk.com/mnogosala">Я Вконтакте</a></li>
+            </ul>
+        </aside>
+
+        <!-- top bar nav -->
+        <nav class="top-bar hide-for-small-only" data-topbar>
+            <ul class="title-area">
+                <li class="name">
+                    <h1><a href="/">Ещё один блог</a></h1>
+                </li>
+            </ul>
+
+            <section class="top-bar-section">
+                <ul class="right">
+                            <li><a href="/pages/about.html">Обо мне</a></li>
+                </ul>
+            </section>
+        </nav>
+
+        <!-- Main Page Content and Sidebar -->
+        <section class="main-section">
+            <div class="row">
+                <!-- Main Content -->
+                <div class="medium-9 small-12 columns" role="content">
+    <article>
+        <h2>Использование virtualenv python</h2>
+        <div class="entry-content">
+            <h3>Введение</h3>
+<p>Давно хотел разобраться, как настраивать и использовать <a href="http://pypi.python.org/pypi/virtualenv">virtualenv</a>.
+Virtualenv это средство для создания изолированного окружения Python.</p>
+<h4>Зачем оно нужно?</h4>
+<p>По умолчанию easy_install ставит питоновские пакеты примерно в <code>/usr/local/lib/python2.6/dist-packages</code>
+И там получается помойка из пакетов, в некоторых случаях мы работаем со старыми версиями пакетов. 
+<!-- more --></p>
+<blockquote>
+<p>К примеру был написан сайт на Django, года два назад, и нужно использовать старую джангу, чтобы всё не переписывать. Тут два варианта :)<br />
+* Для слабаков:<br />
+Просто скопировать старую джангу в проект и не париться, и скопировать туда же в проект старые модули, и всё будет работать :)</p>
+<ul>
+<li>Для не_слабаков:<br />
+Настроить virtualenv под проект.</li>
+</ul>
+<p><strong>Virtualenv</strong> &mdash; позволяет для каждого проекта создать <strong>своё окружение</strong> <em>питонячьих</em> пакетов.</p>
+</blockquote>
+<h3>Установка</h3>
+<p>sudo easy_install virtualenv</p>
+<p>``` bash Как-то так оно установливается
+$ sudo easy_install virtualenv
+install_dir /usr/local/lib/python2.6/dist-packages/
+Searching for virtualenv
+Reading http://pypi.python.org/simple/virtualenv/
+Reading http://www.virtualenv.org
+Reading http://virtualenv.openplans.org
+Best match: virtualenv 1.7.1.2
+Downloading http://pypi.python.org/packages/source/v/virtualenv/virtualenv-1.7.1.2.tar.gz#md5=3be8a014c27340f48b56465f9109d9fa
+Processing virtualenv-1.7.1.2.tar.gz
+Running virtualenv-1.7.1.2/setup.py -q bdist_egg --dist-dir /tmp/easy_install-yLN55d/virtualenv-1.7.1.2/egg-dist-tmp-a8EZxb
+warning: no previously-included files matching '<em>.</em>' found under directory 'docs/_templates'
+Adding virtualenv 1.7.1.2 to easy-install.pth file
+Installing virtualenv script to /usr/local/bin</p>
+<p>Installed /usr/local/lib/python2.6/dist-packages/virtualenv-1.7.1.2-py2.6.egg
+Processing dependencies for virtualenv
+Finished processing dependencies for virtualenv</p>
+<div class="highlight"><pre>``` bash Проверяем 
+$ whereis virtualenv
+virtualenv: /usr/local/bin/virtualenv
+</pre></div>
+
+
+<h3>Создание окружения</h3>
+<p>``` bash Создание окружения
+home:~/temp$ virtualenv  -p /usr/bin/python2.6 --no-site-packages custom_python
+Running virtualenv with interpreter /usr/bin/python2.6
+The --no-site-packages flag is deprecated; it is now the default behavior.
+New python executable in custom_python/bin/python2.6
+Also creating executable in custom_python/bin/python
+Installing setuptools............done.
+Installing pip...............done.
+home:~/temp$ </p>
+<div class="highlight"><pre>Мы сказали, что хотим чтобы в папке **custom_python** использовался python интерпретатор, лежащий в `/usr/bin/python2.6`, и сказали, что не нужно использовать системных **site-packages**. А нам подсказали, что теперь писать --no-site-packages не нужно.
+
+``` bash Смотрим, что получилось в папке custom_python.
+home:~/temp/custom_python$ ls
+bin  include  lib
+home:~/temp/custom_python$ 
+</pre></div>
+
+
+<p>Для запуска приложения в нашей среде нужно сказать <code>./bin/python</code></p>
+<h3>Пример установки Django</h3>
+<p>Мне как раз захотелось запустить Django1.4, потом django-cms и т.д.<br />
+<code>home:~/temp/custom_python$ ./bin/easy_install django</code></p>
+<p>Django скачивается, устанавливается и теперь лежит в:<br />
+<code>home:~/temp/custom_python/lib/python2.6/site-packages/Django-1.4-py2.6.egg</code></p>
+<p>``` bash Создание и запуск проекта Django
+home:~/temp/custom_python$ ./bin/django-admin.py startproject custom_django                                   <br />
+home:~/temp/custom_python$ cd custom_django/
+home:~/temp/custom_python/custom_django$ ls
+custom_django  manage.py
+home:~/temp/custom_python/custom_django$ ../bin/python manage.py runserver
+Validating models...</p>
+<p>0 errors found
+Django version 1.4, using settings 'custom_django.settings'
+Development server is running at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.</p>
+<div class="highlight"><pre><span class="err">В</span> <span class="err">общем</span><span class="o">-</span><span class="err">то</span><span class="p">,</span> <span class="err">можно</span> <span class="err">сказать</span> <span class="err">всё</span><span class="o">.</span> <span class="err">И</span> <span class="err">не</span> <span class="err">так</span> <span class="err">страшно</span><span class="p">,</span> <span class="err">как</span> <span class="err">казалось</span><span class="o">.</span>
+
+<span class="c">#### Запуск скрипта</span>
+<span class="err">Создаём</span> <span class="err">файл</span><span class="p">,</span> <span class="err">обратите</span> <span class="err">внимание</span> <span class="err">на</span> <span class="err">строчку</span> <span class="sb">`#!./bin/python`</span> <span class="err">вначале</span> <span class="err">файла</span><span class="p">,</span> <span class="err">говорим</span><span class="p">,</span> <span class="err">что</span> <span class="err">будем</span> <span class="err">при</span> <span class="err">запуске</span> <span class="err">использовать</span> <span class="err">наш</span> <span class="err">интерпретатор</span><span class="o">.</span>  
+<span class="sb">``</span><span class="err">`</span> <span class="n">python</span> <span class="err">К</span> <span class="err">примеру</span> <span class="err">такой</span> <span class="n">tst</span><span class="o">.</span><span class="n">py</span>
+<span class="c">#!./bin/python</span>
+<span class="c"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">random</span>
+<span class="kn">import</span> <span class="nn">struct</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">RAND_NUMS</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">rand_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">RAND_NUMS</span><span class="p">):</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">random</span><span class="p">()</span>
+    <span class="n">rand_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="s">&#39;B&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">((</span><span class="n">a</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="o">%</span><span class="mi">255</span><span class="p">)))</span>
+
+<span class="k">print</span> <span class="n">rand_list</span>
+<span class="k">print</span> <span class="n">sys</span><span class="o">.</span><span class="n">executable</span>
+</pre></div>
+
+
+<p>Говорим <code>chmod +x tst.py</code>, запускаем <code>./tst.py</code><br />
+```bash Результат
+home:~/temp/custom_python$ ./tst.py
+['W', '\x1f', '\x06', '\x0f', '\x03', 'b', 'T', 'G', '\x17', '\x04']
+/home/apalkov/temp/custom_python/bin/python</p>
+<p>home:~/temp/custom_python$ </p>
+<div class="highlight"><pre>#### Облегчение работы с virtualenv при помощи virtualenvwrapper
+[virtualenvwrapper](http://www.doughellmann.com/docs/virtualenvwrapper/) написанный Doug Hellmann. Позволяет управлять виртуальными окружениями.
+
+##### Установка
+``` bash
+sudo easy_install virtualenvwrapper
+mkdir ~/.virtualenvs
+</pre></div>
+
+
+<p>~/.bashrc следующие содержание
+export WORKON_HOME=$HOME/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh</p>
+<div class="highlight"><pre><span class="nb">source</span> ~/.bashrc
+</pre></div>
+
+
+<p>Создаем новое окружение:</p>
+<blockquote>
+<p>mkvirtualenv blog  </p>
+</blockquote>
+<p>Активируем:</p>
+<blockquote>
+<p>workon blog  </p>
+</blockquote>
+<p>Деактивируем</p>
+<blockquote>
+<p>deactivate  </p>
+</blockquote>
+<p>Удаляем </p>
+<blockquote>
+<p>rmvirtualenv blog</p>
+</blockquote>
+<p>В общем-то всё.</p>
+        </div><!-- /.entry-content -->
+        <hr/>
+
+    </article>
+
+    <h6><a href="/pages/about.html">Anshik</a> в <a href="/category/raznoe.html">разное</a>  Вт. 05 Июнь 2012. Tags: <a href="/tag/python.html">Python</a>, </h6>
+
+    <hr/>
+                </div>
+                <!-- End Main Content -->
+                <!-- Sidebar -->
+                <aside class="medium-3 hide-for-small-only columns">
+
+
+
+                    <div class="panel">
+                        <h5>Социальные сети</h5>
+                        <ul class="side-nav">
+                                <li><a href="http://vk.com/mnogosala">Я Вконтакте</a></li>
+                        </ul>
+                    </div>
+                </aside>
+                <!-- End Sidebar -->
+            </div>
+
+            <!-- Footer -->
+            <footer class="row">
+                <div class="medium-9 small-12">
+                    <hr/>
+                    <p class="text-center">&copy; Anshik 2012-2015</p>
+                </div>
+            </footer>
+            <!-- End Footer -->
+        </section>
+        <a class="exit-off-canvas"></a>
+    </div><!--off-canvas inner-->
+</div><!--off-canvas wrap-->
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="/theme/js/foundation.min.js"></script>
+<script>
+    $(document).foundation();
+</script>
+
+<script src="/theme/js/jquery.magnific-popup.min.js"></script>
+<script>
+    $('.gallery').magnificPopup({
+        delegate: 'a',
+        type: 'image',
+        gallery: {
+            enabled: true,
+            navigateByImgClick: true,
+            preload: [1,2]
+        },
+        image: {
+            titleSrc: function(item) {
+                if (item.el.attr('caption') && item.el.attr('exif')) {
+                    return (item.el.attr('caption').replace(/\\n/g, '<br />') +
+                    '<small>' + item.el.attr('title') + ' - ' + item.el.attr('exif') + '</small>');
+                }
+                return item.el.attr('title') + '<small>' + item.el.attr('exif') + '</small>';
+            } }
+    });
+</script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter30550117 = new Ya.Metrika({id:30550117,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="//mc.yandex.ru/watch/30550117" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</body>
+</html>

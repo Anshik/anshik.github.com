@@ -1,0 +1,231 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Ещё один блог</title>
+    <meta name="description" content="">
+    <meta name="author" content="Anshik">
+
+    <link rel="stylesheet" href="/theme/css/foundation.css" />
+    <link rel="stylesheet" href="/theme/css/pygment/monokai.css" />
+    <link rel="stylesheet" href="/theme/css/custom.css" />
+
+    <link rel="stylesheet" href="/theme/css/magnific-popup.css" />
+
+
+    <script src="/theme/js/modernizr.js"></script>
+
+    <!-- Feeds -->
+
+
+    <!-- mathjax config similar to math.stackexchange -->
+    <script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+			jax: ["input/TeX", "output/HTML-CSS"],
+			tex2jax: {
+				inlineMath: [ ['$', '$'] ],
+				displayMath: [ ['$$', '$$']],
+				processEscapes: true,
+				skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+			},
+			messageStyle: "none",
+			"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+		});
+		</script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="off-canvas-wrap">
+    <div class="inner-wrap">
+        <!-- mobile top bar to activate nav -->
+        <nav class="tab-bar show-for-small">
+            <section class="left-small">
+                <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+            </section>
+
+            <section class="middle tab-bar-section">
+                <h1 class="title">Ещё&nbsp;один&nbsp;блог</h1>
+            </section>
+        </nav>
+
+        <!-- mobile side bar nav -->
+        <aside class="left-off-canvas-menu">
+            <ul class="off-canvas-list">
+                <li><a href="">Главная</a></li>
+                <li><label>Категории</label></li>
+                    <li class="active"><a href="/category/raznoe.html">разное</a></li>
+
+                <li><label>Ссылки</label></li>
+                    <li><a href="/pages/training_school.html">Подготовка к школе</a></li>
+
+
+
+                <li><label>Соц. сети</label></li>
+                    <li><a href="http://vk.com/mnogosala">Я Вконтакте</a></li>
+            </ul>
+        </aside>
+
+        <!-- top bar nav -->
+        <nav class="top-bar hide-for-small-only" data-topbar>
+            <ul class="title-area">
+                <li class="name">
+                    <h1><a href="/">Ещё один блог</a></h1>
+                </li>
+            </ul>
+
+            <section class="top-bar-section">
+                <ul class="right">
+                            <li><a href="/pages/about.html">Обо мне</a></li>
+                </ul>
+            </section>
+        </nav>
+
+        <!-- Main Page Content and Sidebar -->
+        <section class="main-section">
+            <div class="row">
+                <!-- Main Content -->
+                <div class="medium-9 small-12 columns" role="content">
+    <article>
+        <h2>PIL virtualenv error _imaging.c:76</h2>
+        <div class="entry-content">
+            <p>Очень кратко, долго искал решение такой проблемы. У меня несколько питонов установлено на Ubuntu 10.10. 
+Для python2.6 установлены sudo apt-get install python-dev.<br />
+А для второго, питона, который используется в virtualenv (python2.7) оно не было установлено.<br />
+<em>Решение проблемы:</em></p>
+<p><code>sudo apt-get install python2.7-dev</code>
+А затем:
+Само собой вы не забыли сделать 
+<code>source bin/activate</code></p>
+<p>pip install Pillow</p>
+<p>или </p>
+<p>pip install PIL
+<!-- more --></p>
+<p>А так была следующая ошибка</p>
+<p>'''
+  % pip install Pillow --download-cache  distrib                                                                          !4048
+Downloading/unpacking Pillow
+  Running setup.py egg_info for package Pillow</p>
+<p>Installing collected packages: Pillow
+  Running setup.py install for Pillow</p>
+<div class="highlight"><pre><span class="n">building</span> <span class="s">&#39;PIL._imaging&#39;</span> <span class="n">extension</span>
+<span class="n">gcc</span> <span class="o">-</span><span class="n">pthread</span> <span class="o">-</span><span class="n">fno</span><span class="o">-</span><span class="n">strict</span><span class="o">-</span><span class="n">aliasing</span> <span class="o">-</span><span class="n">g</span> <span class="o">-</span><span class="n">O2</span> <span class="o">-</span><span class="n">DNDEBUG</span> <span class="o">-</span><span class="n">g</span> <span class="o">-</span><span class="n">fwrapv</span> <span class="o">-</span><span class="n">O2</span> <span class="o">-</span><span class="n">Wall</span> <span class="o">-</span><span class="n">Wstrict</span><span class="o">-</span><span class="n">prototypes</span> <span class="o">-</span><span class="n">fPIC</span> <span class="o">-</span><span class="n">DHAVE_LIBJPEG</span> <span class="o">-</span><span class="n">DHAVE_LIBZ</span> <span class="o">-</span><span class="n">I</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">include</span><span class="o">/</span><span class="n">freetype2</span> <span class="o">-</span><span class="n">IlibImaging</span> <span class="o">-</span><span class="n">I</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">apalkov</span><span class="o">/</span><span class="n">PycharmProjects</span><span class="o">/</span><span class="n">dok4you</span><span class="o">/</span><span class="n">dok4you</span><span class="o">/</span><span class="n">include</span> <span class="o">-</span><span class="n">I</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">include</span> <span class="o">-</span><span class="n">I</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">include</span> <span class="o">-</span><span class="n">I</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">include</span><span class="o">/</span><span class="n">python2</span><span class="o">.</span><span class="mi">7</span> <span class="o">-</span><span class="n">c</span> <span class="n">_imaging</span><span class="o">.</span><span class="n">c</span> <span class="o">-</span><span class="n">o</span> <span class="n">build</span><span class="o">/</span><span class="n">temp</span><span class="o">.</span><span class="n">linux</span><span class="o">-</span><span class="n">x86_64</span><span class="o">-</span><span class="mf">2.7</span><span class="o">/</span><span class="n">_imaging</span><span class="o">.</span><span class="n">o</span>
+<span class="n">_imaging</span><span class="o">.</span><span class="n">c</span><span class="p">:</span><span class="mi">76</span><span class="p">:</span> <span class="n">fatal</span> <span class="n">error</span><span class="p">:</span> <span class="n">Python</span><span class="o">.</span><span class="n">h</span><span class="p">:</span> <span class="err">Нет</span> <span class="err">такого</span> <span class="err">файла</span> <span class="err">или</span> <span class="err">каталога</span>
+<span class="n">compilation</span> <span class="n">terminated</span><span class="o">.</span>
+<span class="n">error</span><span class="p">:</span> <span class="n">command</span> <span class="s">&#39;gcc&#39;</span> <span class="n">failed</span> <span class="k">with</span> <span class="nb">exit</span> <span class="n">status</span> <span class="mi">1</span>
+<span class="n">Complete</span> <span class="n">output</span> <span class="kn">from</span> <span class="nn">command</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">apalkov</span><span class="o">/</span><span class="n">PycharmProjects</span><span class="o">/</span><span class="n">dok4you</span><span class="o">/</span><span class="n">dok4you</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python2</span><span class="o">.</span><span class="mi">7</span> <span class="o">-</span><span class="n">c</span> <span class="s">&quot;import setuptools;__file__=&#39;/home/apalkov/PycharmProjects/dok4you/dok4you/build/Pillow/setup.py&#39;;exec(compile(open(__file__).read().replace(&#39;</span><span class="se">\r\n</span><span class="s">&#39;, &#39;</span><span class="se">\n</span><span class="s">&#39;), __file__, &#39;exec&#39;))&quot;</span> <span class="n">install</span> <span class="o">--</span><span class="n">record</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">pip</span><span class="o">-</span><span class="n">VPTaMy</span><span class="o">-</span><span class="n">record</span><span class="o">/</span><span class="n">install</span><span class="o">-</span><span class="n">record</span><span class="o">.</span><span class="n">txt</span> <span class="o">--</span><span class="n">single</span><span class="o">-</span><span class="n">version</span><span class="o">-</span><span class="n">externally</span><span class="o">-</span><span class="n">managed</span> <span class="o">--</span><span class="n">install</span><span class="o">-</span><span class="n">headers</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">apalkov</span><span class="o">/</span><span class="n">PycharmProjects</span><span class="o">/</span><span class="n">dok4you</span><span class="o">/</span><span class="n">dok4you</span><span class="o">/</span><span class="n">include</span><span class="o">/</span><span class="n">site</span><span class="o">/</span><span class="n">python2</span><span class="o">.</span><span class="mi">7</span><span class="p">:</span>
+<span class="n">running</span> <span class="n">install</span>
+</pre></div>
+
+
+<p>running build</p>
+<p>running build_py</p>
+<p>running egg_info</p>
+<p>writing Pillow.egg-info/PKG-INFO</p>
+<p>writing top-level names to Pillow.egg-info/top_level.txt</p>
+<p>writing dependency_links to Pillow.egg-info/dependency_links.txt</p>
+<p>warning: manifest_maker: standard file '-c' not found</p>
+<p>reading manifest file 'Pillow.egg-info/SOURCES.txt'</p>
+<p>reading manifest template 'MANIFEST.in'</p>
+<p>writing manifest file 'Pillow.egg-info/SOURCES.txt'</p>
+<p>running build_ext</p>
+<p>building 'PIL._imaging' extension</p>
+<p>gcc -pthread -fno-strict-aliasing -g -O2 -DNDEBUG -g -fwrapv -O2 -Wall -Wstrict-prototypes -fPIC -DHAVE_LIBJPEG -DHAVE_LIBZ -I/usr/include/freetype2 -IlibImaging -I/home/apalkov/PycharmProjects/dok4you/dok4you/include -I/usr/local/include -I/usr/include -I/usr/include/python2.7 -c _imaging.c -o build/temp.linux-x86_64-2.7/_imaging.o</p>
+<p>_imaging.c:76: fatal error: Python.h: Нет такого файла или каталога</p>
+<p>compilation terminated.</p>
+<p>error: command 'gcc' failed with exit status 1
+'''</p>
+        </div><!-- /.entry-content -->
+        <hr/>
+
+    </article>
+
+    <h6><a href="/pages/about.html">Anshik</a> в <a href="/category/raznoe.html">разное</a>  Ср. 27 Ноябрь 2013. Tags: <a href="/tag/python.html">[python</a>, <a href="/tag/pil.html">PIL</a>, <a href="/tag/virtualenv.html">virtualenv]</a>, </h6>
+
+    <hr/>
+                </div>
+                <!-- End Main Content -->
+                <!-- Sidebar -->
+                <aside class="medium-3 hide-for-small-only columns">
+
+
+
+                    <div class="panel">
+                        <h5>Социальные сети</h5>
+                        <ul class="side-nav">
+                                <li><a href="http://vk.com/mnogosala">Я Вконтакте</a></li>
+                        </ul>
+                    </div>
+                </aside>
+                <!-- End Sidebar -->
+            </div>
+
+            <!-- Footer -->
+            <footer class="row">
+                <div class="medium-9 small-12">
+                    <hr/>
+                    <p class="text-center">&copy; Anshik 2012-2015</p>
+                </div>
+            </footer>
+            <!-- End Footer -->
+        </section>
+        <a class="exit-off-canvas"></a>
+    </div><!--off-canvas inner-->
+</div><!--off-canvas wrap-->
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="/theme/js/foundation.min.js"></script>
+<script>
+    $(document).foundation();
+</script>
+
+<script src="/theme/js/jquery.magnific-popup.min.js"></script>
+<script>
+    $('.gallery').magnificPopup({
+        delegate: 'a',
+        type: 'image',
+        gallery: {
+            enabled: true,
+            navigateByImgClick: true,
+            preload: [1,2]
+        },
+        image: {
+            titleSrc: function(item) {
+                if (item.el.attr('caption') && item.el.attr('exif')) {
+                    return (item.el.attr('caption').replace(/\\n/g, '<br />') +
+                    '<small>' + item.el.attr('title') + ' - ' + item.el.attr('exif') + '</small>');
+                }
+                return item.el.attr('title') + '<small>' + item.el.attr('exif') + '</small>';
+            } }
+    });
+</script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter30550117 = new Ya.Metrika({id:30550117,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="//mc.yandex.ru/watch/30550117" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</body>
+</html>

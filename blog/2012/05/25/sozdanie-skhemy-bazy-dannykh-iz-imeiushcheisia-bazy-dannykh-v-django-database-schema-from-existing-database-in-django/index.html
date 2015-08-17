@@ -1,0 +1,246 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Ещё один блог</title>
+    <meta name="description" content="">
+    <meta name="author" content="Anshik">
+
+    <link rel="stylesheet" href="/theme/css/foundation.css" />
+    <link rel="stylesheet" href="/theme/css/pygment/monokai.css" />
+    <link rel="stylesheet" href="/theme/css/custom.css" />
+
+    <link rel="stylesheet" href="/theme/css/magnific-popup.css" />
+
+
+    <script src="/theme/js/modernizr.js"></script>
+
+    <!-- Feeds -->
+
+
+    <!-- mathjax config similar to math.stackexchange -->
+    <script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+			jax: ["input/TeX", "output/HTML-CSS"],
+			tex2jax: {
+				inlineMath: [ ['$', '$'] ],
+				displayMath: [ ['$$', '$$']],
+				processEscapes: true,
+				skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+			},
+			messageStyle: "none",
+			"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+		});
+		</script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="off-canvas-wrap">
+    <div class="inner-wrap">
+        <!-- mobile top bar to activate nav -->
+        <nav class="tab-bar show-for-small">
+            <section class="left-small">
+                <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+            </section>
+
+            <section class="middle tab-bar-section">
+                <h1 class="title">Ещё&nbsp;один&nbsp;блог</h1>
+            </section>
+        </nav>
+
+        <!-- mobile side bar nav -->
+        <aside class="left-off-canvas-menu">
+            <ul class="off-canvas-list">
+                <li><a href="">Главная</a></li>
+                <li><label>Категории</label></li>
+                    <li class="active"><a href="/category/raznoe.html">разное</a></li>
+
+                <li><label>Ссылки</label></li>
+                    <li><a href="/pages/training_school.html">Подготовка к школе</a></li>
+
+
+
+                <li><label>Соц. сети</label></li>
+                    <li><a href="http://vk.com/mnogosala">Я Вконтакте</a></li>
+            </ul>
+        </aside>
+
+        <!-- top bar nav -->
+        <nav class="top-bar hide-for-small-only" data-topbar>
+            <ul class="title-area">
+                <li class="name">
+                    <h1><a href="/">Ещё один блог</a></h1>
+                </li>
+            </ul>
+
+            <section class="top-bar-section">
+                <ul class="right">
+                            <li><a href="/pages/about.html">Обо мне</a></li>
+                </ul>
+            </section>
+        </nav>
+
+        <!-- Main Page Content and Sidebar -->
+        <section class="main-section">
+            <div class="row">
+                <!-- Main Content -->
+                <div class="medium-9 small-12 columns" role="content">
+    <article>
+        <h2>Создание схемы базы данных из имеющейся базы данных в Django | database schema from existing database in django</h2>
+        <div class="entry-content">
+            <h3>Сделал базу данных в django. Как сделать из неё картинку, схему базы данных?</h3>
+<p>Вот возник такой вопрос, и мне подсказали:<br />
+<a href="http://code.google.com/p/django-command-extensions/">django-command-extensions</a> устанавливаете, потом manage.py graph_models, только надо еще <a href="http://www.graphviz.org/">graphviz</a> иметь в системе установленным  </p>
+<!-- more -->
+
+<h3>Более развёрнуто:</h3>
+<ul>
+<li>Если под убунтой, запускаем Synaptic, ставим:
+graphviz<br />
+graphviz-doc<br />
+graphviz-dev<br />
+libgraphviz-dev<br />
+libgraph4<br />
+libxdot4<br />
+убунта подскажет и выставит сама зависимости</li>
+<li>Качаем, либо достаём
+<a href="http://networkx.lanl.gov/pygraphviz/download.html">pygraphviz</a>
+Распаковываем, и мне пришлось раскомментировать в setup.py
+строчки:</li>
+</ul>
+<div class="highlight"><pre><span class="c"># Linux, generic UNIX</span>
+<span class="n">library_path</span><span class="o">=</span><span class="s">&#39;/usr/lib/graphviz&#39;</span>
+<span class="n">include_path</span><span class="o">=</span><span class="s">&#39;/usr/include/graphviz&#39;</span>
+</pre></div>
+
+
+<p>Иначе ругается, что переменные не заданы.<br />
+потом </p>
+<div class="highlight"><pre>sudo python manage.py setup.py install
+</pre></div>
+
+
+<p>должно установиться.</p>
+<ul>
+<li>В наш проект джанги добавляем в приложения строчку</li>
+</ul>
+<div class="highlight"><pre> <span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">(</span>
+   <span class="s">&#39;django_extensions&#39;</span><span class="p">,</span>   <span class="c"># оно добавляет к нашим командам manage.py  graph_models</span>
+ <span class="p">)</span>
+</pre></div>
+
+
+<ul>
+<li>Теперь самое интересное</li>
+</ul>
+<div class="highlight"><pre><span class="c"># Create a dot file</span>
+<span class="nv">$ </span>./manage.py graph_models -a &gt; my_project.dot
+<span class="c"># Create a PNG image file called my_project_visualized.png with application grouping</span>
+<span class="nv">$ </span>./manage.py graph_models -a -g -o my_project_visualized.png
+<span class="c"># Create a dot file for only the &#39;foo&#39; and &#39;bar&#39; applications of your project</span>
+<span class="nv">$ </span>./manage.py graph_models foo bar &gt; my_project.dot
+</pre></div>
+
+
+<p>Я использовал команду  </p>
+<div class="highlight"><pre><span class="nv">$ </span>./manage.py graph_models -a -g -o my_project_visualized.png
+</pre></div>
+
+
+<p>Для создания png-шечки, вот что получилось</p>
+<p>{% img center /../blog_img/my_project_visualized.png пример того, что получилось %}</p>
+        </div><!-- /.entry-content -->
+        <hr/>
+
+    </article>
+
+    <h6><a href="/pages/about.html">Anshik</a> в <a href="/category/raznoe.html">разное</a>  Пт. 25 Май 2012. Tags: <a href="/tag/python-django.html">Python Django</a>, </h6>
+
+    <hr/>
+                </div>
+                <!-- End Main Content -->
+                <!-- Sidebar -->
+                <aside class="medium-3 hide-for-small-only columns">
+
+
+
+                    <div class="panel">
+                        <h5>Социальные сети</h5>
+                        <ul class="side-nav">
+                                <li><a href="http://vk.com/mnogosala">Я Вконтакте</a></li>
+                        </ul>
+                    </div>
+                </aside>
+                <!-- End Sidebar -->
+            </div>
+
+            <!-- Footer -->
+            <footer class="row">
+                <div class="medium-9 small-12">
+                    <hr/>
+                    <p class="text-center">&copy; Anshik 2012-2015</p>
+                </div>
+            </footer>
+            <!-- End Footer -->
+        </section>
+        <a class="exit-off-canvas"></a>
+    </div><!--off-canvas inner-->
+</div><!--off-canvas wrap-->
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="/theme/js/foundation.min.js"></script>
+<script>
+    $(document).foundation();
+</script>
+
+<script src="/theme/js/jquery.magnific-popup.min.js"></script>
+<script>
+    $('.gallery').magnificPopup({
+        delegate: 'a',
+        type: 'image',
+        gallery: {
+            enabled: true,
+            navigateByImgClick: true,
+            preload: [1,2]
+        },
+        image: {
+            titleSrc: function(item) {
+                if (item.el.attr('caption') && item.el.attr('exif')) {
+                    return (item.el.attr('caption').replace(/\\n/g, '<br />') +
+                    '<small>' + item.el.attr('title') + ' - ' + item.el.attr('exif') + '</small>');
+                }
+                return item.el.attr('title') + '<small>' + item.el.attr('exif') + '</small>';
+            } }
+    });
+</script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter30550117 = new Ya.Metrika({id:30550117,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="//mc.yandex.ru/watch/30550117" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</body>
+</html>
