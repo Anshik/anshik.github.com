@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
+    <loc>/blog/2015/08/19/nastroika-django-v-docker/</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>/blog/2014/02/07/kak-uskorit-zagruzku-saita/</loc>
     <priority>0.8</priority>
   </url>

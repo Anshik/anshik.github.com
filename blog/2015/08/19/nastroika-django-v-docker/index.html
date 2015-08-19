@@ -1,0 +1,422 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Ещё один блог</title>
+    <meta name="description" content="">
+    <meta name="author" content="Anshik">
+
+    <link rel="stylesheet" href="/theme/css/foundation.css" />
+    <link rel="stylesheet" href="/theme/css/pygment/monokai.css" />
+    <link rel="stylesheet" href="/theme/css/custom.css" />
+
+    <link rel="stylesheet" href="/theme/css/magnific-popup.css" />
+
+
+    <script src="/theme/js/modernizr.js"></script>
+
+    <!-- Feeds -->
+
+
+    <!-- mathjax config similar to math.stackexchange -->
+    <script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+			jax: ["input/TeX", "output/HTML-CSS"],
+			tex2jax: {
+				inlineMath: [ ['$', '$'] ],
+				displayMath: [ ['$$', '$$']],
+				processEscapes: true,
+				skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+			},
+			messageStyle: "none",
+			"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+		});
+		</script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="off-canvas-wrap">
+    <div class="inner-wrap">
+        <!-- mobile top bar to activate nav -->
+        <nav class="tab-bar show-for-small">
+            <section class="left-small">
+                <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+            </section>
+
+            <section class="middle tab-bar-section">
+                <h1 class="title">Ещё&nbsp;один&nbsp;блог</h1>
+            </section>
+        </nav>
+
+        <!-- mobile side bar nav -->
+        <aside class="left-off-canvas-menu">
+            <ul class="off-canvas-list">
+                <li><a href="">Главная</a></li>
+                <li><label>Категории</label></li>
+                    <li class="active"><a href="/category/raznoe.html">разное</a></li>
+
+                <li><label>Ссылки</label></li>
+                    <li><a href="/pages/training_school.html">Подготовка к школе</a></li>
+
+
+
+                <li><label>Соц. сети</label></li>
+                    <li><a href="http://vk.com/mnogosala">Я Вконтакте</a></li>
+            </ul>
+        </aside>
+
+        <!-- top bar nav -->
+        <nav class="top-bar hide-for-small-only" data-topbar>
+            <ul class="title-area">
+                <li class="name">
+                    <h1><a href="/">Ещё один блог</a></h1>
+                </li>
+            </ul>
+
+            <section class="top-bar-section">
+                <ul class="right">
+                            <li><a href="/pages/about.html">Обо мне</a></li>
+                </ul>
+            </section>
+        </nav>
+
+        <!-- Main Page Content and Sidebar -->
+        <section class="main-section">
+            <div class="row">
+                <!-- Main Content -->
+                <div class="medium-9 small-12 columns" role="content">
+    <article>
+        <h2>Настройка Django в Docker</h2>
+        <div class="entry-content">
+            <h2>Установка</h2>
+<p><code>sudo add-apt-repository ppa:docker-maint/testing</code><br />
+<code>sudo apt-get update</code><br />
+<code>sudo apt-get install docker.io</code>  </p>
+<p><code>sudo pip install docker-compose</code>  </p>
+<h2>Настройка</h2>
+<p>Подробно о настройке <a href="https://docs.docker.com/compose/django/">Quickstart Guide: Compose and Django</a><br />
+Создать Dockerfile файл с содержимым:  </p>
+<div class="highlight"><pre><span class="k">FROM</span><span class="s"> python:2.7</span>
+<span class="k">ENV</span><span class="s"> PYTHONUNBUFFERED 1</span>
+<span class="k">RUN</span> mkdir /code
+<span class="k">WORKDIR</span><span class="s"> /code</span>
+<span class="k">ADD</span><span class="s"> requirements.txt /code/</span>
+<span class="k">RUN</span> pip install -r requirements.txt
+<span class="k">ADD</span><span class="s"> . /code/</span>
+</pre></div>
+
+
+<p>Создать файл requirements.txt:</p>
+<div class="highlight"><pre>Django
+psycopg2
+</pre></div>
+
+
+<p>Создать файл docker-compose.yml:</p>
+<div class="highlight"><pre><span class="l-Scalar-Plain">db</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">image</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">postgres</span>
+<span class="l-Scalar-Plain">web</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">build</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">.</span>
+  <span class="l-Scalar-Plain">command</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">python manage.py runserver 0.0.0.0:8000</span>
+  <span class="l-Scalar-Plain">volumes</span><span class="p-Indicator">:</span>
+    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">.:/code</span>
+  <span class="l-Scalar-Plain">ports</span><span class="p-Indicator">:</span>
+    <span class="p-Indicator">-</span> <span class="s">&quot;8000:8000&quot;</span>
+  <span class="l-Scalar-Plain">links</span><span class="p-Indicator">:</span>
+    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">db</span>
+</pre></div>
+
+
+<h2>Запуск</h2>
+<p><code>docker-compose run web django-admin.py startproject composeexample .</code></p>
+<h3>Ошибка</h3>
+<div class="highlight"><pre> ---&gt; Running in 4d2a320bff11
+Requirement already satisfied (use --upgrade to upgrade): pip in /usr/local/lib/python3.4/site-packages (from -r requirements.txt (line 1))
+Collecting Django (from -r requirements.txt (line 2))
+  Retrying (Retry(total=4, connect=None, read=None, redirect=None)) after connection broken by &#39;ProtocolError(&#39;Connection aborted.&#39;, gaierror(-2, &#39;Name or service not known&#39;))&#39;: /simple/django/
+  Retrying (Retry(total=3, connect=None, read=None, redirect=None)) after connection broken by &#39;ProtocolError(&#39;Connection aborted.&#39;, gaierror(-2, &#39;Name or service not known&#39;))&#39;: /simple/django/
+  Retrying (Retry(total=2, connect=None, read=None, redirect=None)) after connection broken by &#39;ProtocolError(&#39;Connection aborted.&#39;, gaierror(-2, &#39;Name or service not known&#39;))&#39;: /simple/django/
+  Retrying (Retry(total=1, connect=None, read=None, redirect=None)) after connection broken by &#39;ProtocolError(&#39;Connection aborted.&#39;, gaierror(-2, &#39;Name or service not known&#39;))&#39;: /simple/django/
+  Retrying (Retry(total=0, connect=None, read=None, redirect=None)) after connection broken by &#39;ProtocolError(&#39;Connection aborted.&#39;, gaierror(-2, &#39;Name or service not known&#39;))&#39;: /simple/django/
+  Retrying (Retry(total=4, connect=None, read=None, redirect=None)) after connection broken by &#39;ProtocolError(&#39;Connection aborted.&#39;, gaierror(-2, &#39;Name or service not known&#39;))&#39;: /simple/django/
+  Retrying (Retry(total=3, connect=None, read=None, redirect=None)) after connection broken by &#39;ProtocolError(&#39;Connection aborted.&#39;, gaierror(-2, &#39;Name or service not known&#39;))&#39;: /simple/django/
+  Retrying (Retry(total=2, connect=None, read=None, redirect=None)) after connection broken by &#39;ProtocolError(&#39;Connection aborted.&#39;, gaierror(-2, &#39;Name or service not known&#39;))&#39;: /simple/django/
+  Retrying (Retry(total=1, connect=None, read=None, redirect=None)) after connection broken by &#39;ProtocolError(&#39;Connection aborted.&#39;, gaierror(-2, &#39;Name or service not known&#39;))&#39;: /simple/django/
+  Retrying (Retry(total=0, connect=None, read=None, redirect=None)) after connection broken by &#39;ProtocolError(&#39;Connection aborted.&#39;, gaierror(-2, &#39;Name or service not known&#39;))&#39;: /simple/django/
+  Could not find a version that satisfies the requirement Django (from -r requirements.txt (line 2)) (from versions: )
+No matching distribution found for Django (from -r requirements.txt (line 2))
+Service &#39;web&#39; failed to build: The command &quot;/bin/sh -c pip install -r requirements.txt&quot; returned a non-zero code: 1
+</pre></div>
+
+
+<p>Мне <a href="http://stackoverflow.com/questions/28668180/cant-install-pip-packages-inside-a-docker-container-with-ubuntu">помогло</a>,
+первый вариант.</p>
+<div class="highlight"><pre>➜  docker_hello_django  docker-compose run web django-admin.py startproject composeexample .
+Building web...
+Step 0 : FROM python:3.4
+ ---&gt; 545faa5764ae
+Step 1 : ENV PYTHONUNBUFFERED 1
+ ---&gt; Using cache
+ ---&gt; 33d6f340b1cf
+Step 2 : RUN mkdir /code
+ ---&gt; Using cache
+ ---&gt; 1ec39055f34e
+Step 3 : WORKDIR /code
+ ---&gt; Using cache
+ ---&gt; 20aab30864ca
+Step 4 : ADD requirements.txt /code/
+ ---&gt; Using cache
+ ---&gt; 9ea2b493fe7e
+Step 5 : RUN pip install -r requirements.txt
+ ---&gt; Running in 6be7c2161299
+Requirement already satisfied (use --upgrade to upgrade): pip in /usr/local/lib/python3.4/site-packages (from -r requirements.txt (line 1))
+Collecting Django (from -r requirements.txt (line 2))
+  Downloading Django-1.8.4-py2.py3-none-any.whl (6.2MB)
+Collecting psycopg2 (from -r requirements.txt (line 3))
+  Downloading psycopg2-2.6.1.tar.gz (371kB)
+Installing collected packages: Django, psycopg2
+  Running setup.py install for psycopg2
+Successfully installed Django-1.8.4 psycopg2-2.6.1
+ ---&gt; e73ddf36d3d3
+Removing intermediate container 6be7c2161299
+Step 6 : ADD . /code/
+ ---&gt; 226ccc34ee37
+Removing intermediate container 09644c2e1c94
+Successfully built 226ccc34ee37
+CommandError: /code/manage.py already exists, overlaying a project or app into an existing directory won&#39;t replace conflicting files
+</pre></div>
+
+
+<p>Это значит, что файлы уже есть в папке откуда выполняется проект.   </p>
+<p><code>docker-compose up</code></p>
+<p>'''
+➜  docker_hello_django  docker-compose up
+dockerhellodjango_db_1 is up-to-date
+Starting dockerhellodjango_web_1...
+Attaching to dockerhellodjango_db_1, dockerhellodjango_web_1
+db_1  | The files belonging to this database system will be owned by user "postgres".
+db_1  | This user must also own the server process.
+db_1  | 
+db_1  | The database cluster will be initialized with locale "en_US.utf8".
+db_1  | The default database encoding has accordingly been set to "UTF8".
+db_1  | The default text search configuration will be set to "english".
+db_1  | 
+db_1  | Data page checksums are disabled.
+db_1  | 
+db_1  | fixing permissions on existing directory /var/lib/postgresql/data ... ok
+db_1  | creating subdirectories ... ok
+db_1  | selecting default max_connections ... 100
+db_1  | selecting default shared_buffers ... 128MB
+db_1  | selecting dynamic shared memory implementation ... posix
+db_1  | creating configuration files ... ok
+db_1  | creating template1 database in /var/lib/postgresql/data/base/1 ... ok
+db_1  | initializing pg_authid ... ok
+db_1  | initializing dependencies ... ok
+db_1  | creating system views ... ok
+db_1  | loading system objects' descriptions ... ok
+db_1  | creating collations ... ok
+db_1  | creating conversions ... ok
+db_1  | creating dictionaries ... ok
+db_1  | setting privileges on built-in objects ... ok
+db_1  | creating information schema ... ok
+db_1  | loading PL/pgSQL server-side language ... ok
+db_1  | vacuuming database template1 ... ok
+db_1  | copying template1 to template0 ... ok
+db_1  | copying template1 to postgres ... ok
+db_1  | syncing data to disk ... ok
+db_1  | 
+db_1  | Success. You can now start the database server using:
+db_1  | 
+db_1  |     postgres -D /var/lib/postgresql/data
+db_1  | or
+db_1  |     pg_ctl -D /var/lib/postgresql/data -l logfile start
+db_1  | 
+db_1  | 
+db_1  | WARNING: enabling "trust" authentication for local connections
+db_1  | You can change this by editing pg_hba.conf or using the option -A, or
+db_1  | --auth-local and --auth-host, the next time you run initdb.
+db_1  | <strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>
+db_1  | WARNING: No password has been set for the database.
+db_1  |          This will allow anyone with access to the
+db_1  |          Postgres port to access your database. In
+db_1  |          Docker's default configuration, this is
+db_1  |          effectively any other container on the same
+db_1  |          system.
+db_1  | 
+db_1  |          Use "-e POSTGRES_PASSWORD=password" to set
+db_1  |          it in "docker run".
+db_1  | </em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong><strong><em>*</em></strong>
+db_1  | PostgreSQL init process in progress...
+db_1  | LOG:  database system was shut down at 2015-08-18 15:56:44 UTC
+db_1  | LOG:  MultiXact member wraparound protections are now enabled
+db_1  | LOG:  database system is ready to accept connections
+db_1  | LOG:  autovacuum launcher started
+db_1  | ALTER ROLE
+db_1  | 
+db_1  | 
+db_1  | /docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+db_1  | 
+db_1  | LOG:  received smart shutdown request
+db_1  | LOG:  autovacuum launcher shutting down
+db_1  | LOG:  shutting down
+db_1  | LOG:  database system is shut down
+db_1  | 
+db_1  | PostgreSQL init process complete; ready for start up.
+db_1  | 
+db_1  | LOG:  database system was shut down at 2015-08-18 15:56:48 UTC
+db_1  | LOG:  MultiXact member wraparound protections are now enabled
+db_1  | LOG:  database system is ready to accept connections
+db_1  | LOG:  autovacuum launcher started
+db_1  | LOG:  received smart shutdown request
+db_1  | LOG:  autovacuum launcher shutting down
+db_1  | LOG:  shutting down
+db_1  | LOG:  database system is shut down
+db_1  | LOG:  database system was shut down at 2015-08-19 01:48:03 UTC
+db_1  | LOG:  MultiXact member wraparound protections are now enabled
+db_1  | LOG:  autovacuum launcher started
+db_1  | LOG:  database system is ready to accept connections
+db_1  | LOG:  received smart shutdown request
+db_1  | LOG:  autovacuum launcher shutting down
+db_1  | LOG:  shutting down
+db_1  | LOG:  database system is shut down
+db_1  | LOG:  database system was shut down at 2015-08-19 01:50:33 UTC
+db_1  | LOG:  MultiXact member wraparound protections are now enabled
+db_1  | LOG:  database system is ready to accept connections
+db_1  | LOG:  autovacuum launcher started
+web_1 | Performing system checks...
+web_1 | 
+web_1 | System check identified no issues (0 silenced).
+web_1 | 
+web_1 | You have unapplied migrations; your app may not work properly until they are applied.
+web_1 | Run 'python manage.py migrate' to apply them.
+web_1 | August 19, 2015 - 03:09:40
+web_1 | Django version 1.8.4, using settings 'composeexample.settings'
+web_1 | Starting development server at http://0.0.0.0:8000/
+web_1 | Quit the server with CONTROL-C.</p>
+<p>'''</p>
+<p>подключиться к базе данных postgres</p>
+<div class="highlight"><pre>➜  docker_hello_django  docker ps
+CONTAINER ID        IMAGE                   COMMAND                CREATED             STATUS              PORTS                     NAMES
+fcfe8da7a44a        dockerhellodjango_web   &quot;python manage.py ru   35 minutes ago      Up 2 minutes        0.0.0.0:8000-&gt;8000/tcp    dockerhellodjango_web_1   
+0c5bb163a641        postgres                &quot;/docker-entrypoint.   11 hours ago        Up 2 minutes        0.0.0.0:32772-&gt;5432/tcp   dockerhellodjango_db_1   
+
+➜  docker_hello_django  psql -h localhost -p 32772 -l -U postgres
+                                 List of databases
+   Name    |  Owner   | Encoding |  Collate   |   Ctype    |   Access privileges   
+-----------+----------+----------+------------+------------+-----------------------
+ postgres  | postgres | UTF8     | en_US.utf8 | en_US.utf8 | 
+ template0 | postgres | UTF8     | en_US.utf8 | en_US.utf8 | =c/postgres          +
+           |          |          |            |            | postgres=CTc/postgres
+ template1 | postgres | UTF8     | en_US.utf8 | en_US.utf8 | =c/postgres          +
+           |          |          |            |            | postgres=CTc/postgres
+(3 rows)
+
+➜  docker_hello_django  psql -h localhost -p 32772 -d postgres -U postgres --password
+Password for user postgres: 
+psql (9.3.9, server 9.4.4)
+WARNING: psql major version 9.3, server major version 9.4.
+         Some psql features might not work.
+Type &quot;help&quot; for help.
+
+postgres=#
+postgres=# ALTER USER postgres WITH PASSWORD &#39;postgres&#39;;
+</pre></div>
+
+
+<p>Запуск коменды в контейнере</p>
+<p><code>docker-compose run web pip install -r requirements.txt</code> </p>
+        </div><!-- /.entry-content -->
+        <hr/>
+
+    </article>
+
+    <h6><a href="/pages/about.html">Anshik</a> в <a href="/category/raznoe.html">разное</a>  Ср. 19 Август 2015. Tags: <a href="/tag/django.html">Django</a>, <a href="/tag/docker.html">Docker</a>, </h6>
+
+    <hr/>
+                </div>
+                <!-- End Main Content -->
+                <!-- Sidebar -->
+                <aside class="medium-3 hide-for-small-only columns">
+
+
+
+                    <div class="panel">
+                        <h5>Социальные сети</h5>
+                        <ul class="side-nav">
+                                <li><a href="http://vk.com/mnogosala">Я Вконтакте</a></li>
+                        </ul>
+                    </div>
+                </aside>
+                <!-- End Sidebar -->
+            </div>
+
+            <!-- Footer -->
+            <footer class="row">
+                <div class="medium-9 small-12">
+                    <hr/>
+                    <p class="text-center">&copy; Anshik 2012-2015</p>
+                </div>
+            </footer>
+            <!-- End Footer -->
+        </section>
+        <a class="exit-off-canvas"></a>
+    </div><!--off-canvas inner-->
+</div><!--off-canvas wrap-->
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="/theme/js/foundation.min.js"></script>
+<script>
+    $(document).foundation();
+</script>
+
+<script src="/theme/js/jquery.magnific-popup.min.js"></script>
+<script>
+    $('.gallery').magnificPopup({
+        delegate: 'a',
+        type: 'image',
+        gallery: {
+            enabled: true,
+            navigateByImgClick: true,
+            preload: [1,2]
+        },
+        image: {
+            titleSrc: function(item) {
+                if (item.el.attr('caption') && item.el.attr('exif')) {
+                    return (item.el.attr('caption').replace(/\\n/g, '<br />') +
+                    '<small>' + item.el.attr('title') + ' - ' + item.el.attr('exif') + '</small>');
+                }
+                return item.el.attr('title') + '<small>' + item.el.attr('exif') + '</small>';
+            } }
+    });
+</script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter30550117 = new Ya.Metrika({id:30550117,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="//mc.yandex.ru/watch/30550117" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</body>
+</html>
